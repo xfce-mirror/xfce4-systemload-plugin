@@ -236,11 +236,12 @@ gulong read_cpuload()
     fresh.load[0] = cp_time[CP_USER];
     fresh.load[1] = cp_time[CP_NICE];
     fresh.load[2] = cp_time[CP_SYS];
-    fresh.load[3] = cp_time[CP_IDLE];
+    fresh.load[3] = cp_time[CP_INTR];
     fresh.load[4] = cp_time[CP_IDLE];
 
-    used = fresh.load[0] + fresh.load[1] + fresh.load[2];
-    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
+    used = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
+    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3] +
+            fresh.load[4];
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
