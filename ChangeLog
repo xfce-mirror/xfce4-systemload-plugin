@@ -1,3 +1,48 @@
+2003-10-27 19:15  ricpersi
+
+	* AUTHORS, README, panel-plugin/cpu.c, panel-plugin/cpu.h,
+	panel-plugin/memswap.c, panel-plugin/memswap.h,
+	panel-plugin/systemload.c, panel-plugin/uptime.c,
+	panel-plugin/uptime.h: Improved FreeBSD support, thanks to Thorsten
+	Greiner <thorsten.greiner@web.de>. Improved OpenBSD support, thanks
+	to Jan Lindblom <cl0wn@ludd.luth.se>. Some other cleanups.
+
+2003-08-16 13:37  benny
+
+	* Makefile.in, aclocal.m4, config.h.in, configure, ltmain.sh,
+	panel-plugin/Makefile.in: Ups, wrong libtool with last commit.
+
+2003-08-16 13:34  benny
+
+	* Makefile.in, aclocal.m4, config.h.in, configure, configure.ac,
+	ltmain.sh, panel-plugin/Makefile.in, po/lt.gmo, po/lt.po: Added
+	lithuanian translations.
+
+2003-08-15 16:07  bwalle
+
+	* po/ca.po, configure.ac: Added Catalan translation.  Translator
+	was Carles Muñoz Gorriz <carlesmu@ya.com>.
+
+2003-08-15 13:34  bwalle
+
+	* panel-plugin/Makefile.am: Added constant so that
+	xfce_textdomain() works in systemload.c
+
+2003-08-15 13:33  bwalle
+
+	* panel-plugin/systemload.c: Fixed i18n problems: - Added
+	xfce_textdomain call - Added one _() call where it was forgotten
+
+2003-08-15 13:32  bwalle
+
+	* po/de.po: Updated German translation
+
+2003-08-04 12:08  benny
+
+	* ChangeLog, Makefile.in, panel-plugin/memswap.c, po/de.gmo,
+	po/de.po, po/hu.gmo, po/hu.po, po/xfce4-systemload.pot: Make this
+	work on FreeBSD.
+
 2003-07-23 18:20  benny
 
 	* ChangeLog: Updated ChangeLog.
@@ -111,8 +156,7 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial import of riccardos system load
-	panel plugin.
+	po/xfce4-systemload.pot: Initial revision
 
 2003-07-17 19:06  benny
 
@@ -123,5 +167,6 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial revision
+	po/xfce4-systemload.pot: Initial import of riccardos system load
+	panel plugin.
 
