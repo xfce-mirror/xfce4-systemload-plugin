@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/systemload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-systemload-plugin], [0.3.0])
+AM_INIT_AUTOMAKE([xfce4-systemload-plugin], [0.3.1])
 
 AM_MAINTAINER_MODE
 
@@ -33,7 +33,7 @@ dnl Check for i18n support
 BM_I18N([xfce4-systemload], [ca de tr zh_CN])
 
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT

@@ -1748,7 +1748,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-systemload-plugin
- VERSION=0.3.0
+ VERSION=0.3.1
 
 
 cat >>confdefs.h <<_ACEOF
@@ -20829,23 +20829,23 @@ fi
   else
      PKG_CONFIG_MIN_VERSION=0.9.0
      if $PKG_CONFIG --atleast-pkgconfig-version $PKG_CONFIG_MIN_VERSION; then
-        echo "$as_me:$LINENO: checking for xfce4-panel-1.0 >= 0.10.1" >&5
-echo $ECHO_N "checking for xfce4-panel-1.0 >= 0.10.1... $ECHO_C" >&6
+        echo "$as_me:$LINENO: checking for xfce4-panel-1.0 >= 3.99.2" >&5
+echo $ECHO_N "checking for xfce4-panel-1.0 >= 3.99.2... $ECHO_C" >&6
 
-        if $PKG_CONFIG --exists "xfce4-panel-1.0 >= 0.10.1" ; then
+        if $PKG_CONFIG --exists "xfce4-panel-1.0 >= 3.99.2" ; then
             echo "$as_me:$LINENO: result: yes" >&5
 echo "${ECHO_T}yes" >&6
             succeeded=yes
 
             echo "$as_me:$LINENO: checking XFCE4_PANEL_CFLAGS" >&5
 echo $ECHO_N "checking XFCE4_PANEL_CFLAGS... $ECHO_C" >&6
-            XFCE4_PANEL_CFLAGS=`$PKG_CONFIG --cflags "xfce4-panel-1.0 >= 0.10.1"`
+            XFCE4_PANEL_CFLAGS=`$PKG_CONFIG --cflags "xfce4-panel-1.0 >= 3.99.2"`
             echo "$as_me:$LINENO: result: $XFCE4_PANEL_CFLAGS" >&5
 echo "${ECHO_T}$XFCE4_PANEL_CFLAGS" >&6
 
             echo "$as_me:$LINENO: checking XFCE4_PANEL_LIBS" >&5
 echo $ECHO_N "checking XFCE4_PANEL_LIBS... $ECHO_C" >&6
-            XFCE4_PANEL_LIBS=`$PKG_CONFIG --libs "xfce4-panel-1.0 >= 0.10.1"`
+            XFCE4_PANEL_LIBS=`$PKG_CONFIG --libs "xfce4-panel-1.0 >= 3.99.2"`
             echo "$as_me:$LINENO: result: $XFCE4_PANEL_LIBS" >&5
 echo "${ECHO_T}$XFCE4_PANEL_LIBS" >&6
         else
@@ -20853,7 +20853,7 @@ echo "${ECHO_T}$XFCE4_PANEL_LIBS" >&6
             XFCE4_PANEL_LIBS=""
             ## If we have a custom action on failure, don't print errors, but
             ## do set a variable so people can do so.
-            XFCE4_PANEL_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "xfce4-panel-1.0 >= 0.10.1"`
+            XFCE4_PANEL_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "xfce4-panel-1.0 >= 3.99.2"`
             echo $XFCE4_PANEL_PKG_ERRORS
         fi
 
@@ -20868,12 +20868,12 @@ echo "${ECHO_T}$XFCE4_PANEL_LIBS" >&6
   if test $succeeded = yes; then
      :
   else
-     { { echo "$as_me:$LINENO: error: Library requirements (xfce4-panel-1.0 >= 0.10.1) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&5
-echo "$as_me: error: Library requirements (xfce4-panel-1.0 >= 0.10.1) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&2;}
+     { { echo "$as_me:$LINENO: error: Library requirements (xfce4-panel-1.0 >= 3.99.2) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&5
+echo "$as_me: error: Library requirements (xfce4-panel-1.0 >= 3.99.2) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&2;}
    { (exit 1); exit 1; }; }
   fi
 
-  XFCE4_PANEL_REQUIRED_VERSION=0.10.1
+  XFCE4_PANEL_REQUIRED_VERSION=3.99.2
 
 
 

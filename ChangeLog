@@ -1,3 +1,12 @@
+2003-07-18 17:59  huysmans
+
+	* panel-plugin/systemload.c: Change panel API again to prevent old
+	plugins to crash the panel
+
+2003-07-17 21:37  benny
+
+	* ChangeLog: Updated ChangeLog.
+
 2003-07-17 21:27  benny
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
