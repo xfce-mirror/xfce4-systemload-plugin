@@ -88,4 +88,3 @@ msgstr "Systemauslastung"
 #: panel-plugin/uptime.c:54
 msgid "File /proc/uptime not found!"
 msgstr "Datei /proc/stat nicht gefunden!"
-
