@@ -1,6 +1,6 @@
 @SET_MAKE@
 
-SUBDIRS = panel-plugin
+SUBDIRS = panel-plugin po
 
 EXTRA_DIST =								\
 	README
