@@ -1,3 +1,21 @@
+2003-11-11 10:47  benny
+
+	* panel-plugin/cpu.c: NetBSD/FreeBSD/OpenBSD 64bit fixes: int ->
+	size_t with sysctl(3) lengths, thanks to martti.
+
+2003-11-06 01:39  benny
+
+	* panel-plugin/memswap.c: NetBSD 2.0/-current fixes.
+
+2003-11-03 18:40  huysmans
+
+	* aclocal.m4, configure, configure.ac, po/de.gmo, po/uk.gmo,
+	po/uk.po: Add Ukranian translations
+
+2003-10-28 20:01  ricpersi
+
+	* ChangeLog: Update ChangeLog.
+
 2003-10-28 20:00  ricpersi
 
 	* panel-plugin/cpu.c: Some more OpenBSD changes from Jan Lindblom

@@ -85,6 +85,10 @@ gulong read_uptime()
 #include <sys/vmmeter.h>
 #include <unistd.h>
 
+#ifdef __FreeBSD__
+#include <sys/time.h>
+#endif /* !__FreeBSD__ */
+
 gulong read_uptime()
 {
    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
