@@ -154,7 +154,7 @@ update_monitors(t_global_monitor *global)
     {
         if (STotal)
             g_snprintf(caption, sizeof(caption), _("%ldMb of  %ldMb"),
-                       SUsed, STotal);
+                       SUsed >> 10, STotal >> 10);
         else
             g_snprintf(caption, sizeof(caption), _("No swap"));
 

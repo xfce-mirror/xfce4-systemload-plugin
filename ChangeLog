@@ -1,3 +1,8 @@
+2003-07-20 11:38  ricpersi
+
+	* ChangeLog, panel-plugin/memswap.c, panel-plugin/memswap.h,
+	panel-plugin/systemload.c: Readded tooltips for each monitor.
+
 2003-07-20 01:52  ricpersi
 
 	* ChangeLog, panel-plugin/systemload.c: fixed a small but important
