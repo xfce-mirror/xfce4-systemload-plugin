@@ -816,7 +816,7 @@ xfce_control_class_init(ControlClass *cc)
     cc->write_config    = monitor_write_config;
     cc->attach_callback = monitor_attach_callback;
 
-    cc->add_options     = monitor_create_options;
+    cc->create_options  = monitor_create_options;
 
     cc->set_size        = monitor_set_size;
 
