@@ -168,6 +168,8 @@ libsystemload_la_LDFLAGS = \
 
 libsystemload_la_SOURCES = \
 	systemload.c							\
+	memswap.c							\
+	memswap.h							\
 	cpu.c								\
 	cpu.h
 
@@ -188,13 +190,14 @@ LTLIBRARIES = $(plugin_LTLIBRARIES)
 
 libsystemload_la_DEPENDENCIES =
 am_libsystemload_la_OBJECTS = libsystemload_la-systemload.lo \
-	libsystemload_la-cpu.lo
+	libsystemload_la-memswap.lo libsystemload_la-cpu.lo
 libsystemload_la_OBJECTS = $(am_libsystemload_la_OBJECTS)
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libsystemload_la-cpu.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libsystemload_la-memswap.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libsystemload_la-systemload.Plo
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -254,6 +257,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-cpu.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-memswap.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-systemload.Plo@am__quote@
 
 distclean-depend:
@@ -324,6 +328,39 @@ libsystemload_la-systemload.lo: systemload.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-systemload.Plo' tmpdepfile='$(DEPDIR)/libsystemload_la-systemload.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-systemload.lo `test -f 'systemload.c' || echo '$(srcdir)/'`systemload.c
+
+libsystemload_la-memswap.o: memswap.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-memswap.o -MD -MP -MF "$(DEPDIR)/libsystemload_la-memswap.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libsystemload_la-memswap.o `test -f 'memswap.c' || echo '$(srcdir)/'`memswap.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsystemload_la-memswap.Tpo" "$(DEPDIR)/libsystemload_la-memswap.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libsystemload_la-memswap.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='memswap.c' object='libsystemload_la-memswap.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-memswap.Po' tmpdepfile='$(DEPDIR)/libsystemload_la-memswap.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-memswap.o `test -f 'memswap.c' || echo '$(srcdir)/'`memswap.c
+
+libsystemload_la-memswap.obj: memswap.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-memswap.obj -MD -MP -MF "$(DEPDIR)/libsystemload_la-memswap.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libsystemload_la-memswap.obj `if test -f 'memswap.c'; then $(CYGPATH_W) 'memswap.c'; else $(CYGPATH_W) '$(srcdir)/memswap.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsystemload_la-memswap.Tpo" "$(DEPDIR)/libsystemload_la-memswap.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libsystemload_la-memswap.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='memswap.c' object='libsystemload_la-memswap.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-memswap.Po' tmpdepfile='$(DEPDIR)/libsystemload_la-memswap.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-memswap.obj `if test -f 'memswap.c'; then $(CYGPATH_W) 'memswap.c'; else $(CYGPATH_W) '$(srcdir)/memswap.c'; fi`
+
+libsystemload_la-memswap.lo: memswap.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-memswap.lo -MD -MP -MF "$(DEPDIR)/libsystemload_la-memswap.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libsystemload_la-memswap.lo `test -f 'memswap.c' || echo '$(srcdir)/'`memswap.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsystemload_la-memswap.Tpo" "$(DEPDIR)/libsystemload_la-memswap.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libsystemload_la-memswap.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='memswap.c' object='libsystemload_la-memswap.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-memswap.Plo' tmpdepfile='$(DEPDIR)/libsystemload_la-memswap.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-memswap.lo `test -f 'memswap.c' || echo '$(srcdir)/'`memswap.c
 
 libsystemload_la-cpu.o: cpu.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-cpu.o -MD -MP -MF "$(DEPDIR)/libsystemload_la-cpu.Tpo" \
