@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
-"POT-Creation-Date: 2003-08-04 11:36+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-13 21:48+0100\n"
 "PO-Revision-Date: 2003-07-23 18:06+0200\n"
 "Last-Translator: Gabor SUVEG <gabor@suveg.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -27,12 +28,12 @@ msgstr "Rendszer terhel??s: %ld%%"
 
 #: panel-plugin/systemload.c:168
 #, c-format
-msgid "%ldMB of  %ldMB used"
+msgid "Memory: %ldMB of %ldMB used"
 msgstr ""
 
 #: panel-plugin/systemload.c:177
 #, c-format
-msgid "%ldMB of  %ldMB"
+msgid "Swap: %ldMB of %ldMB used"
 msgstr ""
 
 #: panel-plugin/systemload.c:180
@@ -80,7 +81,7 @@ msgstr "Sz??veg megjelen?­t??se:"
 msgid "Bar color:"
 msgstr "Oszlop sz?­n:"
 
-#: panel-plugin/systemload.c:1026
+#: panel-plugin/systemload.c:1028
 msgid "System Load"
 msgstr "Rendszer terhel??s"
 

@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-08-04 11:36+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-13 21:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +27,12 @@ msgstr ""
 
 #: panel-plugin/systemload.c:168
 #, c-format
-msgid "%ldMB of  %ldMB used"
+msgid "Memory: %ldMB of %ldMB used"
 msgstr ""
 
 #: panel-plugin/systemload.c:177
 #, c-format
-msgid "%ldMB of  %ldMB"
+msgid "Swap: %ldMB of %ldMB used"
 msgstr ""
 
 #: panel-plugin/systemload.c:180
@@ -79,7 +80,7 @@ msgstr ""
 msgid "Bar color:"
 msgstr ""
 
-#: panel-plugin/systemload.c:1026
+#: panel-plugin/systemload.c:1028
 msgid "System Load"
 msgstr ""
 

@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
-"POT-Creation-Date: 2003-07-21 11:47+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-13 21:48+0100\n"
 "PO-Revision-Date: 2003-10-21 20:35+0200\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -15,41 +16,82 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/systemload.c:141
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "Файл /proc/stat не знайдено!"
+
+#: panel-plugin/systemload.c:160
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Ресурси системи: %ld%%"
 
-#: panel-plugin/systemload.c:148
-#, c-format
-msgid "%ldMb of  %ldMb used"
+#: panel-plugin/systemload.c:168
+#, fuzzy, c-format
+msgid "Memory: %ldMB of %ldMB used"
 msgstr "використано %ldМб з  %ldМб"
 
-#: panel-plugin/systemload.c:156
-#, c-format
-msgid "%ldMb of  %ldMb"
-msgstr "%ldМб з  %ldМб"
+#: panel-plugin/systemload.c:177
+#, fuzzy, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "використано %ldМб з  %ldМб"
 
-#: panel-plugin/systemload.c:159
+#: panel-plugin/systemload.c:180
 msgid "No swap"
 msgstr "Без підкачки"
 
-#: panel-plugin/systemload.c:714
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr ""
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr ""
+
+#: panel-plugin/systemload.c:794
+msgid "Select color"
+msgstr ""
+
+#: panel-plugin/systemload.c:849
+#, fuzzy
+msgid "CPU monitor"
+msgstr "Показувати монітор"
+
+#: panel-plugin/systemload.c:850
+#, fuzzy
+msgid "Memory monitor"
+msgstr "Показувати монітор"
+
+#: panel-plugin/systemload.c:851
+#, fuzzy
+msgid "Swap monitor"
+msgstr "Показувати монітор"
+
+#: panel-plugin/systemload.c:852
+#, fuzzy
+msgid "Uptime monitor"
+msgstr "Показувати монітор"
+
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
 msgid "Show monitor"
 msgstr "Показувати монітор"
 
-#: panel-plugin/systemload.c:726
+#: panel-plugin/systemload.c:884
 msgid "Text to display:"
 msgstr "Відображуваний текст:"
 
-#: panel-plugin/systemload.c:760
+#: panel-plugin/systemload.c:919
 msgid "Bar color:"
 msgstr "Колір індикатора:"
 
-#: panel-plugin/systemload.c:837
+#: panel-plugin/systemload.c:1028
 msgid "System Load"
 msgstr "Ресурси системи"
 
-#: panel-plugin/cpu.c:61
-msgid "File /proc/stat not found!"
+#: panel-plugin/uptime.c:54
+#, fuzzy
+msgid "File /proc/uptime not found!"
 msgstr "Файл /proc/stat не знайдено!"
+
+#~ msgid "%ldMb of  %ldMb"
+#~ msgstr "%ldМб з  %ldМб"

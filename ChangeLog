@@ -1,3 +1,9 @@
+2005-01-13 21:45  Bernhard Walle
+
+	* Changed size so that in Xfce 4.2 the panel height does not increase
+	  because of the plugin
+	* Released 0.3.5.
+
 2003-11-11 10:47  benny
 
 	* panel-plugin/cpu.c: NetBSD/FreeBSD/OpenBSD 64bit fixes: int ->

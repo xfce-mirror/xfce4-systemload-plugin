@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload 0.3.2\n"
-"POT-Creation-Date: 2003-07-21 11:47+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-13 21:48+0100\n"
 "PO-Revision-Date: 2003-08-15 15:29+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
@@ -14,42 +15,82 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/systemload.c:141
-#, c-format
-msgid "System Load: %ld%%"
-msgstr "Sistemos apkrovimas: %ld%%"
-
-#: panel-plugin/systemload.c:148
-#, c-format
-msgid "%ldMb of  %ldMb used"
-msgstr "%ldMb iš  %ldMb panaudota"
-
-#: panel-plugin/systemload.c:156
-#, c-format
-msgid "%ldMb of  %ldMb"
-msgstr "%ldMb iš  %ldMb"
-
-#: panel-plugin/systemload.c:159
-msgid "No swap"
-msgstr "Nėra swap"
-
-#: panel-plugin/systemload.c:714
-msgid "Show monitor"
-msgstr "Rodyti monitorių"
-
-#: panel-plugin/systemload.c:726
-msgid "Text to display:"
-msgstr "Rodomas tekstas:"
-
-#: panel-plugin/systemload.c:760
-msgid "Bar color:"
-msgstr "Juostos spalva:"
-
-#: panel-plugin/systemload.c:837
-msgid "System Load"
-msgstr "Sistemos apkrovimas"
-
 #: panel-plugin/cpu.c:61
 msgid "File /proc/stat not found!"
 msgstr "Failas /proc/stat nerastas!"
 
+#: panel-plugin/systemload.c:160
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Sistemos apkrovimas: %ld%%"
+
+#: panel-plugin/systemload.c:168
+#, fuzzy, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "%ldMb iš  %ldMb panaudota"
+
+#: panel-plugin/systemload.c:177
+#, fuzzy, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "%ldMb iš  %ldMb panaudota"
+
+#: panel-plugin/systemload.c:180
+msgid "No swap"
+msgstr "Nėra swap"
+
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr ""
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr ""
+
+#: panel-plugin/systemload.c:794
+msgid "Select color"
+msgstr ""
+
+#: panel-plugin/systemload.c:849
+#, fuzzy
+msgid "CPU monitor"
+msgstr "Rodyti monitorių"
+
+#: panel-plugin/systemload.c:850
+#, fuzzy
+msgid "Memory monitor"
+msgstr "Rodyti monitorių"
+
+#: panel-plugin/systemload.c:851
+#, fuzzy
+msgid "Swap monitor"
+msgstr "Rodyti monitorių"
+
+#: panel-plugin/systemload.c:852
+#, fuzzy
+msgid "Uptime monitor"
+msgstr "Rodyti monitorių"
+
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+msgid "Show monitor"
+msgstr "Rodyti monitorių"
+
+#: panel-plugin/systemload.c:884
+msgid "Text to display:"
+msgstr "Rodomas tekstas:"
+
+#: panel-plugin/systemload.c:919
+msgid "Bar color:"
+msgstr "Juostos spalva:"
+
+#: panel-plugin/systemload.c:1028
+msgid "System Load"
+msgstr "Sistemos apkrovimas"
+
+#: panel-plugin/uptime.c:54
+#, fuzzy
+msgid "File /proc/uptime not found!"
+msgstr "Failas /proc/stat nerastas!"
+
+#~ msgid "%ldMb of  %ldMb"
+#~ msgstr "%ldMb iš  %ldMb"

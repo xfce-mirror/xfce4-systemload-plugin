@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/systemload.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-systemload-plugin], [0.3.4])
+AM_INIT_AUTOMAKE([xfce4-systemload-plugin], [0.3.5])
 
 AM_MAINTAINER_MODE
 

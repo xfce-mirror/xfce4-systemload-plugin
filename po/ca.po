@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
-"POT-Creation-Date: 2003-08-04 11:36+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-13 21:48+0100\n"
 "PO-Revision-Date: 2003-08-15 15:37+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
@@ -24,14 +25,14 @@ msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
 #: panel-plugin/systemload.c:168
-#, c-format
-msgid "%ldMB of  %ldMB used"
+#, fuzzy, c-format
+msgid "Memory: %ldMB of %ldMB used"
 msgstr "%ldMB de %ldMB fets servir"
 
 #: panel-plugin/systemload.c:177
-#, c-format
-msgid "%ldMB of  %ldMB"
-msgstr "%ldMB de  %ldMB"
+#, fuzzy, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "%ldMB de %ldMB fets servir"
 
 #: panel-plugin/systemload.c:180
 msgid "No swap"
@@ -66,8 +67,7 @@ msgstr "Monitor del directori d'intercanvi"
 msgid "Uptime monitor"
 msgstr "Monitor de temps en funcionament"
 
-#: panel-plugin/systemload.c:871
-#: panel-plugin/systemload.c:966
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
 msgid "Show monitor"
 msgstr "Mostra el monitor"
 
@@ -79,7 +79,7 @@ msgstr "Text a mostrar:"
 msgid "Bar color:"
 msgstr "Color de la barra:"
 
-#: panel-plugin/systemload.c:1026
+#: panel-plugin/systemload.c:1028
 msgid "System Load"
 msgstr "Càrrega del sistema"
 
@@ -87,3 +87,5 @@ msgstr "Càrrega del sistema"
 msgid "File /proc/uptime not found!"
 msgstr "No s'ha trobat el fitxer «/proc/uptime»"
 
+#~ msgid "%ldMB of  %ldMB"
+#~ msgstr "%ldMB de  %ldMB"
