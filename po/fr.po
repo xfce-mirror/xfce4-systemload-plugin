@@ -1,103 +1,90 @@
 # French translation of xfce4-systemload-plugin.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-netload-plugin package.
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Stephane Roy <sroy@j2n.net>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-netload-plugin 0.2.4\n"
+"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-01 11:07+0200\n"
-"PO-Revision-Date: 2005-01-26 15:44+0100\n"
+"POT-Creation-Date: 2005-01-13 21:48+0100\n"
+"PO-Revision-Date: 2005-01-26 15:48+0100\n"
 "Last-Translator: Stephane Roy <sroy@j2n.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/netload.c:64
-msgid "Xfce4-Netload-Plugin"
-msgstr "Xfce4-Netload-Plugin"
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "Fichier /proc/stat non trouvé !"
 
-#: panel-plugin/netload.c:67
-msgid "Unknown error."
-msgstr "Erreur inconnue."
-
-#: panel-plugin/netload.c:68
-msgid "Linux proc device '/proc/net/dev' not found."
-msgstr "Fichier '/proc/net/dev' non trouvé."
-
-#: panel-plugin/netload.c:69
-msgid "Interface was not found."
-msgstr "Interface non trouvée."
-
-#: panel-plugin/netload.c:225
+#: panel-plugin/systemload.c:160
 #, c-format
-msgid ""
-"Average of last %d measures:\n"
-"Incoming: %s kByte/s\n"
-"Outgoing: %s kByte/s\n"
-"Total: %s kByte/s"
-msgstr ""
-"Moyenne des %d dernières mesures :\n"
-"Entrant : %s kOctet/s\n"
-"Sortant : %s kOctet/s\n"
-"Total : %s kOctet/s"
+msgid "System Load: %ld%%"
+msgstr "Charge système : %ld%%"
 
-#: panel-plugin/netload.c:526
+#: panel-plugin/systemload.c:168
 #, c-format
-msgid ""
-"%s: Error in initalizing:\n"
-"%s"
-msgstr ""
-"%s : Erreur durant l'initialisation :\n"
-"%s"
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Mémoire : utilise %ld Mo sur %ld Mo"
 
-#: panel-plugin/netload.c:871
+#: panel-plugin/systemload.c:177
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Échange : utilise %ld Mo sur %ld Mo"
+
+#: panel-plugin/systemload.c:180
+msgid "No swap"
+msgstr "Pas de partition d'échange"
+
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr "%d jours"
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr "Temps de fonctionnement :"
+
+#: panel-plugin/systemload.c:794
 msgid "Select color"
 msgstr "Sélectionner une couleur"
 
-#: panel-plugin/netload.c:926
-msgid "Bar color (incoming):"
-msgstr "Couleur de la barre (entrant) :"
+#: panel-plugin/systemload.c:849
+msgid "CPU monitor"
+msgstr "Moniteur de processeur"
 
-#: panel-plugin/netload.c:927
-msgid "Bar color (outgoing):"
-msgstr "Couleur de la barre (sortant) :"
+#: panel-plugin/systemload.c:850
+msgid "Memory monitor"
+msgstr "Moniteur de mémoire"
 
-#: panel-plugin/netload.c:930
-msgid "Maximum (incoming):"
-msgstr "Maximum (entrant) :"
+#: panel-plugin/systemload.c:851
+msgid "Swap monitor"
+msgstr "Moniteur de partition d'échange"
 
-#: panel-plugin/netload.c:931
-msgid "Maximum (outgoing):"
-msgstr "Maximum (sortant) :"
+#: panel-plugin/systemload.c:852
+msgid "Uptime monitor"
+msgstr "Moniteur de temps de fonctionnement"
 
-#: panel-plugin/netload.c:955
+#: panel-plugin/systemload.c:871
+#: panel-plugin/systemload.c:966
+msgid "Show monitor"
+msgstr "Afficher le moniteur"
+
+#: panel-plugin/systemload.c:884
 msgid "Text to display:"
 msgstr "Texte à afficher :"
 
-#: panel-plugin/netload.c:986
-msgid "Network device:"
-msgstr "Périphérique réseau :"
+#: panel-plugin/systemload.c:919
+msgid "Bar color:"
+msgstr "Couleur de la barre :"
 
-#: panel-plugin/netload.c:1012
-msgid "Update interval:"
-msgstr "Intervalle de mise à jour :"
+#: panel-plugin/systemload.c:1028
+msgid "System Load"
+msgstr "Moniteurs système"
 
-#: panel-plugin/netload.c:1023
-msgid "s"
-msgstr "s"
-
-#: panel-plugin/netload.c:1036
-msgid "Automatic maximum"
-msgstr "Maximum automatique"
-
-#: panel-plugin/netload.c:1068
-msgid "kByte/s"
-msgstr "kOctet/s"
-
-#: panel-plugin/netload.c:1156
-msgid "Netload"
-msgstr "Moniteur réseau"
+#: panel-plugin/uptime.c:54
+msgid "File /proc/uptime not found!"
+msgstr "Fichier /proc/uptime non trouvé !"
 
