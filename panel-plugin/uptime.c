@@ -59,9 +59,21 @@ gulong read_uptime()
 
     return uptime;
 }
-#endif
 
-#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+
+#ifdef __NetBSD__
+/*
+ * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
+#endif
+#endif /* !__NetBSD__ */
+
 #include <fcntl.h>
 #include <limits.h>
 #include <stdio.h>
@@ -90,6 +102,7 @@ gulong read_uptime()
    {
        g_warning("Cannot get kern.boottime");
        uptime = 0;
+   }
 
    return uptime;
 }

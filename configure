@@ -1748,7 +1748,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-systemload-plugin
- VERSION=0.3.2
+ VERSION=0.3.3
 
 
 cat >>confdefs.h <<_ACEOF

@@ -168,6 +168,8 @@ libsystemload_la_LDFLAGS = \
 
 libsystemload_la_SOURCES = \
 	systemload.c							\
+	uptime.c							\
+	uptime.h							\
 	memswap.c							\
 	memswap.h							\
 	cpu.c								\
@@ -190,7 +192,8 @@ LTLIBRARIES = $(plugin_LTLIBRARIES)
 
 libsystemload_la_DEPENDENCIES =
 am_libsystemload_la_OBJECTS = libsystemload_la-systemload.lo \
-	libsystemload_la-memswap.lo libsystemload_la-cpu.lo
+	libsystemload_la-uptime.lo libsystemload_la-memswap.lo \
+	libsystemload_la-cpu.lo
 libsystemload_la_OBJECTS = $(am_libsystemload_la_OBJECTS)
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
@@ -198,7 +201,8 @@ depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libsystemload_la-cpu.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libsystemload_la-memswap.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/libsystemload_la-systemload.Plo
+@AMDEP_TRUE@	./$(DEPDIR)/libsystemload_la-systemload.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libsystemload_la-uptime.Plo
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
@@ -259,6 +263,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-cpu.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-memswap.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-systemload.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsystemload_la-uptime.Plo@am__quote@
 
 distclean-depend:
 	-rm -rf ./$(DEPDIR)
@@ -328,6 +333,39 @@ libsystemload_la-systemload.lo: systemload.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-systemload.Plo' tmpdepfile='$(DEPDIR)/libsystemload_la-systemload.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-systemload.lo `test -f 'systemload.c' || echo '$(srcdir)/'`systemload.c
+
+libsystemload_la-uptime.o: uptime.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-uptime.o -MD -MP -MF "$(DEPDIR)/libsystemload_la-uptime.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libsystemload_la-uptime.o `test -f 'uptime.c' || echo '$(srcdir)/'`uptime.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsystemload_la-uptime.Tpo" "$(DEPDIR)/libsystemload_la-uptime.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libsystemload_la-uptime.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='uptime.c' object='libsystemload_la-uptime.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-uptime.Po' tmpdepfile='$(DEPDIR)/libsystemload_la-uptime.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-uptime.o `test -f 'uptime.c' || echo '$(srcdir)/'`uptime.c
+
+libsystemload_la-uptime.obj: uptime.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-uptime.obj -MD -MP -MF "$(DEPDIR)/libsystemload_la-uptime.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libsystemload_la-uptime.obj `if test -f 'uptime.c'; then $(CYGPATH_W) 'uptime.c'; else $(CYGPATH_W) '$(srcdir)/uptime.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsystemload_la-uptime.Tpo" "$(DEPDIR)/libsystemload_la-uptime.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libsystemload_la-uptime.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='uptime.c' object='libsystemload_la-uptime.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-uptime.Po' tmpdepfile='$(DEPDIR)/libsystemload_la-uptime.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-uptime.obj `if test -f 'uptime.c'; then $(CYGPATH_W) 'uptime.c'; else $(CYGPATH_W) '$(srcdir)/uptime.c'; fi`
+
+libsystemload_la-uptime.lo: uptime.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-uptime.lo -MD -MP -MF "$(DEPDIR)/libsystemload_la-uptime.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libsystemload_la-uptime.lo `test -f 'uptime.c' || echo '$(srcdir)/'`uptime.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsystemload_la-uptime.Tpo" "$(DEPDIR)/libsystemload_la-uptime.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libsystemload_la-uptime.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='uptime.c' object='libsystemload_la-uptime.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libsystemload_la-uptime.Plo' tmpdepfile='$(DEPDIR)/libsystemload_la-uptime.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -c -o libsystemload_la-uptime.lo `test -f 'uptime.c' || echo '$(srcdir)/'`uptime.c
 
 libsystemload_la-memswap.o: memswap.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsystemload_la_CFLAGS) $(CFLAGS) -MT libsystemload_la-memswap.o -MD -MP -MF "$(DEPDIR)/libsystemload_la-memswap.Tpo" \
