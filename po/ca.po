@@ -1,0 +1,89 @@
+# xfce4-systemload for the XFce desktop environment.
+# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-systemload package.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: XFce 4\n"
+"POT-Creation-Date: 2003-08-04 11:36+0200\n"
+"PO-Revision-Date: 2003-08-15 15:37+0100\n"
+"Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
+"Language-Team: ca <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "No s'ha trobat el fitxer «/proc/stat»"
+
+#: panel-plugin/systemload.c:160
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Càrrega del sistema: %ld%%"
+
+#: panel-plugin/systemload.c:168
+#, c-format
+msgid "%ldMB of  %ldMB used"
+msgstr "%ldMB de %ldMB fets servir"
+
+#: panel-plugin/systemload.c:177
+#, c-format
+msgid "%ldMB of  %ldMB"
+msgstr "%ldMB de  %ldMB"
+
+#: panel-plugin/systemload.c:180
+msgid "No swap"
+msgstr "Sense directori d'intercanvi"
+
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr "%d dies"
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr "Temps en fucionament"
+
+#: panel-plugin/systemload.c:794
+msgid "Select color"
+msgstr "Seleccioneu el color"
+
+#: panel-plugin/systemload.c:849
+msgid "CPU monitor"
+msgstr "Monitor de CPU"
+
+#: panel-plugin/systemload.c:850
+msgid "Memory monitor"
+msgstr "Monitor de memòria"
+
+#: panel-plugin/systemload.c:851
+msgid "Swap monitor"
+msgstr "Monitor del directori d'intercanvi"
+
+#: panel-plugin/systemload.c:852
+msgid "Uptime monitor"
+msgstr "Monitor de temps en funcionament"
+
+#: panel-plugin/systemload.c:871
+#: panel-plugin/systemload.c:966
+msgid "Show monitor"
+msgstr "Mostra el monitor"
+
+#: panel-plugin/systemload.c:884
+msgid "Text to display:"
+msgstr "Text a mostrar:"
+
+#: panel-plugin/systemload.c:919
+msgid "Bar color:"
+msgstr "Color de la barra:"
+
+#: panel-plugin/systemload.c:1026
+msgid "System Load"
+msgstr "Càrrega del sistema"
+
+#: panel-plugin/uptime.c:54
+msgid "File /proc/uptime not found!"
+msgstr "No s'ha trobat el fitxer «/proc/uptime»"
+
