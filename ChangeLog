@@ -1,3 +1,17 @@
+2003-07-20 01:52  ricpersi
+
+	* ChangeLog, panel-plugin/systemload.c: fixed a small but important
+	check.
+
+2003-07-20 01:28  benny
+
+	* panel-plugin/systemload.c: add_options -> create_options
+
+2003-07-19 19:11  benny
+
+	* configure, panel-plugin/Makefile.in: Generate new configure after
+	configure.ac was changed.
+
 2003-07-19 19:08  ricpersi
 
 	* ChangeLog, configure.ac, panel-plugin/Makefile.am,

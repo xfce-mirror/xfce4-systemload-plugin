@@ -71,6 +71,7 @@ typedef struct
     GtkWidget  *box;
     GtkWidget  *label;
     GtkWidget  *status;
+    GtkWidget  *ebox;
 
     gulong     history[4];
     gulong     value_read;
@@ -103,10 +104,10 @@ update_monitors(t_global_monitor *global)
 {
 
     gchar caption[128];
-    gulong mem, swap;
+    gulong mem, swap, MTotal, MUsed, STotal, SUsed;
     gint count;
     global->monitor[0]->history[0] = read_cpuload();
-    read_memswap(&mem, &swap);
+    read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed);
     global->monitor[1]->history[0] = mem;
     global->monitor[2]->history[0] = swap;
 
@@ -133,11 +134,31 @@ update_monitors(t_global_monitor *global)
 
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor[count]->status),
                                           global->monitor[count]->value_read / 100.0);
-
-            g_snprintf(caption, sizeof(caption), _("changeme: %ld%%"),
-                       global->monitor[count]->value_read);
-            gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[count]->box), caption, NULL);
         }
+    }
+    if (global->monitor[0]->options.enabled)
+    {
+        g_snprintf(caption, sizeof(caption), _("System Load: %ld%%"),
+                   global->monitor[0]->value_read);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[0]->ebox), caption, NULL);
+    }
+
+    if (global->monitor[1]->options.enabled)
+    {
+        g_snprintf(caption, sizeof(caption), _("%ldMb of  %ldMb used"),
+                   MUsed >> 10 , MTotal >> 10);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[1]->ebox), caption, NULL);
+    }
+
+    if (global->monitor[2]->options.enabled)
+    {
+        if (STotal)
+            g_snprintf(caption, sizeof(caption), _("%ldMb of  %ldMb"),
+                       SUsed, STotal);
+        else
+            g_snprintf(caption, sizeof(caption), _("No swap"));
+
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[2]->ebox), caption, NULL);
     }
 
     return TRUE;
@@ -176,11 +197,14 @@ monitor_new(void)
         global->monitor[count]->history[2] = 0;
         global->monitor[count]->history[3] = 0;
 
-        global->monitor[count]->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
+        global->monitor[count]->ebox = gtk_event_box_new();
+        gtk_widget_show(global->monitor[count]->ebox);
 
+        global->monitor[count]->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
         gtk_container_set_border_width(GTK_CONTAINER(global->monitor[count]->box), border_width);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
 
+        gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox), GTK_WIDGET(global->monitor[count]->box));
 
         global->monitor[count]->label = gtk_label_new(global->monitor[count]->options.label_text);
         gtk_widget_show(global->monitor[count]->label);
@@ -205,7 +229,7 @@ monitor_new(void)
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box), GTK_WIDGET(global->monitor[count]->status),
                            FALSE, FALSE, 0);
 
-        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(global->monitor[count]->box),
+        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
     }
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
@@ -260,6 +284,10 @@ monitor_set_orientation (Control * ctrl, int orientation)
                                        border_width);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
 
+        global->monitor[count]->ebox = gtk_event_box_new();
+        gtk_widget_show(global->monitor[count]->ebox);
+        gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox), GTK_WIDGET(global->monitor[count]->box));
+
         rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor[count]->status));
         if (!rc) {
             rc = gtk_rc_style_new();
@@ -274,7 +302,7 @@ monitor_set_orientation (Control * ctrl, int orientation)
 
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box), GTK_WIDGET(global->monitor[count]->status),
                            FALSE, FALSE, 0);
-        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(global->monitor[count]->box),
+        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
 
     }
@@ -339,7 +367,7 @@ setup_monitor(t_global_monitor *global)
 
     for(count = 0; count < 3; count++)
     {
-        gtk_widget_hide(GTK_WIDGET(global->monitor[count]->box));
+        gtk_widget_hide(GTK_WIDGET(global->monitor[count]->ebox));
         gtk_widget_hide(global->monitor[count]->label);
         gtk_label_set_text(GTK_LABEL(global->monitor[count]->label),
                            global->monitor[count]->options.label_text);
@@ -359,7 +387,7 @@ setup_monitor(t_global_monitor *global)
 
         if(global->monitor[count]->options.enabled)
         {
-            gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
+            gtk_widget_show(GTK_WIDGET(global->monitor[count]->ebox));
             if (global->monitor[count]->options.use_label)
                 gtk_widget_show(global->monitor[count]->label);
 

@@ -53,7 +53,7 @@ static unsigned long STotal = 0;
 static unsigned long SFree = 0;
 static unsigned long SUsed = 0;
 
-gint read_memswap(gulong *mem, gulong *swap)
+gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
 {
     int fd;
     size_t n;
@@ -105,6 +105,11 @@ gint read_memswap(gulong *mem, gulong *swap)
     else
         *swap = 0;
 
+    *MT = MTotal;
+    *MU = MUsed;
+    *ST = STotal;
+    *SU = SUsed;
+
     return 0;
 }
 
@@ -136,7 +141,7 @@ static size_t STotal = 0;
 static size_t SFree = 0;
 static size_t SUsed = 0;
 
-gint read_memswap(gulong *mem, gulong *swap)
+gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
 {
     long pagesize;
     size_t len;
@@ -180,6 +185,11 @@ gint read_memswap(gulong *mem, gulong *swap)
         *swap = SUsed * 100 / STotal;
     else
         *swap = 0;
+
+    *MT = MTotal;
+    *MU = MUsed;
+    *ST = STotal;
+    *SU = SUsed;
 
     return 0;
 }

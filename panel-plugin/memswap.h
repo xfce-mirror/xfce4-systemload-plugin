@@ -27,5 +27,5 @@
 #define __MEMSWAP_H
 #include <gtk/gtk.h>
 
-gint read_memswap(gulong *, gulong *);
+gint read_memswap(gulong *, gulong *, gulong *, gulong *, gulong *, gulong *);
 #endif /* ndef __MEMSWAP_H */
