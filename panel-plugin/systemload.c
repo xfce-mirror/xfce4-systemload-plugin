@@ -647,7 +647,7 @@ change_color(t_global_monitor *global, gint count)
     GtkColorSelection *colorsel;
     gint response;
 
-    dialog = gtk_color_selection_dialog_new("Select color");
+    dialog = gtk_color_selection_dialog_new(_("Select color"));
     gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(global->opt_dialog));
     colorsel = GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
     gtk_color_selection_set_previous_color(colorsel, &global->monitor[count]->options.color);
@@ -694,7 +694,11 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
     GtkWidget        *frame;
     GtkSizeGroup     *sg;
     gint             count;
-    static gchar     *FRAME_TEXT[] = { "CPU monitor", "Memory monitor", "Swap monitor" };
+    static gchar     *FRAME_TEXT[] = {
+	    N_("CPU monitor"),
+	    N_("Memory monitor"),
+	    N_("Swap monitor")
+    };
 
     global = (t_global_monitor *)control->data;
     global->opt_dialog = gtk_widget_get_toplevel(done);
@@ -705,7 +709,7 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
 
     for(count = 0; count < 3; count++)
     {
-        frame = xfce_framebox_new(FRAME_TEXT[count], TRUE);
+        frame = xfce_framebox_new(_(FRAME_TEXT[count]), TRUE);
         gtk_widget_show(GTK_WIDGET(frame));
 
         vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));

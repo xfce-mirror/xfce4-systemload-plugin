@@ -113,10 +113,17 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     return 0;
 }
 
+#elif defined(__NetBSD__)
+/*
+ * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
 #endif
 
-
-#if defined(__NetBSD__)
 #include <fcntl.h>
 #include <limits.h>
 #include <stdio.h>
@@ -193,4 +200,7 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 
     return 0;
 }
+
+#else
+#warning "Your plattform is not yet support"
 #endif

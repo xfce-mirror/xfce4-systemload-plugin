@@ -1,3 +1,7 @@
+2003-07-21 11:44  ricpersi
+
+	* ChangeLog, panel-plugin/systemload.c: Removed unused var.
+
 2003-07-20 12:15  ricpersi
 
 	* ChangeLog, panel-plugin/systemload.c: Corrected swap tooltip to
@@ -70,7 +74,8 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial revision
+	po/xfce4-systemload.pot: Initial import of riccardos system load
+	panel plugin.
 
 2003-07-17 19:06  benny
 
@@ -81,6 +86,5 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial import of riccardos system load
-	panel plugin.
+	po/xfce4-systemload.pot: Initial revision
 

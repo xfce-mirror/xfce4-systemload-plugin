@@ -80,9 +80,9 @@ gulong read_cpuload()
 
     return cpu_used;
 }
-#endif
 
-#if defined(__FreeBSD__)
+#elif defined(__FreeBSD__)
+
 #include <osreldate.h>
 #include <sys/types.h>
 #if __FreeBSD_version < 500101
@@ -135,9 +135,18 @@ gulong read_cpuload()
 
     return cpu_used;
 }
+
+#elif defined(__NetBSD__) || defined(__OpenBSD__)
+/*
+ * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
 #endif
 
-#if defined(__NetBSD__) || defined(__OpenBSD__)
 #include <sys/param.h>
 #include <sys/sched.h>
 #include <sys/sysctl.h>
@@ -185,4 +194,7 @@ gulong read_cpuload()
 
     return cpu_used;
 }
+
+#else
+#warning "Your plattform is not yet supported"
 #endif

@@ -1,2 +1,3 @@
-panel-plugin/systemload.c
 panel-plugin/cpu.c
+panel-plugin/systemload.c
+panel-plugin/memswap.c

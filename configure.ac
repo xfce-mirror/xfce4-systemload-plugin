@@ -1,6 +1,6 @@
 dnl configure.ac
 dnl
-dnl xfce4-sample-plugin - Sample plugin for xfce4-panel
+dnl xfce4-systemload-plugin - Systemload monitor plugin for xfce4-panel
 dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl

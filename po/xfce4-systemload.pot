@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-07-19 08:48+0200\n"
+"POT-Creation-Date: 2003-07-21 18:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,39 +15,57 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/systemload.c:110
+#: panel-plugin/systemload.c:141
 #, c-format
 msgid "System Load: %ld%%"
 msgstr ""
 
-#: panel-plugin/systemload.c:447
+#: panel-plugin/systemload.c:148
+#, c-format
+msgid "%ldMb of  %ldMb used"
+msgstr ""
+
+#: panel-plugin/systemload.c:156
+#, c-format
+msgid "%ldMb of  %ldMb"
+msgstr ""
+
+#: panel-plugin/systemload.c:159
+msgid "No swap"
+msgstr ""
+
+#: panel-plugin/systemload.c:650
+msgid "Select color"
+msgstr ""
+
+#: panel-plugin/systemload.c:698
+msgid "CPU monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:699
+msgid "Memory monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:700
+msgid "Swap monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:718
+msgid "Show monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:730
 msgid "Text to display:"
 msgstr ""
 
-#: panel-plugin/systemload.c:460
-msgid "Hide text"
-msgstr ""
-
-#: panel-plugin/systemload.c:479
+#: panel-plugin/systemload.c:764
 msgid "Bar color:"
 msgstr ""
 
-#: panel-plugin/systemload.c:514
+#: panel-plugin/systemload.c:841
 msgid "System Load"
 msgstr ""
 
-#: panel-plugin/cpu.c:192
-msgid "Error while calling pstat_getdynamic(2)"
-msgstr ""
-
-#: panel-plugin/cpu.c:200
-msgid "Cannot get nlist."
-msgstr ""
-
-#: panel-plugin/cpu.c:206 panel-plugin/cpu.c:215
-msgid "Problem with kmem."
-msgstr ""
-
-#: panel-plugin/cpu.c:227
+#: panel-plugin/cpu.c:61
 msgid "File /proc/stat not found!"
 msgstr ""
