@@ -23,10 +23,9 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __CPU_H
-#define __CPU_H
+#ifndef __MEMSWAP_H
+#define __MEMSWAP_H
 #include <gtk/gtk.h>
 
-gulong read_cpuload();
-
-#endif /* ndef __CPU_H */
+gint read_memswap(gulong *, gulong *);
+#endif /* ndef __MEMSWAP_H */

@@ -10,6 +10,8 @@ libsystemload_la_LDFLAGS =						\
 
 libsystemload_la_SOURCES =						\
 	systemload.c							\
+	memswap.c							\
+	memswap.h							\
 	cpu.c								\
 	cpu.h
 

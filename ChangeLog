@@ -1,3 +1,14 @@
+2003-07-19 08:51  benny
+
+	* Makefile.am, Makefile.in, configure, configure.ac, po/ChangeLog,
+	po/de.gmo, po/de.po, po/xfce4-systemload.pot: Fixed broken i18n
+	support.
+
+2003-07-18 20:17  benny
+
+	* ChangeLog, configure, configure.ac: Make this depend on the
+	latest panel.
+
 2003-07-18 17:59  huysmans
 
 	* panel-plugin/systemload.c: Change panel API again to prevent old
@@ -26,8 +37,7 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial import of riccardos system load
-	panel plugin.
+	po/xfce4-systemload.pot: Initial revision
 
 2003-07-17 19:06  benny
 
@@ -38,5 +48,6 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial revision
+	po/xfce4-systemload.pot: Initial import of riccardos system load
+	panel plugin.
 
