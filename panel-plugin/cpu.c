@@ -107,7 +107,7 @@ gulong read_cpuload()
 {
     gulong used, total;
     long cp_time[CPUSTATES];
-    int len = sizeof(cp_time);
+    size_t len = sizeof(cp_time);
 
     if (sysctlbyname("kern.cp_time", &cp_time, &len, NULL, 0) < 0) {
         g_warning("Cannot get kern.cp_time");
@@ -166,7 +166,7 @@ gulong read_cpuload()
     gulong used, total;
     static int mib[] = { CTL_KERN, KERN_CP_TIME };
     u_int64_t cp_time[CPUSTATES];
-    int len = sizeof(cp_time);
+    size_t len = sizeof(cp_time);
 
     if (sysctl(mib, 2, &cp_time, &len, NULL, 0) < 0) {
             g_warning("Cannot get kern.cp_time");
@@ -226,7 +226,7 @@ gulong read_cpuload()
     gulong used, total;
     static int mib[] = { CTL_KERN, KERN_CPTIME };
     long cp_time[CPUSTATES];
-    int len = sizeof(cp_time);
+    size_t len = sizeof(cp_time);
 
     if (sysctl(mib, 2, &cp_time, &len, NULL, 0) < 0) {
             g_warning("Cannot get kern.cp_time");
