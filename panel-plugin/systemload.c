@@ -636,12 +636,12 @@ monitor_set_size(Control *ctrl, int size)
         if (settings.orientation == HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
-                                        6 + 2 * size, icon_size[size]);
+                                        6 + 2 * size, icon_size[size]-4);
         }
         else
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
-                                        icon_size[size], 6 + 2 * size);
+                                        icon_size[size]-4, 6 + 2 * size);
         }
         gtk_widget_queue_resize(GTK_WIDGET(global->monitor[count]->status));
     }
