@@ -1,3 +1,28 @@
+2003-07-23 18:20  benny
+
+	* po/de.gmo: Updated.
+
+2003-07-23 18:19  benny
+
+	* NEWS, configure, configure.ac, po/POTFILES.in, po/de.po,
+	po/hu.gmo, po/hu.po, po/xfce4-systemload.pot: Added hungarian
+	translations.
+
+2003-07-21 23:39  benny
+
+	* configure, panel-plugin/Makefile.in, panel-plugin/uptime.c: Small
+	netbsd fix, autotools update.
+
+2003-07-21 23:29  ricpersi
+
+	* configure.ac, panel-plugin/Makefile.am,
+	panel-plugin/systemload.c, panel-plugin/uptime.c,
+	panel-plugin/uptime.h: Added uptime monitor.
+
+2003-07-21 18:24  benny
+
+	* ChangeLog: Updated ChangeLog.
+
 2003-07-21 18:23  benny
 
 	* ChangeLog, configure.ac, panel-plugin/cpu.c,
