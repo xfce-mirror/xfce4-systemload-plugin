@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003 Riccardo Persichetti <ricpersi@libero.it>
+ * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -136,7 +136,7 @@ gulong read_cpuload()
     return cpu_used;
 }
 
-#elif defined(__NetBSD__) || defined(__OpenBSD__)
+#elif defined(__NetBSD__)
 /*
  * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
  */
@@ -195,6 +195,66 @@ gulong read_cpuload()
     return cpu_used;
 }
 
+#elif defined(__OpenBSD__)
+/*
+ * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
+#endif
+
+#include <sys/param.h>
+#include <sys/sched.h>
+#include <sys/sysctl.h>
+#include <sys/dkstat.h>
+#include <fcntl.h>
+#include <nlist.h>
+
+/* user, nice, system, interrupt(BSD specific), idle */
+struct cpu_load_struct {
+    gulong load[5];
+};
+
+struct cpu_load_struct fresh = {{0, 0, 0, 0, 0}};
+gulong cpu_used, oldtotal, oldused;
+
+gulong read_cpuload()
+{
+    gulong used, total;
+    static int mib[] = { CTL_KERN, KERN_CPTIME };
+    long cp_time[CPUSTATES];
+    int len = sizeof(cp_time);
+
+    if (sysctl(mib, 2, &cp_time, &len, NULL, 0) < 0) {
+            g_warning("Cannot get kern.cp_time");
+            return 0;
+    }
+
+    fresh.load[0] = cp_time[CP_USER];
+    fresh.load[1] = cp_time[CP_NICE];
+    fresh.load[2] = cp_time[CP_SYS];
+    fresh.load[3] = cp_time[CP_IDLE];
+    fresh.load[4] = cp_time[CP_IDLE];
+
+    used = fresh.load[0] + fresh.load[1] + fresh.load[2];
+    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
+    if ((total - oldtotal) != 0)
+    {
+        cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
+    }
+    else
+    {
+        cpu_used = 0;
+    }
+    oldused = used;
+    oldtotal = total;
+
+    return cpu_used;
+}
+
 #else
-#warning "Your plattform is not yet supported"
+#error "Your plattform is not yet supported"
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003 Riccardo Persichetti <ricpersi@libero.it>
+ * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions

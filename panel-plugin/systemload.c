@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003 Riccardo Persichetti <ricpersi@libero.it>
+ * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -165,7 +165,7 @@ update_monitors(t_global_monitor *global)
 
     if (global->monitor[1]->options.enabled)
     {
-        g_snprintf(caption, sizeof(caption), _("%ldMB of  %ldMB used"),
+        g_snprintf(caption, sizeof(caption), _("Memory: %ldMB of %ldMB used"),
                    MUsed >> 10 , MTotal >> 10);
         gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[1]->ebox),
                              caption, NULL);
@@ -174,7 +174,7 @@ update_monitors(t_global_monitor *global)
     if (global->monitor[2]->options.enabled)
     {
         if (STotal)
-            g_snprintf(caption, sizeof(caption), _("%ldMB of  %ldMB"),
+            g_snprintf(caption, sizeof(caption), _("Swap: %ldMB of %ldMB used"),
                        SUsed >> 10, STotal >> 10);
         else
             g_snprintf(caption, sizeof(caption), _("No swap"));
