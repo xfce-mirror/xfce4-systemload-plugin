@@ -956,7 +956,7 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
     }
 
     /*uptime monitor options - start*/
-    frame = xfce_framebox_new(FRAME_TEXT[3], TRUE);
+    frame = xfce_framebox_new(_(FRAME_TEXT[3]), TRUE);
     gtk_widget_show(GTK_WIDGET(frame));
 
     vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
@@ -1022,6 +1022,8 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
 G_MODULE_EXPORT void
 xfce_control_class_init(ControlClass *cc)
 {
+    xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+    
     cc->name            = "system load";
     cc->caption         = _("System Load");
 
