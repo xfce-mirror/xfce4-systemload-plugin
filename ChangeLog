@@ -1,3 +1,8 @@
+2003-07-20 12:15  ricpersi
+
+	* ChangeLog, panel-plugin/systemload.c: Corrected swap tooltip to
+	display size in Mb not in Kb.
+
 2003-07-20 11:38  ricpersi
 
 	* ChangeLog, panel-plugin/memswap.c, panel-plugin/memswap.h,

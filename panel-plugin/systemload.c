@@ -688,7 +688,6 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
 {
     t_global_monitor *global;
     GtkBox           *vbox, *global_vbox;
-    GtkWidget        *text_label;
     GtkBox           *hbox;
     GtkWidget        *color_label;
     GtkWidget        *align;
