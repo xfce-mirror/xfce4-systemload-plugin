@@ -1,3 +1,12 @@
+2003-10-28 20:00  ricpersi
+
+	* panel-plugin/cpu.c: Some more OpenBSD changes from Jan Lindblom
+	<cl0wn@ludd.luth.se>.
+
+2003-10-27 19:21  ricpersi
+
+	* ChangeLog: Update ChangeLog.
+
 2003-10-27 19:15  ricpersi
 
 	* AUTHORS, README, panel-plugin/cpu.c, panel-plugin/cpu.h,
