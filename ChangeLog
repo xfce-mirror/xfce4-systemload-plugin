@@ -1,3 +1,11 @@
+2003-07-21 18:23  benny
+
+	* ChangeLog, configure.ac, panel-plugin/cpu.c,
+	panel-plugin/memswap.c, panel-plugin/systemload.c, po/POTFILES.in,
+	po/de.gmo, po/de.po, po/xfce4-systemload.pot: Make this compile
+	with --enable-debug=full on NetBSD.  Fix untranslated strings. 
+	Updated german translation.
+
 2003-07-21 11:44  ricpersi
 
 	* ChangeLog, panel-plugin/systemload.c: Removed unused var.
