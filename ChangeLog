@@ -1,8 +1,68 @@
-2005-01-13 21:45  Bernhard Walle
+2005-01-15 11:53  ricpersi
 
-	* Changed size so that in Xfce 4.2 the panel height does not increase
-	  because of the plugin
-	* Released 0.3.5.
+	* aclocal.m4, compile, config.guess, config.sub, configure.ac,
+	depcomp, install-sh, ltmain.sh, missing: Version bump.
+
+2005-01-15 11:37  ricpersi
+
+	* AUTHORS, README: Reverted AUTHORS and README.
+
+2005-01-13 22:06  bwalle
+
+	* po/de.po: New version (minor change)
+
+2005-01-13 21:51  bwalle
+
+	* po/de.po, po/hu.po, po/lt.po, po/uk.po, po/xfce4-systemload.pot,
+	aclocal.m4, compile, config.guess, config.sub, depcomp, install-sh,
+	ltmain.sh, missing, mkinstalldirs: New version
+
+2005-01-13 21:49  bwalle
+
+	* po/ca.gmo, po/de.gmo, po/hu.gmo, po/lt.gmo, po/uk.gmo,
+	panel-plugin/Makefile.in, Makefile.in, configure: Removed generated
+	files
+
+2005-01-13 21:47  bwalle
+
+	* ChangeLog, configure.ac, po/ca.po: New version
+
+2005-01-13 21:47  bwalle
+
+	* AUTHORS, README: Chaned maintainer name to me
+
+2005-01-13 21:47  bwalle
+
+	* panel-plugin/systemload.c: Decreased size for Xfce 4.2
+
+2004-07-28 23:49  benny
+
+	* m4/depends.m4: Fix BM_DEPEND_CHECK().
+
+2004-07-24 19:30  benny
+
+	* m4/depends.m4: Correct min. required panel version.
+
+2004-07-24 19:27  benny
+
+	* m4/depends.m4: Extended XFCE_PANEL_PLUGIN macro to honor the new
+	threaded panel.
+
+2004-07-21 11:00  benny
+
+	* m4/depends.m4: New panel plugin check
+
+2003-11-14 08:05  huysmans
+
+	* po/ca.gmo: missing gmo file
+
+2003-11-13 20:11  ricpersi
+
+	* ChangeLog, Makefile.in, aclocal.m4, config.guess, config.sub,
+	configure, configure.ac, depcomp, install-sh, ltmain.sh,
+	panel-plugin/Makefile.in, panel-plugin/uptime.c: Version bump, plus
+	one fix for FreeBSD spotted out by Michelle
+	<shadoe@shadoegrounds.com>.
 
 2003-11-11 10:47  benny
 
@@ -189,7 +249,8 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial revision
+	po/xfce4-systemload.pot: Initial import of riccardos system load
+	panel plugin.
 
 2003-07-17 19:06  benny
 
@@ -200,6 +261,5 @@
 	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
 	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
 	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
-	po/xfce4-systemload.pot: Initial import of riccardos system load
-	panel plugin.
+	po/xfce4-systemload.pot: Initial revision
 
