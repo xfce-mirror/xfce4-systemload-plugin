@@ -243,12 +243,16 @@ func_infer_tag () {
 	    CC_quoted="$CC_quoted $arg"
 	  done
 	    # user sometimes does CC=<HOST>-gcc so we need to match that to 'gcc'
-	    trimedcc="${CC/${host}-}"
+	    trimedcc=`echo ${CC} | $SED -e "s/${host}-//g"`
+	    # and sometimes libtool has CC=<HOST>-gcc but user does CC=gcc
+	    extendcc=${host}-${CC}
 	    case "$@ " in
+	      "cc "* | " cc "* | "${host}-cc "* | " ${host}-cc "*|\
 	      "gcc "* | " gcc "* | "${host}-gcc "* | " ${host}-gcc "*)
 	      tagname=CC
 	      break ;;
 	      "$trimedcc "* | " $trimedcc "* | "`$echo $trimedcc` "* | " `$echo $trimedcc` "*|\
+	      "$extendcc "* | " $extendcc "* | "`$echo $extendcc` "* | " `$echo $extendcc` "*|\
 	      " $CC "* | "$CC "* | " `$echo $CC` "* | "`$echo $CC` "* | " $CC_quoted"* | "$CC_quoted "* | " `$echo $CC_quoted` "* | "`$echo $CC_quoted` "*)
 	      # The compiler in the base compile command matches
 	      # the one in the tagged configuration.
@@ -5201,30 +5205,33 @@ fi\
 		# We do not want portage's install root ($D) present.  Check only for
 		# this if the .la is being installed.
 		if test "$installed" = yes && test "$D"; then
-		  eval mynewdependency_lib="`echo "$libdir/$name" |sed -e "s:$D::g" -e 's://:/:g'`"
+		  eval mynewdependency_lib=`echo "$libdir/$name" |sed -e "s:$D:/:g" -e 's:/\+:/:g'`
 		else
 		  mynewdependency_lib="$libdir/$name"
 		fi
 		# Do not add duplicates
 		if test "$mynewdependency_lib"; then
-		  if test -z "`echo $newdependency_libs |grep -e "$mynewdependency_lib"`"; then
+		  my_little_ninja_foo_1=`echo $newdependency_libs |$EGREP -e "$mynewdependency_lib"`
+		  if test -z "$my_little_ninja_foo_1"; then
 		    newdependency_libs="$newdependency_libs $mynewdependency_lib"
 		  fi
 		fi
 		;;
 		  *)
 		if test "$installed" = yes; then
-   	  # Rather use S=WORKDIR if our version of portage supports it.
-   	  # This is because some ebuild (gcc) do not use $S as buildroot.
+		  # Rather use S=WORKDIR if our version of portage supports it.
+		  # This is because some ebuild (gcc) do not use $S as buildroot.
 		  if test "$PWORKDIR"; then
 		    S="$PWORKDIR"
 		  fi
 		  # We do not want portage's build root ($S) present.
-		  if test -n "`echo $deplib |grep -e "$S"`" && test "$S"; then
+		  my_little_ninja_foo_2=`echo $deplib |$EGREP -e "$S"`
+		  if test -n "$my_little_ninja_foo_2" && test "$S"; then
 		    mynewdependency_lib=""
 		  # We do not want portage's install root ($D) present.
-		  elif test -n "`echo $deplib |grep -e "$D"`" && test "$D"; then
-		    eval mynewdependency_lib="`echo "$deplib" |sed -e "s:$D::g" -e 's://:/:g'`"
+		  my_little_ninja_foo_3=`echo $deplib |$EGREP -e "$D"`
+		  elif test -n "$my_little_ninja_foo_3" && test "$D"; then
+		    eval mynewdependency_lib=`echo "$deplib" |sed -e "s:$D:/:g" -e 's:/\+:/:g'`
 		  else
 		    mynewdependency_lib="$deplib"
 		  fi
@@ -5233,7 +5240,8 @@ fi\
 		fi
 		# Do not add duplicates
 		if test "$mynewdependency_lib"; then
-		  if test -z "`echo $newdependency_libs |grep -e "$mynewdependency_lib"`"; then
+		  my_little_ninja_foo_4=`echo $newdependency_libs |$EGREP -e "$mynewdependency_lib"`
+		  if test -z "$my_little_ninja_foo_4"; then
 			newdependency_libs="$newdependency_libs $mynewdependency_lib"
 		  fi
 		fi
@@ -5291,7 +5299,7 @@ fi\
 	  esac
 	  # Do not add duplicates
 	  if test "$installed" = yes && test "$D"; then
-	    install_libdir="`echo "$install_libdir" |sed -e "s:$D::g" -e 's://:/:g'`"
+	    install_libdir=`echo "$install_libdir" |sed -e "s:$D:/:g" -e 's:/\+:/:g'`
 	  fi
 	  $echo > $output "\
 # $outputname - a libtool library file
