@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-07-21 18:10+0200\n"
+"POT-Creation-Date: 2003-07-23 17:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Benedikt Meurer <benny@mail.berlios.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,57 +15,76 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/systemload.c:141
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "Datei /proc/stat nicht gefunden!"
+
+#: panel-plugin/systemload.c:160
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systemauslastung: %ld%%"
 
-#: panel-plugin/systemload.c:148
-#, c-format
-msgid "%ldMb of  %ldMb used"
+#: panel-plugin/systemload.c:168
+#, fuzzy, c-format
+msgid "%ldMB of  %ldMB used"
 msgstr "%ldMB von %ldMB benutzt"
 
-#: panel-plugin/systemload.c:156
-#, c-format
-msgid "%ldMb of  %ldMb"
+#: panel-plugin/systemload.c:177
+#, fuzzy, c-format
+msgid "%ldMB of  %ldMB"
 msgstr "%ldMB von %ldMB"
 
-#: panel-plugin/systemload.c:159
+#: panel-plugin/systemload.c:180
 msgid "No swap"
 msgstr "Kein Auslagerungsspeicher vorhanden"
 
-#: panel-plugin/systemload.c:650
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr ""
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr ""
+
+#: panel-plugin/systemload.c:794
 msgid "Select color"
 msgstr "Farbe auswaehlen"
 
-#: panel-plugin/systemload.c:698
+#: panel-plugin/systemload.c:849
 msgid "CPU monitor"
 msgstr "CPU-Monitor"
 
-#: panel-plugin/systemload.c:699
+#: panel-plugin/systemload.c:850
 msgid "Memory monitor"
 msgstr "Speicher-Monitor"
 
-#: panel-plugin/systemload.c:700
+#: panel-plugin/systemload.c:851
 msgid "Swap monitor"
 msgstr "Auslagerungs-Monitor"
 
-#: panel-plugin/systemload.c:718
+#: panel-plugin/systemload.c:852
+#, fuzzy
+msgid "Uptime monitor"
+msgstr "CPU-Monitor"
+
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
 msgid "Show monitor"
 msgstr "Monitor anzeigen"
 
-#: panel-plugin/systemload.c:730
+#: panel-plugin/systemload.c:884
 msgid "Text to display:"
 msgstr "Anzeigetext:"
 
-#: panel-plugin/systemload.c:764
+#: panel-plugin/systemload.c:919
 msgid "Bar color:"
 msgstr "Anzeigefarbe:"
 
-#: panel-plugin/systemload.c:841
+#: panel-plugin/systemload.c:1026
 msgid "System Load"
 msgstr "Systemauslastung"
 
-#: panel-plugin/cpu.c:61
-msgid "File /proc/stat not found!"
+#: panel-plugin/uptime.c:54
+#, fuzzy
+msgid "File /proc/uptime not found!"
 msgstr "Datei /proc/stat nicht gefunden!"
