@@ -40,9 +40,10 @@
 
 #include "cpu.h"
 #include "memswap.h"
+#include "uptime.h"
 
 /* for xml: */
-static gchar *MONITOR_ROOT[] = { "SL_Cpu", "SL_Mem", "SL_Swap" };
+static gchar *MONITOR_ROOT[] = { "SL_Cpu", "SL_Mem", "SL_Swap", "SL_Uptime" };
 
 static GtkTooltips *tooltips = NULL;
 
@@ -90,10 +91,25 @@ typedef struct
 
 typedef struct
 {
-    GtkWidget  *ebox;
     GtkWidget  *box;
-    guint      timeout_id;
-    t_monitor  *monitor[3];
+    GtkWidget  *label_up;
+    GtkWidget  *label_down;
+    GtkWidget  *ebox;
+
+    gulong     value_read;
+    gboolean enabled;
+
+    /*options*/
+    GtkWidget *opt_enabled;
+} t_uptime_monitor;
+
+typedef struct
+{
+    GtkWidget         *ebox;
+    GtkWidget         *box;
+    guint             timeout_id;
+    t_monitor         *monitor[3];
+    t_uptime_monitor  *uptime;
 
     /* options dialog */
     GtkWidget  *opt_dialog;
@@ -105,62 +121,84 @@ update_monitors(t_global_monitor *global)
 
     gchar caption[128];
     gulong mem, swap, MTotal, MUsed, STotal, SUsed;
-    gint count;
+    gint count, days, hours, mins;
+
     global->monitor[0]->history[0] = read_cpuload();
     read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed);
     global->monitor[1]->history[0] = mem;
     global->monitor[2]->history[0] = swap;
+    global->uptime->value_read = read_uptime();
 
     for(count = 0; count < 3; count++)
     {
         if (global->monitor[count]->options.enabled)
         {
-
             if (global->monitor[count]->history[0] > 100)
                 global->monitor[count]->history[0] = 100;
             else if (global->monitor[count]->history[0] < 0)
                 global->monitor[count]->history[0] = 0;
 
+            global->monitor[count]->value_read =
+                (global->monitor[count]->history[0] +
+                 global->monitor[count]->history[1] +
+                 global->monitor[count]->history[2] +
+                 global->monitor[count]->history[3]) / 4;
 
-            global->monitor[count]->value_read = (global->monitor[count]->history[0] +
-                                                  global->monitor[count]->history[1] +
-                                                  global->monitor[count]->history[2] +
-                                                  global->monitor[count]->history[3]) / 4;
-
-            global->monitor[count]->history[3] = global->monitor[count]->history[2];
-            global->monitor[count]->history[2] = global->monitor[count]->history[1];
-            global->monitor[count]->history[1] = global->monitor[count]->history[0];
-
+            global->monitor[count]->history[3] =
+                global->monitor[count]->history[2];
+            global->monitor[count]->history[2] =
+                global->monitor[count]->history[1];
+            global->monitor[count]->history[1] =
+                global->monitor[count]->history[0];
 
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor[count]->status),
-                                          global->monitor[count]->value_read / 100.0);
+                 global->monitor[count]->value_read / 100.0);
         }
     }
     if (global->monitor[0]->options.enabled)
     {
         g_snprintf(caption, sizeof(caption), _("System Load: %ld%%"),
                    global->monitor[0]->value_read);
-        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[0]->ebox), caption, NULL);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[0]->ebox),
+                             caption, NULL);
     }
 
     if (global->monitor[1]->options.enabled)
     {
-        g_snprintf(caption, sizeof(caption), _("%ldMb of  %ldMb used"),
+        g_snprintf(caption, sizeof(caption), _("%ldMB of  %ldMB used"),
                    MUsed >> 10 , MTotal >> 10);
-        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[1]->ebox), caption, NULL);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[1]->ebox),
+                             caption, NULL);
     }
 
     if (global->monitor[2]->options.enabled)
     {
         if (STotal)
-            g_snprintf(caption, sizeof(caption), _("%ldMb of  %ldMb"),
+            g_snprintf(caption, sizeof(caption), _("%ldMB of  %ldMB"),
                        SUsed >> 10, STotal >> 10);
         else
             g_snprintf(caption, sizeof(caption), _("No swap"));
 
-        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[2]->ebox), caption, NULL);
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->monitor[2]->ebox),
+                             caption, NULL);
     }
 
+    if (global->uptime->enabled)
+    {
+        days = global->uptime->value_read / 86400;
+        hours = (global->uptime->value_read / 3600) % 24;
+        mins = (global->uptime->value_read / 60) % 60;
+        g_snprintf(caption, sizeof(caption), _("%d days"), days);
+        gtk_label_set_text(GTK_LABEL(global->uptime->label_up),
+                           caption);
+        g_snprintf(caption, sizeof(caption), "%d:%02d", hours, mins);
+        gtk_label_set_text(GTK_LABEL(global->uptime->label_down),
+                           caption);
+
+        g_snprintf(caption, sizeof(caption), _("Uptime:"));
+        gtk_tooltips_set_tip(tooltips, GTK_WIDGET(global->uptime->ebox),
+                             caption, NULL);
+    }
     return TRUE;
 }
 
@@ -186,8 +224,10 @@ monitor_new(void)
     {
 
         global->monitor[count] = g_new(t_monitor, 1);
-        global->monitor[count]->options.label_text = g_strdup(DEFAULT_TEXT[count]);
-        gdk_color_parse(DEFAULT_COLOR[count], &global->monitor[count]->options.color);
+        global->monitor[count]->options.label_text =
+            g_strdup(DEFAULT_TEXT[count]);
+        gdk_color_parse(DEFAULT_COLOR[count],
+                        &global->monitor[count]->options.color);
 
         global->monitor[count]->options.use_label = TRUE;
         global->monitor[count]->options.enabled = TRUE;
@@ -201,18 +241,23 @@ monitor_new(void)
         gtk_widget_show(global->monitor[count]->ebox);
 
         global->monitor[count]->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
-        gtk_container_set_border_width(GTK_CONTAINER(global->monitor[count]->box), border_width);
+        gtk_container_set_border_width(GTK_CONTAINER(global->monitor[count]->box),
+                                       border_width);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
 
-        gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox), GTK_WIDGET(global->monitor[count]->box));
+        gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox),
+                          GTK_WIDGET(global->monitor[count]->box));
 
-        global->monitor[count]->label = gtk_label_new(global->monitor[count]->options.label_text);
+        global->monitor[count]->label =
+            gtk_label_new(global->monitor[count]->options.label_text);
         gtk_widget_show(global->monitor[count]->label);
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box), GTK_WIDGET(global->monitor[count]->label),
+        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
+                           GTK_WIDGET(global->monitor[count]->label),
                            FALSE, FALSE, 0);
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_BOTTOM_TO_TOP);
+        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status),
+                                         GTK_PROGRESS_BOTTOM_TO_TOP);
 
         rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor[count]->status));
         if (!rc) {
@@ -226,12 +271,42 @@ monitor_new(void)
         gtk_widget_modify_style(GTK_WIDGET(global->monitor[count]->status), rc);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
 
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box), GTK_WIDGET(global->monitor[count]->status),
+        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
+                           GTK_WIDGET(global->monitor[count]->status),
                            FALSE, FALSE, 0);
 
-        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(global->monitor[count]->ebox),
+        gtk_box_pack_start(GTK_BOX(global->box),
+                           GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
     }
+    global->uptime = g_new(t_uptime_monitor, 1);
+    global->uptime->enabled = TRUE;
+    global->uptime->ebox = gtk_event_box_new();
+    gtk_widget_show(global->uptime->ebox);
+
+    global->uptime->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
+    gtk_container_set_border_width(GTK_CONTAINER(global->uptime->box),
+                                   border_width);
+    gtk_widget_show(GTK_WIDGET(global->uptime->box));
+
+    gtk_container_add(GTK_CONTAINER(global->uptime->ebox),
+                      GTK_WIDGET(global->uptime->box));
+
+    global->uptime->label_up = gtk_label_new("");
+    gtk_widget_show(global->uptime->label_up);
+    gtk_box_pack_start(GTK_BOX(global->uptime->box),
+                       GTK_WIDGET(global->uptime->label_up),
+                       FALSE, FALSE, 0);
+    global->uptime->label_down = gtk_label_new("");
+    gtk_widget_show(global->uptime->label_down);
+    gtk_box_pack_start(GTK_BOX(global->uptime->box),
+                       GTK_WIDGET(global->uptime->label_down),
+                       FALSE, FALSE, 0);
+
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->uptime->ebox),
+                       FALSE, FALSE, 0);
+
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
 
     return global;
@@ -261,7 +336,8 @@ monitor_set_orientation (Control * ctrl, int orientation)
 
     for(count = 0; count < 3; count++)
     {
-        global->monitor[count]->label = gtk_label_new(global->monitor[count]->options.label_text);
+        global->monitor[count]->label =
+            gtk_label_new(global->monitor[count]->options.label_text);
         gtk_widget_show(global->monitor[count]->label);
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
@@ -277,7 +353,8 @@ monitor_set_orientation (Control * ctrl, int orientation)
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_LEFT_TO_RIGHT);
         }
 
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box), GTK_WIDGET(global->monitor[count]->label),
+        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
+                           GTK_WIDGET(global->monitor[count]->label),
                            FALSE, FALSE, 0);
 
         gtk_container_set_border_width(GTK_CONTAINER(global->monitor[count]->box),
@@ -286,7 +363,8 @@ monitor_set_orientation (Control * ctrl, int orientation)
 
         global->monitor[count]->ebox = gtk_event_box_new();
         gtk_widget_show(global->monitor[count]->ebox);
-        gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox), GTK_WIDGET(global->monitor[count]->box));
+        gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox),
+                          GTK_WIDGET(global->monitor[count]->box));
 
         rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor[count]->status));
         if (!rc) {
@@ -294,18 +372,48 @@ monitor_set_orientation (Control * ctrl, int orientation)
         }
         if (rc) {
             rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->bg[GTK_STATE_PRELIGHT] = global->monitor[count]->options.color;
+            rc->bg[GTK_STATE_PRELIGHT] =
+                global->monitor[count]->options.color;
         }
 
         gtk_widget_modify_style(GTK_WIDGET(global->monitor[count]->status), rc);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
 
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box), GTK_WIDGET(global->monitor[count]->status),
+        gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
+                           GTK_WIDGET(global->monitor[count]->status),
                            FALSE, FALSE, 0);
-        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(global->monitor[count]->ebox),
+        gtk_box_pack_start(GTK_BOX(global->box),
+                           GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
 
     }
+
+    global->uptime->ebox = gtk_event_box_new();
+    gtk_widget_show(global->uptime->ebox);
+
+    global->uptime->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
+    gtk_container_set_border_width(GTK_CONTAINER(global->uptime->box),
+                                   border_width);
+    gtk_widget_show(GTK_WIDGET(global->uptime->box));
+
+    gtk_container_add(GTK_CONTAINER(global->uptime->ebox),
+                      GTK_WIDGET(global->uptime->box));
+
+    global->uptime->label_up = gtk_label_new("");
+    gtk_widget_show(global->uptime->label_up);
+    gtk_box_pack_start(GTK_BOX(global->uptime->box),
+                       GTK_WIDGET(global->uptime->label_up),
+                       FALSE, FALSE, 0);
+    global->uptime->label_down = gtk_label_new("");
+    gtk_widget_show(global->uptime->label_down);
+    gtk_box_pack_start(GTK_BOX(global->uptime->box),
+                       GTK_WIDGET(global->uptime->label_down),
+                       FALSE, FALSE, 0);
+
+    gtk_box_pack_start(GTK_BOX(global->box),
+                       GTK_WIDGET(global->uptime->ebox),
+                       FALSE, FALSE, 0);
+
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
     gtk_widget_show(GTK_WIDGET(global->ebox));
 
@@ -365,6 +473,8 @@ setup_monitor(t_global_monitor *global)
     GtkRcStyle *rc;
     gint count;
 
+    gtk_widget_hide(GTK_WIDGET(global->uptime->ebox));
+
     for(count = 0; count < 3; count++)
     {
         gtk_widget_hide(GTK_WIDGET(global->monitor[count]->ebox));
@@ -394,6 +504,12 @@ setup_monitor(t_global_monitor *global)
             gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
         }
     }
+    if(global->uptime->enabled)
+    {
+        gtk_widget_show(GTK_WIDGET(global->uptime->ebox));
+    }
+
+
 }
 
 static void
@@ -414,29 +530,39 @@ monitor_read_config(Control *ctrl, xmlNodePtr node)
         {
             if (xmlStrEqual(node->name, (const xmlChar *)MONITOR_ROOT[count]))
             {
-                if ((value = xmlGetProp(node, (const xmlChar *)"Use_Label")))
-                {
-                    global->monitor[count]->options.use_label = atoi(value);
-                    g_free(value);
-                }
                 if ((value = xmlGetProp(node, (const xmlChar *)"Enabled")))
                 {
                     global->monitor[count]->options.enabled = atoi(value);
                     g_free(value);
                 }
+                if ((value = xmlGetProp(node, (const xmlChar *)"Use_Label")))
+                {
+                    global->monitor[count]->options.use_label = atoi(value);
+                    g_free(value);
+                }
                 if ((value = xmlGetProp(node, (const xmlChar *)"Color")))
                 {
-                    gdk_color_parse(value, &global->monitor[count]->options.color);
+                    gdk_color_parse(value,
+                                    &global->monitor[count]->options.color);
                     g_free(value);
                 }
                 if ((value = xmlGetProp(node, (const xmlChar *) "Text")))
                 {
                     if (global->monitor[count]->options.label_text)
                         g_free(global->monitor[count]->options.label_text);
-                    global->monitor[count]->options.label_text = g_strdup((gchar *)value);
+                    global->monitor[count]->options.label_text =
+                        g_strdup((gchar *)value);
                     g_free(value);
                 }
                 break;
+            }
+        }
+        if (xmlStrEqual(node->name, (const xmlChar *)MONITOR_ROOT[3]))
+        {
+            if ((value = xmlGetProp(node, (const xmlChar *)"Enabled")))
+            {
+                global->uptime->enabled = atoi(value);
+                g_free(value);
             }
         }
     }
@@ -471,12 +597,19 @@ monitor_write_config(Control *ctrl, xmlNodePtr parent)
         xmlSetProp(root, "Color", value);
 
         if (global->monitor[count]->options.label_text) {
-            xmlSetProp(root, "Text", global->monitor[count]->options.label_text);
+            xmlSetProp(root, "Text",
+                       global->monitor[count]->options.label_text);
         }
         else {
             xmlSetProp(root, "Text", DEFAULT_TEXT[count]);
         }
     }
+
+    root = xmlNewTextChild(parent, NULL, MONITOR_ROOT[3], NULL);
+
+    g_snprintf(value, 2, "%d", global->uptime->enabled);
+    xmlSetProp(root, "Enabled", value);
+
 }
 
 static void
@@ -564,7 +697,8 @@ label_changed_cb2(GtkWidget *entry, t_global_monitor *global)
 static void
 monitor_toggled(t_global_monitor *global, gint count)
 {
-    global->monitor[count]->options.enabled = !global->monitor[count]->options.enabled;
+    global->monitor[count]->options.enabled =
+        !global->monitor[count]->options.enabled;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor[count]->opt_enabled),
                                  global->monitor[count]->options.enabled);
     gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_vbox),
@@ -592,9 +726,19 @@ monitor_toggled_cb2(GtkWidget *check_button, t_global_monitor *global)
 }
 
 static void
+uptime_toggled_cb(GtkWidget *check_button, t_global_monitor *global)
+{
+    global->uptime->enabled = !global->uptime->enabled;
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->uptime->opt_enabled),
+                                 global->uptime->enabled);
+    setup_monitor(global);
+}
+
+static void
 label_toggled(t_global_monitor *global, gint count)
 {
-    global->monitor[count]->options.use_label = !global->monitor[count]->options.use_label;
+    global->monitor[count]->options.use_label =
+        !global->monitor[count]->options.use_label;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor[count]->opt_use_label),
                                  global->monitor[count]->options.use_label);
     gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_entry),
@@ -648,17 +792,24 @@ change_color(t_global_monitor *global, gint count)
     gint response;
 
     dialog = gtk_color_selection_dialog_new(_("Select color"));
-    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(global->opt_dialog));
-    colorsel = GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
-    gtk_color_selection_set_previous_color(colorsel, &global->monitor[count]->options.color);
-    gtk_color_selection_set_current_color(colorsel, &global->monitor[count]->options.color);
+    gtk_window_set_transient_for(GTK_WINDOW(dialog),
+                                 GTK_WINDOW(global->opt_dialog));
+    colorsel =
+        GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
+    gtk_color_selection_set_previous_color(colorsel,
+                                           &global->monitor[count]->options.color);
+    gtk_color_selection_set_current_color(colorsel,
+                                          &global->monitor[count]->options.color);
     gtk_color_selection_set_has_palette(colorsel, TRUE);
 
     response = gtk_dialog_run(GTK_DIALOG(dialog));
     if (response == GTK_RESPONSE_OK)
     {
-        gtk_color_selection_get_current_color(colorsel, &global->monitor[count]->options.color);
-        gtk_widget_modify_bg(global->monitor[count]->opt_da, GTK_STATE_NORMAL, &global->monitor[count]->options.color);
+        gtk_color_selection_get_current_color(colorsel,
+                                              &global->monitor[count]->options.color);
+        gtk_widget_modify_bg(global->monitor[count]->opt_da,
+                             GTK_STATE_NORMAL,
+                             &global->monitor[count]->options.color);
         setup_monitor(global);
     }
 
@@ -697,7 +848,8 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
     static gchar     *FRAME_TEXT[] = {
 	    N_("CPU monitor"),
 	    N_("Memory monitor"),
-	    N_("Swap monitor")
+	    N_("Swap monitor"),
+	    N_("Uptime monitor")
     };
 
     global = (t_global_monitor *)control->data;
@@ -715,7 +867,8 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
         vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
         gtk_widget_show(GTK_WIDGET(vbox));
 
-        global->monitor[count]->opt_enabled = gtk_check_button_new_with_mnemonic(_("Show monitor"));
+        global->monitor[count]->opt_enabled =
+            gtk_check_button_new_with_mnemonic(_("Show monitor"));
         gtk_widget_show(global->monitor[count]->opt_enabled);
         gtk_box_pack_start(GTK_BOX(vbox),
                            GTK_WIDGET(global->monitor[count]->opt_enabled),
@@ -727,7 +880,8 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
         global->monitor[count]->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_hbox));
 
-        global->monitor[count]->opt_use_label = gtk_check_button_new_with_mnemonic(_("Text to display:"));
+        global->monitor[count]->opt_use_label =
+            gtk_check_button_new_with_mnemonic(_("Text to display:"));
         gtk_widget_show(global->monitor[count]->opt_use_label);
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_hbox),
                            GTK_WIDGET(global->monitor[count]->opt_use_label),
@@ -759,12 +913,14 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
 
         hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
         gtk_widget_show(GTK_WIDGET(hbox));
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_vbox), GTK_WIDGET(hbox), FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_vbox),
+                           GTK_WIDGET(hbox), FALSE, FALSE, 0);
 
         color_label = gtk_label_new(_("Bar color:"));
         gtk_misc_set_alignment(GTK_MISC(color_label), 0, 0.5);
         gtk_widget_show(GTK_WIDGET(color_label));
-        gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(color_label), FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(color_label),
+                           FALSE, FALSE, 0);
 
         global->monitor[count]->opt_button = gtk_button_new();
         global->monitor[count]->opt_da = gtk_drawing_area_new();
@@ -772,10 +928,13 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
         gtk_widget_modify_bg(global->monitor[count]->opt_da, GTK_STATE_NORMAL,
                              &global->monitor[count]->options.color);
         gtk_widget_set_size_request(global->monitor[count]->opt_da, 64, 12);
-        gtk_container_add(GTK_CONTAINER(global->monitor[count]->opt_button), global->monitor[count]->opt_da);
+        gtk_container_add(GTK_CONTAINER(global->monitor[count]->opt_button),
+                          global->monitor[count]->opt_da);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_button));
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_da));
-        gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(global->monitor[count]->opt_button), FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(hbox),
+                           GTK_WIDGET(global->monitor[count]->opt_button),
+                           FALSE, FALSE, 0);
 
         sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
         gtk_size_group_add_widget(sg, global->monitor[count]->opt_enabled);
@@ -795,6 +954,32 @@ monitor_create_options(Control *control, GtkContainer *container, GtkWidget *don
                            GTK_WIDGET(frame),
                            FALSE, FALSE, 0);
     }
+
+    /*uptime monitor options - start*/
+    frame = xfce_framebox_new(FRAME_TEXT[3], TRUE);
+    gtk_widget_show(GTK_WIDGET(frame));
+
+    vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
+    gtk_widget_show(GTK_WIDGET(vbox));
+
+    global->uptime->opt_enabled =
+        gtk_check_button_new_with_mnemonic(_("Show monitor"));
+    gtk_widget_show(global->uptime->opt_enabled);
+    gtk_box_pack_start(GTK_BOX(vbox),
+                       GTK_WIDGET(global->uptime->opt_enabled),
+                       FALSE, FALSE, 0);
+
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->uptime->opt_enabled),
+                                 global->uptime->enabled);
+
+    xfce_framebox_add (XFCE_FRAMEBOX(frame), GTK_WIDGET(vbox));
+    gtk_box_pack_start(GTK_BOX(global_vbox),
+                       GTK_WIDGET(frame),
+                       FALSE, FALSE, 0);
+
+    g_signal_connect(GTK_WIDGET(global->uptime->opt_enabled), "toggled",
+                     G_CALLBACK(uptime_toggled_cb), global);
+    /*uptime monitor options - end*/
 
     g_signal_connect(GTK_WIDGET(global->monitor[0]->opt_da), "expose_event",
                      G_CALLBACK(expose_event_cb), NULL);
