@@ -1,0 +1,23 @@
+2003-07-17 19:06  benny
+
+	* AUTHORS, COPYING, INSTALL, Makefile.am, autogen.sh, configure.ac,
+	config.guess, config.sub, ltconfig, ltcf-c.sh, ltmain.sh,
+	aclocal.m4, config.h.in, install-sh, missing, mkinstalldirs,
+	Makefile.in, compile, depcomp, README, configure, m4/debug.m4,
+	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
+	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
+	po/xfce4-systemload.pot: Initial import of riccardos system load
+	panel plugin.
+
+2003-07-17 19:06  benny
+
+	* AUTHORS, COPYING, INSTALL, Makefile.am, autogen.sh, configure.ac,
+	config.guess, config.sub, ltconfig, ltcf-c.sh, ltmain.sh,
+	aclocal.m4, config.h.in, install-sh, missing, mkinstalldirs,
+	Makefile.in, compile, depcomp, README, configure, m4/debug.m4,
+	m4/depends.m4, m4/i18n.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/cpu.c, panel-plugin/cpu.h,
+	panel-plugin/systemload.c, po/Makefile.in.in, po/POTFILES.in,
+	po/xfce4-systemload.pot: Initial revision
+
