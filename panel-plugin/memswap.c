@@ -260,8 +260,11 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 #include <sys/types.h>
 #include <sys/vmmeter.h>
 #include <unistd.h>
+/* NetBSD-current post 1.6U uses swapctl */
+#if __NetBSD_Version__ > 106210000
+#include <sys/swap.h>
+#elif __NetBSD_Version__ >= 105010000
 /* Everything post 1.5.x uses uvm/uvm_* includes */
-#if __NetBSD_Version__ >= 105010000
 #include <uvm/uvm_param.h>
 #else
 #include <vm/vm_param.h>
@@ -276,7 +279,7 @@ static size_t SUsed = 0;
 
 gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
 {
-    long pagesize;
+    int pagesize;
     size_t len;
 
 #define ARRLEN(X) (sizeof(X)/sizeof(X[0]))
@@ -288,18 +291,46 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     }
 
     {
+      static int mib[] = {CTL_HW, HW_PAGESIZE};
+      len = sizeof(pagesize);
+      sysctl(mib, ARRLEN(mib), &pagesize, &len, NULL, 0);
+    }
+
+#if __NetBSD_Version__ > 106210000
+    {
+      struct swapent* swap;
+      int nswap, n;
+      STotal = SUsed = SFree = 0;
+      if ((nswap = swapctl(SWAP_NSWAP, NULL, 0)) > 0) {
+        swap = (struct swapent*)malloc(nswap * sizeof(*swap));
+        if (swapctl(SWAP_STATS, (void*)swap, nswap) == nswap) {
+          for (n = 0; n < nswap; n++) {
+            STotal += swap[n].se_nblks;
+            SUsed  += swap[n].se_inuse;
+          }
+
+          STotal = dbtob(STotal >> 10);
+          SUsed  = dbtob(SUsed >> 10);
+          SFree  = STotal - SUsed;
+        }
+        free(swap);
+      }
+    }
+#else
+    {
         struct uvmexp x;
         static int mib[] = { CTL_VM, VM_UVMEXP };
         len = sizeof(x);
         STotal = SUsed = SFree = -1;
         pagesize = 1;
         if (-1 < sysctl(mib, ARRLEN(mib), &x, &len, NULL, 0)) {
-            pagesize = x.pagesize;
+            //pagesize = x.pagesize;
             STotal = (pagesize*x.swpages) >> 10;
             SUsed = (pagesize*x.swpginuse) >> 10;
             SFree = STotal - SUsed;
         }
     }
+#endif
 
     {
         static int mib[]={ CTL_VM, VM_METER };
