@@ -18,6 +18,7 @@ libsystemload_la_SOURCES =						\
 	cpu.h
 
 libsystemload_la_CFLAGS =						\
+        -DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@XFCE4_PANEL_CFLAGS@
 
 libsystemload_la_LIBADD = 						\
