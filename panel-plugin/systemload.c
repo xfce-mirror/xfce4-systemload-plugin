@@ -420,7 +420,7 @@ change_color_cb(GtkWidget *button, t_sload *sload)
 }
 
 static void
-sload_add_options(Control *control, GtkContainer *container, GtkWidget *done)
+sload_create_options(Control *control, GtkContainer *container, GtkWidget *done)
 {
     t_sload         *sload;
     GtkBox          *vbox;
@@ -520,7 +520,7 @@ xfce_control_class_init(ControlClass *cc)
     cc->write_config    = sload_write_config;
     cc->attach_callback = sload_attach_callback;
 
-    cc->add_options     = sload_add_options;
+    cc->create_options     = sload_create_options;
 
     cc->set_size        = sload_set_size;
 }
