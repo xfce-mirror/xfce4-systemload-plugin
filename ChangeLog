@@ -1,3 +1,12 @@
+2003-07-19 19:08  ricpersi
+
+	* ChangeLog, configure.ac, panel-plugin/Makefile.am,
+	panel-plugin/cpu.c, panel-plugin/cpu.h, panel-plugin/memswap.c,
+	panel-plugin/memswap.h, panel-plugin/systemload.c: Added ability to
+	hide monitor. Added memory and swap monitors. The plugin changes
+	layout depending on panel orientation. Removed HPUX and AIX
+	support.
+
 2003-07-19 08:51  benny
 
 	* Makefile.am, Makefile.in, configure, configure.ac, po/ChangeLog,

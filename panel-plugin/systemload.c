@@ -220,7 +220,7 @@ monitor_set_orientation (Control * ctrl, int orientation)
     GtkRcStyle *rc;
     gint count;
 
-    if (!global->timeout_id)
+    if (global->timeout_id)
         g_source_remove(global->timeout_id);
 
     gtk_widget_hide(GTK_WIDGET(global->ebox));
