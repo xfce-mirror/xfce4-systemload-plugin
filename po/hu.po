@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
-"POT-Creation-Date: 2003-07-19 08:48+0200\n"
+"POT-Creation-Date: 2003-08-04 11:36+0200\n"
 "PO-Revision-Date: 2003-07-23 18:06+0200\n"
 "Last-Translator: Gabor SUVEG <gabor@suveg.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -16,40 +16,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.1\n"
 
-#: panel-plugin/systemload.c:110
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "A /proc/stat f??jl nem tal??lhat??."
+
+#: panel-plugin/systemload.c:160
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Rendszer terhel??s: %ld%%"
 
-#: panel-plugin/systemload.c:447
+#: panel-plugin/systemload.c:168
+#, c-format
+msgid "%ldMB of  %ldMB used"
+msgstr ""
+
+#: panel-plugin/systemload.c:177
+#, c-format
+msgid "%ldMB of  %ldMB"
+msgstr ""
+
+#: panel-plugin/systemload.c:180
+msgid "No swap"
+msgstr ""
+
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr ""
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr ""
+
+#: panel-plugin/systemload.c:794
+msgid "Select color"
+msgstr ""
+
+#: panel-plugin/systemload.c:849
+msgid "CPU monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:850
+msgid "Memory monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:851
+msgid "Swap monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:852
+msgid "Uptime monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+msgid "Show monitor"
+msgstr ""
+
+#: panel-plugin/systemload.c:884
 msgid "Text to display:"
 msgstr "Sz??veg megjelen?­t??se:"
 
-#: panel-plugin/systemload.c:460
-msgid "Hide text"
-msgstr "Sz??veg elrejt??se"
-
-#: panel-plugin/systemload.c:479
+#: panel-plugin/systemload.c:919
 msgid "Bar color:"
 msgstr "Oszlop sz?­n:"
 
-#: panel-plugin/systemload.c:514
+#: panel-plugin/systemload.c:1026
 msgid "System Load"
 msgstr "Rendszer terhel??s"
 
-#: panel-plugin/cpu.c:192
-msgid "Error while calling pstat_getdynamic(2)"
-msgstr "Hiba a pstat_getdynamic(2) f??ggv??ny h?­v??sakor."
-
-#: panel-plugin/cpu.c:200
-msgid "Cannot get nlist."
-msgstr "Nem hozz??f??rhet? az 'nlist'."
-
-#: panel-plugin/cpu.c:206 panel-plugin/cpu.c:215
-msgid "Problem with kmem."
-msgstr "Probl??ma a kmem haszn??la sor??n."
-
-#: panel-plugin/cpu.c:227
-msgid "File /proc/stat not found!"
+#: panel-plugin/uptime.c:54
+#, fuzzy
+msgid "File /proc/uptime not found!"
 msgstr "A /proc/stat f??jl nem tal??lhat??."
 
+#~ msgid "Hide text"
+#~ msgstr "Sz??veg elrejt??se"
+
+#~ msgid "Error while calling pstat_getdynamic(2)"
+#~ msgstr "Hiba a pstat_getdynamic(2) f??ggv??ny h?­v??sakor."
+
+#~ msgid "Cannot get nlist."
+#~ msgstr "Nem hozz??f??rhet? az 'nlist'."
+
+#~ msgid "Problem with kmem."
+#~ msgstr "Probl??ma a kmem haszn??la sor??n."

@@ -113,6 +113,99 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     return 0;
 }
 
+#elif defined(__FreeBSD__)
+/*
+ * FreeBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
+#endif
+
+#include <fcntl.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/param.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+#include <vm/vm_param.h>
+#include <sys/vmmeter.h>
+#include <unistd.h>
+
+static size_t MTotal = 0;
+static size_t MFree = 0;
+static size_t MUsed = 0;
+static size_t STotal = 0;
+static size_t SFree = 0;
+static size_t SUsed = 0;
+
+gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
+{
+    long pagesize;
+    size_t len;
+
+#define ARRLEN(X) (sizeof(X)/sizeof(X[0]))
+    {
+        static int mib[]={ CTL_HW, HW_PHYSMEM };
+        len = sizeof(MTotal);
+        sysctl(mib, ARRLEN(mib), &MTotal, &len, NULL, 0);
+        MTotal >>= 10;
+    }
+
+#if 0 /* NOT YET */
+    {
+        struct uvmexp x;
+        static int mib[] = { CTL_VM, VM_UVMEXP };
+        len = sizeof(x);
+        STotal = SUsed = SFree = -1;
+        pagesize = 1;
+        if (-1 < sysctl(mib, ARRLEN(mib), &x, &len, NULL, 0)) {
+            pagesize = x.pagesize;
+            STotal = (pagesize*x.swpages) >> 10;
+            SUsed = (pagesize*x.swpginuse) >> 10;
+            SFree = STotal - SUsed;
+        }
+    }
+#else
+    STotal = 0;
+    SUsed = 0;
+    SFree = 0;
+#endif
+
+    {
+#ifdef VM_TOTAL
+        static int mib[]={ CTL_VM, VM_TOTAL };
+#else
+        static int mib[]={ CTL_VM, VM_METER };
+#endif
+        struct vmtotal x;
+
+        len = sizeof(x);
+        MFree = MUsed = -1;
+        if (sysctl(mib, ARRLEN(mib), &x, &len, NULL, 0) > -1) {
+            MFree = (x.t_free * pagesize) >> 10;
+            MUsed = (x.t_rm * pagesize) >> 10;
+        }
+    }
+
+    *mem = MUsed * 100 / MTotal;
+    if(STotal)
+        *swap = SUsed * 100 / STotal;
+    else
+        *swap = 0;
+
+    *MT = MTotal;
+    *MU = MUsed;
+    *ST = STotal;
+    *SU = SUsed;
+
+    return 0;
+}
+
 #elif defined(__NetBSD__)
 /*
  * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
@@ -202,5 +295,5 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 }
 
 #else
-#warning "Your plattform is not yet support"
+#error "Your plattform is not yet support"
 #endif
