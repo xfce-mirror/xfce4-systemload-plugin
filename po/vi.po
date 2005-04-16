@@ -1,0 +1,90 @@
+# translation of xfce4-systemload-0.3.4 to Vietnamese
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+# Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2005
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload 0.3.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-11-13 20:16+0100\n"
+"PO-Revision-Date: 2005-04-09 21:25+0300\n"
+"Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
+"Language-Team: Vietnamese <none@none.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "Không tìm thấy tập tin /proc/stat!"
+
+#: panel-plugin/systemload.c:160
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Tải hệ thống: %ld%%"
+
+#: panel-plugin/systemload.c:168
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Bộ nhớ: dùng %ldMB từ %ldMB"
+
+#: panel-plugin/systemload.c:177
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: dùng %ldMB từ %ldMB"
+
+#: panel-plugin/systemload.c:180
+msgid "No swap"
+msgstr "Không swap"
+
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr "%d ngày"
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr "Đã chạy:"
+
+#: panel-plugin/systemload.c:794
+msgid "Select color"
+msgstr "Chọn màu"
+
+#: panel-plugin/systemload.c:849
+msgid "CPU monitor"
+msgstr "Theo dõi CPU"
+
+#: panel-plugin/systemload.c:850
+msgid "Memory monitor"
+msgstr "Theo dõi bộ nhớ"
+
+#: panel-plugin/systemload.c:851
+msgid "Swap monitor"
+msgstr "Theo dõi swap"
+
+#: panel-plugin/systemload.c:852
+msgid "Uptime monitor"
+msgstr "Theo dõi thời gian đã chạy"
+
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+msgid "Show monitor"
+msgstr "Hiển thị"
+
+#: panel-plugin/systemload.c:884
+msgid "Text to display:"
+msgstr "Văn bản hiển thị:"
+
+#: panel-plugin/systemload.c:919
+msgid "Bar color:"
+msgstr "Màu:"
+
+#: panel-plugin/systemload.c:1028
+msgid "System Load"
+msgstr "Tải hệ thống"
+
+#: panel-plugin/uptime.c:54
+msgid "File /proc/uptime not found!"
+msgstr "Không tìm thấy tập in /proc/uptime!"
+
