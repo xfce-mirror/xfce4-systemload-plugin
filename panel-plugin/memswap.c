@@ -285,16 +285,23 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 #define ARRLEN(X) (sizeof(X)/sizeof(X[0]))
     {
         static int mib[2];
+
+#ifdef HW_PHYSMEM64
         /* 64-bit datatype */
-        if(sizeof(size_t) == 8) {
-            mib[0] = CTL_HW;
-            mib[1] = HW_PHYSMEM64;
+        if (sizeof(size_t) == 8) {
+                mib[0] = CTL_HW;
+                mib[1] = HW_PHYSMEM64;
         }
         /* assume 32-bit datatype */
         else {
-            mib[0] = CTL_HW;
-            mib[1] = HW_PHYSMEM;
+                mib[0] = CTL_HW;
+                mib[1] = HW_PHYSMEM;
         }
+#else
+        mib[0] = CTL_HW;
+        mib[1] = HW_PHYSMEM;
+#endif
+
         len = sizeof(MTotal);
         sysctl(mib, ARRLEN(mib), &MTotal, &len, NULL, 0);
         MTotal >>= 10;
@@ -406,16 +413,23 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 #define ARRLEN(X) (sizeof(X)/sizeof(X[0]))
     {
         static int mib[2];
+
+#ifdef HW_PHYSMEM64
         /* 64-bit datatype */
-        if(sizeof(size_t) == 8) {
-            mib[0] = CTL_HW;
-            mib[1] = HW_PHYSMEM64;
+        if (sizeof(size_t) == 8) {
+                mib[0] = CTL_HW;
+                mib[1] = HW_PHYSMEM64;
         }
         /* assume 32-bit datatype */
         else {
-            mib[0] = CTL_HW;
-            mib[1] = HW_PHYSMEM;
+                mib[0] = CTL_HW;
+                mib[1] = HW_PHYSMEM;
         }
+#else
+        mib[0] = CTL_HW;
+        mib[1] = HW_PHYSMEM;
+#endif
+
         len = sizeof(MTotal);
         sysctl(mib, ARRLEN(mib), &MTotal, &len, NULL, 0);
         MTotal >>= 10;
