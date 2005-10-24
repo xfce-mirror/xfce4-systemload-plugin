@@ -1,0 +1,90 @@
+# Polish translations for xfce4-systemload-plugin package.
+# Copyright (C) 2003-2005 Riccardo Persichetti.
+# This file is distributed under the same license as the
+#   xfce4-systemload-plugin package.
+# Piotr Maliński <admin@rk.edu.pl> 2005-09-20.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-10-24 23:29+0900\n"
+"PO-Revision-Date: 2005-10-24 23:41+0900\n"
+"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/cpu.c:61
+msgid "File /proc/stat not found!"
+msgstr "Plik /proc/stat nie znaleziony!"
+
+#: panel-plugin/systemload.c:160
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Obciążenie systemu: %ld%%"
+
+#: panel-plugin/systemload.c:168
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Pamięć: %ldMB z %ldMB używane"
+
+#: panel-plugin/systemload.c:177
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: %ldMB z %ldMB używane"
+
+#: panel-plugin/systemload.c:180
+msgid "No swap"
+msgstr "Brak swap"
+
+#: panel-plugin/systemload.c:191
+#, c-format
+msgid "%d days"
+msgstr "% dni"
+
+#: panel-plugin/systemload.c:198
+msgid "Uptime:"
+msgstr "Uptime:"
+
+#: panel-plugin/systemload.c:794
+msgid "Select color"
+msgstr "Wybierz kolor"
+
+#: panel-plugin/systemload.c:849
+msgid "CPU monitor"
+msgstr "Statystyki Procesora"
+
+#: panel-plugin/systemload.c:850
+#, fuzzy
+msgid "Memory monitor"
+msgstr "Pokaż statystyki"
+
+#: panel-plugin/systemload.c:851
+msgid "Swap monitor"
+msgstr "Statystyki Swap"
+
+#: panel-plugin/systemload.c:852
+msgid "Uptime monitor"
+msgstr "Statystyki Uptime"
+
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+msgid "Show monitor"
+msgstr "Pokaż statystyki"
+
+#: panel-plugin/systemload.c:884
+msgid "Text to display:"
+msgstr "Wyświetlany tekst"
+
+#: panel-plugin/systemload.c:919
+msgid "Bar color:"
+msgstr "Kolor słupka"
+
+#: panel-plugin/systemload.c:1028
+msgid "System Load"
+msgstr "Obciążenie systemu"
+
+#: panel-plugin/uptime.c:54
+msgid "File /proc/uptime not found!"
+msgstr "Plik /proc/uptime nie znaleziony!"
