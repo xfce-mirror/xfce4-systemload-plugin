@@ -1,16 +1,17 @@
-# French translation of xfce4-systemload-plugin.
-# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# French translation of xfce4-systemload-plugin package.
+# Copyright (C) 2003-2005 Riccardo Persichetti.
+# This file is distributed under the same license as the
+#   xfce4-systemload-plugin package.
 # Stephane Roy <sroy@j2n.net>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-13 21:48+0100\n"
-"PO-Revision-Date: 2005-01-26 15:48+0100\n"
+"POT-Creation-Date: 2005-10-24 23:29+0900\n"
+"PO-Revision-Date: 2005-10-24 23:34+0900\n"
 "Last-Translator: Stephane Roy <sroy@j2n.net>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: French <traduc@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -67,8 +68,7 @@ msgstr "Moniteur de partition d'échange"
 msgid "Uptime monitor"
 msgstr "Moniteur de temps de fonctionnement"
 
-#: panel-plugin/systemload.c:871
-#: panel-plugin/systemload.c:966
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
 msgid "Show monitor"
 msgstr "Afficher le moniteur"
 
@@ -87,4 +87,3 @@ msgstr "Moniteurs système"
 #: panel-plugin/uptime.c:54
 msgid "File /proc/uptime not found!"
 msgstr "Fichier /proc/uptime non trouvé !"
-

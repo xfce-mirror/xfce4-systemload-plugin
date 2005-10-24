@@ -1,20 +1,20 @@
-# translation of xfce4-systemload.
-# Copyright (C) 2003 AUTHORS
-# This file is distributed under the same license as the xfce4-systemload.
-# Mantas <zaz@xxx.lt>, 2003.
-# 
-# 
+# Lithuanian translation of xfce4-systemload-plugin package.
+# Copyright (C) 2003-2005 Riccardo Persichetti.
+# This file is distributed under the same license as the
+#   xfce4-systemload-plugin package.
+# Mantas Zapolskas <mantaz@users.sf.net>, 2003.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload 0.3.2\n"
+"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-13 21:48+0100\n"
-"PO-Revision-Date: 2005-02-04 20:52+0200\n"
-"Last-Translator: Mantas <zaz@xxx.lt>\n"
-"Language-Team:  <komp_lt@konferencijos.lt>\n"
+"POT-Creation-Date: 2005-10-24 23:29+0900\n"
+"PO-Revision-Date: 2005-10-24 23:41+0900\n"
+"Last-Translator: Mantas Zapolskas <mantaz@users.sf.net>\n"
+"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: panel-plugin/cpu.c:61
 msgid "File /proc/stat not found!"
@@ -87,4 +87,3 @@ msgstr "Sistemos apkrovimas"
 #: panel-plugin/uptime.c:54
 msgid "File /proc/uptime not found!"
 msgstr "Byla „/proc/uptime“ nerasta!"
-
