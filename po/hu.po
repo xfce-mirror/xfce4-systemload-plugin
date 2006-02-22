@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-24 23:29+0900\n"
+"POT-Creation-Date: 2006-02-15 22:51+0900\n"
 "PO-Revision-Date: 2006-02-11 18:07+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -69,8 +69,7 @@ msgstr "Swap mutató"
 msgid "Uptime monitor"
 msgstr "Üzemidő mutató"
 
-#: panel-plugin/systemload.c:871
-#: panel-plugin/systemload.c:966
+#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
 msgid "Show monitor"
 msgstr "Mutasd"
 
@@ -92,10 +91,12 @@ msgstr "A /proc/uptime nem lelhető!"
 
 #~ msgid "Hide text"
 #~ msgstr "Sz??veg elrejt??se"
+
 #~ msgid "Error while calling pstat_getdynamic(2)"
 #~ msgstr "Hiba a pstat_getdynamic(2) f??ggv??ny h?­v??sakor."
+
 #~ msgid "Cannot get nlist."
 #~ msgstr "Nem hozz??f??rhet? az 'nlist'."
+
 #~ msgid "Problem with kmem."
 #~ msgstr "Probl??ma a kmem haszn??la sor??n."
-
