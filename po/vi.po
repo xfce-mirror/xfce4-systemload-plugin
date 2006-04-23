@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload 0.3.6\n"
+"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-24 23:29+0900\n"
 "PO-Revision-Date: 2005-10-24 23:44+0900\n"
