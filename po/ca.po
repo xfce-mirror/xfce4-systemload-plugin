@@ -1,92 +1,100 @@
-# Catalan translations for xfce4-systemload-plugin package.
-# Copyright (C) 2003-2005 Riccardo Persichetti.
-# This file is distributed under the same license as the
-#   xfce4-systemload-plugin package.
+# xfce4-systemload for the XFce desktop environment.
+# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-systemload package.
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
+"Project-Id-Version: XFce 4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-24 23:29+0900\n"
-"PO-Revision-Date: 2005-10-24 23:32+0900\n"
-"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: Catalan <ca@dodds.net>\n"
+"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"PO-Revision-Date: 2003-08-15 15:37+0100\n"
+"Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
+"Language-Team: ca <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/cpu.c:61
+#: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
 msgstr "No s'ha trobat el fitxer «/proc/stat»"
 
-#: panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
-#: panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:167
 #, fuzzy, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "%ldMB de %ldMB fets servir"
 
-#: panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:176
 #, fuzzy, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "%ldMB de %ldMB fets servir"
 
-#: panel-plugin/systemload.c:180
+#: ../panel-plugin/systemload.c:179
 msgid "No swap"
 msgstr "Sense directori d'intercanvi"
 
-#: panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
 msgstr "%d dies"
 
-#: panel-plugin/systemload.c:198
+#: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
 msgstr "Temps en fucionament"
 
-#: panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:679
 msgid "Select color"
 msgstr "Seleccioneu el color"
 
-#: panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:744
 msgid "CPU monitor"
 msgstr "Monitor de CPU"
 
-#: panel-plugin/systemload.c:850
+#: ../panel-plugin/systemload.c:745
 msgid "Memory monitor"
 msgstr "Monitor de memòria"
 
-#: panel-plugin/systemload.c:851
+#: ../panel-plugin/systemload.c:746
 msgid "Swap monitor"
 msgstr "Monitor del directori d'intercanvi"
 
-#: panel-plugin/systemload.c:852
+#: ../panel-plugin/systemload.c:747
 msgid "Uptime monitor"
 msgstr "Monitor de temps en funcionament"
 
-#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+#: ../panel-plugin/systemload.c:754
+msgid "Properties"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Càrrega del sistema"
+
+#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
 msgid "Show monitor"
 msgstr "Mostra el monitor"
 
-#: panel-plugin/systemload.c:884
+#: ../panel-plugin/systemload.c:801
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: panel-plugin/systemload.c:919
+#: ../panel-plugin/systemload.c:836
 msgid "Bar color:"
 msgstr "Color de la barra:"
 
-#: panel-plugin/systemload.c:1028
-msgid "System Load"
-msgstr "Càrrega del sistema"
-
-#: panel-plugin/uptime.c:54
+#: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
 msgstr "No s'ha trobat el fitxer «/proc/uptime»"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr ""
 
 #~ msgid "%ldMB of  %ldMB"
 #~ msgstr "%ldMB de  %ldMB"

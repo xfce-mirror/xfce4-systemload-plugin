@@ -1,90 +1,99 @@
-# German translations for xfce4-systemload-plugin package.
-# Copyright (C) 2003-2005 Riccardo Persichetti.
-# This file is distributed under the same license as the
-#   xfce4-systemload-plugin package.
+# translation of de.po to 
+# translation of de.po to Deutsch
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Bernhard Walle <bernhard.walle@gmx.de>, 2003, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
+"Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-24 23:29+0900\n"
-"PO-Revision-Date: 2005-10-24 23:33+0900\n"
-"Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
-"Language-Team: German <de@li.org>\n"
+"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"PO-Revision-Date: 2005-01-13 21:51+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: panel-plugin/cpu.c:61
+#: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
 msgstr "Datei /proc/stat nicht gefunden!"
 
-#: panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systemauslastung: %ld %%"
 
-#: panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "%ld MB von %ld MB benutzt"
 
-#: panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "%ld MB von %ld MB benutzt"
 
-#: panel-plugin/systemload.c:180
+#: ../panel-plugin/systemload.c:179
 msgid "No swap"
 msgstr "Kein Auslagerungsspeicher vorhanden"
 
-#: panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
 msgstr "%d Tage"
 
-#: panel-plugin/systemload.c:198
+#: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
 msgstr "Betriebszeit:"
 
-#: panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:679
 msgid "Select color"
 msgstr "Farbe auswählen"
 
-#: panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:744
 msgid "CPU monitor"
 msgstr "CPU-Monitor"
 
-#: panel-plugin/systemload.c:850
+#: ../panel-plugin/systemload.c:745
 msgid "Memory monitor"
 msgstr "Speicher-Monitor"
 
-#: panel-plugin/systemload.c:851
+#: ../panel-plugin/systemload.c:746
 msgid "Swap monitor"
 msgstr "Auslagerungs-Monitor"
 
-#: panel-plugin/systemload.c:852
+#: ../panel-plugin/systemload.c:747
 msgid "Uptime monitor"
 msgstr "Betriebszeit-Monitor"
 
-#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+#: ../panel-plugin/systemload.c:754
+msgid "Properties"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Systemauslastung"
+
+#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
 msgid "Show monitor"
 msgstr "Monitor anzeigen"
 
-#: panel-plugin/systemload.c:884
+#: ../panel-plugin/systemload.c:801
 msgid "Text to display:"
 msgstr "Angezeigter Text:"
 
-#: panel-plugin/systemload.c:919
+#: ../panel-plugin/systemload.c:836
 msgid "Bar color:"
 msgstr "Farbe des Balkens:"
 
-#: panel-plugin/systemload.c:1028
-msgid "System Load"
-msgstr "Systemauslastung"
-
-#: panel-plugin/uptime.c:54
+#: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
 msgstr "Datei /proc/stat nicht gefunden!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr ""

@@ -1,93 +1,103 @@
-# Hungarian translation of xfce4-systemload-plugin package.
-# Copyright (C) 2003-2005 Riccardo Persichetti.
-# This file is distributed under the same license as the
-#   xfce4-systemload-plugin package.
-# Gabor SUVEG <gabor@suveg.hu>, 2003.
+# translation of hu.po to Hungarian
+# translation of hu.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2003
+# Gabor SUVEG <gabor@suveg.hu>, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
+"Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-24 23:29+0900\n"
-"PO-Revision-Date: 2006-02-11 18:07+0100\n"
-"Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
-"Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"PO-Revision-Date: 2003-07-23 18:06+0200\n"
+"Last-Translator: Gabor SUVEG <gabor@suveg.hu>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.1\n"
 
-#: panel-plugin/cpu.c:61
+#: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
-msgstr "A /proc/stat nem lelhető!"
+msgstr "A /proc/stat f??jl nem tal??lhat??."
 
-#: panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "Rendszer terhelés: %ld%%"
+msgstr "Rendszer terhel??s: %ld%%"
 
-#: panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Memória: %ldMB of %ldMB használt"
+msgstr ""
 
-#: panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Swap: %ldMB of %ldMB használt"
+msgstr ""
 
-#: panel-plugin/systemload.c:180
+#: ../panel-plugin/systemload.c:179
 msgid "No swap"
-msgstr "Nincs swap"
+msgstr ""
 
-#: panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
-msgstr "%d nap"
+msgstr ""
 
-#: panel-plugin/systemload.c:198
+#: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
-msgstr "Üzemidő:"
+msgstr ""
 
-#: panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:679
 msgid "Select color"
-msgstr "Válassz színt"
+msgstr ""
 
-#: panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:744
 msgid "CPU monitor"
-msgstr "CPU mutató"
+msgstr ""
 
-#: panel-plugin/systemload.c:850
+#: ../panel-plugin/systemload.c:745
 msgid "Memory monitor"
-msgstr "Memória mutató"
+msgstr ""
 
-#: panel-plugin/systemload.c:851
+#: ../panel-plugin/systemload.c:746
 msgid "Swap monitor"
-msgstr "Swap mutató"
+msgstr ""
 
-#: panel-plugin/systemload.c:852
+#: ../panel-plugin/systemload.c:747
 msgid "Uptime monitor"
-msgstr "Üzemidő mutató"
+msgstr ""
 
-#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+#: ../panel-plugin/systemload.c:754
+msgid "Properties"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Rendszer terhel??s"
+
+#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
 msgid "Show monitor"
-msgstr "Mutasd"
+msgstr ""
 
-#: panel-plugin/systemload.c:884
+#: ../panel-plugin/systemload.c:801
 msgid "Text to display:"
-msgstr "Kiírandó szöveg:"
+msgstr "Sz??veg megjelen?­t??se:"
 
-#: panel-plugin/systemload.c:919
+#: ../panel-plugin/systemload.c:836
 msgid "Bar color:"
-msgstr "Oszlop szín:"
+msgstr "Oszlop sz?­n:"
 
-#: panel-plugin/systemload.c:1028
-msgid "System Load"
-msgstr "Rendszer terhelés"
-
-#: panel-plugin/uptime.c:54
+#: ../panel-plugin/uptime.c:52
+#, fuzzy
 msgid "File /proc/uptime not found!"
-msgstr "A /proc/uptime nem lelhető!"
+msgstr "A /proc/stat f??jl nem tal??lhat??."
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr ""
 
 #~ msgid "Hide text"
 #~ msgstr "Sz??veg elrejt??se"

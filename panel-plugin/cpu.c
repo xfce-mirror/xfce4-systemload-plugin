@@ -33,11 +33,8 @@
 #include <fcntl.h>
 #include <gtk/gtk.h>
 
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/dialogs.h>
-#include <panel/plugins.h>
-#include <panel/xfce.h>
-
 #include "cpu.h" 
 
 #if defined(__linux__)

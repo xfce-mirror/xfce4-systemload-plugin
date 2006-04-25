@@ -1,98 +1,99 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Dutch translations for xfce4-systemload-plugin package.
+# Copyright (C) 2005 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# Jasper Huijsmans <jasper@xfce.org>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin\n"
+"Project-Id-Version: xfce4-systemload-plugin 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-10 14:15+0200\n"
-"PO-Revision-Date: 2005-01-19 16:41+0900\n"
-"Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2005-10-10 14:22+0200\n"
+"Last-Translator: Jasper Huijsmans <jasper@xfce.org>\n"
+"Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
-msgstr "/proc/stat을 못 찾겠습니다!"
+msgstr "Bestand /proc/stat niet gevonden!"
 
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "시스템 부하: %ld%%"
+msgstr "Systeem: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "메모리: %ldMB(총 %ldMB) 사용"
+msgstr "Geheugen: %ldMB van %ldMB in gebruik"
 
 #: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "스왑: %ldMB(총 %ldMB) 사용"
+msgstr "Swap: %ldMB van %ldMB in gebruik"
 
 #: ../panel-plugin/systemload.c:179
 msgid "No swap"
-msgstr "스왑 없음"
+msgstr "Geen swap"
 
 #: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
-msgstr "%d일"
+msgstr "%d dagen"
 
 #: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
-msgstr "동작시간:"
+msgstr "Uptime:"
 
 #: ../panel-plugin/systemload.c:679
 msgid "Select color"
-msgstr "색상을 선택하십시오."
+msgstr "Kleur selecteren"
 
 #: ../panel-plugin/systemload.c:744
 msgid "CPU monitor"
-msgstr "CPU 감시"
+msgstr "CPU monitor"
 
 #: ../panel-plugin/systemload.c:745
 msgid "Memory monitor"
-msgstr "메모리 감시"
+msgstr "Geheugen monitor"
 
 #: ../panel-plugin/systemload.c:746
 msgid "Swap monitor"
-msgstr "스왑 감시"
+msgstr "Swap monitor"
 
 #: ../panel-plugin/systemload.c:747
 msgid "Uptime monitor"
-msgstr "동작시간 감시"
+msgstr "Uptime monitor"
 
 #: ../panel-plugin/systemload.c:754
 msgid "Properties"
-msgstr ""
+msgstr "Eigenschappen"
 
 #: ../panel-plugin/systemload.c:766
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
-msgstr "시스템 부하"
+msgstr "Systeem Monitor"
 
 #: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
 msgid "Show monitor"
-msgstr "보이기"
+msgstr "Monitor tonen"
 
 #: ../panel-plugin/systemload.c:801
 msgid "Text to display:"
-msgstr "화면 표시:"
+msgstr "Tekst:"
 
 #: ../panel-plugin/systemload.c:836
 msgid "Bar color:"
-msgstr "막대 색:"
+msgstr "Kleur:"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
-msgstr "/proc/uptime을 못 찾겠습니다!"
+msgstr "Bestand /proc/uptime niet gevonden"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
+msgstr "Toon CPU-, swap- en geheugengebruik"
+
