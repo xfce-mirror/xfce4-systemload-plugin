@@ -1,0 +1,100 @@
+# Swedish translation for xfce4-systemload-plugin
+# Copyright (c) 2006 Free Software Foundation, Inc.
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-05-09 06:01+0000\n"
+"PO-Revision-Date: 2006-05-19 19:58+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "Filen /proc/stat hittades inte!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Systembelastning: %ld%%"
+
+#: ../panel-plugin/systemload.c:167
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Minne: %ldMB av %ldMB använt"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Växlingsutrymme: %ldMB av %ldMB använt"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "Inget växlingsutrymme"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d dagar"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Upptid:"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Välj färg"
+
+#: ../panel-plugin/systemload.c:748
+msgid "CPU monitor"
+msgstr "Processorövervakare"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Memory monitor"
+msgstr "Minnesövervakare"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Swap monitor"
+msgstr "Växlingutrymmeövervakare"
+
+#: ../panel-plugin/systemload.c:751
+msgid "Uptime monitor"
+msgstr "Upptidsövervakare"
+
+#: ../panel-plugin/systemload.c:758
+msgid "Properties"
+msgstr "Egenskaper"
+
+#: ../panel-plugin/systemload.c:770
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Systembelastningsövervakare"
+
+#: ../panel-plugin/systemload.c:792
+#: ../panel-plugin/systemload.c:887
+msgid "Show monitor"
+msgstr "Visa övervakare"
+
+#: ../panel-plugin/systemload.c:805
+msgid "Text to display:"
+msgstr "Text att visa:"
+
+#: ../panel-plugin/systemload.c:840
+msgid "Bar color:"
+msgstr "Stapelfärg:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "Filen /proc/uptime hittades inte!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Övervaka processorbelastning, användning av växlingsutrymme och minne"
+
+
