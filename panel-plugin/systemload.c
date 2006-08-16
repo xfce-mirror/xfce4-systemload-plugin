@@ -751,8 +751,6 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 	    N_("Uptime monitor")
     };
 
-    global->opt_dialog = dlg;
-
     xfce_panel_plugin_block_menu (plugin);
     
     dlg = gtk_dialog_new_with_buttons (_("Properties"), 
@@ -762,6 +760,8 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                 GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
                 NULL);
     
+    global->opt_dialog = dlg;
+
     g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
                       global);
 
