@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2005-01-19 16:41+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,44 +48,44 @@ msgstr "%d일"
 msgid "Uptime:"
 msgstr "동작시간:"
 
-#: ../panel-plugin/systemload.c:679
+#: ../panel-plugin/systemload.c:683
 msgid "Select color"
 msgstr "색상을 선택하십시오."
 
-#: ../panel-plugin/systemload.c:744
+#: ../panel-plugin/systemload.c:748
 msgid "CPU monitor"
 msgstr "CPU 감시"
 
-#: ../panel-plugin/systemload.c:745
+#: ../panel-plugin/systemload.c:749
 msgid "Memory monitor"
 msgstr "메모리 감시"
 
-#: ../panel-plugin/systemload.c:746
+#: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
 msgstr "스왑 감시"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
 msgstr "동작시간 감시"
 
-#: ../panel-plugin/systemload.c:754
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "시스템 부하"
 
-#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "보이기"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:805
 msgid "Text to display:"
 msgstr "화면 표시:"
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:840
 msgid "Bar color:"
 msgstr "막대 색:"
 

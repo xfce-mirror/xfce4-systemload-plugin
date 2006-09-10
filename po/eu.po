@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-24 23:29+0900\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-02-14 10:57+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <librezale@librezale.org>\n"
@@ -16,74 +16,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 0.6.3.20060126\n"
 
-#: panel-plugin/cpu.c:61
+#: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
 msgstr "/proc/stat fitxategia ez da aurkitu!"
 
-#: panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systema Karga: %%%ld"
 
-#: panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: %ldMB erabiliak %ldMB-etik"
 
-#: panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB erabiliak %ldMB-etik"
 
-#: panel-plugin/systemload.c:180
+#: ../panel-plugin/systemload.c:179
 msgid "No swap"
 msgstr "Swap-ik ez"
 
-#: panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
 msgstr "%d egun"
 
-#: panel-plugin/systemload.c:198
+#: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
 msgstr "Abiaraztea:"
 
-#: panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:683
 msgid "Select color"
 msgstr "Kolorea hautatu"
 
-#: panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:748
 msgid "CPU monitor"
 msgstr "CPU monitorea"
 
-#: panel-plugin/systemload.c:850
+#: ../panel-plugin/systemload.c:749
 msgid "Memory monitor"
 msgstr "Memoria monitorea"
 
-#: panel-plugin/systemload.c:851
+#: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
 msgstr "Swap monitorea"
 
-#: panel-plugin/systemload.c:852
+#: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
 msgstr "Abiarazte monitorea"
 
-#: panel-plugin/systemload.c:871 panel-plugin/systemload.c:966
+#: ../panel-plugin/systemload.c:756
+msgid "Properties"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:770
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+#, fuzzy
+msgid "System Load Monitor"
+msgstr "Sistema Karga"
+
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "Monitorea bistarazi"
 
-#: panel-plugin/systemload.c:884
+#: ../panel-plugin/systemload.c:805
 msgid "Text to display:"
 msgstr "Bistaratzeko testua:"
 
-#: panel-plugin/systemload.c:919
+#: ../panel-plugin/systemload.c:840
 msgid "Bar color:"
 msgstr "Barra kolorea:"
 
-#: panel-plugin/systemload.c:1028
-msgid "System Load"
-msgstr "Sistema Karga"
-
-#: panel-plugin/uptime.c:54
+#: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
 msgstr "/proc/uptime fitxategia ez da aurkitu!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr ""

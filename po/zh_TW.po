@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-07-27 00:32+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -48,44 +48,44 @@ msgstr "%d 日"
 msgid "Uptime:"
 msgstr "已運作時間 (Uptime)："
 
-#: ../panel-plugin/systemload.c:679
+#: ../panel-plugin/systemload.c:683
 msgid "Select color"
 msgstr "請選擇顏色"
 
-#: ../panel-plugin/systemload.c:744
+#: ../panel-plugin/systemload.c:748
 msgid "CPU monitor"
 msgstr "處理器負載顯示"
 
-#: ../panel-plugin/systemload.c:745
+#: ../panel-plugin/systemload.c:749
 msgid "Memory monitor"
 msgstr "記憶體顯示"
 
-#: ../panel-plugin/systemload.c:746
+#: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
 msgstr "Swap 顯示"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
 msgstr "已運作時間 (Uptime) 顯示"
 
-#: ../panel-plugin/systemload.c:754
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr "屬性"
 
-#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "系統負載"
 
-#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "顯示此項資料"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:805
 msgid "Text to display:"
 msgstr "顯示圖表標題："
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:840
 msgid "Bar color:"
 msgstr "棒條顏色："
 

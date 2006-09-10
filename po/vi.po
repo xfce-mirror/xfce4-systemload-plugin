@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2005-04-09 21:25+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@none.org>\n"
@@ -48,44 +48,44 @@ msgstr "%d ngày"
 msgid "Uptime:"
 msgstr "Đã chạy:"
 
-#: ../panel-plugin/systemload.c:679
+#: ../panel-plugin/systemload.c:683
 msgid "Select color"
 msgstr "Chọn màu"
 
-#: ../panel-plugin/systemload.c:744
+#: ../panel-plugin/systemload.c:748
 msgid "CPU monitor"
 msgstr "Theo dõi CPU"
 
-#: ../panel-plugin/systemload.c:745
+#: ../panel-plugin/systemload.c:749
 msgid "Memory monitor"
 msgstr "Theo dõi bộ nhớ"
 
-#: ../panel-plugin/systemload.c:746
+#: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
 msgstr "Theo dõi swap"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
 msgstr "Theo dõi thời gian đã chạy"
 
-#: ../panel-plugin/systemload.c:754
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Tải hệ thống"
 
-#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "Hiển thị"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:805
 msgid "Text to display:"
 msgstr "Văn bản hiển thị:"
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:840
 msgid "Bar color:"
 msgstr "Màu:"
 

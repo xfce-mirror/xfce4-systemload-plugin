@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-27 09:38+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-27 09:42+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -77,8 +77,7 @@ msgstr "Vlastnosti"
 msgid "System Load Monitor"
 msgstr "Sledování vytížení systému"
 
-#: ../panel-plugin/systemload.c:792
-#: ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "Zobrazit sledování"
 
@@ -97,4 +96,3 @@ msgstr "Soubor /proc/uptime nenalezen!"
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Sleduje zatížení procesoru, využití oddílu swap a paměti"
-

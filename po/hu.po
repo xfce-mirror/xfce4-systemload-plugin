@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-07-08 00:55+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -49,45 +49,44 @@ msgstr "%d nap"
 msgid "Uptime:"
 msgstr "Üzemidő:"
 
-#: ../panel-plugin/systemload.c:679
+#: ../panel-plugin/systemload.c:683
 msgid "Select color"
 msgstr "Válassz színt"
 
-#: ../panel-plugin/systemload.c:744
+#: ../panel-plugin/systemload.c:748
 msgid "CPU monitor"
 msgstr "CPU figyelő"
 
-#: ../panel-plugin/systemload.c:745
+#: ../panel-plugin/systemload.c:749
 msgid "Memory monitor"
 msgstr "Memória figyelő"
 
-#: ../panel-plugin/systemload.c:746
+#: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
 msgstr "Cserehely figyelő"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
 msgstr "Üzemidő figyelő"
 
-#: ../panel-plugin/systemload.c:754
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Rendszer terhelés"
 
-#: ../panel-plugin/systemload.c:788
-#: ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "Figyelő kijelzése"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:805
 msgid "Text to display:"
 msgstr "Kiírandó szöveg:"
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:840
 msgid "Bar color:"
 msgstr "Oszlop szín:"
 
@@ -101,10 +100,12 @@ msgstr "Figyeli a CPU-t, a cserehelyet és a memóriát"
 
 #~ msgid "Hide text"
 #~ msgstr "Sz??veg elrejt??se"
+
 #~ msgid "Error while calling pstat_getdynamic(2)"
 #~ msgstr "Hiba a pstat_getdynamic(2) f??ggv??ny h?­v??sakor."
+
 #~ msgid "Cannot get nlist."
 #~ msgstr "Nem hozz??f??rhet? az 'nlist'."
+
 #~ msgid "Problem with kmem."
 #~ msgstr "Probl??ma a kmem haszn??la sor??n."
-

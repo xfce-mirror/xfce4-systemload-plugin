@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload 0.3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-10 14:15+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2005-02-04 20:52+0200\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
@@ -48,44 +48,44 @@ msgstr "%d dienų"
 msgid "Uptime:"
 msgstr "Veikimo laikas:"
 
-#: ../panel-plugin/systemload.c:679
+#: ../panel-plugin/systemload.c:683
 msgid "Select color"
 msgstr "Pasirinkite spalvą"
 
-#: ../panel-plugin/systemload.c:744
+#: ../panel-plugin/systemload.c:748
 msgid "CPU monitor"
 msgstr "CPU matuoklis"
 
-#: ../panel-plugin/systemload.c:745
+#: ../panel-plugin/systemload.c:749
 msgid "Memory monitor"
 msgstr "Atminties matuoklis"
 
-#: ../panel-plugin/systemload.c:746
+#: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
 msgstr "Mainų skirsnio matuoklis"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
 msgstr "Veikimo laiko matuoklis"
 
-#: ../panel-plugin/systemload.c:754
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:766
+#: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Sistemos apkrovimas"
 
-#: ../panel-plugin/systemload.c:788 ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "Rodyti matuoklį"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:805
 msgid "Text to display:"
 msgstr "Rodomas tekstas:"
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:840
 msgid "Bar color:"
 msgstr "Juostos spalva:"
 

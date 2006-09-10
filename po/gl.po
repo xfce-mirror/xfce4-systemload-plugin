@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2006-05-09 06:01+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-17 19:42+0000\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Uptime monitor"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:758
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr "Propiedades"
 

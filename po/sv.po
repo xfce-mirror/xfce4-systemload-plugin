@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-09 06:01+0000\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-05-19 19:58+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -67,7 +67,7 @@ msgstr "Växlingutrymmeövervakare"
 msgid "Uptime monitor"
 msgstr "Upptidsövervakare"
 
-#: ../panel-plugin/systemload.c:758
+#: ../panel-plugin/systemload.c:756
 msgid "Properties"
 msgstr "Egenskaper"
 
@@ -76,8 +76,7 @@ msgstr "Egenskaper"
 msgid "System Load Monitor"
 msgstr "Systembelastningsövervakare"
 
-#: ../panel-plugin/systemload.c:792
-#: ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
 msgstr "Visa övervakare"
 
@@ -96,5 +95,3 @@ msgstr "Filen /proc/uptime hittades inte!"
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Övervaka processorbelastning, användning av växlingsutrymme och minne"
-
-
