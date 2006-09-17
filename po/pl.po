@@ -57,9 +57,8 @@ msgid "CPU monitor"
 msgstr "Statystyki Procesora"
 
 #: ../panel-plugin/systemload.c:749
-#, fuzzy
 msgid "Memory monitor"
-msgstr "Pokaż statystyki"
+msgstr "Monitor Pamięci"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
@@ -71,13 +70,12 @@ msgstr "Statystyki Uptime"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Properties"
-msgstr ""
+msgstr "Właściwości"
 
 #: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
-#, fuzzy
 msgid "System Load Monitor"
-msgstr "Obciążenie systemu"
+msgstr "Monitor Obciążenia Systemu"
 
 #: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
 msgid "Show monitor"
@@ -97,4 +95,4 @@ msgstr "Plik /proc/uptime nie znaleziony!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
+msgstr "Monitoruje obciążenie procesora, pamięci i swap"
