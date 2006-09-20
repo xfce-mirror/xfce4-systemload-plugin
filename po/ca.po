@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: XFce 4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2003-08-15 15:37+0100\n"
+"PO-Revision-Date: 2006-09-20 13:39+0200\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,18 +25,18 @@ msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
-#, fuzzy, c-format
+#, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "%ldMB de %ldMB fets servir"
+msgstr "Memòria: %ldMB de %ldMB fets servir"
 
 #: ../panel-plugin/systemload.c:176
-#, fuzzy, c-format
+#, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "%ldMB de %ldMB fets servir"
+msgstr "Memòria d’intercanvi: %ldMB de %ldMB fets servir"
 
 #: ../panel-plugin/systemload.c:179
 msgid "No swap"
-msgstr "Sense directori d'intercanvi"
+msgstr "Sense memòria d'intercanvi"
 
 #: ../panel-plugin/systemload.c:190
 #, c-format
@@ -61,7 +61,7 @@ msgstr "Monitor de memòria"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Swap monitor"
-msgstr "Monitor del directori d'intercanvi"
+msgstr "Monitor de la memòria d'intercanvi"
 
 #: ../panel-plugin/systemload.c:751
 msgid "Uptime monitor"
@@ -69,7 +69,7 @@ msgstr "Monitor de temps en funcionament"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Properties"
-msgstr ""
+msgstr "Propietats"
 
 #: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
@@ -94,7 +94,4 @@ msgstr "No s'ha trobat el fitxer «/proc/uptime»"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
-
-#~ msgid "%ldMB of  %ldMB"
-#~ msgstr "%ldMB de  %ldMB"
+msgstr "Monitoritza la càrrega de CPU, l’ús de la memòria d’intercanvi i la emprenta de memòria"
