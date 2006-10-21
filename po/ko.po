@@ -1,17 +1,19 @@
-# SOME DESCRIPTIVE TITLE.
+# Korean translations for xfce4-systemload-plugin package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005.
 #
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2005-01-19 16:41+0900\n"
-"Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2006-10-20 12:07+0900\n"
+"Last-Translator: ByungHyun Choi<byunghyun.choi@debianusers.org>\n"
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,7 +72,7 @@ msgstr "동작시간 감시"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Properties"
-msgstr ""
+msgstr "속성"
 
 #: ../panel-plugin/systemload.c:770
 #: ../panel-plugin/systemload.desktop.in.in.h:2
@@ -95,4 +97,4 @@ msgstr "/proc/uptime을 못 찾겠습니다!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
+msgstr "CPU 사용량, 스왑사용량, 메모리 사용량을 감시합니다."
