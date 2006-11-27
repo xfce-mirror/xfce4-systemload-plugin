@@ -1,7 +1,5 @@
 # Korean translations for xfce4-systemload-plugin package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (C) Free Software Foundation
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005.
 #
@@ -11,9 +9,9 @@ msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-10-20 12:07+0900\n"
+"PO-Revision-Date: 2006-11-28 00:03+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@debianusers.org>\n"
-"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
