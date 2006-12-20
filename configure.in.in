@@ -5,7 +5,7 @@ dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
-m4_define([systemload_version], [0.4.0])
+m4_define([systemload_version], [0.4.1])
 
 AC_INIT([xfce4-systemload-plugin], [systemload_version()], 
 	[xfce-goodies-dev@lists.berlios.de])
