@@ -17,29 +17,43 @@ AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
-AC_AIX
-AC_ISC_POSIX
-AC_MINIX
+AC_AIX()
+AC_ISC_POSIX()
+AC_MINIX()
 
 dnl Check for basic programs
-AC_PROG_CC
-AC_PROG_INSTALL
-AC_PROG_INTLTOOL
+AC_PROG_CC()
+AC_PROG_INSTALL()
+AC_PROG_INTLTOOL()
 
 dnl Check for kvm, needed by bsd
 AC_CHECK_LIB([kvm], [kvm_open])
 
 dnl Check for standard header files
-AC_HEADER_STDC
+AC_HEADER_STDC()
 
-dnl configure the panel plugin
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.22])
+dnl required
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.99.1])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.3.99.1])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.99.1])
 
 dnl Check for i18n support 
-XDT_I18N([ca cs de fr gl hu ko lt nl sv uk vi zh_TW])
+XDT_I18N([@LINGUAS@])
 
 dnl Check for debugging support
 XDT_FEATURE_DEBUG()
+
+dnl Substitute platform flags
+AC_MSG_CHECKING([PLATFORM_CPPFLAGS])
+AC_MSG_RESULT([$PLATFORM_CPPFLAGS])
+AC_SUBST([PLATFORM_CPPFLAGS])
+AC_MSG_CHECKING([PLATFORM_CFLAGS])
+AC_MSG_RESULT([$PLATFORM_CFLAGS])
+AC_SUBST([PLATFORM_CFLAGS])
+AC_MSG_CHECKING([PLATFORM_LDFLAGS])
+AC_MSG_RESULT([$PLATFORM_LDFLAGS])
+AC_SUBST([PLATFORM_LDFLAGS])
 
 AC_OUTPUT([
 Makefile

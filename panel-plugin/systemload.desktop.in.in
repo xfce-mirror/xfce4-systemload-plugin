@@ -3,6 +3,6 @@ Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
 _Name=System Load Monitor
 _Comment=Monitor CPU load, swap usage and memory footprint
-Icon=xfce-mouse
-X-XFCE-Exec=@PLUGIN_PATH@/xfce4-systemload-plugin
+Icon=utilities-system-monitor
+X-XFCE-Exec=@libexecdir@/xfce4/panel-plugins/xfce4-systemload-plugin
 
