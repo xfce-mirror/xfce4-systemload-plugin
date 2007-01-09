@@ -1,3 +1,7 @@
+2007-01-09 Nick Schermer
+
+	* Fix build problems with -as-needed (Bug 2461)
+
 2007-01-05 Mike Massonnet
 
 	* panel-plugin/systemload.c(monitor_create_options): use xfce titled
