@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 21:29+0100\n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
 "PO-Revision-Date: 2006-07-08 00:55+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -52,40 +52,36 @@ msgstr "Üzemidő:"
 msgid "Select color"
 msgstr "Válassz színt"
 
-#: ../panel-plugin/systemload.c:748
+#: ../panel-plugin/systemload.c:747
 msgid "CPU monitor"
 msgstr "CPU figyelő"
 
-#: ../panel-plugin/systemload.c:749
+#: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
 msgstr "Memória figyelő"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.c:749
 msgid "Swap monitor"
 msgstr "Cserehely figyelő"
 
-#: ../panel-plugin/systemload.c:751
+#: ../panel-plugin/systemload.c:750
 msgid "Uptime monitor"
 msgstr "Üzemidő figyelő"
 
-#: ../panel-plugin/systemload.c:756
-msgid "Properties"
-msgstr "Tulajdonságok"
-
-#: ../panel-plugin/systemload.c:770
+#: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Rendszer terhelés"
 
-#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
 msgid "Show monitor"
 msgstr "Figyelő kijelzése"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:792
 msgid "Text to display:"
 msgstr "Kiírandó szöveg:"
 
-#: ../panel-plugin/systemload.c:840
+#: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
 msgstr "Oszlop szín:"
 
@@ -96,6 +92,9 @@ msgstr "A /proc/uptime fájl nem található."
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Figyeli a CPU-t, a cserehelyet és a memóriát"
+
+#~ msgid "Properties"
+#~ msgstr "Tulajdonságok"
 
 #~ msgid "Hide text"
 #~ msgstr "Sz??veg elrejt??se"

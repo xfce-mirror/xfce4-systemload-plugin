@@ -1,59 +1,71 @@
-dnl configure.ac
+dnl $Id$
 dnl
 dnl xfce4-systemload-plugin - Systemload monitor plugin for xfce4-panel
 dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
-m4_define([systemload_version], [0.4.1])
+dnl ***************************
+dnl *** Version information ***
+dnl ***************************
+m4_define([systemload_version_major], [0])
+m4_define([systemload_version_minor], [4])
+m4_define([systemload_version_micro], [2])
+m4_define([systemload_version_build], [r@REVISION@])
+m4_define([systemload_version_tag], [svn])
+m4_define([systemload_version], [systemload_version_major().systemload_version_minor().systemload_version_micro()ifelse(systemload_version_tag(), [svn], [systemload_version_tag()-systemload_version_build()], [systemload_version_tag()])])
 
-AC_INIT([xfce4-systemload-plugin], [systemload_version()], 
-	[xfce-goodies-dev@lists.berlios.de])
+dnl ***************************
+dnl *** Initialize autoconf ***
+dnl ***************************
+AC_COPYRIGHT([Copyright (c) 2006-2007
+        The Xfce development team. All rights reserved.])
+AC_INIT([xfce4-systemload-plugin], [systemload_version()], [http://bugzilla.xfce.org/], [xfce4-systemload-plugin])
+AC_PREREQ([2.50])
+AC_REVISION([$Id$])
 
-SYSTEMLOAD_VERSION=systemload_version()
-AM_INIT_AUTOMAKE([xfce4-systemload-plugin], [$SYSTEMLOAD_VERSION])
+dnl ***************************
+dnl *** Initialize automake ***
+dnl ***************************
+AM_INIT_AUTOMAKE([1.8 dist-bzip2 tar-ustar])
 AM_CONFIG_HEADER([config.h])
+AM_MAINTAINER_MODE()
 
-AM_MAINTAINER_MODE
-
-dnl Check for UNIX variants
-AC_AIX()
-AC_ISC_POSIX()
-AC_MINIX()
-
-dnl Check for basic programs
+dnl ********************************
+dnl *** Check for basic programs ***
+dnl ********************************
 AC_PROG_CC()
+AC_PROG_LD()
 AC_PROG_INSTALL()
 AC_PROG_INTLTOOL()
 
-dnl Check for kvm, needed by bsd
+dnl *************************************
+dnl *** Check for kvm, needed for BSD ***
+dnl *************************************
 AC_CHECK_LIB([kvm], [kvm_open])
 
-dnl Check for standard header files
+dnl **********************************
+dnl *** Check for standard headers ***
+dnl **********************************
 AC_HEADER_STDC()
 
-dnl required
+dnl ******************************
+dnl *** Check for i18n support ***
+dnl ******************************
+XDT_I18N([@LINGUAS@])
+
+dnl ***********************************
+dnl *** Check for required packages ***
+dnl ***********************************
 XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.99.1])
 XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.3.99.1])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.99.1])
 
-dnl Check for i18n support 
-XDT_I18N([@LINGUAS@])
-
-dnl Check for debugging support
+dnl ***********************************
+dnl *** Check for debugging support ***
+dnl ***********************************
 XDT_FEATURE_DEBUG()
-
-dnl Substitute platform flags
-AC_MSG_CHECKING([PLATFORM_CPPFLAGS])
-AC_MSG_RESULT([$PLATFORM_CPPFLAGS])
-AC_SUBST([PLATFORM_CPPFLAGS])
-AC_MSG_CHECKING([PLATFORM_CFLAGS])
-AC_MSG_RESULT([$PLATFORM_CFLAGS])
-AC_SUBST([PLATFORM_CFLAGS])
-AC_MSG_CHECKING([PLATFORM_LDFLAGS])
-AC_MSG_RESULT([$PLATFORM_LDFLAGS])
-AC_SUBST([PLATFORM_LDFLAGS])
 
 AC_OUTPUT([
 Makefile

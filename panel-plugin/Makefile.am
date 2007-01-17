@@ -1,3 +1,5 @@
+# $Id$
+
 INCLUDES =								\
 	-I$(top_srcdir)							\
 	-DG_LOG_DOMAIN=\"xfce4-systemload-plugin\"			\
@@ -10,6 +12,15 @@ plugindir =								\
 plugin_PROGRAMS =							\
 	xfce4-systemload-plugin
 
+xfce4_systemload_plugin_SOURCES =					\
+	systemload.c							\
+	uptime.c							\
+	uptime.h							\
+	memswap.c							\
+	memswap.h							\
+	cpu.c								\
+	cpu.h
+
 xfce4_systemload_plugin_CFLAGS =					\
 	$(GTK_CFLAGS)							\
 	$(LIBXFCE4UTIL_CFLAGS)						\
@@ -21,15 +32,6 @@ xfce4_systemload_plugin_LDADD =						\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCEGUI4_LIBS)						\
 	$(LIBXFCE4PANEL_LIBS)
-	
-xfce4_systemload_plugin_SOURCES =					\
-	systemload.c							\
-	uptime.c							\
-	uptime.h							\
-	memswap.c							\
-	memswap.h							\
-	cpu.c								\
-	cpu.h
 
 #
 # Desktop file

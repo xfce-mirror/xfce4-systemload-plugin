@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 21:29+0100\n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
 "PO-Revision-Date: 2005-10-24 23:41+0900\n"
 "Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -52,40 +52,36 @@ msgstr "Uptime:"
 msgid "Select color"
 msgstr "Wybierz kolor"
 
-#: ../panel-plugin/systemload.c:748
+#: ../panel-plugin/systemload.c:747
 msgid "CPU monitor"
 msgstr "Statystyki Procesora"
 
-#: ../panel-plugin/systemload.c:749
+#: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
 msgstr "Monitor Pamięci"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.c:749
 msgid "Swap monitor"
 msgstr "Statystyki Swap"
 
-#: ../panel-plugin/systemload.c:751
+#: ../panel-plugin/systemload.c:750
 msgid "Uptime monitor"
 msgstr "Statystyki Uptime"
 
-#: ../panel-plugin/systemload.c:756
-msgid "Properties"
-msgstr "Właściwości"
-
-#: ../panel-plugin/systemload.c:770
+#: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Monitor Obciążenia Systemu"
 
-#: ../panel-plugin/systemload.c:792 ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
 msgid "Show monitor"
 msgstr "Pokaż statystyki"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:792
 msgid "Text to display:"
 msgstr "Wyświetlany tekst"
 
-#: ../panel-plugin/systemload.c:840
+#: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
 msgstr "Kolor słupka"
 
@@ -96,3 +92,6 @@ msgstr "Plik /proc/uptime nie znaleziony!"
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitoruje obciążenie procesora, pamięci i swap"
+
+#~ msgid "Properties"
+#~ msgstr "Właściwości"

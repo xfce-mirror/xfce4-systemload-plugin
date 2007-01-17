@@ -736,19 +736,18 @@ monitor_dialog_response (GtkWidget *dlg, int response,
 static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    GtkWidget        *dlg, *header;
-    GtkBox           *vbox, *global_vbox;
-    GtkBox           *hbox;
-    GtkWidget        *color_label;
-    GtkWidget        *align;
-    GtkWidget        *frame;
-    GtkSizeGroup     *sg;
-    gint             count;
-    static gchar     *FRAME_TEXT[] = {
-	    N_("CPU monitor"),
-	    N_("Memory monitor"),
-	    N_("Swap monitor"),
-	    N_("Uptime monitor")
+    GtkWidget           *dlg, *notebook;
+    GtkWidget           *vbox, *dialog_vbox;
+    GtkWidget           *hbox;
+    GtkWidget           *color_label;
+    GtkWidget           *align, *label;
+    GtkSizeGroup        *sg;
+    guint                count;
+    static const gchar *FRAME_TEXT[] = {
+	    N_ ("CPU monitor"),
+	    N_ ("Memory monitor"),
+	    N_ ("Swap monitor"),
+	    N_ ("Uptime monitor")
     };
 
     xfce_panel_plugin_block_menu (plugin);
@@ -762,41 +761,35 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     global->opt_dialog = dlg;
 
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
-    g_signal_connect (dlg, "response", G_CALLBACK (monitor_dialog_response),
-                      global);
+    g_signal_connect (G_OBJECT (dlg), "response",
+                      G_CALLBACK (monitor_dialog_response), global);
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
     
-    global_vbox = GTK_BOX (gtk_vbox_new(FALSE, BORDER));
-    gtk_container_set_border_width (GTK_CONTAINER (global_vbox), BORDER - 2);
-    gtk_widget_show(GTK_WIDGET (global_vbox));
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), 
-                        GTK_WIDGET (global_vbox), TRUE, TRUE, 0);
+    dialog_vbox = GTK_DIALOG (dlg)->vbox;
+                        
+    notebook = gtk_notebook_new ();
+    gtk_box_pack_start (GTK_BOX (dialog_vbox), notebook, FALSE, TRUE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (notebook), BORDER-3);
     
     for(count = 0; count < 3; count++)
     {
-        frame = xfce_framebox_new(_(FRAME_TEXT[count]), TRUE);
-        gtk_widget_show(GTK_WIDGET(frame));
-
-        vbox = GTK_BOX(gtk_vbox_new(FALSE, BORDER));
-        gtk_widget_show(GTK_WIDGET(vbox));
+        vbox = gtk_vbox_new(FALSE, BORDER);
+        gtk_container_add (GTK_CONTAINER (notebook), vbox);
+        gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER);
 
         global->monitor[count]->opt_enabled =
             gtk_check_button_new_with_mnemonic(_("Show monitor"));
-        gtk_widget_show(global->monitor[count]->opt_enabled);
         gtk_box_pack_start(GTK_BOX(vbox),
                            GTK_WIDGET(global->monitor[count]->opt_enabled),
                            FALSE, FALSE, 0);
 
         global->monitor[count]->opt_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
-        gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_vbox));
 
         global->monitor[count]->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
-        gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_hbox));
 
         global->monitor[count]->opt_use_label =
             gtk_check_button_new_with_mnemonic(_("Text to display:"));
-        gtk_widget_show(global->monitor[count]->opt_use_label);
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_hbox),
                            GTK_WIDGET(global->monitor[count]->opt_use_label),
                            FALSE, FALSE, 0);
@@ -806,7 +799,6 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                                  MAX_LENGTH);
         gtk_entry_set_text(GTK_ENTRY(global->monitor[count]->opt_entry),
                            global->monitor[count]->options.label_text);
-        gtk_widget_show(global->monitor[count]->opt_entry);
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_hbox),
                            GTK_WIDGET(global->monitor[count]->opt_entry),
                            FALSE, FALSE, 0);
@@ -825,14 +817,12 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_entry),
                                  global->monitor[count]->options.use_label);
 
-        hbox = GTK_BOX(gtk_hbox_new(FALSE, BORDER));
-        gtk_widget_show(GTK_WIDGET(hbox));
+        hbox = gtk_hbox_new(FALSE, BORDER);
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_vbox),
-                           GTK_WIDGET(hbox), FALSE, FALSE, 0);
+                           hbox, FALSE, FALSE, 0);
 
         color_label = gtk_label_new(_("Bar color:"));
         gtk_misc_set_alignment(GTK_MISC(color_label), 0, 0.5);
-        gtk_widget_show(GTK_WIDGET(color_label));
         gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(color_label),
                            FALSE, FALSE, 0);
 
@@ -844,8 +834,6 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         gtk_widget_set_size_request(global->monitor[count]->opt_da, 64, 12);
         gtk_container_add(GTK_CONTAINER(global->monitor[count]->opt_button),
                           global->monitor[count]->opt_da);
-        gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_button));
-        gtk_widget_show(GTK_WIDGET(global->monitor[count]->opt_da));
         gtk_box_pack_start(GTK_BOX(hbox),
                            GTK_WIDGET(global->monitor[count]->opt_button),
                            FALSE, FALSE, 0);
@@ -860,21 +848,16 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                            FALSE, FALSE, 0);
         align = gtk_alignment_new(0, 0, 0, 0);
         gtk_widget_set_size_request(align, BORDER, BORDER);
-        gtk_widget_show(GTK_WIDGET(align));
         gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
 
-        xfce_framebox_add (XFCE_FRAMEBOX(frame), GTK_WIDGET(vbox));
-        gtk_box_pack_start(GTK_BOX(global_vbox),
-                           GTK_WIDGET(frame),
-                           FALSE, FALSE, 0);
+        label = gtk_label_new (_(FRAME_TEXT[count]));
+        gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), count), label);
     }
 
     /*uptime monitor options - start*/
-    frame = xfce_framebox_new(_(FRAME_TEXT[3]), TRUE);
-    gtk_widget_show(GTK_WIDGET(frame));
-
-    vbox = GTK_BOX(gtk_vbox_new(FALSE, BORDER));
-    gtk_widget_show(GTK_WIDGET(vbox));
+    vbox = gtk_vbox_new(FALSE, BORDER);
+    gtk_container_add (GTK_CONTAINER (notebook), vbox);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER);
 
     global->uptime->opt_enabled =
         gtk_check_button_new_with_mnemonic(_("Show monitor"));
@@ -886,10 +869,8 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->uptime->opt_enabled),
                                  global->uptime->enabled);
 
-    xfce_framebox_add (XFCE_FRAMEBOX(frame), GTK_WIDGET(vbox));
-    gtk_box_pack_start(GTK_BOX(global_vbox),
-                       GTK_WIDGET(frame),
-                       FALSE, FALSE, 0);
+    label = gtk_label_new (_(FRAME_TEXT[3]));
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), 3), label);
 
     g_signal_connect(GTK_WIDGET(global->uptime->opt_enabled), "toggled",
                      G_CALLBACK(uptime_toggled_cb), global);
@@ -928,7 +909,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     g_signal_connect(GTK_WIDGET(global->monitor[2]->opt_enabled), "toggled",
                      G_CALLBACK(monitor_toggled_cb2), global);
 
-    gtk_widget_show (dlg);
+    gtk_widget_show_all (dlg);
 }
 
 static void
