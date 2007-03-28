@@ -1,20 +1,22 @@
-# Ukrainian translation of xfce4-systemload-plugin.
-# Copyright (C) Free Software Foundation
-# This file is distributed under the same license as the PACKAGE package.
-# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
+# Ukrainian translation of xfce4-systemload-plugin
+# Copyright (C) 2007 
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
 #
-#, fuzzy
+# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin\n"
+"Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2003-10-21 20:35+0200\n"
-"Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
-"Language-Team: Ukrainian <uk@li.org>\n"
+"PO-Revision-Date: 2007-03-14 16:42+0200\n"
+"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
+"Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
@@ -23,17 +25,17 @@ msgstr "Файл /proc/stat не знайдено!"
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "Ресурси системи: %ld%%"
+msgstr "Навантаження системи: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
-#, fuzzy, c-format
+#, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "використано %ldМб з  %ldМб"
+msgstr "Пам'ять: %ldМб з %ldМб використано"
 
 #: ../panel-plugin/systemload.c:176
-#, fuzzy, c-format
+#, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "використано %ldМб з  %ldМб"
+msgstr "Файл підкачки: %ldМб з %ldMB використано"
 
 #: ../panel-plugin/systemload.c:179
 msgid "No swap"
@@ -42,44 +44,40 @@ msgstr "Без підкачки"
 #: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
-msgstr ""
+msgstr "%d днів"
 
 #: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
-msgstr ""
+msgstr "Час роботи:"
 
 #: ../panel-plugin/systemload.c:683
 msgid "Select color"
-msgstr ""
+msgstr "Вибрати колір"
 
 #: ../panel-plugin/systemload.c:747
-#, fuzzy
 msgid "CPU monitor"
-msgstr "Показувати монітор"
+msgstr "Стеження за процесором"
 
 #: ../panel-plugin/systemload.c:748
-#, fuzzy
 msgid "Memory monitor"
-msgstr "Показувати монітор"
+msgstr "Стеження за пам'яттю"
 
 #: ../panel-plugin/systemload.c:749
-#, fuzzy
 msgid "Swap monitor"
-msgstr "Показувати монітор"
+msgstr "Стеження за файлом підкачки"
 
 #: ../panel-plugin/systemload.c:750
-#, fuzzy
 msgid "Uptime monitor"
-msgstr "Показувати монітор"
+msgstr "Стеження за часом роботи"
 
 #: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
-msgstr "Ресурси системи"
+msgstr "Стеження за навантаженням системи"
 
 #: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
 msgid "Show monitor"
-msgstr "Показувати монітор"
+msgstr "Відображати стеження"
 
 #: ../panel-plugin/systemload.c:792
 msgid "Text to display:"
@@ -90,13 +88,10 @@ msgid "Bar color:"
 msgstr "Колір індикатора:"
 
 #: ../panel-plugin/uptime.c:52
-#, fuzzy
 msgid "File /proc/uptime not found!"
-msgstr "Файл /proc/stat не знайдено!"
+msgstr "Файл /proc/uptime не знайдено!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
+msgstr "Стежити за навантаженням процесора, використанням файлу підкачки і основною пам'яттю"
 
-#~ msgid "%ldMb of  %ldMb"
-#~ msgstr "%ldМб з  %ldМб"
