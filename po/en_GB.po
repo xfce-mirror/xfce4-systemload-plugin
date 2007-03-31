@@ -1,0 +1,96 @@
+# English/GB translation of xfce4-systemload-plugin.
+# Copyright (C) 2007 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# Jeff Bailes <thepizzaking@gmail.com>, 2007.
+# , fuzzy
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"PO-Revision-Date: 2007-03-31 10:27+1000\n"
+"Last-Translator: Jeff Bailes <thepizzaking@gmail.com>\n"
+"Language-Team: English/GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "File /proc/stat not found!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "System Load: %ld%%"
+
+#: ../panel-plugin/systemload.c:167
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Memory: %ldMB of %ldMB used"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: %ldMB of %ldMB used"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "No swap"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d days"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Uptime:"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Select colour"
+
+#: ../panel-plugin/systemload.c:747
+msgid "CPU monitor"
+msgstr "CPU monitor"
+
+#: ../panel-plugin/systemload.c:748
+msgid "Memory monitor"
+msgstr "Memory monitor"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Swap monitor"
+msgstr "Swap monitor"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Uptime monitor"
+msgstr "Uptime monitor"
+
+#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "System Load Monitor"
+
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+msgid "Show monitor"
+msgstr "Show monitor"
+
+#: ../panel-plugin/systemload.c:792
+msgid "Text to display:"
+msgstr "Text to display:"
+
+#: ../panel-plugin/systemload.c:824
+msgid "Bar color:"
+msgstr "Bar colour:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "File /proc/uptime not found!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Monitor CPU load, swap usage and memory footprint"
+
