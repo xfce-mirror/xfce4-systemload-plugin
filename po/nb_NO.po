@@ -1,0 +1,94 @@
+# Norwegian Bokmal translations for xfce4-systemload-plugin package.
+# Copyright (C) 2007 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# Terje Uriansrud <ter@operamail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin 0.4.2svn-r2842\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"PO-Revision-Date: 2007-07-02 00:29+0200\n"
+"Last-Translator: Terje Uriansrud <ter@operamail.com>\n"
+"Language-Team: Norwegian Bokmal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "Filen /proc/stat ikke funnet!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Systemlast: %ld%%"
+
+#: ../panel-plugin/systemload.c:167
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Minne: %ldMB of %ldMB brukt"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Vekselfil: %ldMB of %ldMB brukt"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "Ingen vekselfil"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d dager"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Oppetid"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Velg farge"
+
+#: ../panel-plugin/systemload.c:747
+msgid "CPU monitor"
+msgstr "Prosessormonitor"
+
+#: ../panel-plugin/systemload.c:748
+msgid "Memory monitor"
+msgstr "Minnemonitor"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Swap monitor"
+msgstr "Vekselfilmonitor"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Uptime monitor"
+msgstr "Oppetidsmonitor"
+
+#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Systemlastmonitor"
+
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+msgid "Show monitor"
+msgstr "Vis monitor"
+
+#: ../panel-plugin/systemload.c:792
+msgid "Text to display:"
+msgstr "Tekst å vise:"
+
+#: ../panel-plugin/systemload.c:824
+msgid "Bar color:"
+msgstr "Stolpefarge:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "Filen /proc/uptime ikke funnet!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Viser CPU last, vekselfilbruk og minneavtrykk"
