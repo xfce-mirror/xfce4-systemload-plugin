@@ -1,0 +1,95 @@
+# Swedish translation for xfce4-systemload-plugin
+# Copyright (c) 2006 Free Software Foundation, Inc.
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"PO-Revision-Date: 2007-11-17 00:09+0300\n"
+"Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
+"Language-Team: Latvian <rprieditis@inbox.lv>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "Fails /proc/stat nav atrasts!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Sistēmas Noslodze: %ld%%"
+
+#: ../panel-plugin/systemload.c:167
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Atmiņa: %ldMB no %ldMB tiek lietoti"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Maiņvieta: %ldMB no %ldMB tiek izmantota"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "Nav maiņvietas"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d dienas"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Augšlaiks:"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Norādiet krāsu"
+
+#: ../panel-plugin/systemload.c:747
+msgid "CPU monitor"
+msgstr "CPU pārraugs"
+
+#: ../panel-plugin/systemload.c:748
+msgid "Memory monitor"
+msgstr "Atmiņa pārraugs"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Swap monitor"
+msgstr "Maiņvietas pārraugs"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Uptime monitor"
+msgstr "Augšlaika pārraugs"
+
+#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Sistēmas Noslodzes Pārraugs"
+
+#: ../panel-plugin/systemload.c:782
+#: ../panel-plugin/systemload.c:863
+msgid "Show monitor"
+msgstr "Rādīt pārraugu"
+
+#: ../panel-plugin/systemload.c:792
+msgid "Text to display:"
+msgstr "Rādāmais teksts:"
+
+#: ../panel-plugin/systemload.c:824
+msgid "Bar color:"
+msgstr "Joslu krāsa:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "Fails /proc/uptime nav atrasts!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Novēro CPU noslodzi, maiņvietas izmantojumu un atmiņas nospiedumu"
+
