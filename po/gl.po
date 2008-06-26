@@ -1,29 +1,33 @@
-# Galician translation for xfce4-systemload-plugin
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
-# This file is distributed under the same license as the xfce4-systemload-plugin package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# Galician translation of xfce4-systemload-plugin
+# Copyright (C) 2008 Leandro Regueiro
+# This file is distributed under the same license as the xfce package.
 #
-#, fuzzy
+# Leandro Regueiro <leandro.regueiro@gmail.com>, 2006, 2008.
+#
+# Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
+# colaborar connosco, podes atopar máis información en <http://trasno.net>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2006-08-17 19:42+0000\n"
-"Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
-"Language-Team: Galician <gl@li.org>\n"
+"PO-Revision-Date: 2008-06-24 20:12+0100\n"
+"Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
-msgstr ""
+msgstr "Non se atopou o ficheiro /proc/stat!"
 
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr ""
+msgstr "Carga do sistema: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
 #, c-format
@@ -50,11 +54,11 @@ msgstr ""
 
 #: ../panel-plugin/systemload.c:683
 msgid "Select color"
-msgstr ""
+msgstr "Seleccionar cor"
 
 #: ../panel-plugin/systemload.c:747
 msgid "CPU monitor"
-msgstr ""
+msgstr "Monitor da CPU"
 
 #: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
@@ -73,21 +77,22 @@ msgstr ""
 msgid "System Load Monitor"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:782
+#: ../panel-plugin/systemload.c:863
 msgid "Show monitor"
-msgstr ""
+msgstr "Mostrar o monitor"
 
 #: ../panel-plugin/systemload.c:792
 msgid "Text to display:"
-msgstr ""
+msgstr "Texto a mostrar:"
 
 #: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
-msgstr ""
+msgstr "Cor da barra:"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
-msgstr ""
+msgstr "Non se atopou o ficheiro /proc/uptime!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
@@ -95,3 +100,4 @@ msgstr ""
 
 #~ msgid "Properties"
 #~ msgstr "Propiedades"
+
