@@ -68,8 +68,7 @@ msgstr ""
 msgid "System Load Monitor"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:782
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
 msgid "Show monitor"
 msgstr ""
 
@@ -88,4 +87,3 @@ msgstr ""
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
-
