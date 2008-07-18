@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: xfce\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2008-07-15 15:02+0200\n"
+"PO-Revision-Date: 2008-07-18 21:21+0200\n"
 "Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -13,77 +13,77 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
-msgstr ""
+msgstr "لم يتم إيجاد الملف /proc/stat!"
 
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr ""
+msgstr "حمل النظام: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr ""
+msgstr "الذاكرة: %ld ميجابايت من %ld ميجابايت مستخدمة"
 
 #: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr ""
+msgstr "الإبدال: %ld ميجابايت من %ld ميجابايت مستخدمة"
 
 #: ../panel-plugin/systemload.c:179
 msgid "No swap"
-msgstr ""
+msgstr "لا إبدال"
 
 #: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
-msgstr ""
+msgstr "%d أيام"
 
 #: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
-msgstr ""
+msgstr "الإشتغال:"
 
 #: ../panel-plugin/systemload.c:683
 msgid "Select color"
-msgstr ""
+msgstr "اختر لون"
 
 #: ../panel-plugin/systemload.c:747
 msgid "CPU monitor"
-msgstr ""
+msgstr "مرقاب المعالج"
 
 #: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
-msgstr ""
+msgstr "مرقاب الذاكرة"
 
 #: ../panel-plugin/systemload.c:749
 msgid "Swap monitor"
-msgstr ""
+msgstr "مرقاب الإبدال"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Uptime monitor"
-msgstr ""
+msgstr "مرقاب الإشتغال"
 
 #: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
-msgstr ""
+msgstr "مرقاب حمل النظام"
 
 #: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
 msgid "Show monitor"
-msgstr ""
+msgstr "أظهر المرقاب"
 
 #: ../panel-plugin/systemload.c:792
 msgid "Text to display:"
-msgstr ""
+msgstr "النص للعرض:"
 
 #: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
-msgstr ""
+msgstr "لون الشريط:"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
-msgstr ""
+msgstr "لم يتم إيجاد الملف /proc/uptime!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
+msgstr "راقب حمل المعالج واستعمال الإبدال والذاكرة"
