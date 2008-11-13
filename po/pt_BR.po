@@ -1,17 +1,16 @@
 # Brazilian Portuguese translations for xfce4-systemload-plugin package.
 # Copyright (C) 2003-2005 Riccardo Persichetti.
-# This file is distributed under the same license as the
-#   xfce4-systemload-plugin package.
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Adriano Winter Bess <awbess@gmail.com>, 2005.
-# Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007.
+# Vladimir Melo <vmelo@gnome.org>, 2007-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2006-10-22 15:30-0200\n"
-"Last-Translator: Vladimir Melo <vladimirmelo@foresightlinux.org>\n"
+"PO-Revision-Date: 2006-11-13 15:30-0200\n"
+"Last-Translator: Vladimir Melo <vmelo@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +18,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
-msgstr "Arquivo /proc/stat não encontrado!"
+msgstr "Arquivo /proc/stat não localizado!"
 
 #: ../panel-plugin/systemload.c:159
 #, c-format
@@ -59,7 +58,7 @@ msgstr "Monitor de CPU"
 
 #: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
-msgstr "Monitor da memória"
+msgstr "Monitor de memória"
 
 #: ../panel-plugin/systemload.c:749
 msgid "Swap monitor"
@@ -88,11 +87,11 @@ msgstr "Cor da barra:"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
-msgstr "Arquivo /proc/uptime não encontrado!"
+msgstr "Arquivo /proc/uptime não localizado!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitora a carga de CPU, uso de swap e o rastro da memória"
+msgstr "Monitore a carga de CPU, uso de swap e o rastro da memória"
 
 #~ msgid "Properties"
 #~ msgstr "Propriedades"
