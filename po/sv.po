@@ -1,19 +1,20 @@
 # Swedish translation for xfce4-systemload-plugin
-# Copyright (c) 2006 Free Software Foundation, Inc.
+# Copyright (c) 2006, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
-# Daniel Nylander <po@danielnylander.se>, 2006.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2006-05-19 19:58+0100\n"
+"POT-Creation-Date: 2008-12-13 13:41+0100\n"
+"PO-Revision-Date: 2008-12-13 13:52+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
@@ -27,14 +28,15 @@ msgstr "Systembelastning: %ld%%"
 #: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Minne: %ldMB av %ldMB använt"
+msgstr "Minne: %ld MB av %ld MB använt"
 
 #: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Växlingsutrymme: %ldMB av %ldMB använt"
+msgstr "Växlingsutrymme: %ld MB av %ld MB använt"
 
 #: ../panel-plugin/systemload.c:179
+#, c-format
 msgid "No swap"
 msgstr "Inget växlingsutrymme"
 
@@ -44,6 +46,7 @@ msgid "%d days"
 msgstr "%d dagar"
 
 #: ../panel-plugin/systemload.c:197
+#, c-format
 msgid "Uptime:"
 msgstr "Upptid:"
 
@@ -61,7 +64,7 @@ msgstr "Minnesövervakare"
 
 #: ../panel-plugin/systemload.c:749
 msgid "Swap monitor"
-msgstr "Växlingutrymmeövervakare"
+msgstr "Övervaka växlingutrymme"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Uptime monitor"
@@ -70,9 +73,10 @@ msgstr "Upptidsövervakare"
 #: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
-msgstr "Systembelastningsövervakare"
+msgstr "Övervaka systembelastning"
 
-#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:782
+#: ../panel-plugin/systemload.c:863
 msgid "Show monitor"
 msgstr "Visa övervakare"
 
@@ -94,3 +98,4 @@ msgstr "Övervaka processorbelastning, användning av växlingsutrymme och minne
 
 #~ msgid "Properties"
 #~ msgstr "Egenskaper"
+
