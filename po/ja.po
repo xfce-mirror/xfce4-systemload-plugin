@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.2svn-r5674\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2008-10-18 15:39+0900\n"
+"POT-Creation-Date: 2008-12-09 16:09+0900\n"
+"PO-Revision-Date: 2008-12-09 16:07+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -29,14 +29,15 @@ msgstr "システム負荷: %ld%%"
 #: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "メモリ: %2$ld MB中 %1$ld MB使用しています"
+msgstr "メモリ: %2$ld MB 中 %1$ld MB 使用しています"
 
 #: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "スワップ: %2$ld MB中 %1$ld MB使用しています"
+msgstr "スワップ: %2$ld MB 中 %1$ld MB 使用しています"
 
 #: ../panel-plugin/systemload.c:179
+#, c-format
 msgid "No swap"
 msgstr "スワップなし"
 
@@ -46,6 +47,7 @@ msgid "%d days"
 msgstr "%d 日"
 
 #: ../panel-plugin/systemload.c:197
+#, c-format
 msgid "Uptime:"
 msgstr "稼働時間: "
 
@@ -55,7 +57,7 @@ msgstr "色の選択"
 
 #: ../panel-plugin/systemload.c:747
 msgid "CPU monitor"
-msgstr "CPUモニタ"
+msgstr "CPU モニタ"
 
 #: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
@@ -92,4 +94,4 @@ msgstr "ファイル /proc/uptime が見つかりませんでした!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "CPU負荷、メモリおよびスワップファイルの使用状況をモニタします"
+msgstr "CPU 負荷、メモリ、およびスワップファイルの使用状況をモニタします。"
