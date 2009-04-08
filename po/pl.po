@@ -1,97 +1,96 @@
 # Polish translations for xfce4-systemload-plugin package.
 # Copyright (C) 2003-2005 Riccardo Persichetti.
-# This file is distributed under the same license as the
-#   xfce4-systemload-plugin package.
-# Piotr Maliński <admin@rk.edu.pl> 2005-09-20.
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+# Piotr Maliński <admin@rk.edu.pl> 2005.
+# Piotr Sokół <piotr.sokol@10g.pl> 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
+"Project-Id-Version: xfce4-systemload-plugin 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2005-10-24 23:41+0900\n"
-"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
-"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2009-04-08 12:56+0100\n"
+"Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
+"Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
-msgstr "Plik /proc/stat nie znaleziony!"
+msgstr "Nie znaleziono pliku /proc/stat!"
 
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "Obciążenie systemu: %ld%%"
+msgstr "Obciążenie CPU: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Pamięć: %ldMB z %ldMB używane"
+msgstr "Pamięć: używane %ld MB z spośród %ld MB"
 
 #: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Swap: %ldMB z %ldMB używane"
+msgstr "Przestrzeń wymiany: używane %ld MB z pośród %ld MB"
 
 #: ../panel-plugin/systemload.c:179
 msgid "No swap"
-msgstr "Brak swap"
+msgstr "Brak obszaru wmiany"
 
 #: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d days"
-msgstr "% dni"
+msgstr "%d dni,"
 
 #: ../panel-plugin/systemload.c:197
 msgid "Uptime:"
-msgstr "Uptime:"
+msgstr "Czas pracy:"
 
 #: ../panel-plugin/systemload.c:683
 msgid "Select color"
-msgstr "Wybierz kolor"
+msgstr "Wybór koloru"
 
 #: ../panel-plugin/systemload.c:747
 msgid "CPU monitor"
-msgstr "Statystyki Procesora"
+msgstr "CPU"
 
 #: ../panel-plugin/systemload.c:748
 msgid "Memory monitor"
-msgstr "Monitor Pamięci"
+msgstr "Pamięć"
 
 #: ../panel-plugin/systemload.c:749
 msgid "Swap monitor"
-msgstr "Statystyki Swap"
+msgstr "Przestrzeń wymiany"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Uptime monitor"
-msgstr "Statystyki Uptime"
+msgstr "Czas pracy"
 
 #: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
-msgstr "Monitor Obciążenia Systemu"
+msgstr "Monitor systemu"
 
-#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:782
+#: ../panel-plugin/systemload.c:863
 msgid "Show monitor"
-msgstr "Pokaż statystyki"
+msgstr "Wyświetlanie statystyk"
 
 #: ../panel-plugin/systemload.c:792
 msgid "Text to display:"
-msgstr "Wyświetlany tekst"
+msgstr "Etykieta:"
 
 #: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
-msgstr "Kolor słupka"
+msgstr "Kolor wskaźnika:"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
-msgstr "Plik /proc/uptime nie znaleziony!"
+msgstr "Nie znaleziono pliku /proc/uptime!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitoruje obciążenie procesora, pamięci i swap"
+msgstr "Dostarcza informacje na temat obciążenia systemu"
 
-#~ msgid "Properties"
-#~ msgstr "Właściwości"
