@@ -1,0 +1,94 @@
+# Asturian translations for xfce4-systemload-plugin package
+# Copyright (C) 2009 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-systemload-plugin package.
+#  <malditoastur@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"PO-Revision-Date: 2009-07-13 19:55+0100\n"
+"Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "¡Ficheru /proc/stat non alcontráu!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Carga de sistema: %ld%%"
+
+#: ../panel-plugin/systemload.c:167
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Memoria: %ldMB de %ldMB usada"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: %ldMB de %ldMB usada"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "Ensin swap"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d díes"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Tiempu en funcionamientu:"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Esbillar color"
+
+#: ../panel-plugin/systemload.c:747
+msgid "CPU monitor"
+msgstr "Monitor de CPU"
+
+#: ../panel-plugin/systemload.c:748
+msgid "Memory monitor"
+msgstr "Monitor de memoria"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Swap monitor"
+msgstr "Monitor de swap"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Uptime monitor"
+msgstr "Monitor de tiempu en funcionamientu"
+
+#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Monitor de carga de sistema"
+
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+msgid "Show monitor"
+msgstr "Amosar monitor"
+
+#: ../panel-plugin/systemload.c:792
+msgid "Text to display:"
+msgstr "Testu a amosar:"
+
+#: ../panel-plugin/systemload.c:824
+msgid "Bar color:"
+msgstr "Color de barra:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "¡Ficheru /proc/uptime non alcontráu!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Monitor de carga de CPU, d'usu de swap y de memoria"
