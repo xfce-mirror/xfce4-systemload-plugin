@@ -1,19 +1,23 @@
 # Swedish translation for xfce4-systemload-plugin
 # Copyright (c) 2006 Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
-# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
 #
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
+# Rihards Prieditis <rprieditis@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 11:09+0100\n"
-"PO-Revision-Date: 2007-11-17 00:09+0300\n"
-"Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
-"Language-Team: Latvian <rprieditis@inbox.lv>\n"
+"PO-Revision-Date: 2009-09-18 23:19+0100\n"
+"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
+"Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 "
+": 2);\n"
 
 #: ../panel-plugin/cpu.c:58
 msgid "File /proc/stat not found!"
@@ -22,7 +26,7 @@ msgstr "Fails /proc/stat nav atrasts!"
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "Sistēmas Noslodze: %ld%%"
+msgstr "Sistēmas noslodze: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
 #, c-format
@@ -70,10 +74,9 @@ msgstr "Augšlaika pārraugs"
 #: ../panel-plugin/systemload.c:755
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
-msgstr "Sistēmas Noslodzes Pārraugs"
+msgstr "Sistēmas noslodzes pārraugs"
 
-#: ../panel-plugin/systemload.c:782
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
 msgid "Show monitor"
 msgstr "Rādīt pārraugu"
 
