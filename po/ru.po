@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Andriy Kovtun <kovtunos@yandex.ru>\n"
+"Language-Team: Russian <xfce4-dev@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "Файл /proc/stat не найден!"
+
+#: ../panel-plugin/systemload.c:159
+msgid "System Load: %ld%%"
+msgstr "Загрузка системы: %ld%"
+
+#: ../panel-plugin/systemload.c:167
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Память: %ldMB из %ldMB"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Подкачка: %ldMB из %ldMB"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "Нет подкачки"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d дней"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Время работы"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Выберите цвет"
+
+#: ../panel-plugin/systemload.c:747
+msgid "CPU monitor"
+msgstr "Процессор"
+
+#: ../panel-plugin/systemload.c:748
+msgid "Memory monitor"
+msgstr "Память"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Swap monitor"
+msgstr "Подкачка"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Uptime monitor"
+msgstr "Время работы"
+
+#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Системный монитор"
+
+#: ../panel-plugin/systemload.c:782
+#: ../panel-plugin/systemload.c:863
+msgid "Show monitor"
+msgstr "Показать монитор"
+
+#: ../panel-plugin/systemload.c:792
+msgid "Text to display:"
+msgstr "Текст для отображения:"
+
+#: ../panel-plugin/systemload.c:824
+msgid "Bar color:"
+msgstr "Цвет линейки:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "Файл /proc/uptime не найден!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Монитор загруженности процессора, использования памяти и подкачки"
+
