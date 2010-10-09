@@ -247,8 +247,6 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
                            GTK_WIDGET(global->monitor[count]->label),
                            FALSE, FALSE, 0);
 
-        gtk_container_set_border_width(GTK_CONTAINER(global->monitor[count]->box),
-                                       BORDER / 2);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
 
         global->monitor[count]->ebox = gtk_event_box_new();
@@ -282,8 +280,6 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     gtk_widget_show(global->uptime->ebox);
 
     global->uptime->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
-    gtk_container_set_border_width(GTK_CONTAINER(global->uptime->box), 
-                                   BORDER / 2);
     gtk_widget_show(GTK_WIDGET(global->uptime->box));
 
     gtk_container_add(GTK_CONTAINER(global->uptime->ebox),
@@ -324,6 +320,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
     global->plugin = plugin;
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
+    gtk_container_set_border_width (GTK_CONTAINER (global->ebox), BORDER/2);
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
@@ -407,6 +404,12 @@ setup_monitor(t_global_monitor *global)
     }
     if(global->uptime->enabled)
     {
+        if (global->monitor[0]->options.enabled ||
+            global->monitor[1]->options.enabled ||
+            global->monitor[2]->options.enabled)
+        {
+            gtk_container_set_border_width(GTK_CONTAINER(global->uptime->box), 2);
+        }
         gtk_widget_show(GTK_WIDGET(global->uptime->ebox));
     }
 }
