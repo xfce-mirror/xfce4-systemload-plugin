@@ -254,17 +254,16 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox),
                           GTK_WIDGET(global->monitor[count]->box));
 
-        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor[count]->status));
-        if (!rc) {
-            rc = gtk_rc_style_new();
-        }
-        if (rc) {
-            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->bg[GTK_STATE_PRELIGHT] =
-                global->monitor[count]->options.color;
-        }
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
+                             GTK_STATE_PRELIGHT,
+                             &global->monitor[count]->options.color);
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
+                             GTK_STATE_SELECTED,
+                             &global->monitor[count]->options.color);
+        gtk_widget_modify_base(GTK_WIDGET(global->monitor[count]->status),
+                               GTK_STATE_SELECTED,
+                               &global->monitor[count]->options.color);
 
-        gtk_widget_modify_style(GTK_WIDGET(global->monitor[count]->status), rc);
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
 
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
@@ -380,18 +379,15 @@ setup_monitor(t_global_monitor *global)
         gtk_label_set_text(GTK_LABEL(global->monitor[count]->label),
                            global->monitor[count]->options.label_text);
 
-        gtk_widget_hide(GTK_WIDGET(global->monitor[count]->status));
-        rc = gtk_widget_get_modifier_style(GTK_WIDGET(global->monitor[count]->status));
-        if (!rc) {
-            rc = gtk_rc_style_new();
-        }
-
-        if (rc) {
-            rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-            rc->bg[GTK_STATE_PRELIGHT] = global->monitor[count]->options.color;
-        }
-
-        gtk_widget_modify_style(GTK_WIDGET(global->monitor[count]->status), rc);
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
+                             GTK_STATE_PRELIGHT,
+                             &global->monitor[count]->options.color);
+        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
+                             GTK_STATE_SELECTED,
+                             &global->monitor[count]->options.color);
+        gtk_widget_modify_base(GTK_WIDGET(global->monitor[count]->status),
+                               GTK_STATE_SELECTED,
+                               &global->monitor[count]->options.color);
 
         if(global->monitor[count]->options.enabled)
         {
