@@ -32,7 +32,7 @@
 #include "memswap.h"
 
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD_kernel__)
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

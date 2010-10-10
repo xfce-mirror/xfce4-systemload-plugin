@@ -34,7 +34,7 @@
 
 #include "uptime.h"
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD_kernel__)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
