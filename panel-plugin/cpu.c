@@ -38,6 +38,9 @@
 #include "cpu.h" 
 
 #if defined(__linux__) || defined(__FreeBSD_kernel__)
+
+#include <stdint.h>
+
 #define PROC_STAT "/proc/stat"
 
 /* user, nice, system, interrupt(BSD specific), idle */
@@ -45,25 +48,40 @@ struct cpu_load_struct {
     gulong load[5];
 };
 
-struct cpu_load_struct fresh = {{0, 0, 0, 0, 0}};
 gulong cpu_used, oldtotal, oldused;
 
 gulong read_cpuload()
 {
     FILE *fd;
+    uint64_t user, nice, system, idle, iowait, irq, softirq, guest;
     gulong used, total;
+    int nb_read;
 
     fd = fopen(PROC_STAT, "r");
     if (!fd) {
         g_warning(_("File /proc/stat not found!"));
         return 0;
     }
-    fscanf(fd, "%*s %ld %ld %ld %ld", &fresh.load[0], &fresh.load[1],
-           &fresh.load[2], &fresh.load[3]);
-    fclose(fd);
 
-    used = fresh.load[0] + fresh.load[1] + fresh.load[2];
-    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
+    /* Don't count steal time. It is neither busy nor free tiime. */
+    nb_read = fscanf (fd, "%*s " "%llu %llu %llu %llu %llu %llu %llu %*llu %llu",
+	    &user, &nice, &system, &idle, &iowait, &irq, &softirq, &guest);
+    fclose(fd);
+    switch (nb_read) /* fall through intentional */
+    {
+	    case 4:
+		    iowait = 0;
+	    case 5:
+		    irq = 0;
+	    case 6:
+		    softirq = 0;
+	    case 7:
+		    guest = 0;
+    }
+
+    used = user + nice + system + irq + softirq + guest;
+    total = used + idle + iowait;
+
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
@@ -97,7 +115,6 @@ struct cpu_load_struct {
     gulong load[5];
 };
 
-struct cpu_load_struct fresh = {{0, 0, 0, 0, 0}};
 gulong cpu_used, oldtotal, oldused;
 
 gulong read_cpuload()
@@ -111,14 +128,9 @@ gulong read_cpuload()
         return 0;
     }
 
-    fresh.load[0] = cp_time[CP_USER];
-    fresh.load[1] = cp_time[CP_NICE];
-    fresh.load[2] = cp_time[CP_SYS];
-    fresh.load[3] = cp_time[CP_IDLE];
-    fresh.load[4] = cp_time[CP_IDLE];
+    used = cp_time[CP_USER] + cp_time[CP_NICE] + cp_time[CP_SYS] + cp_time[CP_INTR];
+    total = used + cp_time[CP_IDLE];
 
-    used = fresh.load[0] + fresh.load[1] + fresh.load[2];
-    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
@@ -155,7 +167,6 @@ struct cpu_load_struct {
     gulong load[5];
 };
 
-struct cpu_load_struct fresh = {{0, 0, 0, 0, 0}};
 gulong cpu_used, oldtotal, oldused;
 
 gulong read_cpuload()
@@ -170,14 +181,9 @@ gulong read_cpuload()
             return 0;
     }
 
-    fresh.load[0] = cp_time[CP_USER];
-    fresh.load[1] = cp_time[CP_NICE];
-    fresh.load[2] = cp_time[CP_SYS];
-    fresh.load[3] = cp_time[CP_IDLE];
-    fresh.load[4] = cp_time[CP_IDLE];
+    used = cp_time[CP_USER] + cp_time[CP_NICE] + cp_time[CP_SYS] + cp_time[CP_INTR];
+    total = used + cp_time[CP_IDLE];
 
-    used = fresh.load[0] + fresh.load[1] + fresh.load[2];
-    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
@@ -215,7 +221,6 @@ struct cpu_load_struct {
     gulong load[5];
 };
 
-struct cpu_load_struct fresh = {{0, 0, 0, 0, 0}};
 gulong cpu_used, oldtotal, oldused;
 
 gulong read_cpuload()
@@ -230,15 +235,9 @@ gulong read_cpuload()
             return 0;
     }
 
-    fresh.load[0] = cp_time[CP_USER];
-    fresh.load[1] = cp_time[CP_NICE];
-    fresh.load[2] = cp_time[CP_SYS];
-    fresh.load[3] = cp_time[CP_INTR];
-    fresh.load[4] = cp_time[CP_IDLE];
+    used = cp_time[CP_USER] + cp_time[CP_NICE] + cp_time[CP_SYS] + cp_time[CP_INTR];
+    total = used + cp_time[CP_IDLE];
 
-    used = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3];
-    total = fresh.load[0] + fresh.load[1] + fresh.load[2] + fresh.load[3] +
-            fresh.load[4];
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
@@ -254,5 +253,5 @@ gulong read_cpuload()
 }
 
 #else
-#error "Your plattform is not yet supported"
+#error "Your platform is not yet supported"
 #endif
