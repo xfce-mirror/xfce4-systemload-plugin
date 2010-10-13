@@ -47,6 +47,7 @@ static char MemInfoBuf[MEMINFOBUFSIZE];
 
 static unsigned long MTotal = 0;
 static unsigned long MFree = 0;
+static unsigned long MBuffers = 0;
 static unsigned long MCached = 0;
 static unsigned long MUsed = 0;
 static unsigned long STotal = 0;
@@ -57,8 +58,8 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 {
     int fd;
     size_t n;
-    int o_MTotal, o_MFree, o_MCached, o_STotal, o_SFree;
-    char *b_MTotal, *b_MFree, *b_MCached, *b_STotal, *b_SFree;
+    int o_MTotal, o_MFree, o_MBuffers, o_MCached, o_STotal, o_SFree;
+    char *b_MTotal, *b_MFree, *b_MBuffers, *b_MCached, *b_STotal, *b_SFree;
 
     if ((fd = open("/proc/meminfo", O_RDONLY)) < 0)
     {
@@ -83,6 +84,10 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     if (b_MFree)
         o_MFree = sscanf(b_MFree + strlen("MemFree"), ": %lu", &MFree);
 
+    b_MBuffers = strstr(MemInfoBuf, "Buffers");
+    if (b_MBuffers)
+        o_MBuffers = sscanf(b_MBuffers + strlen("Buffers"), ": %lu", &MBuffers);
+
     b_MCached = strstr(MemInfoBuf, "Cached");
     if (b_MCached)
         o_MCached = sscanf(b_MCached + strlen("Cached"), ": %lu", &MCached);
@@ -95,7 +100,7 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     if (b_SFree)
         o_SFree = sscanf(b_SFree + strlen("SwapFree"), ": %lu", &SFree);
 
-    MFree += MCached;
+    MFree += MCached + MBuffers;
     MUsed = MTotal - MFree;
     SUsed = STotal - SFree;
     *mem = MUsed * 100 / MTotal;
