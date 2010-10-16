@@ -360,7 +360,9 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         if (global->monitor[count]->options.label_text)
             g_free(global->monitor[count]->options.label_text);
+        g_free(global->monitor[count]);
     }
+    g_free(global->uptime);
     g_free(global);
 }
 
