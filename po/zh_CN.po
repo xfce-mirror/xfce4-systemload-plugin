@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"POT-Creation-Date: 2010-11-13 01:24+0900\n"
 "PO-Revision-Date: 2009-05-09 13:56+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese (simplified)\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/cpu.c:58
+#: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
 msgstr "文件 /proc/stat 未找到！"
 
@@ -24,63 +25,69 @@ msgstr "文件 /proc/stat 未找到！"
 msgid "System Load: %ld%%"
 msgstr "系统负载: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "内存: 已用 %ldMB，总共 %ldMB"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "交换分区: 已用 %ldMB，总共 %ldMB"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:177
+#, c-format
 msgid "No swap"
 msgstr "没有交换分区"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:187
 #, c-format
-msgid "%d days"
-msgstr "%d 天"
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d 天"
+msgstr[1] "%d 天"
 
-#: ../panel-plugin/systemload.c:197
-msgid "Uptime:"
-msgstr "启动时间:"
+#: ../panel-plugin/systemload.c:195
+#, c-format
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] "启动时间: %d 天 %d:%02d"
+msgstr[1] "启动时间: %d 天 %d:%02d"
 
-#: ../panel-plugin/systemload.c:683
+#: ../panel-plugin/systemload.c:722
 msgid "Select color"
 msgstr "选择颜色"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:786
 msgid "CPU monitor"
 msgstr "CPU监视器"
 
-#: ../panel-plugin/systemload.c:748
+#: ../panel-plugin/systemload.c:787
 msgid "Memory monitor"
 msgstr "内存监视器"
 
-#: ../panel-plugin/systemload.c:749
+#: ../panel-plugin/systemload.c:788
 msgid "Swap monitor"
 msgstr "交换分区监视器"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.c:789
 msgid "Uptime monitor"
 msgstr "启动时间监视器"
 
-#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.c:794
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "系统负载监视器"
 
-#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
 msgid "Show monitor"
 msgstr "显示监视器"
 
-#: ../panel-plugin/systemload.c:792
+#: ../panel-plugin/systemload.c:831
 msgid "Text to display:"
 msgstr "要显示的文本:"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:863
 msgid "Bar color:"
 msgstr "栏颜色:"
 
@@ -91,3 +98,6 @@ msgstr "文件 /proc/stat 未找到！"
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "监控CPU负载，交换分区和内存使用的情况"
+
+#~ msgid "Uptime:"
+#~ msgstr "启动时间:"

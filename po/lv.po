@@ -8,18 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"POT-Creation-Date: 2010-11-13 01:24+0900\n"
 "PO-Revision-Date: 2009-09-18 23:19+0100\n"
 "Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 "
-": 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
 
-#: ../panel-plugin/cpu.c:58
+#: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
 msgstr "Fails /proc/stat nav atrasts!"
 
@@ -28,63 +29,71 @@ msgstr "Fails /proc/stat nav atrasts!"
 msgid "System Load: %ld%%"
 msgstr "Sistēmas noslodze: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Atmiņa: %ldMB no %ldMB tiek lietoti"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Maiņvieta: %ldMB no %ldMB tiek izmantota"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:177
+#, c-format
 msgid "No swap"
 msgstr "Nav maiņvietas"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:187
+#, fuzzy, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dienas"
+msgstr[1] "%d dienas"
+msgstr[2] "%d dienas"
+
+#: ../panel-plugin/systemload.c:195
 #, c-format
-msgid "%d days"
-msgstr "%d dienas"
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#: ../panel-plugin/systemload.c:197
-msgid "Uptime:"
-msgstr "Augšlaiks:"
-
-#: ../panel-plugin/systemload.c:683
+#: ../panel-plugin/systemload.c:722
 msgid "Select color"
 msgstr "Norādiet krāsu"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:786
 msgid "CPU monitor"
 msgstr "CPU pārraugs"
 
-#: ../panel-plugin/systemload.c:748
+#: ../panel-plugin/systemload.c:787
 msgid "Memory monitor"
 msgstr "Atmiņa pārraugs"
 
-#: ../panel-plugin/systemload.c:749
+#: ../panel-plugin/systemload.c:788
 msgid "Swap monitor"
 msgstr "Maiņvietas pārraugs"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.c:789
 msgid "Uptime monitor"
 msgstr "Augšlaika pārraugs"
 
-#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.c:794
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Sistēmas noslodzes pārraugs"
 
-#: ../panel-plugin/systemload.c:782 ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
 msgid "Show monitor"
 msgstr "Rādīt pārraugu"
 
-#: ../panel-plugin/systemload.c:792
+#: ../panel-plugin/systemload.c:831
 msgid "Text to display:"
 msgstr "Rādāmais teksts:"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:863
 msgid "Bar color:"
 msgstr "Joslu krāsa:"
 
@@ -96,3 +105,5 @@ msgstr "Fails /proc/uptime nav atrasts!"
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Novēro CPU noslodzi, maiņvietas izmantojumu un atmiņas nospiedumu"
 
+#~ msgid "Uptime:"
+#~ msgstr "Augšlaiks:"

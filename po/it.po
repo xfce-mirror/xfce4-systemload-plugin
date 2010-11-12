@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"POT-Creation-Date: 2010-11-13 01:24+0900\n"
 "PO-Revision-Date: 2009-01-28 10:35+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/cpu.c:58
+#: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
 msgstr "File /proc/stat non trovato!"
 
@@ -24,64 +25,69 @@ msgstr "File /proc/stat non trovato!"
 msgid "System Load: %ld%%"
 msgstr "Carico del sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: utilizzati %ldMB di %ldMB"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: utilizzati %ldMB di %ldMB"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:177
+#, c-format
 msgid "No swap"
 msgstr "Swap nulla"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:187
+#, fuzzy, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d giorni"
+msgstr[1] "%d giorni"
+
+#: ../panel-plugin/systemload.c:195
 #, c-format
-msgid "%d days"
-msgstr "%d giorni"
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../panel-plugin/systemload.c:197
-msgid "Uptime:"
-msgstr "Tempo trascorso dall'avvio del sistema:"
-
-#: ../panel-plugin/systemload.c:683
+#: ../panel-plugin/systemload.c:722
 msgid "Select color"
 msgstr "Selezionare il colore"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:786
 msgid "CPU monitor"
 msgstr "Indicatore di utilizzo della CPU"
 
-#: ../panel-plugin/systemload.c:748
+#: ../panel-plugin/systemload.c:787
 msgid "Memory monitor"
 msgstr "Indicatore di utilizzo della memoria"
 
-#: ../panel-plugin/systemload.c:749
+#: ../panel-plugin/systemload.c:788
 msgid "Swap monitor"
 msgstr "Indicatore di utilizzo della swap"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.c:789
 msgid "Uptime monitor"
 msgstr "Indicatore del tempo trascorso dall'avvio"
 
-#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.c:794
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Indicatore del carico di sistema"
 
-#: ../panel-plugin/systemload.c:782
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
 msgid "Show monitor"
 msgstr "Visualizza l'indicatore"
 
-#: ../panel-plugin/systemload.c:792
+#: ../panel-plugin/systemload.c:831
 msgid "Text to display:"
 msgstr "Testo da visualizzare:"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:863
 msgid "Bar color:"
 msgstr "Colore della barra"
 
@@ -91,5 +97,9 @@ msgstr "File /proc/uptime non trovato!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata dai programmi"
+msgstr ""
+"Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata "
+"dai programmi"
 
+#~ msgid "Uptime:"
+#~ msgstr "Tempo trascorso dall'avvio del sistema:"

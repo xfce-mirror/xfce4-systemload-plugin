@@ -8,15 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"POT-Creation-Date: 2010-11-13 01:24+0900\n"
 "PO-Revision-Date: 2009-04-08 12:56+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/cpu.c:58
+#: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
 msgstr "Nie znaleziono pliku /proc/stat!"
 
@@ -25,64 +26,69 @@ msgstr "Nie znaleziono pliku /proc/stat!"
 msgid "System Load: %ld%%"
 msgstr "Obciążenie CPU: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Pamięć: używane %ld MB z spośród %ld MB"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Przestrzeń wymiany: używane %ld MB z pośród %ld MB"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:177
+#, c-format
 msgid "No swap"
 msgstr "Brak obszaru wmiany"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:187
+#, fuzzy, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dni,"
+msgstr[1] "%d dni,"
+
+#: ../panel-plugin/systemload.c:195
 #, c-format
-msgid "%d days"
-msgstr "%d dni,"
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../panel-plugin/systemload.c:197
-msgid "Uptime:"
-msgstr "Czas pracy:"
-
-#: ../panel-plugin/systemload.c:683
+#: ../panel-plugin/systemload.c:722
 msgid "Select color"
 msgstr "Wybór koloru"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:786
 msgid "CPU monitor"
 msgstr "CPU"
 
-#: ../panel-plugin/systemload.c:748
+#: ../panel-plugin/systemload.c:787
 msgid "Memory monitor"
 msgstr "Pamięć"
 
-#: ../panel-plugin/systemload.c:749
+#: ../panel-plugin/systemload.c:788
 msgid "Swap monitor"
 msgstr "Przestrzeń wymiany"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.c:789
 msgid "Uptime monitor"
 msgstr "Czas pracy"
 
-#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.c:794
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Monitor systemu"
 
-#: ../panel-plugin/systemload.c:782
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
 msgid "Show monitor"
 msgstr "Wyświetlanie statystyk"
 
-#: ../panel-plugin/systemload.c:792
+#: ../panel-plugin/systemload.c:831
 msgid "Text to display:"
 msgstr "Etykieta:"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:863
 msgid "Bar color:"
 msgstr "Kolor wskaźnika:"
 
@@ -94,3 +100,5 @@ msgstr "Nie znaleziono pliku /proc/uptime!"
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Dostarcza informacje na temat obciążenia systemu"
 
+#~ msgid "Uptime:"
+#~ msgstr "Czas pracy:"
