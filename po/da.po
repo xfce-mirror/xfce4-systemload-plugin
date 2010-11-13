@@ -2,22 +2,23 @@
 # Copyright (C) 2007 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007.
-# Per Kongstad <p_kongstad@op.pl>, 2008.
+# Per Kongstad <p_kongstad@op.pl>, 2008, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-13 01:24+0900\n"
-"PO-Revision-Date: 2008-10-18 22:30+0100\n"
+"PO-Revision-Date: 2010-11-13 23:01+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "X-Poedit-Language: Danish\n"
-"X-Poedit-Country: DENMARK\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: DENMARK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n\n"
 
 #: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
@@ -44,18 +45,18 @@ msgid "No swap"
 msgstr "Ingen swap"
 
 #: ../panel-plugin/systemload.c:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d dage"
+msgstr[0] "%d dag"
 msgstr[1] "%d dage"
 
 #: ../panel-plugin/systemload.c:195
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Oppetid: %d dag %d:%02d"
+msgstr[1] "Oppetid: %d dage %d:%02d"
 
 #: ../panel-plugin/systemload.c:722
 msgid "Select color"
@@ -82,7 +83,8 @@ msgstr "Oppetidsovervågning"
 msgid "System Load Monitor"
 msgstr "Systembelastnings-overvågning"
 
-#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:821
+#: ../panel-plugin/systemload.c:902
 msgid "Show monitor"
 msgstr "Vis overvågning"
 
@@ -104,3 +106,4 @@ msgstr "Overvåg CPU-belastning, swapfilbrug og hukommelsesaftryk"
 
 #~ msgid "Uptime:"
 #~ msgstr "Oppetid:"
+
