@@ -1,9 +1,9 @@
-# translation of de.po to 
+# translation of de.po to
 # translation of de.po to Deutsch
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Bernhard Walle <bernhard.walle@gmx.de>, 2003, 2005.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
@@ -11,11 +11,11 @@ msgstr ""
 "POT-Creation-Date: 2010-11-13 01:24+0900\n"
 "PO-Revision-Date: 2006-08-29 16:54+0100\n"
 "Last-Translator: Enrico Tröger <enrico.troeger@uvena.de>\n"
-"Language-Team:  <de@li.org>\n"
-"Language: \n"
+"Language-Team: <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: KBabel 1.9.1\n"
 
 #: ../panel-plugin/cpu.c:62
@@ -50,11 +50,15 @@ msgstr[0] "%d Tage"
 msgstr[1] "%d Tage"
 
 #: ../panel-plugin/systemload.c:195
-#, c-format
+#, c-format, fuzzy
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] ""
+"Betriebszeit: %d Tag\r\n"
+"%d:%02d"
 msgstr[1] ""
+"Betriebszeit: %d Tage\r\n"
+"%d:%02d"
 
 #: ../panel-plugin/systemload.c:722
 msgid "Select color"
