@@ -2,7 +2,7 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Cristian Marchi <cri.penta@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.2\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2009-01-28 10:35+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 
 #: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
@@ -41,18 +41,18 @@ msgid "No swap"
 msgstr "Swap nulla"
 
 #: ../panel-plugin/systemload.c:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d giorni"
+msgstr[0] "%d giorno"
 msgstr[1] "%d giorni"
 
 #: ../panel-plugin/systemload.c:195
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tempo di funzionamento: %d giorno %d:%02d"
+msgstr[1] "Tempo di funzionamento: %d giorni %d:%02d"
 
 #: ../panel-plugin/systemload.c:722
 msgid "Select color"
@@ -97,9 +97,7 @@ msgstr "File /proc/uptime non trovato!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
-"Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata "
-"dai programmi"
+msgstr "Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata dai programmi"
 
 #~ msgid "Uptime:"
 #~ msgstr "Tempo trascorso dall'avvio del sistema:"
