@@ -2,7 +2,7 @@
 # Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-systemload package.
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2006-09-20 13:39+0200\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
@@ -41,18 +41,18 @@ msgid "No swap"
 msgstr "Sense memòria d'intercanvi"
 
 #: ../panel-plugin/systemload.c:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d dies"
+msgstr[0] "%d dia"
 msgstr[1] "%d dies"
 
 #: ../panel-plugin/systemload.c:195
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "En marxa: %d dia %d:%02d"
+msgstr[1] "En marxa: %d dies %d:%02d"
 
 #: ../panel-plugin/systemload.c:722
 msgid "Select color"
@@ -97,9 +97,7 @@ msgstr "No s'ha trobat el fitxer «/proc/uptime»"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
-"Monitoritza la càrrega de CPU, l’ús de la memòria d’intercanvi i la emprenta "
-"de memòria"
+msgstr "Monitoritza la càrrega de CPU, l’ús de la memòria d’intercanvi i la emprenta de memòria"
 
 #~ msgid "Uptime:"
 #~ msgstr "Temps en fucionament"
