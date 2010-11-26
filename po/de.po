@@ -43,14 +43,14 @@ msgid "No swap"
 msgstr "Kein Auslagerungsspeicher vorhanden"
 
 #: ../panel-plugin/systemload.c:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d Tage"
+msgstr[0] "%d Tag"
 msgstr[1] "%d Tage"
 
 #: ../panel-plugin/systemload.c:195
-#, c-format, fuzzy
+#, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] ""
