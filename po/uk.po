@@ -1,7 +1,7 @@
 # Ukrainian translation of xfce4-systemload-plugin
-# Copyright (C) 2007 
+# Copyright (C) 2007
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
-#
+# 
 # Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
@@ -12,13 +12,12 @@ msgstr ""
 "PO-Revision-Date: 2007-03-14 16:42+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/cpu.c:62
 msgid "File /proc/stat not found!"
@@ -45,10 +44,10 @@ msgid "No swap"
 msgstr "Без підкачки"
 
 #: ../panel-plugin/systemload.c:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d днів"
+msgstr[0] "%d день"
 msgstr[1] "%d днів"
 msgstr[2] "%d днів"
 
@@ -56,9 +55,9 @@ msgstr[2] "%d днів"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Час роботи: %d день %d:%02d"
+msgstr[1] "Час роботи: %d днів %d:%02d"
+msgstr[2] "Час роботи: %d днів %d:%02d"
 
 #: ../panel-plugin/systemload.c:722
 msgid "Select color"
@@ -103,9 +102,7 @@ msgstr "Файл /proc/uptime не знайдено!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
-"Стежити за навантаженням процесора, використанням файлу підкачки і основною "
-"пам'яттю"
+msgstr "Стежити за навантаженням процесора, використанням файлу підкачки і основною пам'яттю"
 
 #~ msgid "Uptime:"
 #~ msgstr "Час роботи:"
