@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
+ * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions

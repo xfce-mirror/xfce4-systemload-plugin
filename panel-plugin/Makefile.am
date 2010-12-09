@@ -1,5 +1,3 @@
-# $Id$
-
 INCLUDES =								\
 	-I$(top_srcdir)							\
 	-DG_LOG_DOMAIN=\"xfce4-systemload-plugin\"			\
