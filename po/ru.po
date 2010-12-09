@@ -18,19 +18,19 @@ msgid "File /proc/stat not found!"
 msgstr "Файл /proc/stat не найден!"
 
 #: ../panel-plugin/systemload.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "System Load: %ld%%"
-msgstr "Загрузка системы: %ld%"
+msgstr "Загрузка системы: %ld%%"
 
 #: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Память: %ldMB из %ldMB"
+msgstr "Память: %ld МБ из %ld МБ"
 
 #: ../panel-plugin/systemload.c:175
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Подкачка: %ldMB из %ldMB"
+msgstr "Подкачка: %ld МБ из %ld МБ"
 
 #: ../panel-plugin/systemload.c:178
 #, c-format
@@ -43,6 +43,8 @@ msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d дней"
 msgstr[1] "%d дней"
+msgstr[2] "%d дней"
+msgstr[3] "%d дней"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
@@ -50,6 +52,8 @@ msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: ../panel-plugin/systemload.c:723
 msgid "Select color"
@@ -82,7 +86,7 @@ msgstr "Показать монитор"
 
 #: ../panel-plugin/systemload.c:832
 msgid "Text to display:"
-msgstr "Текст для отображения:"
+msgstr "Выводить текст:"
 
 #: ../panel-plugin/systemload.c:864
 msgid "Bar color:"
