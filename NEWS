@@ -1,3 +1,11 @@
-20030723:
----------
-	* Added hungarian translations
+1.0.0 (2010/12/10)
+-----------------
+- Translated into 34 languages, including 13 with a complete translation
+- Fix some issues with the build system
+- Fix a small memory leak
+- Adjust the way free memory is calculated, fixing bug #4215
+- Fix bar colors for some theme engines, fixing bug #3588
+- Fix display tooltip problems, fixing bug #5175
+- Improve the accuracy of CPU activity measurements, fixing bug #1076
+- Add support for GNU/kFreeBSD, fixing bug #2996
+- Make the plugin more compact visually, fixing bug #3587
