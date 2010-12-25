@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 11:09+0100\n"
+"PO-Revision-Date: 2010-12-25 20:06+0100\n"
+"Last-Translator: Michal Löffler <lofflermichalloffler@gmail.com>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+
+#: ../panel-plugin/cpu.c:58
+msgid "File /proc/stat not found!"
+msgstr "Súbor /proc/stat nebol nájdený!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Vyťaženie systému: %ld%%"
+
+#: ../panel-plugin/systemload.c:167
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Pamäť: %ldMB z %ldMB použitých"
+
+#: ../panel-plugin/systemload.c:176
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: %ldMB z %ldMB použitých"
+
+#: ../panel-plugin/systemload.c:179
+msgid "No swap"
+msgstr "Bez swap oddielu"
+
+#: ../panel-plugin/systemload.c:190
+#, c-format
+msgid "%d days"
+msgstr "%d dní"
+
+#: ../panel-plugin/systemload.c:197
+msgid "Uptime:"
+msgstr "Doba prevádzky počítača:"
+
+#: ../panel-plugin/systemload.c:683
+msgid "Select color"
+msgstr "Vyberte farbu"
+
+#: ../panel-plugin/systemload.c:747
+msgid "CPU monitor"
+msgstr "Sledovanie procesoru"
+
+#: ../panel-plugin/systemload.c:748
+msgid "Memory monitor"
+msgstr "Sledovanie pamäte"
+
+#: ../panel-plugin/systemload.c:749
+msgid "Swap monitor"
+msgstr "Sledovanie swap partície"
+
+#: ../panel-plugin/systemload.c:750
+msgid "Uptime monitor"
+msgstr "Sledovanie doby prevádzky počítača"
+
+#: ../panel-plugin/systemload.c:755
+#: ../panel-plugin/systemload.desktop.in.in.h:2
+msgid "System Load Monitor"
+msgstr "Sledovanie vyťaženia systému"
+
+#: ../panel-plugin/systemload.c:782
+#: ../panel-plugin/systemload.c:863
+msgid "Show monitor"
+msgstr "Zobraziť sledovanie"
+
+#: ../panel-plugin/systemload.c:792
+msgid "Text to display:"
+msgstr "Zobraziť text:"
+
+#: ../panel-plugin/systemload.c:824
+msgid "Bar color:"
+msgstr "Farba ukazovateľa:"
+
+#: ../panel-plugin/uptime.c:52
+msgid "File /proc/uptime not found!"
+msgstr "Súbor /proc/uptime nebol nájdený!"
+
+#: ../panel-plugin/systemload.desktop.in.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Sleduje vyťaženie procesoru, využitia swap oddielu a pamäte"
+
