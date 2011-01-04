@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
@@ -41,15 +42,15 @@ msgstr "Χωρίς swap"
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d μέρα"
+msgstr[1] "%d μέρες"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ενεργός χρόνος: %d μέρα %d:%02d"
+msgstr[1] "Ενεργός χρόνος: %d μέρες %d:%02d"
 
 #: ../panel-plugin/systemload.c:723
 msgid "Select color"
@@ -76,8 +77,7 @@ msgstr "Επισκόπηση ενεργού χρόνου"
 msgid "System Load Monitor"
 msgstr "Επισκόπηση φόρτου συστήματος"
 
-#: ../panel-plugin/systemload.c:822
-#: ../panel-plugin/systemload.c:903
+#: ../panel-plugin/systemload.c:822 ../panel-plugin/systemload.c:903
 msgid "Show monitor"
 msgstr "Εμφάνιση επισκόπησης"
 
@@ -96,4 +96,3 @@ msgstr "Το αρχείο /proc/uptime δε βρέθηκε!"
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Επισκόπηση φόρτου CPU, χρήσης swap και μνήμης"
-
