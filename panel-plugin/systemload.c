@@ -286,6 +286,7 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_widget_modify_base(GTK_WIDGET(global->monitor[count]->status),
                                GTK_STATE_SELECTED,
                                &global->monitor[count]->options.color);
+	gtk_event_box_set_visible_window(global->monitor[count]->ebox, FALSE);
 
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
 
@@ -295,11 +296,11 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_box_pack_start(GTK_BOX(global->box),
                            GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
-
     }
 
     global->uptime->ebox = gtk_event_box_new();
     gtk_widget_show(global->uptime->ebox);
+	gtk_event_box_set_visible_window(global->uptime->ebox, FALSE);
 
     gtk_widget_set_has_tooltip(global->monitor[0]->ebox, TRUE);
     gtk_widget_set_has_tooltip(global->monitor[1]->ebox, TRUE);
