@@ -1,13 +1,14 @@
 # Dutch translations for xfce4-systemload-plugin package.
-# Copyright (C) 2005 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
+# Copyright (C) The Xfce development team.
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Jasper Huijsmans <jasper@xfce.org>, 2005.
+# Pjotr, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin 0.4.0\n"
+"Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-25 10:16+0000\n"
+"POT-Creation-Date: 2011-05-27 10:17+0000\n"
 "PO-Revision-Date: 2005-10-10 14:22+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch <nl@li.org>\n"
