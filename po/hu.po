@@ -32,12 +32,12 @@ msgstr "Rendszerterhelés: %ld%%"
 #: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Memória: $%2ld MB, amiből $%1ld MB használt"
+msgstr "Memória: %2$ld MB, amiből %1$ld MB használt"
 
 #: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Lapozóterület: $%2ld MB, amiből $%1ld MB használt"
+msgstr "Lapozóterület: %2$ld MB, amiből %1$ld MB használt"
 
 #: ../panel-plugin/systemload.c:177
 #, c-format
