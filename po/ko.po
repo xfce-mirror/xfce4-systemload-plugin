@@ -4,13 +4,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005.
-#
+# Seong-ho, Cho <darkcircle.0426@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-13 01:24+0900\n"
+"POT-Creation-Date: 2011-11-15 12:02+0000\n"
 "PO-Revision-Date: 2006-10-20 12:07+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -18,83 +18,84 @@ msgstr ""
 "Language: \n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/cpu.c:62
+#: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "/proc/stat을 못 찾겠습니다!"
 
-#: ../panel-plugin/systemload.c:159
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "시스템 부하: %ld%%"
 
-#: ../panel-plugin/systemload.c:166
+#: ../panel-plugin/systemload.c:167
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "메모리: %ldMB(총 %ldMB) 사용"
 
-#: ../panel-plugin/systemload.c:174
+#: ../panel-plugin/systemload.c:175
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "스왑: %ldMB(총 %ldMB) 사용"
 
-#: ../panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "No swap"
 msgstr "스왑 없음"
 
-#: ../panel-plugin/systemload.c:187
+#: ../panel-plugin/systemload.c:188
 #, fuzzy, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d일"
 msgstr[1] "%d일"
 
-#: ../panel-plugin/systemload.c:195
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../panel-plugin/systemload.c:722
+#: ../panel-plugin/systemload.c:724
 msgid "Select color"
 msgstr "색상을 선택하십시오."
 
-#: ../panel-plugin/systemload.c:786
+#: ../panel-plugin/systemload.c:788
 msgid "CPU monitor"
 msgstr "CPU 감시"
 
-#: ../panel-plugin/systemload.c:787
+#: ../panel-plugin/systemload.c:789
 msgid "Memory monitor"
 msgstr "메모리 감시"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:790
 msgid "Swap monitor"
 msgstr "스왑 감시"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:791
 msgid "Uptime monitor"
 msgstr "동작시간 감시"
 
-#: ../panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:796
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "시스템 부하"
 
-#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:823 ../panel-plugin/systemload.c:904
 msgid "Show monitor"
 msgstr "보이기"
 
-#: ../panel-plugin/systemload.c:831
+#: ../panel-plugin/systemload.c:833
 msgid "Text to display:"
 msgstr "화면 표시:"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:865
 msgid "Bar color:"
 msgstr "막대 색:"
 
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "/proc/uptime을 못 찾겠습니다!"
 
