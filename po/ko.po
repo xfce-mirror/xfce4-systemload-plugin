@@ -5,17 +5,16 @@
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005.
 # Seong-ho, Cho <darkcircle.0426@gmail.com>, 2011.
-#
+# 
 msgid ""
 msgstr ""
-"MIME-Version: 1.0\n"
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-15 12:02+0000\n"
 "PO-Revision-Date: 2006-10-20 12:07+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@debianusers.org>\n"
-"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
-"Language: Korean\n"
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.Language: Korean\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -54,7 +53,7 @@ msgstr[0] "%d일"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
+msgstr[0] "가동시간: %d일 %d:%02d"
 
 #: ../panel-plugin/systemload.c:724
 msgid "Select color"
