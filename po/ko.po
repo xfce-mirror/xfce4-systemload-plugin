@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "/proc/stat을 못 찾겠습니다!"
+msgstr "/proc/stat 파일이 없습니다!"
 
 #: ../panel-plugin/systemload.c:160
 #, c-format
@@ -94,7 +94,7 @@ msgstr "막대 색:"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "/proc/uptime을 못 찾겠습니다!"
+msgstr "/proc/uptime 파일이 없습니다!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
