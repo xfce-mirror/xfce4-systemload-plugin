@@ -49,14 +49,12 @@ msgstr "스왑 없음"
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d일"
-msgstr[1] "%d일"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../panel-plugin/systemload.c:724
 msgid "Select color"
