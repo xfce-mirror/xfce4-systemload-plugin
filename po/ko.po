@@ -44,10 +44,10 @@ msgid "No swap"
 msgstr "스왑 없음"
 
 #: ../panel-plugin/systemload.c:188
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d일"
+msgstr[0] "%d 일"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
