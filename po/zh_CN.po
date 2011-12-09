@@ -1,9 +1,10 @@
-# Chinese translations for xfce package.
-# Copyright (C) 2009 THE xfce'S COPYRIGHT HOLDER
-# This file is distributed under the same license as 
-# the xfce4-systemload-plugin.
+# Simplified Chinese translations for
+# the xfce4-systemload-plugin package.
+# This file is distributed under the same license as
+# the xfce4-systemload-plugin package.
 # Hunt Xu <huntxu@live.cn>, 2009.
 # Chipong Luo <chipong_l@yahoo.com>, 2011.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
@@ -11,8 +12,8 @@ msgstr ""
 "POT-Creation-Date: 2011-10-09 04:09+0000\n"
 "PO-Revision-Date: 2009-05-09 13:56+0800\n"
 "Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
-"Language-Team: Chinese (simplified) <xfce-i18n@xfce.org>\n"
-"Language: \n"
+"Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
