@@ -38,6 +38,10 @@
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
+#ifdef HAVE_UPOWER_GLIB
+#include <upower.h>
+#endif
+
 #include "cpu.h"
 #include "memswap.h"
 #include "uptime.h"
@@ -49,6 +53,7 @@ static gchar *DEFAULT_TEXT[] = { "cpu", "mem", "swap" };
 static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
 
 #define UPDATE_TIMEOUT 250
+#define UPDATE_TIMEOUT_SECONDS 1
 
 #define BORDER 8
 
@@ -93,9 +98,14 @@ typedef struct
     XfcePanelPlugin   *plugin;
     GtkWidget         *ebox;
     GtkWidget         *box;
-    guint             timeout, timeout_id;
+    guint             timeout, timeout_seconds;
+    gboolean          use_timeout_seconds;
+    guint             timeout_id;
     t_monitor         *monitor[3];
     t_uptime_monitor  *uptime;
+#ifdef HAVE_UPOWER_GLIB
+    UpClient          *upower;
+#endif
 } t_global_monitor;
 
 static gint
@@ -329,8 +339,13 @@ monitor_control_new(XfcePanelPlugin *plugin)
     t_global_monitor *global;
     
     global = g_new(t_global_monitor, 1);
+#ifdef HAVE_UPOWER_GLIB
+    global->upower = up_client_new();
+#endif
     global->plugin = plugin;
     global->timeout = UPDATE_TIMEOUT;
+    global->timeout_seconds = UPDATE_TIMEOUT_SECONDS;
+    global->use_timeout_seconds = TRUE;
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
     gtk_container_set_border_width (GTK_CONTAINER (global->ebox), BORDER/2);
@@ -372,6 +387,13 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     gint count;
 
+#ifdef HAVE_UPOWER_GLIB
+    if (global->upower) {
+        g_object_unref(global->upower);
+        global->upower = NULL;
+    }
+#endif
+
     if (global->timeout_id)
         g_source_remove(global->timeout_id);
 
@@ -389,6 +411,29 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     g_free(global->uptime);
 
     g_free(global);
+}
+
+static void
+setup_timer(t_global_monitor *global)
+{
+    if (global->timeout_id)
+        g_source_remove(global->timeout_id);
+#ifdef HAVE_UPOWER_GLIB
+    if (global->upower && global->use_timeout_seconds) {
+        if (up_client_get_on_battery(global->upower)) {
+            if (!up_client_get_lid_is_closed(global->upower)) {
+                global->timeout_id = g_timeout_add_seconds(
+                                        global->timeout_seconds,
+                                        (GSourceFunc)update_monitors, global);
+            } else {
+                /* Don't do any timeout if the lid is closed on battery */
+                global->timeout_id = 0;
+            }
+            return;
+        }
+    }
+#endif
+    global->timeout_id = g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
 }
 
 static void
@@ -434,6 +479,8 @@ setup_monitor(t_global_monitor *global)
         }
         gtk_widget_show(GTK_WIDGET(global->uptime->ebox));
     }
+
+    setup_timer(global);
 }
 
 static void
@@ -457,6 +504,10 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         xfce_rc_set_group (rc, "Main");
         global->timeout = xfce_rc_read_int_entry (rc, "Timeout", global->timeout);
+        global->timeout_seconds = xfce_rc_read_int_entry (
+                rc, "Timeout_Seconds", global->timeout_seconds);
+        global->use_timeout_seconds = xfce_rc_read_bool_entry (
+                rc, "Use_Timeout_Seconds", global->use_timeout_seconds);
     }
 
     for(count = 0; count < 3; count++)
@@ -515,6 +566,9 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     xfce_rc_set_group (rc, "Main");
     xfce_rc_write_int_entry (rc, "Timeout", global->timeout);
+    xfce_rc_write_int_entry (rc, "Timeout_Seconds", global->timeout_seconds);
+    xfce_rc_write_bool_entry (rc, "Use_Timeout_Seconds",
+                              global->use_timeout_seconds);
 
     for(count = 0; count < 3; count++)
     {
@@ -571,6 +625,14 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
     return TRUE;
 }
 
+#ifdef HAVE_UPOWER_GLIB
+static void
+upower_changed_cb(UpClient *client, t_global_monitor *global)
+{
+    setup_timer(global);
+}
+#endif
+
 static void
 entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
 {
@@ -616,10 +678,18 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 {
     global->timeout = gtk_spin_button_get_value(spin) * 1000;
 
-    if (global->timeout_id)
-        g_source_remove(global->timeout_id);
-    global->timeout_id = g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
+    setup_timer(global);
 }
+
+#ifdef HAVE_UPOWER_GLIB
+static void
+change_timeout_seconds_cb(GtkSpinButton *spin, t_global_monitor *global)
+{
+    global->timeout_seconds = gtk_spin_button_get_value(spin);
+
+    setup_timer(global);
+}
+#endif
 
 /* Create a new frame, optionally with a checkbox.
  * Set boolvar to NULL if you do not want a checkbox.
@@ -764,11 +834,18 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     content = GTK_BOX(gtk_dialog_get_content_area (GTK_DIALOG(dlg)));
 
-    table = new_frame(global, content, _("General"), 1, NULL);
+    table = new_frame(global, content, _("General"), 2, NULL);
     new_spin_button(global, table, 0,
             _("Update interval:"), _("s"),
             (gfloat)global->timeout/1000.0, 0.100, 10.000, .050,
             G_CALLBACK(change_timeout_cb), NULL);
+#ifdef HAVE_UPOWER_GLIB
+    new_spin_button(global, table, 1,
+            _("Power-saving interval:"), _("s"),
+            (gfloat)global->timeout_seconds, 1, 10, 1,
+            G_CALLBACK(change_timeout_seconds_cb),
+            &global->use_timeout_seconds);
+#endif
     
     for(count = 0; count < 3; count++)
     {
@@ -814,8 +891,12 @@ systemload_construct (XfcePanelPlugin *plugin)
 
     update_monitors (global);
 
-    global->timeout_id = 
-        g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
+#ifdef HAVE_UPOWER_GLIB
+    if (global->upower) {
+        g_signal_connect (global->upower, "changed",
+                          G_CALLBACK(upower_changed_cb), global);
+    }
+#endif
     
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
 

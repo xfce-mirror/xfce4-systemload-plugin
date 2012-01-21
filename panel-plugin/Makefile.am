@@ -24,12 +24,14 @@ xfce4_systemload_plugin_CFLAGS =					\
 	$(LIBXFCE4UTIL_CFLAGS)						\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
+	$(UPOWER_GLIB_CFLAGS)						\
 	$(PLATFORM_CFLAGS)
 
 xfce4_systemload_plugin_LDADD =						\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCE4UI_LIBS)						\
-	$(LIBXFCE4PANEL_LIBS)
+	$(LIBXFCE4PANEL_LIBS) 						\
+	$(UPOWER_GLIB_LIBS)
 
 #
 # Desktop file
