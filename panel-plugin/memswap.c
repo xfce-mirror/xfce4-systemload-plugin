@@ -59,7 +59,6 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 {
     int fd;
     size_t n;
-    int o_MTotal, o_MFree, o_MBuffers, o_MCached, o_STotal, o_SFree;
     char *b_MTotal, *b_MFree, *b_MBuffers, *b_MCached, *b_STotal, *b_SFree;
 
     if ((fd = open("/proc/meminfo", O_RDONLY)) < 0)
@@ -78,28 +77,28 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     MemInfoBuf[n] = '\0';
 
     b_MTotal = strstr(MemInfoBuf, "MemTotal");
-    if (b_MTotal)
-        o_MTotal = sscanf(b_MTotal + strlen("MemTotal"), ": %lu", &MTotal);
+    if (!b_MTotal || !sscanf(b_MTotal + strlen("MemTotal"), ": %lu", &MTotal))
+        return -1;
 
     b_MFree = strstr(MemInfoBuf, "MemFree");
-    if (b_MFree)
-        o_MFree = sscanf(b_MFree + strlen("MemFree"), ": %lu", &MFree);
+    if (!b_MFree || !sscanf(b_MFree + strlen("MemFree"), ": %lu", &MFree))
+        return -1;
 
     b_MBuffers = strstr(MemInfoBuf, "Buffers");
-    if (b_MBuffers)
-        o_MBuffers = sscanf(b_MBuffers + strlen("Buffers"), ": %lu", &MBuffers);
+    if (!b_MBuffers || !sscanf(b_MBuffers + strlen("Buffers"), ": %lu", &MBuffers))
+        return -1;
 
     b_MCached = strstr(MemInfoBuf, "Cached");
-    if (b_MCached)
-        o_MCached = sscanf(b_MCached + strlen("Cached"), ": %lu", &MCached);
+    if (!b_MCached || !sscanf(b_MCached + strlen("Cached"), ": %lu", &MCached))
+        return -1;
 
     b_STotal = strstr(MemInfoBuf, "SwapTotal");
-    if (b_STotal)
-        o_STotal = sscanf(b_STotal + strlen("SwapTotal"), ": %lu", &STotal);
+    if (!b_STotal || !sscanf(b_STotal + strlen("SwapTotal"), ": %lu", &STotal))
+        return -1;
 
     b_SFree = strstr(MemInfoBuf, "SwapFree");
-    if (b_SFree)
-        o_SFree = sscanf(b_SFree + strlen("SwapFree"), ": %lu", &SFree);
+    if (!b_SFree || !sscanf(b_SFree + strlen("SwapFree"), ": %lu", &SFree))
+        return -1;
 
     MFree += MCached + MBuffers;
     MUsed = MTotal - MFree;

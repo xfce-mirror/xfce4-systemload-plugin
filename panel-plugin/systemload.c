@@ -118,8 +118,6 @@ update_monitors(t_global_monitor *global)
         {
             if (global->monitor[count]->history[0] > 100)
                 global->monitor[count]->history[0] = 100;
-            else if (global->monitor[count]->history[0] < 0)
-                global->monitor[count]->history[0] = 0;
 
             global->monitor[count]->value_read =
                 (global->monitor[count]->history[0] +

@@ -51,10 +51,10 @@ struct cpu_load_struct {
 
 gulong cpu_used, oldtotal, oldused;
 
-gulong read_cpuload()
+gulong read_cpuload(void)
 {
     FILE *fd;
-    uint64_t user, nice, system, idle, iowait, irq, softirq, guest;
+    unsigned long long int user, unice, usystem, idle, iowait, irq, softirq, guest;
     gulong used, total;
     int nb_read;
 
@@ -65,8 +65,8 @@ gulong read_cpuload()
     }
 
     /* Don't count steal time. It is neither busy nor free tiime. */
-    nb_read = fscanf (fd, "%*s " "%llu %llu %llu %llu %llu %llu %llu %*llu %llu",
-	    &user, &nice, &system, &idle, &iowait, &irq, &softirq, &guest);
+    nb_read = fscanf (fd, "%*s %llu %llu %llu %llu %llu %llu %llu %*u %llu",
+	    &user, &unice, &usystem, &idle, &iowait, &irq, &softirq, &guest);
     fclose(fd);
     switch (nb_read) /* fall through intentional */
     {
@@ -80,7 +80,7 @@ gulong read_cpuload()
 		    guest = 0;
     }
 
-    used = user + nice + system + irq + softirq + guest;
+    used = user + unice + usystem + irq + softirq + guest;
     total = used + idle + iowait;
 
     if ((total - oldtotal) != 0)
@@ -118,7 +118,7 @@ struct cpu_load_struct {
 
 gulong cpu_used, oldtotal, oldused;
 
-gulong read_cpuload()
+gulong read_cpuload(void)
 {
     gulong used, total;
     long cp_time[CPUSTATES];
@@ -170,7 +170,7 @@ struct cpu_load_struct {
 
 gulong cpu_used, oldtotal, oldused;
 
-gulong read_cpuload()
+gulong read_cpuload(void)
 {
     gulong used, total;
     static int mib[] = { CTL_KERN, KERN_CP_TIME };
@@ -224,7 +224,7 @@ struct cpu_load_struct {
 
 gulong cpu_used, oldtotal, oldused;
 
-gulong read_cpuload()
+gulong read_cpuload(void)
 {
     gulong used, total;
     static int mib[] = { CTL_KERN, KERN_CPTIME };

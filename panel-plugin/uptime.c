@@ -43,7 +43,7 @@
 
 #define PROC_UPTIME "/proc/uptime"
 
-gulong read_uptime()
+gulong read_uptime(void)
 {
     FILE *fd;
     gulong uptime;
@@ -53,7 +53,8 @@ gulong read_uptime()
         g_warning(_("File /proc/uptime not found!"));
         return 0;
     }
-    fscanf(fd, "%lu", &uptime);
+    if (!fscanf(fd, "%lu", &uptime))
+       uptime = 0;
     fclose(fd);
 
     return uptime;
@@ -88,7 +89,7 @@ gulong read_uptime()
 #include <sys/time.h>
 #endif /* !__FreeBSD__ */
 
-gulong read_uptime()
+gulong read_uptime(void)
 {
    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
    struct timeval boottime;
