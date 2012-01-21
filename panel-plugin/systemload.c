@@ -106,11 +106,15 @@ update_monitors(t_global_monitor *global)
     gulong mem, swap, MTotal, MUsed, STotal, SUsed;
     gint count, days, hours, mins;
 
-    global->monitor[0]->history[0] = read_cpuload();
-    read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed);
-    global->monitor[1]->history[0] = mem;
-    global->monitor[2]->history[0] = swap;
-    global->uptime->value_read = read_uptime();
+    if (global->monitor[0]->options.enabled)
+        global->monitor[0]->history[0] = read_cpuload();
+    if (global->monitor[1]->options.enabled || global->monitor[2]->options.enabled) {
+        read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed);
+        global->monitor[1]->history[0] = mem;
+        global->monitor[2]->history[0] = swap;
+    }
+    if (global->uptime->enabled)
+        global->uptime->value_read = read_uptime();
 
     for(count = 0; count < 3; count++)
     {
