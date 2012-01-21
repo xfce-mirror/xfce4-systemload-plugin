@@ -621,10 +621,123 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
     global->timeout_id = g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
 }
 
+/* Create a new frame, optionally with a checkbox.
+ * Set boolvar to NULL if you do not want a checkbox.
+ * Returns the GtkTable inside the frame. */
+static GtkTable* new_frame(t_global_monitor *global, GtkBox *content,
+                           const gchar *title, guint rows, gboolean *boolvar)
+{
+    GtkWidget *frame, *table, *check, *label;
+    table = gtk_table_new (rows, 2, FALSE);
+    gtk_table_set_col_spacings (GTK_TABLE(table), 12);
+    gtk_table_set_row_spacings (GTK_TABLE(table), 6);
+    frame = xfce_gtk_frame_box_new_with_content (title, table);
+    gtk_box_pack_start_defaults (content, frame);
+    if (boolvar) {
+        check = gtk_check_button_new();
+        /* Move frame label into check button */
+        label = gtk_frame_get_label_widget (GTK_FRAME(frame));
+        g_object_ref (G_OBJECT(label));
+        gtk_container_remove (GTK_CONTAINER(frame), label);
+        gtk_container_add (GTK_CONTAINER(check), label);
+        g_object_unref (G_OBJECT(label));
+        /* Assign check to be the frame's label */
+        gtk_frame_set_label_widget (GTK_FRAME(frame), check);
+        /* Configure and set check button */
+        g_object_set_data (G_OBJECT(check), "sensitive_widget", table);
+        g_object_set_data (G_OBJECT(check), "boolvar", boolvar);
+        g_signal_connect (G_OBJECT(check), "toggled",
+                          G_CALLBACK(check_button_cb), global);
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(check), *boolvar);
+    }
+    return GTK_TABLE(table);
+}
+
+/* Creates a check box if boolvar is non-null, or a label if it is null.
+ * If it is a check box, it will control the sensitivity of target.
+ * If it is a label, its mnemonic will point to target.
+ * Returns the widget. */
+static GtkWidget *new_label_or_check_button(t_global_monitor *global,
+                                            const gchar *labeltext,
+                                            gboolean *boolvar, GtkWidget *target)
+{
+    GtkWidget *label;
+    if (boolvar) {
+        label = gtk_check_button_new_with_mnemonic (labeltext);
+        g_object_set_data (G_OBJECT(label), "sensitive_widget", target);
+        g_object_set_data (G_OBJECT(label), "boolvar", boolvar);
+        g_signal_connect (GTK_WIDGET(label), "toggled",
+                          G_CALLBACK(check_button_cb), global);
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(label), *boolvar);
+    } else {
+        label = gtk_label_new_with_mnemonic (labeltext);
+        gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
+        gtk_label_set_mnemonic_widget(GTK_LABEL(label), target);
+    }
+    return label;
+}
+
+/* Adds an entry box to the table, optionally with a checkbox to enable it.
+ * Set boolvar to NULL if you do not want a checkbox. */
+static void new_entry(t_global_monitor *global, GtkTable *table, guint row,
+                      const gchar *labeltext, gchar **charvar,
+                      gboolean *boolvar)
+{
+    GtkWidget *label, *entry;
+    entry = gtk_entry_new ();
+    g_object_set_data (G_OBJECT(entry), "charvar", charvar);
+    gtk_entry_set_text (GTK_ENTRY(entry), *charvar);
+    g_signal_connect (G_OBJECT(entry), "changed",
+                      G_CALLBACK(entry_changed_cb), global);
+    label = new_label_or_check_button(global, labeltext, boolvar, entry);
+    gtk_table_attach_defaults(table, label,  0, 1, row, row+1);
+    gtk_table_attach_defaults(table, entry, 1, 2, row, row+1);
+}
+
+/* Adds a color button to the table, optionally with a checkbox to enable it.
+ * Set boolvar to NULL if you do not want a checkbox. */
+static void new_color_button(t_global_monitor *global, GtkTable *table, guint row,
+                             const gchar *labeltext, GdkColor* colorvar,
+                             gboolean *boolvar)
+{
+    GtkWidget *label, *button;
+    button = gtk_color_button_new_with_color(colorvar);
+    g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
+    g_signal_connect(G_OBJECT(button), "color-set",
+                     G_CALLBACK (color_set_cb), global);
+    label = new_label_or_check_button(global, labeltext, boolvar, button);
+    gtk_table_attach_defaults(table, label,  0, 1, row, row+1);
+    gtk_table_attach_defaults(table, button, 1, 2, row, row+1);
+}
+
+/* Adds a new spin button, optionally with a checkbox to enable it.
+ * Set boolvar to NULL if you do not want a checkbox. */
+static void new_spin_button(t_global_monitor *global, GtkTable *table, guint row,
+                            const gchar *labeltext, const gchar *units,
+                            gfloat value, gfloat min, gfloat max, gfloat step,
+                            GCallback callback, gboolean* boolvar) {
+    GtkWidget *label, *button, *box;
+    /* Hbox for spin button + units */
+    box = gtk_hbox_new(TRUE, 2);
+    button = gtk_spin_button_new_with_range (min, max, step);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), value);
+    g_signal_connect (G_OBJECT (button), "value-changed", callback, global);
+    gtk_box_pack_start(GTK_BOX(box), button, FALSE, FALSE, 0);
+    label = gtk_label_new (units);
+    gtk_misc_set_alignment (GTK_MISC(label), 0, .5);
+    gtk_box_pack_start(GTK_BOX(box), label, TRUE, TRUE, 0);
+    /* Label/check button */
+    label = new_label_or_check_button(global, labeltext, boolvar, box);
+    gtk_table_attach_defaults(table, label,  0, 1, row, row+1);
+    gtk_table_attach_defaults(table, box, 1, 2, row, row+1);
+}
+
 static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    GtkWidget           *dlg, *content, *frame, *table, *label, *box, *widget;
+    GtkWidget           *dlg;
+    GtkBox              *content;
+    GtkTable            *table;
     guint                count;
     t_monitor           *monitor;
     static const gchar *FRAME_TEXT[] = {
@@ -649,85 +762,32 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_window_set_position (GTK_WINDOW (dlg), GTK_WIN_POS_CENTER);
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
 
-    content = gtk_dialog_get_content_area (GTK_DIALOG (dlg));
+    content = GTK_BOX(gtk_dialog_get_content_area (GTK_DIALOG(dlg)));
 
-#define ADD(widget, row, column) \
-    gtk_table_attach_defaults (GTK_TABLE (table), widget, \
-                               column, column+1, row, row+1)
-#define ENTRY(row, checktext, boolvar, charvar) \
-    widget = gtk_entry_new (); \
-    g_object_set_data (G_OBJECT(widget), "charvar", &charvar); \
-    gtk_entry_set_text (GTK_ENTRY (widget), charvar); \
-    g_signal_connect (G_OBJECT (widget), "changed", \
-                      G_CALLBACK (entry_changed_cb), global); \
-    label = gtk_check_button_new_with_mnemonic (checktext); \
-    g_object_set_data (G_OBJECT(label), "sensitive_widget", widget); \
-    g_object_set_data (G_OBJECT(label), "boolvar", &boolvar); \
-    g_signal_connect (GTK_WIDGET(label), "toggled", \
-                      G_CALLBACK(check_button_cb), global); \
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(label), boolvar); \
-    ADD(label, row, 0); ADD(widget, row, 1)
-#define COLOR_BUTTON(row, labeltext, colorvar) \
-    label = gtk_label_new_with_mnemonic(labeltext); \
-    widget = gtk_color_button_new_with_color(&colorvar); \
-    g_object_set_data (G_OBJECT(widget), "colorvar", &colorvar); \
-    g_signal_connect (G_OBJECT (widget), "color-set", \
-                      G_CALLBACK (color_set_cb), global); \
-    gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
-    gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget); \
-    ADD(label, row, 0); ADD(widget, row, 1)
-#define SPIN(row, labeltext, units, value, min, max, step, callback) \
-    label = gtk_label_new_with_mnemonic (labeltext); \
-    widget = gtk_spin_button_new_with_range (min, max, step); \
-    gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), value); \
-    g_signal_connect (G_OBJECT (widget), "value-changed", \
-                      G_CALLBACK (callback), global); \
-    gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
-    gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget); \
-    box = gtk_hbox_new(TRUE, 2); \
-    gtk_box_pack_start(GTK_BOX(box), widget, FALSE, FALSE, 0); \
-    widget = gtk_label_new (units); \
-    gtk_misc_set_alignment (GTK_MISC(widget), 0, .5); \
-    gtk_box_pack_start(GTK_BOX(box), widget, TRUE, TRUE, 0); \
-    ADD(label, row, 0); ADD(box, row, 1)
-#define START_FRAME(title, rows) \
-    table = gtk_table_new (rows, 2, FALSE); \
-    gtk_table_set_col_spacings (GTK_TABLE (table), 12); \
-    gtk_table_set_row_spacings (GTK_TABLE (table), 6); \
-    frame = xfce_gtk_frame_box_new_with_content (title, table); \
-    gtk_box_pack_start_defaults (GTK_BOX (content), frame)
-#define START_FRAME_CHECK(title, rows, boolvar) \
-    START_FRAME(title, rows); \
-    widget = gtk_check_button_new(); \
-    label = gtk_frame_get_label_widget (GTK_FRAME(frame)); \
-    g_object_ref(G_OBJECT(label)); \
-    gtk_container_remove(GTK_CONTAINER(frame), label); \
-    gtk_container_add(GTK_CONTAINER(widget), label); \
-    g_object_unref(G_OBJECT(label)); \
-    gtk_frame_set_label_widget (GTK_FRAME(frame), widget); \
-    g_object_set_data (G_OBJECT(widget), "sensitive_widget", table); \
-    g_object_set_data (G_OBJECT(widget), "boolvar", &boolvar); \
-    g_signal_connect (GTK_WIDGET(widget), "toggled", \
-                      G_CALLBACK(check_button_cb), global); \
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(widget), boolvar)
-
-    START_FRAME(_("General"), 1);
-    SPIN(0, _("Update interval:"), _("s"),
-         (gdouble)global->timeout/1000.0, 0.100, 10.000, .050,
-         change_timeout_cb);
+    table = new_frame(global, content, _("General"), 1, NULL);
+    new_spin_button(global, table, 0,
+            _("Update interval:"), _("s"),
+            (gfloat)global->timeout/1000.0, 0.100, 10.000, .050,
+            G_CALLBACK(change_timeout_cb), NULL);
     
     for(count = 0; count < 3; count++)
     {
         monitor = global->monitor[count];
 
-        START_FRAME_CHECK(FRAME_TEXT[count], 2, monitor->options.enabled);
-        ENTRY(0, _("Text to display:"),
-              monitor->options.use_label, monitor->options.label_text);
-        COLOR_BUTTON(1, _("Bar color:"), monitor->options.color);
+        table = new_frame(global, content,
+                          FRAME_TEXT[count], 2, &monitor->options.enabled);
+
+        new_entry(global, table, 0,
+                  _("Text to display:"), &monitor->options.label_text,
+                  &monitor->options.use_label);
+
+        new_color_button(global, table, 1,
+                         _("Bar color:"), &monitor->options.color, NULL);
     }
 
     /*uptime monitor options - start*/
-    START_FRAME_CHECK(FRAME_TEXT[3], 1, global->uptime->enabled);
+    table = new_frame(global, content,
+                      FRAME_TEXT[3], 1, &global->uptime->enabled);
     /*uptime monitor options - end*/
 
     gtk_widget_show_all (dlg);
