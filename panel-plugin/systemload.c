@@ -50,8 +50,6 @@ static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
 
 #define UPDATE_TIMEOUT 250
 
-#define MAX_LENGTH 10
-
 #define BORDER 8
 
 enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
@@ -76,15 +74,6 @@ typedef struct
     gulong     value_read;
 
     t_monitor_options options;
-
-    /*options*/
-    GtkWidget *opt_enabled;
-    GtkBox    *opt_vbox;
-    GtkWidget *opt_entry;
-    GtkBox    *opt_hbox;
-    GtkWidget *opt_use_label;
-    GtkWidget *opt_button;
-    GtkWidget *opt_da;
 } t_monitor;
 
 typedef struct
@@ -96,10 +85,7 @@ typedef struct
     GtkWidget  *tooltip_text;
 
     gulong     value_read;
-    gboolean enabled;
-
-    /*options*/
-    GtkWidget *opt_enabled;
+    gboolean   enabled;
 } t_uptime_monitor;
 
 typedef struct
@@ -110,9 +96,6 @@ typedef struct
     guint             timeout, timeout_id;
     t_monitor         *monitor[3];
     t_uptime_monitor  *uptime;
-
-    /* options dialog */
-    GtkWidget  *opt_dialog;
 } t_global_monitor;
 
 static gint
@@ -193,8 +176,8 @@ update_monitors(t_global_monitor *global)
                            caption);
 
         g_snprintf(caption, sizeof(caption),
-	           ngettext("Uptime: %d day %d:%02d", "Uptime: %d days %d:%02d", days),
-	           days, hours, mins);
+                   ngettext("Uptime: %d day %d:%02d", "Uptime: %d days %d:%02d", days),
+                   days, hours, mins);
         gtk_label_set_text(GTK_LABEL(global->uptime->tooltip_text), caption);
     }
     return TRUE;
@@ -202,33 +185,32 @@ update_monitors(t_global_monitor *global)
 
 static gboolean tooltip_cb0(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
 {
-	gtk_tooltip_set_custom(tooltip, global->monitor[0]->tooltip_text);
-	return TRUE;
+        gtk_tooltip_set_custom(tooltip, global->monitor[0]->tooltip_text);
+        return TRUE;
 }
 
 static gboolean tooltip_cb1(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
 {
-	gtk_tooltip_set_custom(tooltip, global->monitor[1]->tooltip_text);
-	return TRUE;
+        gtk_tooltip_set_custom(tooltip, global->monitor[1]->tooltip_text);
+        return TRUE;
 }
 
 static gboolean tooltip_cb2(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
 {
-	gtk_tooltip_set_custom(tooltip, global->monitor[2]->tooltip_text);
-	return TRUE;
+        gtk_tooltip_set_custom(tooltip, global->monitor[2]->tooltip_text);
+        return TRUE;
 }
 
 static gboolean tooltip_cb3(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
 {
-	gtk_tooltip_set_custom(tooltip, global->uptime->tooltip_text);
-	return TRUE;
+        gtk_tooltip_set_custom(tooltip, global->uptime->tooltip_text);
+        return TRUE;
 }
 
 static void
 monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
                          t_global_monitor *global)
 {
-    GtkRcStyle *rc;
     gint count;
 
     gtk_widget_hide(GTK_WIDGET(global->ebox));
@@ -286,7 +268,7 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_widget_modify_base(GTK_WIDGET(global->monitor[count]->status),
                                GTK_STATE_SELECTED,
                                &global->monitor[count]->options.color);
-	gtk_event_box_set_visible_window(global->monitor[count]->ebox, FALSE);
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->monitor[count]->ebox), FALSE);
 
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
 
@@ -300,7 +282,7 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
 
     global->uptime->ebox = gtk_event_box_new();
     gtk_widget_show(global->uptime->ebox);
-	gtk_event_box_set_visible_window(global->uptime->ebox, FALSE);
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->uptime->ebox), FALSE);
 
     gtk_widget_set_has_tooltip(global->monitor[0]->ebox, TRUE);
     gtk_widget_set_has_tooltip(global->monitor[1]->ebox, TRUE);
@@ -370,8 +352,8 @@ monitor_control_new(XfcePanelPlugin *plugin)
         global->monitor[count]->history[1] = 0;
         global->monitor[count]->history[2] = 0;
         global->monitor[count]->history[3] = 0;
-	global->monitor[count]->tooltip_text = gtk_label_new(NULL);
-	g_object_ref(global->monitor[count]->tooltip_text);
+        global->monitor[count]->tooltip_text = gtk_label_new(NULL);
+        g_object_ref(global->monitor[count]->tooltip_text);
 
     }
     
@@ -395,7 +377,7 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         if (global->monitor[count]->options.label_text)
             g_free(global->monitor[count]->options.label_text);
-	gtk_widget_destroy(global->monitor[count]->tooltip_text);
+        gtk_widget_destroy(global->monitor[count]->tooltip_text);
         g_free(global->monitor[count]);
     }
 
@@ -407,10 +389,9 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     g_free(global);
 }
 
-void
+static void
 setup_monitor(t_global_monitor *global)
 {
-    GtkRcStyle *rc;
     gint count;
 
     gtk_widget_hide(GTK_WIDGET(global->uptime->ebox));
@@ -589,196 +570,40 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 }
 
 static void
-monitor_apply_options(t_global_monitor *global)
+entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
 {
-    gint count;
-
-    for(count = 0; count < 3; count++)
-    {
-        if (global->monitor[count]->options.label_text)
-            g_free(global->monitor[count]->options.label_text);
-
-        global->monitor[count]->options.label_text =
-            g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor[count]->opt_entry)));
-    }
+    gchar** charvar = (gchar**)g_object_get_data (G_OBJECT(entry), "charvar");
+    g_free(*charvar);
+    *charvar = g_strdup(gtk_entry_get_text(GTK_ENTRY(entry)));
     setup_monitor(global);
 }
 
 static void
-label_changed(t_global_monitor *global, gint count)
+check_button_cb(GtkToggleButton *check_button, t_global_monitor *global)
 {
-    if (global->monitor[count]->options.label_text)
-        g_free(global->monitor[count]->options.label_text);
-
-    global->monitor[count]->options.label_text =
-        g_strdup(gtk_entry_get_text(GTK_ENTRY(global->monitor[count]->opt_entry)));
-
+    gboolean* boolvar;
+    gpointer sensitive_widget;
+    boolvar = (gboolean*)g_object_get_data(G_OBJECT(check_button), "boolvar");
+    sensitive_widget = g_object_get_data(G_OBJECT(check_button), "sensitive_widget");
+    *boolvar = gtk_toggle_button_get_active(check_button);
+    if (sensitive_widget)
+        gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
     setup_monitor(global);
 }
 
 static void
-label_changed_cb0(GtkWidget *button, t_global_monitor *global)
+color_set_cb(GtkColorButton *color_button, t_global_monitor *global)
 {
-    label_changed(global, 0);
-}
-
-static void
-label_changed_cb1(GtkWidget *button, t_global_monitor *global)
-{
-    label_changed(global, 1);
-}
-
-static void
-label_changed_cb2(GtkWidget *entry, t_global_monitor *global)
-{
-    label_changed(global, 2);
-}
-
-static void
-monitor_toggled(t_global_monitor *global, gint count)
-{
-    global->monitor[count]->options.enabled =
-        !global->monitor[count]->options.enabled;
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor[count]->opt_enabled),
-                                 global->monitor[count]->options.enabled);
-    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_vbox),
-                             global->monitor[count]->options.enabled);
-
+    GdkColor* colorvar;
+    colorvar = (GdkColor*)g_object_get_data(G_OBJECT(color_button), "colorvar");
+    gtk_color_button_get_color(color_button, colorvar);
     setup_monitor(global);
-}
-
-static void
-monitor_toggled_cb0(GtkWidget *check_button, t_global_monitor *global)
-{
-    monitor_toggled(global, 0);
-}
-
-static void
-monitor_toggled_cb1(GtkWidget *check_button, t_global_monitor *global)
-{
-    monitor_toggled(global, 1);
-}
-
-static void
-monitor_toggled_cb2(GtkWidget *check_button, t_global_monitor *global)
-{
-    monitor_toggled(global, 2);
-}
-
-static void
-uptime_toggled_cb(GtkWidget *check_button, t_global_monitor *global)
-{
-    global->uptime->enabled = !global->uptime->enabled;
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->uptime->opt_enabled),
-                                 global->uptime->enabled);
-    setup_monitor(global);
-}
-
-static void
-label_toggled(t_global_monitor *global, gint count)
-{
-    global->monitor[count]->options.use_label =
-        !global->monitor[count]->options.use_label;
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor[count]->opt_use_label),
-                                 global->monitor[count]->options.use_label);
-    gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_entry),
-                             global->monitor[count]->options.use_label);
-
-    setup_monitor(global);
-}
-
-static void
-label_toggled_cb0(GtkWidget *check_button, t_global_monitor *global)
-{
-    label_toggled(global, 0);
-}
-
-static void
-label_toggled_cb1(GtkWidget *check_button, t_global_monitor *global)
-{
-    label_toggled(global, 1);
-}
-
-static void
-label_toggled_cb2(GtkWidget *check_button, t_global_monitor *global)
-{
-    label_toggled(global, 2);
-}
-
-static gboolean
-expose_event_cb(GtkWidget *widget, GdkEventExpose *event)
-{
-if (widget->window)
-    {
-        GtkStyle *style;
-
-        style = gtk_widget_get_style(widget);
-
-        gdk_draw_rectangle(widget->window,
-                           style->bg_gc[GTK_STATE_NORMAL],
-                           TRUE,
-                           event->area.x, event->area.y,
-                           event->area.width, event->area.height);
-    }
-
-  return TRUE;
-}
-
-static void
-change_color(t_global_monitor *global, gint count)
-{
-    GtkWidget *dialog;
-    GtkColorSelection *colorsel;
-    gint response;
-
-    dialog = gtk_color_selection_dialog_new(_("Select color"));
-    gtk_window_set_transient_for(GTK_WINDOW(dialog),
-                                 GTK_WINDOW(global->opt_dialog));
-    colorsel =
-        GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dialog)->colorsel);
-    gtk_color_selection_set_previous_color(colorsel,
-                                           &global->monitor[count]->options.color);
-    gtk_color_selection_set_current_color(colorsel,
-                                          &global->monitor[count]->options.color);
-    gtk_color_selection_set_has_palette(colorsel, TRUE);
-
-    response = gtk_dialog_run(GTK_DIALOG(dialog));
-    if (response == GTK_RESPONSE_OK)
-    {
-        gtk_color_selection_get_current_color(colorsel,
-                                              &global->monitor[count]->options.color);
-        gtk_widget_modify_bg(global->monitor[count]->opt_da,
-                             GTK_STATE_NORMAL,
-                             &global->monitor[count]->options.color);
-        setup_monitor(global);
-    }
-
-    gtk_widget_destroy(dialog);
-}
-
-static void
-change_color_cb0(GtkWidget *button, t_global_monitor *global)
-{
-    change_color(global, 0);
-}
-
-static void
-change_color_cb1(GtkWidget *button, t_global_monitor *global)
-{
-    change_color(global, 1);
-}
-
-static void
-change_color_cb2(GtkWidget *button, t_global_monitor *global)
-{
-    change_color(global, 2);
 }
 
 static void
 monitor_dialog_response (GtkWidget *dlg, int response, 
                          t_global_monitor *global)
 {
-    monitor_apply_options (global);
     gtk_widget_destroy (dlg);
     xfce_panel_plugin_unblock_menu (global->plugin);
     monitor_write_config (global->plugin, global);
@@ -797,170 +622,105 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    GtkWidget           *dlg, *notebook;
-    GtkWidget           *vbox;
-    GtkWidget           *hbox;
-    GtkWidget           *color_label;
-    GtkWidget           *align, *label;
-    GtkWidget           *spin;
-    GtkSizeGroup        *sg;
+    GtkWidget           *dlg, *content, *frame, *table, *label, *widget;
     guint                count;
+    t_monitor           *monitor;
     static const gchar *FRAME_TEXT[] = {
-	    N_("Show CPU monitor"),
-	    N_("Show memory monitor"),
-	    N_("Show swap monitor"),
-	    N_("Show uptime monitor")
+            N_ ("CPU monitor"),
+            N_ ("Memory monitor"),
+            N_ ("Swap monitor"),
+            N_ ("Uptime monitor")
     };
 
     xfce_panel_plugin_block_menu (plugin);
     
-    dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"), NULL,
+    dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"), 
+                     GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT |
                                                GTK_DIALOG_NO_SEPARATOR,
                                                GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
                                                NULL);
     
-    global->opt_dialog = dlg;
-
-    gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
     g_signal_connect (G_OBJECT (dlg), "response",
                       G_CALLBACK (monitor_dialog_response), global);
 
-    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
-    
-    vbox = GTK_DIALOG (dlg)->vbox;
-                        
-    hbox = gtk_hbox_new(FALSE, BORDER);
-    gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
-    label = gtk_label_new(_("Update interval (ms):"));
-    gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
-    spin = gtk_spin_button_new_with_range(100, 10000, 50);
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(spin), global->timeout);
-    g_signal_connect(spin, "value-changed", G_CALLBACK(change_timeout_cb), global);
-    gtk_box_pack_start(GTK_BOX(hbox), spin, FALSE, FALSE, 0);
+    gtk_window_set_position (GTK_WINDOW (dlg), GTK_WIN_POS_CENTER);
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
+
+    content = gtk_dialog_get_content_area (GTK_DIALOG (dlg));
+
+#define ADD(widget, row, column) \
+    gtk_table_attach_defaults (GTK_TABLE (table), widget, \
+                               column, column+1, row, row+1)
+#define ENTRY(row, checktext, boolvar, charvar) \
+    widget = gtk_entry_new (); \
+    g_object_set_data (G_OBJECT(widget), "charvar", &charvar); \
+    gtk_entry_set_text (GTK_ENTRY (widget), charvar); \
+    g_signal_connect (G_OBJECT (widget), "changed", \
+                      G_CALLBACK (entry_changed_cb), global); \
+    label = gtk_check_button_new_with_mnemonic (checktext); \
+    g_object_set_data (G_OBJECT(label), "sensitive_widget", widget); \
+    g_object_set_data (G_OBJECT(label), "boolvar", &boolvar); \
+    g_signal_connect (GTK_WIDGET(label), "toggled", \
+                      G_CALLBACK(check_button_cb), global); \
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(label), boolvar); \
+    ADD(label, row, 0); ADD(widget, row, 1)
+#define COLOR_BUTTON(row, labeltext, colorvar) \
+    label = gtk_label_new_with_mnemonic(labeltext); \
+    widget = gtk_color_button_new_with_color(&colorvar); \
+    g_object_set_data (G_OBJECT(widget), "colorvar", &colorvar); \
+    g_signal_connect (G_OBJECT (widget), "color-set", \
+                      G_CALLBACK (color_set_cb), global); \
+    gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
+    gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget); \
+    ADD(label, row, 0); ADD(widget, row, 1)
+#define SPIN(row, labeltext, value, min, max, step, callback) \
+    label = gtk_label_new_with_mnemonic (labeltext); \
+    widget = gtk_spin_button_new_with_range (min, max, step); \
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), value); \
+    g_signal_connect (G_OBJECT (widget), "value-changed", \
+                      G_CALLBACK (callback), global); \
+    gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
+    gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget); \
+    ADD(label, row, 0); ADD(widget, row, 1)
+#define START_FRAME(title, rows) \
+    table = gtk_table_new (rows, 2, FALSE); \
+    gtk_table_set_col_spacings (GTK_TABLE (table), 12); \
+    gtk_table_set_row_spacings (GTK_TABLE (table), 6); \
+    frame = xfce_gtk_frame_box_new_with_content (title, table); \
+    gtk_box_pack_start_defaults (GTK_BOX (content), frame)
+#define START_FRAME_CHECK(title, rows, boolvar) \
+    START_FRAME(title, rows); \
+    widget = gtk_check_button_new(); \
+    label = gtk_frame_get_label_widget (GTK_FRAME(frame)); \
+    g_object_ref(G_OBJECT(label)); \
+    gtk_container_remove(GTK_CONTAINER(frame), label); \
+    gtk_container_add(GTK_CONTAINER(widget), label); \
+    g_object_unref(G_OBJECT(label)); \
+    gtk_frame_set_label_widget (GTK_FRAME(frame), widget); \
+    g_object_set_data (G_OBJECT(widget), "sensitive_widget", table); \
+    g_object_set_data (G_OBJECT(widget), "boolvar", &boolvar); \
+    g_signal_connect (GTK_WIDGET(widget), "toggled", \
+                      G_CALLBACK(check_button_cb), global); \
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(widget), boolvar)
+
+    START_FRAME(_("General"), 1);
+    SPIN(0, _("Update interval (ms):"),
+         global->timeout, 100, 10000, 50, change_timeout_cb);
     
     for(count = 0; count < 3; count++)
     {
-        global->monitor[count]->opt_enabled =
-            gtk_check_button_new_with_mnemonic(_(FRAME_TEXT[count]));
-        gtk_box_pack_start(GTK_BOX(vbox),
-                           GTK_WIDGET(global->monitor[count]->opt_enabled),
-                           FALSE, FALSE, 0);
+        monitor = global->monitor[count];
 
-        global->monitor[count]->opt_vbox = GTK_BOX(gtk_vbox_new(FALSE, 5));
-
-        global->monitor[count]->opt_hbox = GTK_BOX(gtk_hbox_new(FALSE, 5));
-
-        global->monitor[count]->opt_use_label =
-            gtk_check_button_new_with_mnemonic(_("Text to display:"));
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_hbox),
-                           GTK_WIDGET(global->monitor[count]->opt_use_label),
-                           FALSE, FALSE, 0);
-
-        global->monitor[count]->opt_entry = gtk_entry_new();
-        gtk_entry_set_max_length(GTK_ENTRY(global->monitor[count]->opt_entry),
-                                 MAX_LENGTH);
-        gtk_entry_set_text(GTK_ENTRY(global->monitor[count]->opt_entry),
-                           global->monitor[count]->options.label_text);
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_hbox),
-                           GTK_WIDGET(global->monitor[count]->opt_entry),
-                           FALSE, FALSE, 0);
-
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_vbox),
-                           GTK_WIDGET(global->monitor[count]->opt_hbox),
-                           FALSE, FALSE, 0);
-
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor[count]->opt_enabled),
-                                     global->monitor[count]->options.enabled);
-        gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_vbox),
-                                 global->monitor[count]->options.enabled);
-
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->monitor[count]->opt_use_label),
-                                     global->monitor[count]->options.use_label);
-        gtk_widget_set_sensitive(GTK_WIDGET(global->monitor[count]->opt_entry),
-                                 global->monitor[count]->options.use_label);
-
-        hbox = gtk_hbox_new(FALSE, BORDER);
-        gtk_box_pack_start(GTK_BOX(global->monitor[count]->opt_vbox),
-                           hbox, FALSE, FALSE, 0);
-
-        color_label = gtk_label_new(_("Bar color:"));
-        gtk_misc_set_alignment(GTK_MISC(color_label), 0, 0.5);
-        gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(color_label),
-                           FALSE, FALSE, 0);
-
-        global->monitor[count]->opt_button = gtk_button_new();
-        global->monitor[count]->opt_da = gtk_drawing_area_new();
-
-        gtk_widget_modify_bg(global->monitor[count]->opt_da, GTK_STATE_NORMAL,
-                             &global->monitor[count]->options.color);
-        gtk_widget_set_size_request(global->monitor[count]->opt_da, 64, 12);
-        gtk_container_add(GTK_CONTAINER(global->monitor[count]->opt_button),
-                          global->monitor[count]->opt_da);
-        gtk_box_pack_start(GTK_BOX(hbox),
-                           GTK_WIDGET(global->monitor[count]->opt_button),
-                           FALSE, FALSE, 0);
-
-        sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-        gtk_size_group_add_widget(sg, global->monitor[count]->opt_enabled);
-        gtk_size_group_add_widget(sg, global->monitor[count]->opt_use_label);
-        gtk_size_group_add_widget(sg, color_label);
-
-        gtk_box_pack_start(GTK_BOX(vbox),
-                           GTK_WIDGET(global->monitor[count]->opt_vbox),
-                           FALSE, FALSE, 0);
-        align = gtk_alignment_new(0, 0, 0, 0);
-        gtk_widget_set_size_request(align, BORDER, BORDER);
-        gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
+        START_FRAME_CHECK(FRAME_TEXT[count], 2, monitor->options.enabled);
+        ENTRY(0, _("Text to display:"),
+              monitor->options.use_label, monitor->options.label_text);
+        COLOR_BUTTON(1, _("Bar color:"), monitor->options.color);
     }
 
     /*uptime monitor options - start*/
-    global->uptime->opt_enabled =
-        gtk_check_button_new_with_mnemonic(_(FRAME_TEXT[3]));
-    gtk_widget_show(global->uptime->opt_enabled);
-    gtk_box_pack_start(GTK_BOX(vbox),
-                       GTK_WIDGET(global->uptime->opt_enabled),
-                       FALSE, FALSE, 0);
-
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->uptime->opt_enabled),
-                                 global->uptime->enabled);
-
-    g_signal_connect(GTK_WIDGET(global->uptime->opt_enabled), "toggled",
-                     G_CALLBACK(uptime_toggled_cb), global);
+    START_FRAME_CHECK(FRAME_TEXT[3], 1, global->uptime->enabled);
     /*uptime monitor options - end*/
-
-    g_signal_connect(GTK_WIDGET(global->monitor[0]->opt_da), "expose_event",
-                     G_CALLBACK(expose_event_cb), NULL);
-    g_signal_connect(GTK_WIDGET(global->monitor[0]->opt_button), "clicked",
-                     G_CALLBACK(change_color_cb0), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[0]->opt_use_label), "toggled",
-                     G_CALLBACK(label_toggled_cb0), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[0]->opt_entry), "activate",
-                     G_CALLBACK(label_changed_cb0), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[0]->opt_enabled), "toggled",
-                     G_CALLBACK(monitor_toggled_cb0), global);
-
-    g_signal_connect(GTK_WIDGET(global->monitor[1]->opt_da), "expose_event",
-                     G_CALLBACK(expose_event_cb), NULL);
-    g_signal_connect(GTK_WIDGET(global->monitor[1]->opt_button), "clicked",
-                     G_CALLBACK(change_color_cb1), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[1]->opt_use_label), "toggled",
-                     G_CALLBACK(label_toggled_cb1), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[1]->opt_entry), "activate",
-                     G_CALLBACK(label_changed_cb1), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[1]->opt_enabled), "toggled",
-                     G_CALLBACK(monitor_toggled_cb1), global);
-
-    g_signal_connect(GTK_WIDGET(global->monitor[2]->opt_da), "expose_event",
-                     G_CALLBACK(expose_event_cb), NULL);
-    g_signal_connect(GTK_WIDGET(global->monitor[2]->opt_button), "clicked",
-                     G_CALLBACK(change_color_cb2), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[2]->opt_use_label), "toggled",
-                     G_CALLBACK(label_toggled_cb2), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[2]->opt_entry), "activate",
-                     G_CALLBACK(label_changed_cb2), global);
-    g_signal_connect(GTK_WIDGET(global->monitor[2]->opt_enabled), "toggled",
-                     G_CALLBACK(monitor_toggled_cb2), global);
 
     gtk_widget_show_all (dlg);
 }
