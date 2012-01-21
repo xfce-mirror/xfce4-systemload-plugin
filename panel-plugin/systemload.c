@@ -107,7 +107,7 @@ typedef struct
     XfcePanelPlugin   *plugin;
     GtkWidget         *ebox;
     GtkWidget         *box;
-    guint             timeout_id;
+    guint             timeout, timeout_id;
     t_monitor         *monitor[3];
     t_uptime_monitor  *uptime;
 
@@ -346,6 +346,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
     
     global = g_new(t_global_monitor, 1);
     global->plugin = plugin;
+    global->timeout = UPDATE_TIMEOUT;
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
     gtk_container_set_border_width (GTK_CONTAINER (global->ebox), BORDER/2);
@@ -469,6 +470,12 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     if (!rc)
         return;
     
+    if (xfce_rc_has_group (rc, "Main"))
+    {
+        xfce_rc_set_group (rc, "Main");
+        global->timeout = xfce_rc_read_int_entry (rc, "Timeout", global->timeout);
+    }
+
     for(count = 0; count < 3; count++)
     {
         if (xfce_rc_has_group (rc, MONITOR_ROOT[count]))
@@ -522,6 +529,9 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     if (!rc)
         return;
+
+    xfce_rc_set_group (rc, "Main");
+    xfce_rc_write_int_entry (rc, "Timeout", global->timeout);
 
     for(count = 0; count < 3; count++)
     {
@@ -775,20 +785,31 @@ monitor_dialog_response (GtkWidget *dlg, int response,
 }
 
 static void
+change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
+{
+    global->timeout = gtk_spin_button_get_value(spin);
+
+    if (global->timeout_id)
+        g_source_remove(global->timeout_id);
+    global->timeout_id = g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
+}
+
+static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget           *dlg, *notebook;
-    GtkWidget           *vbox, *dialog_vbox;
+    GtkWidget           *vbox;
     GtkWidget           *hbox;
     GtkWidget           *color_label;
     GtkWidget           *align, *label;
+    GtkWidget           *spin;
     GtkSizeGroup        *sg;
     guint                count;
     static const gchar *FRAME_TEXT[] = {
-	    N_ ("CPU monitor"),
-	    N_ ("Memory monitor"),
-	    N_ ("Swap monitor"),
-	    N_ ("Uptime monitor")
+	    N_("Show CPU monitor"),
+	    N_("Show memory monitor"),
+	    N_("Show swap monitor"),
+	    N_("Show uptime monitor")
     };
 
     xfce_panel_plugin_block_menu (plugin);
@@ -807,20 +828,21 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
     
-    dialog_vbox = GTK_DIALOG (dlg)->vbox;
+    vbox = GTK_DIALOG (dlg)->vbox;
                         
-    notebook = gtk_notebook_new ();
-    gtk_box_pack_start (GTK_BOX (dialog_vbox), notebook, FALSE, TRUE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (notebook), BORDER-3);
+    hbox = gtk_hbox_new(FALSE, BORDER);
+    gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
+    label = gtk_label_new(_("Update interval (ms):"));
+    gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
+    spin = gtk_spin_button_new_with_range(100, 10000, 50);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(spin), global->timeout);
+    g_signal_connect(spin, "value-changed", G_CALLBACK(change_timeout_cb), global);
+    gtk_box_pack_start(GTK_BOX(hbox), spin, FALSE, FALSE, 0);
     
     for(count = 0; count < 3; count++)
     {
-        vbox = gtk_vbox_new(FALSE, BORDER);
-        gtk_container_add (GTK_CONTAINER (notebook), vbox);
-        gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER);
-
         global->monitor[count]->opt_enabled =
-            gtk_check_button_new_with_mnemonic(_("Show monitor"));
+            gtk_check_button_new_with_mnemonic(_(FRAME_TEXT[count]));
         gtk_box_pack_start(GTK_BOX(vbox),
                            GTK_WIDGET(global->monitor[count]->opt_enabled),
                            FALSE, FALSE, 0);
@@ -890,18 +912,11 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         align = gtk_alignment_new(0, 0, 0, 0);
         gtk_widget_set_size_request(align, BORDER, BORDER);
         gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(align), FALSE, FALSE, 0);
-
-        label = gtk_label_new (_(FRAME_TEXT[count]));
-        gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), count), label);
     }
 
     /*uptime monitor options - start*/
-    vbox = gtk_vbox_new(FALSE, BORDER);
-    gtk_container_add (GTK_CONTAINER (notebook), vbox);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER);
-
     global->uptime->opt_enabled =
-        gtk_check_button_new_with_mnemonic(_("Show monitor"));
+        gtk_check_button_new_with_mnemonic(_(FRAME_TEXT[3]));
     gtk_widget_show(global->uptime->opt_enabled);
     gtk_box_pack_start(GTK_BOX(vbox),
                        GTK_WIDGET(global->uptime->opt_enabled),
@@ -909,9 +924,6 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(global->uptime->opt_enabled),
                                  global->uptime->enabled);
-
-    label = gtk_label_new (_(FRAME_TEXT[3]));
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook), 3), label);
 
     g_signal_connect(GTK_WIDGET(global->uptime->opt_enabled), "toggled",
                      G_CALLBACK(uptime_toggled_cb), global);
@@ -975,7 +987,7 @@ systemload_construct (XfcePanelPlugin *plugin)
     update_monitors (global);
 
     global->timeout_id = 
-        g_timeout_add(UPDATE_TIMEOUT, (GSourceFunc)update_monitors, global);
+        g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
     
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
 
