@@ -614,7 +614,7 @@ monitor_dialog_response (GtkWidget *dlg, int response,
 static void
 change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 {
-    global->timeout = gtk_spin_button_get_value(spin);
+    global->timeout = gtk_spin_button_get_value(spin) * 1000;
 
     if (global->timeout_id)
         g_source_remove(global->timeout_id);
@@ -624,7 +624,7 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    GtkWidget           *dlg, *content, *frame, *table, *label, *widget;
+    GtkWidget           *dlg, *content, *frame, *table, *label, *box, *widget;
     guint                count;
     t_monitor           *monitor;
     static const gchar *FRAME_TEXT[] = {
@@ -676,7 +676,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget); \
     ADD(label, row, 0); ADD(widget, row, 1)
-#define SPIN(row, labeltext, value, min, max, step, callback) \
+#define SPIN(row, labeltext, units, value, min, max, step, callback) \
     label = gtk_label_new_with_mnemonic (labeltext); \
     widget = gtk_spin_button_new_with_range (min, max, step); \
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), value); \
@@ -684,7 +684,12 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                       G_CALLBACK (callback), global); \
     gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget); \
-    ADD(label, row, 0); ADD(widget, row, 1)
+    box = gtk_hbox_new(TRUE, 2); \
+    gtk_box_pack_start(GTK_BOX(box), widget, FALSE, FALSE, 0); \
+    widget = gtk_label_new (units); \
+    gtk_misc_set_alignment (GTK_MISC(widget), 0, .5); \
+    gtk_box_pack_start(GTK_BOX(box), widget, TRUE, TRUE, 0); \
+    ADD(label, row, 0); ADD(box, row, 1)
 #define START_FRAME(title, rows) \
     table = gtk_table_new (rows, 2, FALSE); \
     gtk_table_set_col_spacings (GTK_TABLE (table), 12); \
@@ -707,8 +712,9 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(widget), boolvar)
 
     START_FRAME(_("General"), 1);
-    SPIN(0, _("Update interval (ms):"),
-         global->timeout, 100, 10000, 50, change_timeout_cb);
+    SPIN(0, _("Update interval:"), _("s"),
+         (gdouble)global->timeout/1000.0, 0.100, 10.000, .050,
+         change_timeout_cb);
     
     for(count = 0; count < 3; count++)
     {
