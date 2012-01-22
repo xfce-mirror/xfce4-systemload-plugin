@@ -35,8 +35,13 @@ dnl ********************************
 AC_PROG_CC()
 AC_PROG_LD()
 AC_PROG_INSTALL()
-AC_PROG_LIBTOOL()
 AC_PROG_INTLTOOL()
+
+dnl ***************************
+dnl *** Disable static libs ***
+dnl ***************************
+LT_PREREQ([2.2.6])
+LT_INIT([disable-static])
 
 dnl *************************************
 dnl *** Check for kvm, needed for BSD ***
