@@ -3,13 +3,13 @@
 # This file is distributed under the same license as
 # the xfce4-systemload-plugin package.
 # Hunt Xu <huntxu@live.cn>, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011.
+# Chipong Luo <chipong_l@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 04:09+0000\n"
+"POT-Creation-Date: 2012-01-23 08:33+0000\n"
 "PO-Revision-Date: 2009-05-09 13:56+0800\n"
 "Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
@@ -22,74 +22,82 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "文件 /proc/stat 未找到！"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:155
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "系统负载：%ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:162
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "内存：已用 %ldMB，总共 %ldMB"
 
-#: ../panel-plugin/systemload.c:175
+#: ../panel-plugin/systemload.c:170
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "交换分区：已用 %ldMB，总共 %ldMB"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:173
 #, c-format
 msgid "No swap"
 msgstr "无交换分区"
 
-#: ../panel-plugin/systemload.c:188
+#: ../panel-plugin/systemload.c:183
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
 msgstr[1] "%d 天"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:191
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "运行时间：%d 天 %d:%02d"
-msgstr[1] "运行时间：%d 天 %d:%02d"
+msgstr[0] "运行时间：%d 天 %d：%02d"
+msgstr[1] "运行时间：%d 天 %d：%02d"
 
-#: ../panel-plugin/systemload.c:724
-msgid "Select color"
-msgstr "选择颜色"
-
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:814
 msgid "CPU monitor"
 msgstr "CPU 监视器"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:815
 msgid "Memory monitor"
 msgstr "内存监视器"
 
-#: ../panel-plugin/systemload.c:790
+#: ../panel-plugin/systemload.c:816
 msgid "Swap monitor"
 msgstr "交换分区监视器"
 
-#: ../panel-plugin/systemload.c:791
+#: ../panel-plugin/systemload.c:817
 msgid "Uptime monitor"
 msgstr "运行时间监视器"
 
-#: ../panel-plugin/systemload.c:796
+#: ../panel-plugin/systemload.c:822
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "系统负载监视器"
 
-#: ../panel-plugin/systemload.c:823 ../panel-plugin/systemload.c:904
-msgid "Show monitor"
-msgstr "显示监视器"
+#: ../panel-plugin/systemload.c:837
+msgid "General"
+msgstr "一般"
 
-#: ../panel-plugin/systemload.c:833
+#: ../panel-plugin/systemload.c:839
+msgid "Update interval:"
+msgstr "更新间隔："
+
+#: ../panel-plugin/systemload.c:839 ../panel-plugin/systemload.c:844
+msgid "s"
+msgstr "S"
+
+#: ../panel-plugin/systemload.c:844
+msgid "Power-saving interval:"
+msgstr "节能间隔："
+
+#: ../panel-plugin/systemload.c:858
 msgid "Text to display:"
 msgstr "要显示的文本："
 
-#: ../panel-plugin/systemload.c:865
+#: ../panel-plugin/systemload.c:862
 msgid "Bar color:"
 msgstr "监视条颜色："
 

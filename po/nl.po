@@ -3,12 +3,12 @@
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Jasper Huijsmans <jasper@xfce.org>, 2005.
 # Pjotr, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-16 10:17+0000\n"
+"POT-Creation-Date: 2012-01-23 08:33+0000\n"
 "PO-Revision-Date: 2011-06-15 14:22+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
@@ -22,74 +22,82 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Bestand /proc/stat niet gevonden!"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:155
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systeembelasting: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:162
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Geheugen: %ldMB van %ldMB in gebruik"
 
-#: ../panel-plugin/systemload.c:175
+#: ../panel-plugin/systemload.c:170
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Wisselgeheugen: %ldMB van %ldMB in gebruik"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:173
 #, c-format
 msgid "No swap"
 msgstr "Geen wisselgeheugen"
 
-#: ../panel-plugin/systemload.c:188
+#: ../panel-plugin/systemload.c:183
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dag"
 msgstr[1] "%d dagen"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:191
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Draaiperiode: %d dag %d:%02d"
 msgstr[1] "Draaiperiode: %d dagen %d:%02d"
 
-#: ../panel-plugin/systemload.c:724
-msgid "Select color"
-msgstr "Kleur kiezen"
-
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:814
 msgid "CPU monitor"
 msgstr "CPU-monitor"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:815
 msgid "Memory monitor"
 msgstr "Geheugenmonitor"
 
-#: ../panel-plugin/systemload.c:790
+#: ../panel-plugin/systemload.c:816
 msgid "Swap monitor"
 msgstr "Wisselgeheugenmonitor"
 
-#: ../panel-plugin/systemload.c:791
+#: ../panel-plugin/systemload.c:817
 msgid "Uptime monitor"
 msgstr "Draaiperiode-monitor"
 
-#: ../panel-plugin/systemload.c:796
+#: ../panel-plugin/systemload.c:822
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Systeemmonitor"
 
-#: ../panel-plugin/systemload.c:823 ../panel-plugin/systemload.c:904
-msgid "Show monitor"
-msgstr "Monitor tonen"
+#: ../panel-plugin/systemload.c:837
+msgid "General"
+msgstr "Algemeen"
 
-#: ../panel-plugin/systemload.c:833
+#: ../panel-plugin/systemload.c:839
+msgid "Update interval:"
+msgstr "Tijd tussen bijwerktijdstippen:"
+
+#: ../panel-plugin/systemload.c:839 ../panel-plugin/systemload.c:844
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/systemload.c:844
+msgid "Power-saving interval:"
+msgstr "Tijd tot inwerkingtreding energiebesparing:"
+
+#: ../panel-plugin/systemload.c:858
 msgid "Text to display:"
 msgstr "Tekst om weer te geven:"
 
-#: ../panel-plugin/systemload.c:865
+#: ../panel-plugin/systemload.c:862
 msgid "Bar color:"
 msgstr "Balkkleur:"
 
@@ -100,6 +108,12 @@ msgstr "Bestand /proc/uptime niet gevonden!"
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Toon CPU-belasting, wisselgeheugen- en geheugengebruik"
+
+#~ msgid "Select color"
+#~ msgstr "Kleur kiezen"
+
+#~ msgid "Show monitor"
+#~ msgstr "Monitor tonen"
 
 #~ msgid "Uptime:"
 #~ msgstr "Draaiperiode:"

@@ -2,12 +2,12 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Cristian Marchi <cri.penta@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-13 01:24+0900\n"
+"POT-Creation-Date: 2012-01-22 15:09+0000\n"
 "PO-Revision-Date: 2010-12-06 14:20+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
@@ -17,90 +17,104 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cpu.c:62
+#: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "File /proc/stat non trovato!"
 
-#: ../panel-plugin/systemload.c:159
+#: ../panel-plugin/systemload.c:155
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Carico del sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:166
+#: ../panel-plugin/systemload.c:162
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: utilizzati %ldMB di %ldMB"
 
-#: ../panel-plugin/systemload.c:174
+#: ../panel-plugin/systemload.c:170
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: utilizzati %ldMB di %ldMB"
 
-#: ../panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:173
 #, c-format
 msgid "No swap"
 msgstr "Swap nulla"
 
-#: ../panel-plugin/systemload.c:187
+#: ../panel-plugin/systemload.c:183
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d giorno"
 msgstr[1] "%d giorni"
 
-#: ../panel-plugin/systemload.c:195
+#: ../panel-plugin/systemload.c:191
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Tempo di funzionamento: %d giorno %d:%02d"
 msgstr[1] "Tempo di funzionamento: %d giorni %d:%02d"
 
-#: ../panel-plugin/systemload.c:722
-msgid "Select color"
-msgstr "Selezionare il colore"
-
-#: ../panel-plugin/systemload.c:786
+#: ../panel-plugin/systemload.c:814
 msgid "CPU monitor"
 msgstr "Indicatore CPU"
 
-#: ../panel-plugin/systemload.c:787
+#: ../panel-plugin/systemload.c:815
 msgid "Memory monitor"
 msgstr "Indicatore memoria"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:816
 msgid "Swap monitor"
 msgstr "Indicatore swap"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:817
 msgid "Uptime monitor"
 msgstr "Indicatore funzionamento"
 
-#: ../panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:822
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Indicatore del carico di sistema"
 
-#: ../panel-plugin/systemload.c:821
-#: ../panel-plugin/systemload.c:902
-msgid "Show monitor"
-msgstr "Visualizza l'indicatore"
+#: ../panel-plugin/systemload.c:837
+msgid "General"
+msgstr "Generale"
 
-#: ../panel-plugin/systemload.c:831
+#: ../panel-plugin/systemload.c:839
+msgid "Update interval:"
+msgstr "Intervallo di aggiornamento:"
+
+#: ../panel-plugin/systemload.c:839 ../panel-plugin/systemload.c:844
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/systemload.c:844
+msgid "Power-saving interval:"
+msgstr "Intervallo di risparmio energetico:"
+
+#: ../panel-plugin/systemload.c:858
 msgid "Text to display:"
 msgstr "Testo da visualizzare:"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:862
 msgid "Bar color:"
 msgstr "Colore della barra"
 
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "File /proc/uptime non trovato!"
 
 #: ../panel-plugin/systemload.desktop.in.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata dai programmi"
+msgstr ""
+"Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata "
+"dai programmi"
+
+#~ msgid "Select color"
+#~ msgstr "Selezionare il colore"
+
+#~ msgid "Show monitor"
+#~ msgstr "Visualizza l'indicatore"
 
 #~ msgid "Uptime:"
 #~ msgstr "Tempo trascorso dall'avvio del sistema:"
-
