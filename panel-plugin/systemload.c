@@ -645,14 +645,17 @@ entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
 static void
 check_button_cb(GtkToggleButton *check_button, t_global_monitor *global)
 {
+    gboolean oldstate;
     gboolean* boolvar;
     gpointer sensitive_widget;
     boolvar = (gboolean*)g_object_get_data(G_OBJECT(check_button), "boolvar");
     sensitive_widget = g_object_get_data(G_OBJECT(check_button), "sensitive_widget");
+    oldstate = *boolvar;
     *boolvar = gtk_toggle_button_get_active(check_button);
     if (sensitive_widget)
         gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
-    setup_monitor(global);
+    if (oldstate != *boolvar)
+        setup_monitor(global);
 }
 
 static void
@@ -716,9 +719,10 @@ static GtkTable* new_frame(t_global_monitor *global, GtkBox *content,
         /* Configure and set check button */
         g_object_set_data (G_OBJECT(check), "sensitive_widget", table);
         g_object_set_data (G_OBJECT(check), "boolvar", boolvar);
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(check), *boolvar);
+        check_button_cb (GTK_TOGGLE_BUTTON(check), global);
         g_signal_connect (G_OBJECT(check), "toggled",
                           G_CALLBACK(check_button_cb), global);
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(check), *boolvar);
     }
     return GTK_TABLE(table);
 }
@@ -736,9 +740,10 @@ static GtkWidget *new_label_or_check_button(t_global_monitor *global,
         label = gtk_check_button_new_with_mnemonic (labeltext);
         g_object_set_data (G_OBJECT(label), "sensitive_widget", target);
         g_object_set_data (G_OBJECT(label), "boolvar", boolvar);
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(label), *boolvar);
+        check_button_cb (GTK_TOGGLE_BUTTON(label), global);
         g_signal_connect (GTK_WIDGET(label), "toggled",
                           G_CALLBACK(check_button_cb), global);
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(label), *boolvar);
     } else {
         label = gtk_label_new_with_mnemonic (labeltext);
         gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
