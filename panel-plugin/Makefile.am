@@ -5,7 +5,7 @@ INCLUDES =								\
 	$(PLATFORM_CPPFLAGS)
 
 plugindir =								\
-	$(libexecdir)/xfce4/panel-plugins
+	$(libdir)/xfce4/panel/plugins
 	
 plugin_PROGRAMS =							\
 	xfce4-systemload-plugin
@@ -46,7 +46,7 @@ desktop_in_files =							\
 	$(desktop_in_in_files:.desktop.in.in=.desktop.in)
 
 %.desktop.in: %.desktop.in.in
-	sed -e "s,\@libexecdir\@,$(libexecdir),g" < $< > $@
+	sed -e "s,\@libdir\@,$(libdir),g" < $< > $@
 
 desktop_DATA =								\
 	$(desktop_in_files:.desktop.in=.desktop)
