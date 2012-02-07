@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-27 05:21+0000\n"
+"POT-Creation-Date: 2012-02-07 13:57+0000\n"
 "PO-Revision-Date: 2006-08-29 16:54+0100\n"
 "Last-Translator: Enrico Tröger <enrico.troeger@uvena.de>\n"
 "Language-Team: <de@li.org>\n"
@@ -60,52 +60,48 @@ msgstr[1] ""
 "Betriebszeit: %d Tage\r\n"
 "%d:%02d"
 
-#: ../panel-plugin/systemload.c:814
+#: ../panel-plugin/systemload.c:819
 msgid "CPU monitor"
 msgstr "CPU-Monitor"
 
-#: ../panel-plugin/systemload.c:815
+#: ../panel-plugin/systemload.c:820
 msgid "Memory monitor"
 msgstr "Speicher-Monitor"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:821
 msgid "Swap monitor"
 msgstr "Auslagerungs-Monitor"
 
-#: ../panel-plugin/systemload.c:817
+#: ../panel-plugin/systemload.c:822
 msgid "Uptime monitor"
 msgstr "Betriebszeit-Monitor"
 
-#: ../panel-plugin/systemload.c:822
+#: ../panel-plugin/systemload.c:827
 #: ../panel-plugin/systemload.desktop.in.in.h:2
 msgid "System Load Monitor"
 msgstr "Systemauslastung"
 
-#: ../panel-plugin/systemload.c:837
-#, fuzzy
+#: ../panel-plugin/systemload.c:842
 msgid "General"
 msgstr "Allgemeines"
 
-#: ../panel-plugin/systemload.c:839
-#, fuzzy
+#: ../panel-plugin/systemload.c:844
 msgid "Update interval:"
 msgstr "Aktualisierungsintervall:"
 
-#: ../panel-plugin/systemload.c:839 ../panel-plugin/systemload.c:844
-#, fuzzy
+#: ../panel-plugin/systemload.c:844 ../panel-plugin/systemload.c:849
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:844
-#, fuzzy
+#: ../panel-plugin/systemload.c:849
 msgid "Power-saving interval:"
 msgstr "Energiesparintervall:"
 
-#: ../panel-plugin/systemload.c:858
+#: ../panel-plugin/systemload.c:863
 msgid "Text to display:"
 msgstr "Angezeigter Text:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:867
 msgid "Bar color:"
 msgstr "Farbe des Balkens:"
 
