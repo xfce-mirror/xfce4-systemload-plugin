@@ -87,7 +87,6 @@ msgid "Update interval:"
 msgstr "Intervalo de atualização:"
 
 #: ../panel-plugin/systemload.c:844 ../panel-plugin/systemload.c:849
-#, fuzzy
 msgid "s"
 msgstr "s"
 
