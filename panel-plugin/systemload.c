@@ -919,5 +919,5 @@ systemload_construct (XfcePanelPlugin *plugin)
                       G_CALLBACK (monitor_create_options), global);
 }
 
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (systemload_construct);
+XFCE_PANEL_PLUGIN_REGISTER (systemload_construct);
 

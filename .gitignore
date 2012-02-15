@@ -1,5 +1,7 @@
-*.o
+*.la
+*.lo
 .deps/
+.libs/
 INSTALL
 Makefile
 Makefile.in
@@ -18,7 +20,7 @@ ltmain.sh
 missing
 mkinstalldirs
 panel-plugin/systemload.desktop
-panel-plugin/xfce4-systemload-plugin
+panel-plugin/systemload.desktop.in
 po/*.gmo
 po/.intltool-merge-cache
 po/stamp-it
