@@ -44,7 +44,7 @@ libsystemload_la_LIBADD =						\
 # Desktop file
 #
 desktopdir =								\
-	$(datadir)/xfce4/panel-plugins
+	$(datadir)/xfce4/panel/plugins
 
 desktop_in_in_files =							\
 	systemload.desktop.in.in
