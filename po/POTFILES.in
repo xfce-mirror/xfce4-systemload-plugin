@@ -2,5 +2,5 @@ panel-plugin/cpu.c
 panel-plugin/systemload.c
 panel-plugin/uptime.c
 panel-plugin/memswap.c
-panel-plugin/systemload.desktop.in.in
+panel-plugin/systemload.desktop.in
 

@@ -46,25 +46,15 @@ libsystemload_la_LIBADD =						\
 desktopdir =								\
 	$(datadir)/xfce4/panel/plugins
 
-desktop_in_in_files =							\
-	systemload.desktop.in.in
-
-desktop_in_files =							\
-	$(desktop_in_in_files:.desktop.in.in=.desktop.in)
-
-$(desktop_in_files): $(desktop_in_in_files)
-	sed -e "s,\@libdir\@,$(libdir),g" < $< > $@
-
 desktop_DATA =								\
-	$(desktop_in_files:.desktop.in=.desktop)
+	systemload.desktop
 
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST =								\
-	$(desktop_in_in_files)
+	systemload.desktop.in
 
 CLEANFILES =								\
-	$(desktop_in_files)						\
 	$(desktop_DATA)
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
