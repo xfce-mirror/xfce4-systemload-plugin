@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-13 01:24+0900\n"
+"POT-Creation-Date: 2012-02-16 06:51+0000\n"
 "PO-Revision-Date: 2010-11-13 23:01+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -15,95 +15,106 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n\\n\n"
 "X-Poedit-Language: Danish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: DENMARK\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\\n\n"
 
-#: ../panel-plugin/cpu.c:62
+#: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Filen /proc/stat blev ikke fundet!"
 
-#: ../panel-plugin/systemload.c:159
+#: ../panel-plugin/systemload.c:155
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systembelastning: %ld%%"
 
-#: ../panel-plugin/systemload.c:166
+#: ../panel-plugin/systemload.c:162
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Hukommelse: %ldMB af %ldMB brugt"
 
-#: ../panel-plugin/systemload.c:174
+#: ../panel-plugin/systemload.c:170
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB af %ldMB brugt"
 
-#: ../panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:173
 #, c-format
 msgid "No swap"
 msgstr "Ingen swap"
 
-#: ../panel-plugin/systemload.c:187
+#: ../panel-plugin/systemload.c:183
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dag"
 msgstr[1] "%d dage"
 
-#: ../panel-plugin/systemload.c:195
+#: ../panel-plugin/systemload.c:191
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Oppetid: %d dag %d:%02d"
 msgstr[1] "Oppetid: %d dage %d:%02d"
 
-#: ../panel-plugin/systemload.c:722
-msgid "Select color"
-msgstr "Vælg farve"
-
-#: ../panel-plugin/systemload.c:786
+#: ../panel-plugin/systemload.c:819
 msgid "CPU monitor"
 msgstr "CPU-overvågning"
 
-#: ../panel-plugin/systemload.c:787
+#: ../panel-plugin/systemload.c:820
 msgid "Memory monitor"
 msgstr "Hukommelsesovervågning"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:821
 msgid "Swap monitor"
 msgstr "Swapovervågning"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:822
 msgid "Uptime monitor"
 msgstr "Oppetidsovervågning"
 
-#: ../panel-plugin/systemload.c:794
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:827 ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
 msgstr "Systembelastnings-overvågning"
 
-#: ../panel-plugin/systemload.c:821
-#: ../panel-plugin/systemload.c:902
-msgid "Show monitor"
-msgstr "Vis overvågning"
+#: ../panel-plugin/systemload.c:842
+msgid "General"
+msgstr "Generelt"
 
-#: ../panel-plugin/systemload.c:831
+#: ../panel-plugin/systemload.c:844
+msgid "Update interval:"
+msgstr "Opdateringsinterval:"
+
+#: ../panel-plugin/systemload.c:844 ../panel-plugin/systemload.c:849
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/systemload.c:849
+msgid "Power-saving interval:"
+msgstr "Strømbesparelsesinterval:"
+
+#: ../panel-plugin/systemload.c:863
 msgid "Text to display:"
 msgstr "Tekst at vise:"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:867
 msgid "Bar color:"
 msgstr "Bjælkefarve:"
 
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "Filen /proc/uptime blev ikke fundet!"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapfilbrug og hukommelsesaftryk"
 
+#~ msgid "Select color"
+#~ msgstr "Vælg farve"
+
+#~ msgid "Show monitor"
+#~ msgstr "Vis overvågning"
+
 #~ msgid "Uptime:"
 #~ msgstr "Oppetid:"
-
