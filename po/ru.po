@@ -3,13 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-09 17:12+0000\n"
+"POT-Creation-Date: 2012-02-16 12:42+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andriy Kovtun <kovtunos@yandex.ru>\n"
 "Language-Team: Russian <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : ((n%10==1 && n%100!=11 ? 3 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2));\n"
 "X-Poedit-Language: Russian\n"
 
@@ -17,27 +18,27 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Файл /proc/stat не найден!"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:155
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Загрузка системы: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:162
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Память: %ld МБ из %ld МБ"
 
-#: ../panel-plugin/systemload.c:175
+#: ../panel-plugin/systemload.c:170
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Подкачка: %ld МБ из %ld МБ"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:173
 #, c-format
 msgid "No swap"
 msgstr "Нет подкачки"
 
-#: ../panel-plugin/systemload.c:188
+#: ../panel-plugin/systemload.c:183
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -46,7 +47,7 @@ msgstr[1] "%d дня"
 msgstr[2] "%d дней"
 msgstr[3] "%d день"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:191
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -55,40 +56,47 @@ msgstr[1] "Время работы: %d дня %d:%02d"
 msgstr[2] "Время работы: %d дней %d:%02d"
 msgstr[3] "Время работы: %d день %d:%02d"
 
-#: ../panel-plugin/systemload.c:723
-msgid "Select color"
-msgstr "Выберите цвет"
-
-#: ../panel-plugin/systemload.c:787
+#: ../panel-plugin/systemload.c:819
 msgid "CPU monitor"
 msgstr "Процессор"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:820
 msgid "Memory monitor"
 msgstr "Память"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:821
 msgid "Swap monitor"
 msgstr "Подкачка"
 
-#: ../panel-plugin/systemload.c:790
+#: ../panel-plugin/systemload.c:822
 msgid "Uptime monitor"
 msgstr "Время работы"
 
-#: ../panel-plugin/systemload.c:795
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:827 ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
 msgstr "Системный монитор"
 
-#: ../panel-plugin/systemload.c:822 ../panel-plugin/systemload.c:903
-msgid "Show monitor"
-msgstr "Показать монитор"
+#: ../panel-plugin/systemload.c:842
+msgid "General"
+msgstr "Общие"
 
-#: ../panel-plugin/systemload.c:832
+#: ../panel-plugin/systemload.c:844
+msgid "Update interval:"
+msgstr "Обновление:"
+
+#: ../panel-plugin/systemload.c:844 ../panel-plugin/systemload.c:849
+msgid "s"
+msgstr "с."
+
+#: ../panel-plugin/systemload.c:849
+msgid "Power-saving interval:"
+msgstr "В режиме экономии:"
+
+#: ../panel-plugin/systemload.c:863
 msgid "Text to display:"
 msgstr "Выводить текст:"
 
-#: ../panel-plugin/systemload.c:864
+#: ../panel-plugin/systemload.c:867
 msgid "Bar color:"
 msgstr "Цвет линейки:"
 
@@ -96,9 +104,15 @@ msgstr "Цвет линейки:"
 msgid "File /proc/uptime not found!"
 msgstr "Файл /proc/uptime не найден!"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Монитор загруженности процессора, использования памяти и подкачки"
+
+#~ msgid "Select color"
+#~ msgstr "Выберите цвет"
+
+#~ msgid "Show monitor"
+#~ msgstr "Показать монитор"
 
 #~ msgid "Uptime:"
 #~ msgstr "Время работы"
