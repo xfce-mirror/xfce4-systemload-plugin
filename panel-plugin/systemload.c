@@ -857,7 +857,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         monitor = global->monitor[count];
 
         table = new_frame(global, content,
-                          FRAME_TEXT[count], 2, &monitor->options.enabled);
+                          _(FRAME_TEXT[count]), 2, &monitor->options.enabled);
 
         new_entry(global, table, 0,
                   _("Text to display:"), &monitor->options.label_text,
@@ -869,7 +869,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     /*uptime monitor options - start*/
     table = new_frame(global, content,
-                      FRAME_TEXT[3], 1, &global->uptime->enabled);
+                      _(FRAME_TEXT[3]), 1, &global->uptime->enabled);
     /*uptime monitor options - end*/
 
     gtk_widget_show_all (dlg);
