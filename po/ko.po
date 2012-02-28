@@ -13,8 +13,7 @@ msgstr ""
 "PO-Revision-Date: 2012-02-26 02:58+0900\n"
 "Last-Translator: Seong-ho, Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>"
-"Language: Korean\n"
-"Language: \n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,24 +57,24 @@ msgstr[0] "가동시간: %d일 %d:%02d"
 
 #: ../panel-plugin/systemload.c:819
 msgid "CPU monitor"
-msgstr "CPU 감시"
+msgstr "CPU 감시기"
 
 #: ../panel-plugin/systemload.c:820
 msgid "Memory monitor"
-msgstr "메모리 감시"
+msgstr "메모리 감시기"
 
 #: ../panel-plugin/systemload.c:821
 msgid "Swap monitor"
-msgstr "스왑 감시"
+msgstr "스왑 감시기"
 
 #: ../panel-plugin/systemload.c:822
 msgid "Uptime monitor"
-msgstr "동작시간 감시"
+msgstr "동작시간 감시기"
 
 #: ../panel-plugin/systemload.c:827
 #: ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
-msgstr "시스템 부하"
+msgstr "시스템 부하 감시기"
 
 #: ../panel-plugin/systemload.c:842
 msgid "General"
@@ -108,16 +107,5 @@ msgstr "/proc/uptime 파일이 없습니다!"
 
 #: ../panel-plugin/systemload.desktop.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "CPU 사용량, 스왑사용량, 메모리 사용량을 감시합니다."
+msgstr "CPU 사용량, 스왑사용량, 메모리 사용량을 감시합니다"
 
-#~ msgid "Select color"
-#~ msgstr "색상을 선택하십시오."
-
-#~ msgid "Show monitor"
-#~ msgstr "보이기"
-
-#~ msgid "Uptime:"
-#~ msgstr "동작시간:"
-
-#~ msgid "Properties"
-#~ msgstr "속성"
