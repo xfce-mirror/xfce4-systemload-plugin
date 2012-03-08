@@ -227,8 +227,8 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
         return -1;
     }
 
-    *MT = (total_pages*pagesize) >> 10;
-    *MU = ((total_pages-free_pages-inactive_pages) * pagesize) >> 10;
+    *MT = CONVERT(total_pages);
+    *MU = CONVERT(total_pages-free_pages-inactive_pages);
     *mem = *MU * 100 / *MT;
 
     if((*swap = swapmode(&swap_avail, &swap_free)) >= 0) {
