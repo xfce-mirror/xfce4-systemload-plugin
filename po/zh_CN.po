@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-09 00:45+0000\n"
+"POT-Creation-Date: 2012-03-14 12:03+0000\n"
 "PO-Revision-Date: 2009-05-09 13:56+0800\n"
 "Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
@@ -72,8 +73,7 @@ msgstr "交换分区监视器"
 msgid "Uptime monitor"
 msgstr "Uptime 监视器"
 
-#: ../panel-plugin/systemload.c:827
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:827 ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
 msgstr "系统负载监视器"
 
@@ -105,6 +105,6 @@ msgstr "监视条颜色："
 msgid "File /proc/uptime not found!"
 msgstr "文件 /proc/uptime 未找到！"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "监视 CPU 负载、交换分区用量和内存使用踪迹"
