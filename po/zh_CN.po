@@ -4,19 +4,19 @@
 # the xfce4-systemload-plugin package.
 # Hunt Xu <huntxu@live.cn>, 2009.
 # Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-18 17:17+0200\n"
+"POT-Creation-Date: 2012-04-18 16:06+0000\n"
 "PO-Revision-Date: 2009-05-09 13:56+0800\n"
 "Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/cpu.c:63
@@ -48,19 +48,17 @@ msgstr "无交换分区"
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
-msgstr[1] "%d 天"
 
 #: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "运行时间：%d 天 %d：%02d"
-msgstr[1] "运行时间：%d 天 %d：%02d"
 
 #: ../panel-plugin/systemload.c:194
-#, fuzzy, c-format
+#, c-format
 msgid "Uptime: %d:%02d"
-msgstr "运行时间：%d 天 %d：%02d"
+msgstr "运行时间：%d：%02d"
 
 #: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
@@ -78,7 +76,7 @@ msgstr "交换分区监视器"
 msgid "Uptime monitor"
 msgstr "Uptime 监视器"
 
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
 msgstr "系统负载监视器"
 
@@ -110,6 +108,6 @@ msgstr "监视条颜色："
 msgid "File /proc/uptime not found!"
 msgstr "文件 /proc/uptime 未找到！"
 
-#: ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.desktop.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "监视 CPU 负载、交换分区用量和内存使用踪迹"
