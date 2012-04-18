@@ -869,6 +869,29 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 }
 
 static void
+monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
+{
+   GdkPixbuf *icon;
+   const gchar *auth[] = {
+      "Riccardo Persichetti <riccardo.persichetti@tin.it>",
+      "Florian Rivoal <frivoal@xfce.org>",
+      "David Schneider <dnschneid@gmail.com>", NULL };
+   icon = xfce_panel_pixbuf_from_source("utilities-system-monitor", NULL, 32);
+   gtk_show_about_dialog(NULL,
+      "logo", icon,
+      "license", xfce_get_license_text (XFCE_LICENSE_TEXT_BSD),
+      "version", PACKAGE_VERSION,
+      "program-name", PACKAGE_NAME,
+      "comments", _("Monitor CPU load, swap usage and memory footprint"),
+      "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin",
+      "copyright", _("Copyright (c) 2003-2012\n"),
+      "authors", auth, NULL);
+
+   if(icon)
+      g_object_unref(G_OBJECT(icon));
+}
+
+static void
 systemload_construct (XfcePanelPlugin *plugin)
 {
     t_global_monitor *global;
@@ -910,6 +933,10 @@ systemload_construct (XfcePanelPlugin *plugin)
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", 
                       G_CALLBACK (monitor_create_options), global);
+
+    xfce_panel_plugin_menu_show_about(plugin);
+    g_signal_connect (plugin, "about", G_CALLBACK (monitor_show_about),
+                       global);
 }
 
 XFCE_PANEL_PLUGIN_REGISTER (systemload_construct);
