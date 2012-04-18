@@ -94,7 +94,7 @@ gulong read_uptime(void)
    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
    struct timeval boottime;
    time_t now;
-   int size = sizeof(boottime);
+   size_t size = sizeof(boottime);
    gulong uptime;
  
    if((sysctl(mib, 2, &boottime, &size, NULL, 0) != -1)
