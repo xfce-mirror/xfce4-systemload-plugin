@@ -462,7 +462,15 @@ setup_monitor(t_global_monitor *global)
         }
     }
     if(global->uptime->enabled)
+    {
+        if (global->monitor[0]->options.enabled ||
+            global->monitor[1]->options.enabled ||
+            global->monitor[2]->options.enabled)
+        {
+            gtk_container_set_border_width(GTK_CONTAINER(global->uptime->ebox), 2);
+        }
         gtk_widget_show(GTK_WIDGET(global->uptime->ebox));
+    }
 
     setup_timer(global);
 }
