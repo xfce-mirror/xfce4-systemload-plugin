@@ -48,19 +48,17 @@ msgstr "无交换分区"
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
-msgstr[1] "%d 天"
 
 #: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "运行时间：%d 天 %d：%02d"
-msgstr[1] "运行时间：%d 天 %d：%02d"
 
 #: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Uptime: %d:%02d"
-msgstr "运行时间：%d:%02d"
+msgstr "运行时间：%d：%02d"
 
 #: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
