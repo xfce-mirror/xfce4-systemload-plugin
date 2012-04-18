@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-31 17:10+0000\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2011-10-31 23:12+0100\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Hrvatski <>\n"
@@ -15,7 +15,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bits\n"
-
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-Country: CROATIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -24,27 +23,27 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Datoteka /proc/statnije pronađena!"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Učitavanje sustava: %ld%%"
 
-#: ../panel-plugin/systemload.c:167
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memorija: %ldMB od %ldMB korišteno"
 
-#: ../panel-plugin/systemload.c:175
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB od %ldMB korišteno"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "Bez swapa"
 
-#: ../panel-plugin/systemload.c:188
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -52,47 +51,59 @@ msgstr[0] "%d dan"
 msgstr[1] "%d dani"
 msgstr[2] "%d dana"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../panel-plugin/systemload.c:724
-msgid "Select color"
-msgstr "Odaberite boju"
+#: ../panel-plugin/systemload.c:194
+#, c-format
+msgid "Uptime: %d:%02d"
+msgstr ""
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "Monitor procesora"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "Monitor memorije"
 
-#: ../panel-plugin/systemload.c:790
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "Monitor swapa"
 
-#: ../panel-plugin/systemload.c:791
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:796
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor učitavanja sustava"
 
-#: ../panel-plugin/systemload.c:823 ../panel-plugin/systemload.c:904
-msgid "Show monitor"
-msgstr "Pokaži monitor"
+#: ../panel-plugin/systemload.c:834
+msgid "General"
+msgstr ""
 
-#: ../panel-plugin/systemload.c:833
+#: ../panel-plugin/systemload.c:836
+msgid "Update interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
+msgid "s"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:841
+msgid "Power-saving interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "Tekst za prikaz"
 
-#: ../panel-plugin/systemload.c:865
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "Boja trake:"
 
@@ -100,6 +111,12 @@ msgstr "Boja trake:"
 msgid "File /proc/uptime not found!"
 msgstr "Datoteka /proc/uptime nije pronađena"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
+
+#~ msgid "Select color"
+#~ msgstr "Odaberite boju"
+
+#~ msgid "Show monitor"
+#~ msgstr "Pokaži monitor"

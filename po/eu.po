@@ -2,21 +2,21 @@
 # Basque translations for PACKAGE package.
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # ^pi^ <pi@beobide.net>, 2006.
 # Piarres Beobide <pi@beobide.net>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-08 16:51+0000\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2008-11-05 13:55+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.2.0\n"
 
@@ -24,81 +24,86 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "/proc/stat fitxategia ez da aurkitu!"
 
-#: ../panel-plugin/systemload.c:155
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Sistema karga: %%%ld"
 
-#: ../panel-plugin/systemload.c:162
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: %ldMB erabiliak %ldMB-etik"
 
-#: ../panel-plugin/systemload.c:170
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB erabiliak %ldMB-etik"
 
-#: ../panel-plugin/systemload.c:173
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "Swap-ik ez"
 
-#: ../panel-plugin/systemload.c:183
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "egun %d"
 msgstr[1] "%d egun"
 
-#: ../panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Piztuera: egun %d %d:%02d"
 msgstr[1] "Piztuera: %d egun %d:%02d"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.c:194
+#, fuzzy, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Piztuera: egun %d %d:%02d"
+
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "CPU monitorea"
 
-#: ../panel-plugin/systemload.c:820
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "Memoria monitorea"
 
-#: ../panel-plugin/systemload.c:821
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "Swap monitorea"
 
-#: ../panel-plugin/systemload.c:822
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr "Abiarazte monitorea"
 
-#: ../panel-plugin/systemload.c:827 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Sistema Karga Monitorea"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:834
 msgid "General"
 msgstr "Orokorra"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:836
 msgid "Update interval:"
 msgstr "Eguneratze tartea:"
 
-#: ../panel-plugin/systemload.c:844 ../panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:841
 msgid "Power-saving interval:"
 msgstr "Energia-aurrezte tartea:"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "Bistaratzeko testua:"
 
-#: ../panel-plugin/systemload.c:867
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "Barra kolorea:"
 
@@ -106,7 +111,7 @@ msgstr "Barra kolorea:"
 msgid "File /proc/uptime not found!"
 msgstr "/proc/uptime fitxategia ez da aurkitu!"
 
-#: ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU lan-zama, swap erabilera eta memoria egoera monitorizatu."
 

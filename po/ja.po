@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.2svn-r5674\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-21 22:27+0900\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2012-02-21 22:19+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
@@ -22,83 +22,84 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "ファイル /proc/stat が見つかりませんでした!"
 
-#: ../panel-plugin/systemload.c:155
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "システム負荷: %ld%%"
 
-#: ../panel-plugin/systemload.c:162
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "メモリ: %2$ld MB 中 %1$ld MB 使用しています"
 
-#: ../panel-plugin/systemload.c:170
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "スワップ: %2$ld MB 中 %1$ld MB 使用しています"
 
-#: ../panel-plugin/systemload.c:173
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "スワップなし"
 
-#: ../panel-plugin/systemload.c:183
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d日"
 
-#: ../panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "稼働時間: %d日%d時間%02d分"
 
-#. N_ ("CPU monitor"),
-#. N_ ("Memory monitor"),
-#. N_ ("Swap monitor"),
-#. N_ ("Uptime monitor")
-#: ../panel-plugin/systemload.c:823
+#: ../panel-plugin/systemload.c:194
+#, fuzzy, c-format
+msgid "Uptime: %d:%02d"
+msgstr "稼働時間: %d日%d時間%02d分"
+
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "CPU モニタ"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "メモリモニタ"
 
-#: ../panel-plugin/systemload.c:825
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "スワップモニタ"
 
-#: ../panel-plugin/systemload.c:826
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr "稼働時間モニタ"
 
-#: ../panel-plugin/systemload.c:830 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "システム負荷モニタ"
 
-#: ../panel-plugin/systemload.c:845
+#: ../panel-plugin/systemload.c:834
 msgid "General"
 msgstr "一般"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:836
 msgid "Update interval:"
 msgstr "更新間隔:"
 
-#: ../panel-plugin/systemload.c:847 ../panel-plugin/systemload.c:852
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
 msgid "s"
 msgstr "秒"
 
-#: ../panel-plugin/systemload.c:852
+#: ../panel-plugin/systemload.c:841
 msgid "Power-saving interval:"
 msgstr "省電力時の間隔:"
 
-#: ../panel-plugin/systemload.c:866
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "表示する文字:"
 
-#: ../panel-plugin/systemload.c:870
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "バーの色:"
 

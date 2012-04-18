@@ -1,49 +1,50 @@
 # Ukrainian translation of xfce4-systemload-plugin
 # Copyright (C) 2007
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
-# 
+#
 # Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-23 20:09+0000\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2007-03-14 16:42+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Файл /proc/stat не знайдено!"
 
-#: ../panel-plugin/systemload.c:155
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Навантаження системи: %ld%%"
 
-#: ../panel-plugin/systemload.c:162
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Пам'ять: %ldМб з %ldМб використано"
 
-#: ../panel-plugin/systemload.c:170
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Файл підкачки: %ldМб з %ldMB використано"
 
-#: ../panel-plugin/systemload.c:173
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "Без підкачки"
 
-#: ../panel-plugin/systemload.c:183
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -51,7 +52,7 @@ msgstr[0] "%d день"
 msgstr[1] "%d днів"
 msgstr[2] "%d днів"
 
-#: ../panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -59,48 +60,52 @@ msgstr[0] "Час роботи: %d день %d:%02d"
 msgstr[1] "Час роботи: %d днів %d:%02d"
 msgstr[2] "Час роботи: %d днів %d:%02d"
 
-#: ../panel-plugin/systemload.c:814
+#: ../panel-plugin/systemload.c:194
+#, fuzzy, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Час роботи: %d день %d:%02d"
+
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "Стеження за процесором"
 
-#: ../panel-plugin/systemload.c:815
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "Стеження за пам'яттю"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "Стеження за файлом підкачки"
 
-#: ../panel-plugin/systemload.c:817
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr "Стеження за часом роботи"
 
-#: ../panel-plugin/systemload.c:822
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Стеження за навантаженням системи"
 
-#: ../panel-plugin/systemload.c:837
+#: ../panel-plugin/systemload.c:834
 msgid "General"
 msgstr "Загальне"
 
-#: ../panel-plugin/systemload.c:839
+#: ../panel-plugin/systemload.c:836
 msgid "Update interval:"
 msgstr "Інтервал оновлення:"
 
-#: ../panel-plugin/systemload.c:839 ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:841
 msgid "Power-saving interval:"
 msgstr "Інтервал збереження енергії:"
 
-#: ../panel-plugin/systemload.c:858
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "Відображуваний текст:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "Колір індикатора:"
 
@@ -108,7 +113,7 @@ msgstr "Колір індикатора:"
 msgid "File /proc/uptime not found!"
 msgstr "Файл /proc/uptime не знайдено!"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
 "Стежити за навантаженням процесора, використанням файлу підкачки і основною "

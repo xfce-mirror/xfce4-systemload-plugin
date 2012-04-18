@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-13 01:24+0900\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2007-03-31 10:27+1000\n"
 "Last-Translator: Jeff Bailes <thepizzaking@gmail.com>\n"
 "Language-Team: English/GB\n"
@@ -17,85 +17,103 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/cpu.c:62
+#: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "File /proc/stat not found!"
 
-#: ../panel-plugin/systemload.c:159
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "System Load: %ld%%"
 
-#: ../panel-plugin/systemload.c:166
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memory: %ldMB of %ldMB used"
 
-#: ../panel-plugin/systemload.c:174
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB of %ldMB used"
 
-#: ../panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "No swap"
 
-#: ../panel-plugin/systemload.c:187
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d day"
 msgstr[1] "%d days"
 
-#: ../panel-plugin/systemload.c:195
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Uptime: %d day %d:%02d"
 msgstr[1] "Uptime: %d days %d:%02d"
 
-#: ../panel-plugin/systemload.c:722
-msgid "Select color"
-msgstr "Select colour"
+#: ../panel-plugin/systemload.c:194
+#, fuzzy, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Uptime: %d day %d:%02d"
 
-#: ../panel-plugin/systemload.c:786
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "CPU monitor"
 
-#: ../panel-plugin/systemload.c:787
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "Memory monitor"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "Swap monitor"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr "Uptime monitor"
 
-#: ../panel-plugin/systemload.c:794
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "System Load Monitor"
 
-#: ../panel-plugin/systemload.c:821 ../panel-plugin/systemload.c:902
-msgid "Show monitor"
-msgstr "Show monitor"
+#: ../panel-plugin/systemload.c:834
+msgid "General"
+msgstr ""
 
-#: ../panel-plugin/systemload.c:831
+#: ../panel-plugin/systemload.c:836
+msgid "Update interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
+msgid "s"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:841
+msgid "Power-saving interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "Text to display:"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "Bar colour:"
 
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "File /proc/uptime not found!"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor CPU load, swap usage and memory footprint"
+
+#~ msgid "Select color"
+#~ msgstr "Select colour"
+
+#~ msgid "Show monitor"
+#~ msgstr "Show monitor"

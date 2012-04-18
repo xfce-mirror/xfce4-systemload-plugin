@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XFce 4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-31 15:51+0000\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2012-03-31 20:15+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca\n"
@@ -23,81 +23,86 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "No s'ha trobat el fitxer «/proc/stat»"
 
-#: ../panel-plugin/systemload.c:155
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:162
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memòria: %ldMB de %ldMB fets servir"
 
-#: ../panel-plugin/systemload.c:170
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Memòria d’intercanvi: %ldMB de %ldMB fets servir"
 
-#: ../panel-plugin/systemload.c:173
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "Sense memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:183
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dia"
 msgstr[1] "%d dies"
 
-#: ../panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "En marxa: %d dia %d:%02d"
 msgstr[1] "En marxa: %d dies %d:%02d"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.c:194
+#, fuzzy, c-format
+msgid "Uptime: %d:%02d"
+msgstr "En marxa: %d dia %d:%02d"
+
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "Monitor de CPU"
 
-#: ../panel-plugin/systemload.c:820
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "Monitor de memòria"
 
-#: ../panel-plugin/systemload.c:821
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "Monitor de la memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:822
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr "Monitor de temps en funcionament"
 
-#: ../panel-plugin/systemload.c:827 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de càrrega del sistema"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:834
 msgid "General"
 msgstr "General"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:836
 msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
-#: ../panel-plugin/systemload.c:844 ../panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:849
+#: ../panel-plugin/systemload.c:841
 msgid "Power-saving interval:"
 msgstr "Interval d'estalvi d'energia:"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: ../panel-plugin/systemload.c:867
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "Color de la barra:"
 
@@ -105,7 +110,7 @@ msgstr "Color de la barra:"
 msgid "File /proc/uptime not found!"
 msgstr "No s'ha trobat el fitxer «/proc/uptime»"
 
-#: ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
 "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i la empremta de "

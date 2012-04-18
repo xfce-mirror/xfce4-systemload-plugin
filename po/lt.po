@@ -3,46 +3,47 @@
 # This file is distributed under the same license as the xfce4-systemload.
 # Mantas <zaz@xxx.lt>, 2003.
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload 0.3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-23 02:45+0000\n"
+"POT-Creation-Date: 2012-04-18 17:17+0200\n"
 "PO-Revision-Date: 2012-01-21 15:57+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Byla „/proc/stat“ nerasta!"
 
-#: ../panel-plugin/systemload.c:155
+#: ../panel-plugin/systemload.c:153
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Sistemos apkrovimas: %ld%%"
 
-#: ../panel-plugin/systemload.c:162
+#: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Darbinė atmintis: naudojama %ldMB iš %ldMB"
 
-#: ../panel-plugin/systemload.c:170
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Mainų skirsnis: naudojama %ldMB iš %ldMB"
 
-#: ../panel-plugin/systemload.c:173
+#: ../panel-plugin/systemload.c:171
 #, c-format
 msgid "No swap"
 msgstr "Mainų skirsnio nėra"
 
-#: ../panel-plugin/systemload.c:183
+#: ../panel-plugin/systemload.c:182
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -50,7 +51,7 @@ msgstr[0] "%d diena"
 msgstr[1] "%d dienos"
 msgstr[2] "%d dienų"
 
-#: ../panel-plugin/systemload.c:191
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -58,48 +59,52 @@ msgstr[0] "Veikimo laikas: %d diena %d:%02d"
 msgstr[1] "Veikimo laikas: %d dienos %d:%02d"
 msgstr[2] "Veikimo laikas: %d dienų %d:%02d"
 
-#: ../panel-plugin/systemload.c:814
+#: ../panel-plugin/systemload.c:194
+#, fuzzy, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Veikimo laikas: %d diena %d:%02d"
+
+#: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
 msgstr "CPU stebėjimas"
 
-#: ../panel-plugin/systemload.c:815
+#: ../panel-plugin/systemload.c:812
 msgid "Memory monitor"
 msgstr "Atminties stebėjimas"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:813
 msgid "Swap monitor"
 msgstr "Mainų skirsnio stebėjimas"
 
-#: ../panel-plugin/systemload.c:817
+#: ../panel-plugin/systemload.c:814
 msgid "Uptime monitor"
 msgstr "Veikimo laiko stebėjimas"
 
-#: ../panel-plugin/systemload.c:822
-#: ../panel-plugin/systemload.desktop.in.in.h:2
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Sistemos apkrovimas"
 
-#: ../panel-plugin/systemload.c:837
+#: ../panel-plugin/systemload.c:834
 msgid "General"
 msgstr "Bendra"
 
-#: ../panel-plugin/systemload.c:839
+#: ../panel-plugin/systemload.c:836
 msgid "Update interval:"
 msgstr "Atnaujinimo intervalas:"
 
-#: ../panel-plugin/systemload.c:839 ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:841
 msgid "Power-saving interval:"
 msgstr "Energijos taupymo intervals:"
 
-#: ../panel-plugin/systemload.c:858
+#: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
 msgstr "Rodomas tekstas:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
 msgstr "Juostos spalva:"
 
@@ -107,7 +112,7 @@ msgstr "Juostos spalva:"
 msgid "File /proc/uptime not found!"
 msgstr "Byla „/proc/uptime“ nerasta!"
 
-#: ../panel-plugin/systemload.desktop.in.in.h:1
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Stebėti CPU apkrovą, mainų srities naudojimą ir atminties naudojimą"
 
