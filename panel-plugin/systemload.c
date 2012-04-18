@@ -236,8 +236,7 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
                             GtkOrientation    orientation,
                             t_global_monitor *global)
 {
-    gint count, size;
-    size = xfce_panel_plugin_get_size(plugin);
+    gint count;
 
     gtk_widget_hide(GTK_WIDGET(global->ebox));
 
@@ -268,13 +267,11 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
         {
             global->monitor[count]->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_BOTTOM_TO_TOP);
-            gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status), BORDER, size - BORDER);
         }
         else
         {
             global->monitor[count]->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_LEFT_TO_RIGHT);
-            gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status), size - BORDER, BORDER);
         }
 
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
