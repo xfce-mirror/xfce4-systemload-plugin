@@ -1,3 +1,18 @@
+1.1.0 (2012/04/18)
+-----------------
+- Fix progressbar width in vertical mode
+- Added about dialog
+- Use a single label to show uptime, either 'X days' (if > 0) or 'hh:mm' (bug #8348)
+- Add support for Solaris (bug #5743)
+- Fix memory size overflow with > 3.5GB on FreeBSD
+- Build the plugin as a module
+- Added a power-saving interval option using upower (if present at build time)
+- Added an update interval option (bug #7507)
+- Rewritten configuration dialog
+- Conditional retrieval of system stats (should use less resources!)
+- Port to libxfce4ui (bug #7077)
+- Fix transparency issues (bug #7345)
+
 1.0.0 (2010/12/10)
 -----------------
 - Translated into 34 languages, including 13 with a complete translation
