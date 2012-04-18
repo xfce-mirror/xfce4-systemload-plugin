@@ -333,6 +333,9 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
 
 
     global->uptime->label = gtk_label_new("");
+    gtk_label_set_angle(GTK_LABEL(global->uptime->label),
+                        (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
+
     gtk_widget_show(global->uptime->label);
     gtk_container_add(GTK_CONTAINER(global->uptime->ebox),
                       GTK_WIDGET(global->uptime->label));
