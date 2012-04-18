@@ -466,7 +466,68 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     return 0;
 }
 
-#else
-#error "Your platform is not yet support"
-#endif
+#elif defined (__sun__)
 
+#include <sys/stat.h>
+#include <sys/swap.h>
+#include <kstat.h>
+kstat_ctl_t *kc;
+
+static size_t MTotal = 0;
+static size_t MFree = 0;
+static size_t MUsed = 0;
+static size_t STotal = 0;
+static size_t SFree = 0;
+static size_t SUsed = 0;
+
+void mem_init_stats()
+{
+	kc = kstat_open();
+}
+
+gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
+{
+    long pagesize;
+    struct anoninfo swapinfo;
+    kstat_t *ksp;
+    kstat_named_t *knp;
+
+    pagesize = (long)(sysconf(_SC_PAGESIZE));
+
+    /* FIXME use real numbers, not fake data */
+    if (!kc)
+    {
+        mem_init_stats();
+    }
+
+    if (ksp = kstat_lookup(kc, "unix", 0, "system_pages"))
+    {
+        kstat_read(kc, ksp, NULL);
+	knp = kstat_data_lookup(ksp, "physmem");
+	MTotal = (pagesize * knp->value.ui64) >> 10;
+	knp = kstat_data_lookup(ksp, "freemem");
+	MUsed = MTotal - ((pagesize * knp->value.ui64) >> 10);
+    }
+    if (swapctl(SC_AINFO, &swapinfo) == 0) {
+        STotal = (swapinfo.ani_max * pagesize) >> 10;
+	SUsed = ((swapinfo.ani_max - swapinfo.ani_free) * pagesize) >> 10;
+	*swap = SUsed * 100 / STotal;
+    } else {
+        STotal = 0;
+	SUsed = 0;
+	*swap = 0;
+    }
+
+    *mem = MUsed * 100 / MTotal;
+
+    *MT = MTotal;
+    *MU = MUsed;
+    *ST = STotal;
+    *SU = SUsed;
+
+    return 0;
+}
+
+#else
+#error "Your platform is not yet supported"
+#endif

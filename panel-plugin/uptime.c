@@ -111,4 +111,32 @@ gulong read_uptime(void)
    return uptime;
 }
 
+#elif defined(__sun__)
+
+#include <kstat.h>
+
+gulong read_uptime()
+{
+   kstat_ctl_t *kc;
+   kstat_t *ks;
+   kstat_named_t *boottime;
+   time_t now;
+   gulong uptime;
+
+   if (((kc = kstat_open()) != 0) && ((ks = kstat_lookup(kc, "unix", 0, "system_misc")) != NULL) && (kstat_read(kc, ks, NULL) != -1) && ((boottime = kstat_data_lookup(ks, "boot_time")) != NULL)) {
+      time(&now);
+      uptime = now - boottime->value.ul;
+      kstat_close(kc);
+   }
+   else
+   {
+       g_warning("Cannot get boot_time");
+       uptime = 0;
+   }
+
+   return uptime;
+}
+
+#else
+#error "Your platform is not yet supported"
 #endif

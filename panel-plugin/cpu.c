@@ -252,6 +252,62 @@ gulong read_cpuload(void)
 
     return cpu_used;
 }
+#elif defined(__sun__)
+
+#include <kstat.h>
+kstat_ctl_t *kc;
+gulong cpu_used;
+gulong oldtotal = 0;
+gulong oldused = 0;
+
+void init_stats()
+{
+       kc = kstat_open();
+}
+
+gulong read_cpuload()
+{
+    gulong used, total;
+    kstat_t *ksp;
+    kstat_named_t *knp;
+
+    if (!kc)
+    {
+       init_stats();
+    }
+    kstat_chain_update(kc);
+    used = 0;
+    total = 0;
+    for (ksp = kc->kc_chain; ksp != NULL; ksp = ksp->ks_next)
+    {
+        if (!strcmp(ksp->ks_module, "cpu") && !strcmp(ksp->ks_name, "sys"))
+       {
+           kstat_read(kc, ksp, NULL);
+           knp = kstat_data_lookup(ksp, "cpu_ticks_user");
+           used += knp->value.ui64;
+           total += knp->value.ui64;
+           knp = kstat_data_lookup(ksp, "cpu_ticks_kernel");
+           used += knp->value.ui64;
+           total += knp->value.ui64;
+           knp = kstat_data_lookup(ksp, "cpu_ticks_idle");
+           total += knp->value.ui64;
+       }
+    }
+
+    printf("CPU: %d %d %d %d\n", used, oldused, total, oldtotal);
+
+    if ((total - oldtotal) != 0)
+    {
+        cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
+    }
+    else
+    {
+        cpu_used = 0;
+    }
+    oldused = used;
+    oldtotal = total;
+    return cpu_used;
+}
 
 #else
 #error "Your platform is not yet supported"
