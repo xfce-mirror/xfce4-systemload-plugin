@@ -83,9 +83,7 @@ typedef struct
 
 typedef struct
 {
-    GtkWidget  *box;
-    GtkWidget  *label_up;
-    GtkWidget  *label_down;
+    GtkWidget  *label;
     GtkWidget  *ebox;
     GtkWidget  *tooltip_text;
 
@@ -180,16 +178,21 @@ update_monitors(t_global_monitor *global)
         days = global->uptime->value_read / 86400;
         hours = (global->uptime->value_read / 3600) % 24;
         mins = (global->uptime->value_read / 60) % 60;
-        g_snprintf(caption, sizeof(caption), ngettext("%d day", "%d days", days), days);
-        gtk_label_set_text(GTK_LABEL(global->uptime->label_up),
-                           caption);
-        g_snprintf(caption, sizeof(caption), "%d:%02d", hours, mins);
-        gtk_label_set_text(GTK_LABEL(global->uptime->label_down),
-                           caption);
-
-        g_snprintf(caption, sizeof(caption),
-                   ngettext("Uptime: %d day %d:%02d", "Uptime: %d days %d:%02d", days),
-                   days, hours, mins);
+        if (days > 0) {
+            g_snprintf(caption, sizeof(caption), ngettext("%d day", "%d days", days), days);
+            gtk_label_set_text(GTK_LABEL(global->uptime->label),
+                               caption);
+            g_snprintf(caption, sizeof(caption),
+                       ngettext("Uptime: %d day %d:%02d", "Uptime: %d days %d:%02d", days),
+                       days, hours, mins);
+        }
+        else
+        {
+            g_snprintf(caption, sizeof(caption), "%d:%02d", hours, mins);
+            gtk_label_set_text(GTK_LABEL(global->uptime->label),
+                               caption);
+            g_snprintf(caption, sizeof(caption), _("Uptime: %d:%02d"), hours, mins);
+        }
         gtk_label_set_text(GTK_LABEL(global->uptime->tooltip_text), caption);
     }
     return TRUE;
@@ -305,22 +308,11 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     g_signal_connect(global->monitor[2]->ebox, "query-tooltip", G_CALLBACK(tooltip_cb2), global);
     g_signal_connect(global->uptime->ebox, "query-tooltip", G_CALLBACK(tooltip_cb3), global);
 
-    global->uptime->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
-    gtk_widget_show(GTK_WIDGET(global->uptime->box));
 
+    global->uptime->label = gtk_label_new("");
+    gtk_widget_show(global->uptime->label);
     gtk_container_add(GTK_CONTAINER(global->uptime->ebox),
-                      GTK_WIDGET(global->uptime->box));
-
-    global->uptime->label_up = gtk_label_new("");
-    gtk_widget_show(global->uptime->label_up);
-    gtk_box_pack_start(GTK_BOX(global->uptime->box),
-                       GTK_WIDGET(global->uptime->label_up),
-                       FALSE, FALSE, 0);
-    global->uptime->label_down = gtk_label_new("");
-    gtk_widget_show(global->uptime->label_down);
-    gtk_box_pack_start(GTK_BOX(global->uptime->box),
-                       GTK_WIDGET(global->uptime->label_down),
-                       FALSE, FALSE, 0);
+                      GTK_WIDGET(global->uptime->label));
 
     gtk_box_pack_start(GTK_BOX(global->box),
                        GTK_WIDGET(global->uptime->ebox),
@@ -470,15 +462,7 @@ setup_monitor(t_global_monitor *global)
         }
     }
     if(global->uptime->enabled)
-    {
-        if (global->monitor[0]->options.enabled ||
-            global->monitor[1]->options.enabled ||
-            global->monitor[2]->options.enabled)
-        {
-            gtk_container_set_border_width(GTK_CONTAINER(global->uptime->box), 2);
-        }
         gtk_widget_show(GTK_WIDGET(global->uptime->ebox));
-    }
 
     setup_timer(global);
 }
