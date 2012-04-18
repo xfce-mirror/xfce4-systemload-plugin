@@ -249,7 +249,6 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     {
         global->monitor[count]->label =
             gtk_label_new(global->monitor[count]->options.label_text);
-        gtk_widget_show(global->monitor[count]->label);
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
 
@@ -267,8 +266,6 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
                            GTK_WIDGET(global->monitor[count]->label),
                            FALSE, FALSE, 0);
-
-        gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
 
         global->monitor[count]->ebox = gtk_event_box_new();
         gtk_widget_show(global->monitor[count]->ebox);
@@ -294,10 +291,21 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_box_pack_start(GTK_BOX(global->box),
                            GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
+
+        if(global->monitor[count]->options.enabled)
+        {
+            gtk_widget_show(GTK_WIDGET(global->monitor[count]->ebox));
+            gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
+            if (global->monitor[count]->options.use_label)
+                gtk_widget_show(global->monitor[count]->label);
+
+            gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
+        }
     }
 
     global->uptime->ebox = gtk_event_box_new();
-    gtk_widget_show(global->uptime->ebox);
+    if(global->uptime->enabled)
+        gtk_widget_show(global->uptime->ebox);
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->uptime->ebox), FALSE);
 
     gtk_widget_set_has_tooltip(global->monitor[0]->ebox, TRUE);
