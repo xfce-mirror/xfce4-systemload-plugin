@@ -58,6 +58,13 @@ static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
 
 #define BORDER 8
 
+/* check for new Xfce 4.10 panel features */
+#ifdef LIBXFCE4PANEL_CHECK_VERSION
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+#define HAS_PANEL_49
+#endif
+#endif
+
 enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
 
 typedef struct
@@ -224,8 +231,10 @@ static gboolean tooltip_cb3(GtkWidget *widget, gint x, gint y, gboolean keyboard
 }
 
 static void
-monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
-                         t_global_monitor *global)
+monitor_update_orientation (XfcePanelPlugin  *plugin,
+                            GtkOrientation    panel_orientation,
+                            GtkOrientation    orientation,
+                            t_global_monitor *global)
 {
     gint count, size;
     size = xfce_panel_plugin_get_size(plugin);
@@ -236,7 +245,7 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
         gtk_container_remove(GTK_CONTAINER(global->ebox), 
                              GTK_WIDGET(global->box));
     
-    if (orientation == GTK_ORIENTATION_HORIZONTAL)
+    if (panel_orientation == GTK_ORIENTATION_HORIZONTAL)
     {
         global->box = gtk_hbox_new(FALSE, 0);
     }
@@ -250,10 +259,12 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     {
         global->monitor[count]->label =
             gtk_label_new(global->monitor[count]->options.label_text);
+        gtk_label_set_angle(GTK_LABEL(global->monitor[count]->label),
+                            (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
 
-        if (orientation == GTK_ORIENTATION_HORIZONTAL)
+        if (panel_orientation == GTK_ORIENTATION_HORIZONTAL)
         {
             global->monitor[count]->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_BOTTOM_TO_TOP);
@@ -629,6 +640,32 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
     return TRUE;
 }
 
+
+#ifdef HAS_PANEL_49
+static void
+monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
+                  t_global_monitor *global)
+{
+  GtkOrientation panel_orientation = xfce_panel_plugin_get_orientation (plugin);
+  GtkOrientation orientation = (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL) ?
+    GTK_ORIENTATION_VERTICAL : GTK_ORIENTATION_HORIZONTAL;
+
+  monitor_update_orientation (plugin, panel_orientation, orientation, global);
+  monitor_set_size (plugin, xfce_panel_plugin_get_size (plugin), global);
+}
+
+
+#else
+static void
+monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
+                         t_global_monitor *global)
+{
+  monitor_update_orientation (plugin, orientation, GTK_ORIENTATION_HORIZONTAL, global);
+  monitor_set_size (plugin, xfce_panel_plugin_get_size (plugin), global);
+}
+#endif
+
+
 #ifdef HAVE_UPOWER_GLIB
 static void
 upower_changed_cb(UpClient *client, t_global_monitor *global)
@@ -913,9 +950,15 @@ systemload_construct (XfcePanelPlugin *plugin)
 
     monitor_read_config (plugin, global);
     
+#ifdef HAS_PANEL_49
+    monitor_set_mode (plugin,
+                      xfce_panel_plugin_get_mode (plugin),
+                      global);
+#else
     monitor_set_orientation (plugin, 
                              xfce_panel_plugin_get_orientation (plugin),
                              global);
+#endif
 
     setup_monitor (global);
 
@@ -938,8 +981,13 @@ systemload_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size),
                       global);
 
+#ifdef HAS_PANEL_49
+    g_signal_connect (plugin, "mode-changed",
+                      G_CALLBACK (monitor_set_mode), global);
+#else
     g_signal_connect (plugin, "orientation-changed", 
                       G_CALLBACK (monitor_set_orientation), global);
+#endif
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", 
