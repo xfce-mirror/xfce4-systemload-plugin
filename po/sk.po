@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-18 17:17+0200\n"
-"PO-Revision-Date: 2012-01-24 09:47+0100\n"
+"POT-Creation-Date: 2012-04-19 03:36+0000\n"
+"PO-Revision-Date: 2012-04-19 08:25+0200\n"
 "Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
 "Language-Team: slovenčina <slovenska-lokalizacia-xfce@googlegroups.com>\n"
 "Language: sk\n"
@@ -24,27 +24,27 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Súbor /proc/stat nebol nájdený!"
 
-#: ../panel-plugin/systemload.c:153
+#: ../panel-plugin/systemload.c:161
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Vyťaženie systému: %ld%%"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Pamäť: %ldMB z %ldMB použitých"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:176
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB z %ldMB použitých"
 
-#: ../panel-plugin/systemload.c:171
+#: ../panel-plugin/systemload.c:179
 #, c-format
 msgid "No swap"
 msgstr "Bez swap oddielu"
 
-#: ../panel-plugin/systemload.c:182
+#: ../panel-plugin/systemload.c:190
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -52,7 +52,7 @@ msgstr[0] "%d dní"
 msgstr[1] "%d deň"
 msgstr[2] "%d dni"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -60,62 +60,66 @@ msgstr[0] "Systém je spustený: %d dní %d:%02d"
 msgstr[1] "Systém je spustený: %d deň %d:%02d"
 msgstr[2] "Systém je spustený: %d dni %d:%02d"
 
-#: ../panel-plugin/systemload.c:194
-#, fuzzy, c-format
+#: ../panel-plugin/systemload.c:202
+#, c-format
 msgid "Uptime: %d:%02d"
-msgstr "Systém je spustený: %d dní %d:%02d"
+msgstr "Systém je spustený: %d:%02d"
 
-#: ../panel-plugin/systemload.c:811
+#: ../panel-plugin/systemload.c:860
 msgid "CPU monitor"
 msgstr "Sledovanie procesoru"
 
-#: ../panel-plugin/systemload.c:812
+#: ../panel-plugin/systemload.c:861
 msgid "Memory monitor"
 msgstr "Sledovanie pamäte"
 
-#: ../panel-plugin/systemload.c:813
+#: ../panel-plugin/systemload.c:862
 msgid "Swap monitor"
 msgstr "Sledovanie swap partície"
 
-#: ../panel-plugin/systemload.c:814
+#: ../panel-plugin/systemload.c:863
 msgid "Uptime monitor"
 msgstr "Sledovanie doby prevádzky počítača"
 
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
 msgstr "Sledovanie vyťaženia systému"
 
-#: ../panel-plugin/systemload.c:834
+#: ../panel-plugin/systemload.c:883
 msgid "General"
 msgstr "Všeobecné"
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:885
 msgid "Update interval:"
 msgstr "Interval aktualizácie:"
 
-#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:885 ../panel-plugin/systemload.c:890
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:890
 msgid "Power-saving interval:"
 msgstr "Interval úspory energie:"
 
-#: ../panel-plugin/systemload.c:855
+#: ../panel-plugin/systemload.c:904
 msgid "Text to display:"
 msgstr "Zobraziť text:"
 
-#: ../panel-plugin/systemload.c:859
+#: ../panel-plugin/systemload.c:908
 msgid "Bar color:"
 msgstr "Farba ukazovateľa:"
+
+#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Sleduje vyťaženie procesoru, využitia swap oddielu a pamäte"
+
+#: ../panel-plugin/systemload.c:935
+msgid "Copyright (c) 2003-2012\n"
+msgstr "Copyright (c) 2003-2012\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "Súbor /proc/uptime nebol nájdený!"
-
-#: ../panel-plugin/systemload.desktop.in.h:2
-msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Sleduje vyťaženie procesoru, využitia swap oddielu a pamäte"
 
 #~ msgid "Select color"
 #~ msgstr "Vyberte farbu"
