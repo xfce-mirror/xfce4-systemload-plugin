@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-19 03:36+0000\n"
+"POT-Creation-Date: 2012-04-21 07:21+0000\n"
 "PO-Revision-Date: 2010-12-06 14:20+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
@@ -111,7 +111,6 @@ msgstr ""
 "dai programmi"
 
 #: ../panel-plugin/systemload.c:935
-#, fuzzy
 msgid "Copyright (c) 2003-2012\n"
 msgstr "Copyright (c) 2003-2012\n"
 
