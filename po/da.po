@@ -15,8 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\\n\\n\\nX-Poedit-Language: Danish\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n\\n\\nX-Poedit-Language: Danish\\nX-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: DENMARK\n"
 
 #: ../panel-plugin/cpu.c:63
@@ -111,7 +110,6 @@ msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapfilbrug og hukommelsesaftryk"
 
 #: ../panel-plugin/systemload.c:935
-#, fuzzy
 msgid "Copyright (c) 2003-2012\n"
 msgstr "Copyright (c) 2003-2012\n"
 
