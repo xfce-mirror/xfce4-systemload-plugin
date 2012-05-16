@@ -342,6 +342,7 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
                        FALSE, FALSE, 0);
 
     gtk_container_add(GTK_CONTAINER(global->ebox), GTK_WIDGET(global->box));
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->ebox), FALSE);
     gtk_widget_show(GTK_WIDGET(global->ebox));
 
     update_monitors (global);
