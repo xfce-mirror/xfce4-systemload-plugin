@@ -293,6 +293,7 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
                                GTK_STATE_SELECTED,
                                &global->monitor[count]->options.color);
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->monitor[count]->ebox), FALSE);
+        gtk_event_box_set_above_child(GTK_EVENT_BOX(global->monitor[count]->ebox), TRUE);
 
         gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
 
