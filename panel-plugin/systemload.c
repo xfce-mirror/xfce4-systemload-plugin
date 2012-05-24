@@ -652,6 +652,12 @@ monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
   GtkOrientation orientation = (mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL) ?
     GTK_ORIENTATION_VERTICAL : GTK_ORIENTATION_HORIZONTAL;
 
+  /* Set small in all modes except deskbar mode */
+  if (mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+      xfce_panel_plugin_set_small(XFCE_PANEL_PLUGIN(plugin), FALSE);
+  else
+      xfce_panel_plugin_set_small(XFCE_PANEL_PLUGIN(plugin), TRUE);
+
   monitor_update_orientation (plugin, panel_orientation, orientation, global);
   monitor_set_size (plugin, xfce_panel_plugin_get_size (plugin), global);
 }
