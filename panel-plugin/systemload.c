@@ -276,7 +276,7 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
 
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
                            GTK_WIDGET(global->monitor[count]->label),
-                           FALSE, FALSE, 0);
+                           FALSE, FALSE, 2);
 
         global->monitor[count]->ebox = gtk_event_box_new();
         gtk_widget_show(global->monitor[count]->ebox);
