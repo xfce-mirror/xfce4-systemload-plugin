@@ -2,7 +2,7 @@
 # Copyright (C) 2008 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Gheyret T.Kenji <gheyret@gmail.com>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.4.2svn-r5674\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "/proc/stat  ھۆججىتى تېپىلمىدى"
+msgstr "ھۆججىتى /proc/stat تېپىلمىدى"
 
 #: ../panel-plugin/systemload.c:153
 #, c-format
@@ -29,12 +29,12 @@ msgstr "سىستېما يۈكى: %ld%%"
 #: ../panel-plugin/systemload.c:160
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "ئىشلىتىلگەن ئەسلەك:  %ldMB of %ldMB"
+msgstr "ئىشلىتىلگەن ئەسلەك:  %ldم ب / %ldم ب"
 
 #: ../panel-plugin/systemload.c:168
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "ئىشلىتىلگەن Swap: %ldMB of %ldMB"
+msgstr "ئىشلىتىلگەن Swap: %ldم ب of %ldم ب"
 
 #: ../panel-plugin/systemload.c:171
 #, c-format
@@ -42,7 +42,7 @@ msgid "No swap"
 msgstr "swap يوق"
 
 #: ../panel-plugin/systemload.c:182
-#, fuzzy, c-format
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d كۈن"
@@ -51,12 +51,12 @@ msgstr[0] "%d كۈن"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
+msgstr[0] "ئىشلەۋاتقان ۋاقىت: %d كۈن %d:%02d"
 
 #: ../panel-plugin/systemload.c:194
-#, fuzzy, c-format
+#, c-format
 msgid "Uptime: %d:%02d"
-msgstr "ئىشلەۋاتقان ۋاقتى:"
+msgstr "ئىشلەۋاتقان ۋاقىت: %d:%02d"
 
 #: ../panel-plugin/systemload.c:811
 msgid "CPU monitor"
@@ -80,23 +80,23 @@ msgstr "سىستېما يۈكى كۆزەتكۈ"
 
 #: ../panel-plugin/systemload.c:834
 msgid "General"
-msgstr ""
+msgstr "ئادەتتىكى"
 
 #: ../panel-plugin/systemload.c:836
 msgid "Update interval:"
-msgstr ""
+msgstr "يېڭىلاش ئىنتېرۋالى:"
 
 #: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../panel-plugin/systemload.c:841
 msgid "Power-saving interval:"
-msgstr ""
+msgstr "تەك تېجەش ئىنتېرۋالى:"
 
 #: ../panel-plugin/systemload.c:855
 msgid "Text to display:"
-msgstr "كۆرسىتىدىغان تېكىست"
+msgstr "كۆرسىتىدىغان تېكىست:"
 
 #: ../panel-plugin/systemload.c:859
 msgid "Bar color:"
@@ -104,7 +104,7 @@ msgstr "بالداق رەڭگى:"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "/proc/uptime ھۆججىتى تېپىلمىدى!"
+msgstr "ھۆججەت /proc/uptime تېپىلمىدى!"
 
 #: ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
