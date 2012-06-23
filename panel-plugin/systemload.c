@@ -211,42 +211,41 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
                             t_global_monitor *global)
 {
     gint count;
-
-    gtk_widget_hide(GTK_WIDGET(global->ebox));
-
-    if (global->box)
-        gtk_container_remove(GTK_CONTAINER(global->ebox), 
-                             GTK_WIDGET(global->box));
-    
-    if (panel_orientation == GTK_ORIENTATION_HORIZONTAL)
+    xfce_hvbox_set_orientation(XFCE_HVBOX(global->box), panel_orientation);
+    for(count = 0; count < 3; count++)
     {
-        global->box = gtk_hbox_new(FALSE, 0);
+        xfce_hvbox_set_orientation(XFCE_HVBOX(global->monitor[count]->box), panel_orientation);
+        gtk_label_set_angle(GTK_LABEL(global->monitor[count]->label),
+                            (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
+        if (panel_orientation == GTK_ORIENTATION_HORIZONTAL)
+        {
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_BOTTOM_TO_TOP);
+        }
+        else
+        {
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_LEFT_TO_RIGHT);
+        }
     }
-    else
-    {
-        global->box = gtk_vbox_new(FALSE, 0);
-    }
+    gtk_label_set_angle(GTK_LABEL(global->uptime->label),
+                        (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
+}
+
+static void
+create_monitor (t_global_monitor *global)
+{
+    gint count;
+
+    global->box = xfce_hvbox_new(xfce_panel_plugin_get_orientation(global->plugin), FALSE, 0);
     gtk_widget_show(global->box);
 
     for(count = 0; count < 3; count++)
     {
         global->monitor[count]->label =
             gtk_label_new(global->monitor[count]->options.label_text);
-        gtk_label_set_angle(GTK_LABEL(global->monitor[count]->label),
-                            (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
 
-        if (panel_orientation == GTK_ORIENTATION_HORIZONTAL)
-        {
-            global->monitor[count]->box = GTK_WIDGET(gtk_hbox_new(FALSE, 0));
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_BOTTOM_TO_TOP);
-        }
-        else
-        {
-            global->monitor[count]->box = GTK_WIDGET(gtk_vbox_new(FALSE, 0));
-            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_LEFT_TO_RIGHT);
-        }
+        global->monitor[count]->box = xfce_hvbox_new(xfce_panel_plugin_get_orientation(global->plugin), FALSE, 0);
 
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
                            GTK_WIDGET(global->monitor[count]->label),
@@ -257,15 +256,6 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
         gtk_container_add(GTK_CONTAINER(global->monitor[count]->ebox),
                           GTK_WIDGET(global->monitor[count]->box));
 
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
-                             GTK_STATE_PRELIGHT,
-                             &global->monitor[count]->options.color);
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
-                             GTK_STATE_SELECTED,
-                             &global->monitor[count]->options.color);
-        gtk_widget_modify_base(GTK_WIDGET(global->monitor[count]->status),
-                               GTK_STATE_SELECTED,
-                               &global->monitor[count]->options.color);
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->monitor[count]->ebox), FALSE);
         gtk_event_box_set_above_child(GTK_EVENT_BOX(global->monitor[count]->ebox), TRUE);
 
@@ -278,15 +268,7 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
                            GTK_WIDGET(global->monitor[count]->ebox),
                            FALSE, FALSE, 0);
 
-        if(global->monitor[count]->options.enabled)
-        {
-            gtk_widget_show(GTK_WIDGET(global->monitor[count]->ebox));
-            gtk_widget_show(GTK_WIDGET(global->monitor[count]->box));
-            if (global->monitor[count]->options.use_label)
-                gtk_widget_show(global->monitor[count]->label);
-
-            gtk_widget_show(GTK_WIDGET(global->monitor[count]->status));
-        }
+        gtk_widget_show_all(GTK_WIDGET(global->monitor[count]->ebox));
     }
 
     global->uptime->ebox = gtk_event_box_new();
@@ -295,8 +277,6 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->uptime->ebox), FALSE);
 
     global->uptime->label = gtk_label_new("");
-    gtk_label_set_angle(GTK_LABEL(global->uptime->label),
-                        (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
 
     gtk_widget_show(global->uptime->label);
     gtk_container_add(GTK_CONTAINER(global->uptime->ebox),
@@ -922,6 +902,7 @@ systemload_construct (XfcePanelPlugin *plugin)
 
     monitor_read_config (plugin, global);
     
+    create_monitor (global);
 #ifdef HAS_PANEL_49
     monitor_set_mode (plugin,
                       xfce_panel_plugin_get_mode (plugin),
