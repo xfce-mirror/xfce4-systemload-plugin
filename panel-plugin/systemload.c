@@ -365,7 +365,6 @@ monitor_control_new(XfcePanelPlugin *plugin)
     global->use_timeout_seconds = TRUE;
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
-    gtk_container_set_border_width (GTK_CONTAINER (global->ebox), BORDER/2);
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
@@ -622,18 +621,19 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 {
     gint count;
 
+    gtk_container_set_border_width (GTK_CONTAINER (global->ebox), (size > 26 ? 2 : 1));
     for(count = 0; count < 3; count++)
     {
         if (xfce_panel_plugin_get_orientation (plugin) == 
                 GTK_ORIENTATION_HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
-                                        BORDER, size - BORDER);
+                                        8, -1);
         }
         else
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
-                                        size - BORDER, BORDER);
+                                        -1, 8);
         }
     }
     
