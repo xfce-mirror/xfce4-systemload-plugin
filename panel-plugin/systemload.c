@@ -81,7 +81,6 @@ typedef struct
     GtkWidget  *label;
     GtkWidget  *status;
     GtkWidget  *ebox;
-    GtkWidget  *tooltip_text;
 
     gulong     history[4];
     gulong     value_read;
@@ -93,7 +92,6 @@ typedef struct
 {
     GtkWidget  *label;
     GtkWidget  *ebox;
-    GtkWidget  *tooltip_text;
 
     gulong     value_read;
     gboolean   enabled;
@@ -160,14 +158,14 @@ update_monitors(t_global_monitor *global)
     {
         g_snprintf(caption, sizeof(caption), _("System Load: %ld%%"),
                    global->monitor[0]->value_read);
-        gtk_label_set_text(GTK_LABEL(global->monitor[0]->tooltip_text), caption);
+        gtk_widget_set_tooltip_text(GTK_WIDGET(global->monitor[0]->ebox), caption);
     }
 
     if (global->monitor[1]->options.enabled)
     {
         g_snprintf(caption, sizeof(caption), _("Memory: %ldMB of %ldMB used"),
                    MUsed >> 10 , MTotal >> 10);
-        gtk_label_set_text(GTK_LABEL(global->monitor[1]->tooltip_text), caption);
+        gtk_widget_set_tooltip_text(GTK_WIDGET(global->monitor[1]->ebox), caption);
     }
 
     if (global->monitor[2]->options.enabled)
@@ -178,7 +176,7 @@ update_monitors(t_global_monitor *global)
         else
             g_snprintf(caption, sizeof(caption), _("No swap"));
 
-        gtk_label_set_text(GTK_LABEL(global->monitor[2]->tooltip_text), caption);
+        gtk_widget_set_tooltip_text(GTK_WIDGET(global->monitor[2]->ebox), caption);
     }
 
     if (global->uptime->enabled)
@@ -201,33 +199,9 @@ update_monitors(t_global_monitor *global)
                                caption);
             g_snprintf(caption, sizeof(caption), _("Uptime: %d:%02d"), hours, mins);
         }
-        gtk_label_set_text(GTK_LABEL(global->uptime->tooltip_text), caption);
+        gtk_widget_set_tooltip_text(GTK_WIDGET(global->uptime->ebox), caption);
     }
     return TRUE;
-}
-
-static gboolean tooltip_cb0(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
-{
-        gtk_tooltip_set_custom(tooltip, global->monitor[0]->tooltip_text);
-        return TRUE;
-}
-
-static gboolean tooltip_cb1(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
-{
-        gtk_tooltip_set_custom(tooltip, global->monitor[1]->tooltip_text);
-        return TRUE;
-}
-
-static gboolean tooltip_cb2(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
-{
-        gtk_tooltip_set_custom(tooltip, global->monitor[2]->tooltip_text);
-        return TRUE;
-}
-
-static gboolean tooltip_cb3(GtkWidget *widget, gint x, gint y, gboolean keyboard, GtkTooltip *tooltip, t_global_monitor *global)
-{
-        gtk_tooltip_set_custom(tooltip, global->uptime->tooltip_text);
-        return TRUE;
 }
 
 static void
@@ -320,16 +294,6 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
         gtk_widget_show(global->uptime->ebox);
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->uptime->ebox), FALSE);
 
-    gtk_widget_set_has_tooltip(global->monitor[0]->ebox, TRUE);
-    gtk_widget_set_has_tooltip(global->monitor[1]->ebox, TRUE);
-    gtk_widget_set_has_tooltip(global->monitor[2]->ebox, TRUE);
-    gtk_widget_set_has_tooltip(global->uptime->ebox, TRUE);
-    g_signal_connect(global->monitor[0]->ebox, "query-tooltip", G_CALLBACK(tooltip_cb0), global);
-    g_signal_connect(global->monitor[1]->ebox, "query-tooltip", G_CALLBACK(tooltip_cb1), global);
-    g_signal_connect(global->monitor[2]->ebox, "query-tooltip", G_CALLBACK(tooltip_cb2), global);
-    g_signal_connect(global->uptime->ebox, "query-tooltip", G_CALLBACK(tooltip_cb3), global);
-
-
     global->uptime->label = gtk_label_new("");
     gtk_label_set_angle(GTK_LABEL(global->uptime->label),
                         (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
@@ -385,15 +349,11 @@ monitor_control_new(XfcePanelPlugin *plugin)
         global->monitor[count]->history[1] = 0;
         global->monitor[count]->history[2] = 0;
         global->monitor[count]->history[3] = 0;
-        global->monitor[count]->tooltip_text = gtk_label_new(NULL);
-        g_object_ref(global->monitor[count]->tooltip_text);
 
     }
     
     global->uptime = g_new(t_uptime_monitor, 1);
     global->uptime->enabled = TRUE;
-    global->uptime->tooltip_text = gtk_label_new(NULL);
-    g_object_ref(global->uptime->tooltip_text);
     
     return global;
 }
@@ -417,12 +377,8 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         if (global->monitor[count]->options.label_text)
             g_free(global->monitor[count]->options.label_text);
-        gtk_widget_destroy(global->monitor[count]->tooltip_text);
         g_free(global->monitor[count]);
     }
-
-    gtk_widget_destroy(global->uptime->tooltip_text);
-
 
     g_free(global->uptime);
 
@@ -432,6 +388,7 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 static void
 setup_timer(t_global_monitor *global)
 {
+    GtkSettings *settings;
     if (global->timeout_id)
         g_source_remove(global->timeout_id);
 #ifdef HAVE_UPOWER_GLIB
@@ -450,6 +407,13 @@ setup_timer(t_global_monitor *global)
     }
 #endif
     global->timeout_id = g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
+    /* reduce the default tooltip timeout to be smaller than the update interval otherwise
+     * we won't see tooltips on GTK 2.16 or newer */
+    settings = gtk_settings_get_default();
+    if (g_object_class_find_property(G_OBJECT_GET_CLASS(settings), "gtk-tooltip-timeout"))
+        g_object_set(settings, "gtk-tooltip-timeout",
+                     global->timeout - 10, NULL);
+
 }
 
 static void
