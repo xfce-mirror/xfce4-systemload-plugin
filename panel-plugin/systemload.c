@@ -215,8 +215,10 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
     for(count = 0; count < 3; count++)
     {
         xfce_hvbox_set_orientation(XFCE_HVBOX(global->monitor[count]->box), panel_orientation);
+#ifdef HAS_PANEL_49
         gtk_label_set_angle(GTK_LABEL(global->monitor[count]->label),
                             (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
+#endif
         if (panel_orientation == GTK_ORIENTATION_HORIZONTAL)
         {
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_BOTTOM_TO_TOP);
@@ -226,8 +228,10 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_LEFT_TO_RIGHT);
         }
     }
+#ifdef HAS_PANEL_49
     gtk_label_set_angle(GTK_LABEL(global->uptime->label),
                         (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
+#endif
 }
 
 static void
