@@ -1,3 +1,15 @@
+1.1.1 (2012/06/30)
+-----------------
+- Simplify tooltip handling code
+- Better compliance with panel plugin HIG
+- Only set label angle with panel > 4.9
+- Set plugin to small in all modes except deskbar modes (bug #8944)
+- Facilitate bringing up the configuration dialog (bug #8900)
+- Fix background transparency by setting the main evbox hidden (bug #8891)
+- Changing uptime label orientation in the vertical mode
+- Compatibility with panel 4.9+
+- Use only HW_PHYSMEM64 on OpenBSD, HW_SYSMEM is deprecated
+
 1.1.0 (2012/04/18)
 -----------------
 - Fix progressbar width in vertical mode
