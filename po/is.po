@@ -1,0 +1,119 @@
+# translation of xfce4-systemload-plugin.master.is.po to Icelandic
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sveinn í Felli <sveinki@nett.is>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-systemload-plugin.master.is\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-03 20:03+0000\n"
+"PO-Revision-Date: 2012-07-03 20:53+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../panel-plugin/cpu.c:63
+msgid "File /proc/stat not found!"
+msgstr "Skráin /proc/stat fannst ekki!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Kerfisálag: %ld%%"
+
+#: ../panel-plugin/systemload.c:166
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Minni: %ldMB notað af %ldMB"
+
+#: ../panel-plugin/systemload.c:174
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Diskminni: %ldMB notað af %ldMB"
+
+#: ../panel-plugin/systemload.c:177
+#, c-format
+msgid "No swap"
+msgstr "Ekkert diskminni"
+
+#: ../panel-plugin/systemload.c:188
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dagur"
+msgstr[1] "%d dagar"
+
+#: ../panel-plugin/systemload.c:192
+#, c-format
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] "Uppitími: %d dagur %d:%02d"
+msgstr[1] "Uppitími: %d dagar %d:%02d"
+
+#: ../panel-plugin/systemload.c:200
+#, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Uppitími: %d:%02d"
+
+#: ../panel-plugin/systemload.c:816
+msgid "CPU monitor"
+msgstr "Eftirlit með örgjörva"
+
+#: ../panel-plugin/systemload.c:817
+msgid "Memory monitor"
+msgstr "Eftirlit með minni"
+
+#: ../panel-plugin/systemload.c:818
+msgid "Swap monitor"
+msgstr "Eftirlit með diskminni"
+
+#: ../panel-plugin/systemload.c:819
+msgid "Uptime monitor"
+msgstr "Eftirlit með uppitíma"
+
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:2
+msgid "System Load Monitor"
+msgstr "Eftirlit með kerfisálagi"
+
+#: ../panel-plugin/systemload.c:839
+msgid "General"
+msgstr "Almennt"
+
+#: ../panel-plugin/systemload.c:841
+msgid "Update interval:"
+msgstr "Uppfærslutíðni:"
+
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
+msgid "s"
+msgstr "sek"
+
+#: ../panel-plugin/systemload.c:846
+msgid "Power-saving interval:"
+msgstr "Bið vegna orkusparnaðar:"
+
+#: ../panel-plugin/systemload.c:860
+msgid "Text to display:"
+msgstr "Texti sem á að sýna:"
+
+#: ../panel-plugin/systemload.c:864
+msgid "Bar color:"
+msgstr "Litur súlu:"
+
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Fylgjast með örgjörvaálagi, diskminni og vinnsluminni"
+
+#: ../panel-plugin/systemload.c:891
+msgid "Copyright (c) 2003-2012\n"
+msgstr "Höfundarréttur (c) 2003-2012\n"
+
+#: ../panel-plugin/uptime.c:53
+msgid "File /proc/uptime not found!"
+msgstr "Skráin /proc/uptime fannst ekki!"
+
