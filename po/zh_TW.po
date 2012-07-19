@@ -8,109 +8,117 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-18 17:17+0200\n"
-"PO-Revision-Date: 2006-07-27 00:32+0800\n"
-"Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
+"POT-Creation-Date: 2012-07-19 10:33+0000\n"
+"PO-Revision-Date: 2012-07-19 21:45+0800\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "找不到 /proc/stat 檔案！"
 
-#: ../panel-plugin/systemload.c:153
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "系統負載：%ld%%"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "記憶體：%2$ld MB 之中已用 %1$ld MB"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Swap：%2$ld MB 之中已用 %1$ld MB"
+msgstr "置換空間：%2$ld MB 之中已用 %1$ld MB"
 
-#: ../panel-plugin/systemload.c:171
+#: ../panel-plugin/systemload.c:177
 #, c-format
 msgid "No swap"
-msgstr "沒有 Swap"
+msgstr "無置換空間"
 
-#: ../panel-plugin/systemload.c:182
+#: ../panel-plugin/systemload.c:188
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d 日"
-msgstr[1] "%d 日"
+msgstr[0] "%d天"
+msgstr[1] "%d天"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "已運作時間 (Uptime)： %d 日 %d:%02d"
-msgstr[1] "已運作時間 (Uptime)： %d 日 %d:%02d"
+msgstr[0] "運行時間：%d天又%d:%02d"
+msgstr[1] "運行時間：%d 日 %d:%02d"
 
-#: ../panel-plugin/systemload.c:194
-#, fuzzy, c-format
+#: ../panel-plugin/systemload.c:200
+#, c-format
 msgid "Uptime: %d:%02d"
-msgstr "已運作時間 (Uptime)： %d 日 %d:%02d"
+msgstr "運行時間：%d:%02d"
 
-#: ../panel-plugin/systemload.c:811
+#: ../panel-plugin/systemload.c:816
 msgid "CPU monitor"
-msgstr "處理器負載顯示"
+msgstr "CPU 監視"
 
-#: ../panel-plugin/systemload.c:812
+#: ../panel-plugin/systemload.c:817
 msgid "Memory monitor"
-msgstr "記憶體顯示"
+msgstr "記憶體監視"
 
-#: ../panel-plugin/systemload.c:813
+#: ../panel-plugin/systemload.c:818
 msgid "Swap monitor"
-msgstr "Swap 顯示"
+msgstr "置換空間監視"
 
-#: ../panel-plugin/systemload.c:814
+#: ../panel-plugin/systemload.c:819
 msgid "Uptime monitor"
-msgstr "已運作時間 (Uptime) 顯示"
+msgstr "運行時間監視"
 
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
-msgstr "系統負載"
+msgstr "系統負載監視"
 
-#: ../panel-plugin/systemload.c:834
+#: ../panel-plugin/systemload.c:839
 msgid "General"
-msgstr ""
-
-#: ../panel-plugin/systemload.c:836
-msgid "Update interval:"
-msgstr ""
-
-#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
-msgid "s"
-msgstr ""
+msgstr "一般"
 
 #: ../panel-plugin/systemload.c:841
-msgid "Power-saving interval:"
-msgstr ""
+msgid "Update interval:"
+msgstr "更新間隔："
 
-#: ../panel-plugin/systemload.c:855
+#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:846
+msgid "s"
+msgstr "秒"
+
+#: ../panel-plugin/systemload.c:846
+msgid "Power-saving interval:"
+msgstr "能源節省間隔："
+
+#: ../panel-plugin/systemload.c:860
 msgid "Text to display:"
 msgstr "顯示圖表標題："
 
-#: ../panel-plugin/systemload.c:859
+#: ../panel-plugin/systemload.c:864
 msgid "Bar color:"
 msgstr "棒條顏色："
+
+#: ../panel-plugin/systemload.c:889
+#: ../panel-plugin/systemload.desktop.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "監測 CPU 負載、置換空間及記憶體使用量"
+
+#: ../panel-plugin/systemload.c:891
+msgid "Copyright (c) 2003-2012\n"
+msgstr "著作權 (c) 2003-2012\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "找不到 /proc/uptime 檔案！"
-
-#: ../panel-plugin/systemload.desktop.in.h:2
-msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "監測 CPU 負載、swap 及記憶體使用量"
 
 #~ msgid "Select color"
 #~ msgstr "請選擇顏色"
