@@ -2,116 +2,120 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-systemload-plugin package.
 # Stephane Roy <sroy@j2n.net>, 2005.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-systemload-plugin 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-18 17:17+0200\n"
+"POT-Creation-Date: 2012-08-30 08:21+0000\n"
 "PO-Revision-Date: 2008-09-07 23:34+0100\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Fichier /proc/stat non trouvé !"
 
-#: ../panel-plugin/systemload.c:153
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Charge système : %ld%%"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Mémoire : utilise %ld Mo sur %ld Mo"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Échange : utilise %ld Mo sur %ld Mo"
 
-#: ../panel-plugin/systemload.c:171
+#: ../panel-plugin/systemload.c:177
 #, c-format
 msgid "No swap"
 msgstr "Pas de mémoire d'échange"
 
-#: ../panel-plugin/systemload.c:182
+#: ../panel-plugin/systemload.c:188
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d jour"
 msgstr[1] "%d jours"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Temps de fonctionnement : %d jour %dh%02d"
 msgstr[1] "Temps de fonctionnement : %d jours %dh%02d"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:200
 #, fuzzy, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Temps de fonctionnement : %d jour %dh%02d"
 
-#: ../panel-plugin/systemload.c:811
+#: ../panel-plugin/systemload.c:816
 msgid "CPU monitor"
 msgstr "Processeur"
 
-#: ../panel-plugin/systemload.c:812
+#: ../panel-plugin/systemload.c:817
 msgid "Memory monitor"
 msgstr "Mémoire"
 
-#: ../panel-plugin/systemload.c:813
+#: ../panel-plugin/systemload.c:818
 msgid "Swap monitor"
 msgstr "Partition d'échange"
 
-#: ../panel-plugin/systemload.c:814
+#: ../panel-plugin/systemload.c:819
 msgid "Uptime monitor"
 msgstr "Durée"
 
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:2
 msgid "System Load Monitor"
 msgstr "Moniteur de charge système"
 
-#: ../panel-plugin/systemload.c:834
+#: ../panel-plugin/systemload.c:839
 msgid "General"
 msgstr "Général"
 
-#: ../panel-plugin/systemload.c:836
+#: ../panel-plugin/systemload.c:841
 msgid "Update interval:"
 msgstr "Intervalle de mise-à-jour :"
 
-#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:846
 msgid "Power-saving interval:"
 msgstr "Intervalle de recharge secteur :"
 
-#: ../panel-plugin/systemload.c:855
+#: ../panel-plugin/systemload.c:860
 msgid "Text to display:"
 msgstr "Texte à afficher :"
 
-#: ../panel-plugin/systemload.c:859
+#: ../panel-plugin/systemload.c:864
 msgid "Bar color:"
 msgstr "Couleur de la barre :"
 
-#: ../panel-plugin/uptime.c:53
-msgid "File /proc/uptime not found!"
-msgstr "Fichier /proc/uptime non trouvé !"
-
-#: ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:1
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
 "Moniteur de charge processeur, utilisation de la mémoire d'échange et "
 "empreinte mémoire"
+
+#: ../panel-plugin/systemload.c:891
+msgid "Copyright (c) 2003-2012\n"
+msgstr "Copyright (c) 2003-2012\n"
+
+#: ../panel-plugin/uptime.c:53
+msgid "File /proc/uptime not found!"
+msgstr "Fichier /proc/uptime non trouvé !"
 
 #~ msgid "Select color"
 #~ msgstr "Sélectionner une couleur"
