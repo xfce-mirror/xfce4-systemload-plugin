@@ -93,7 +93,7 @@ msgstr ""
 
 #: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../panel-plugin/systemload.c:846
 msgid "Power-saving interval:"
