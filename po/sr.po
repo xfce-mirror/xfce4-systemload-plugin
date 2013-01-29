@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Саша Петровић <salepetronije@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: мастер\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-29 09:03+0000\n"
+"PO-Revision-Date: 2013-01-29 21:17+0100\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
+"Language-Team: српски <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2) \n"
+
+#: ../panel-plugin/cpu.c:63
+msgid "File /proc/stat not found!"
+msgstr "Није пронађена датотека /proc/stat!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Оптерећење система: %ld%%"
+
+#: ../panel-plugin/systemload.c:166
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Меморија: %ldMB од %ldMB заузето"
+
+#: ../panel-plugin/systemload.c:174
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Помоћна меморија: %ldMB од %ldMB заузето"
+
+#: ../panel-plugin/systemload.c:177
+#, c-format
+msgid "No swap"
+msgstr "Нема помоћне меморије"
+
+#: ../panel-plugin/systemload.c:188
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d дан"
+msgstr[1] "%d дана"
+msgstr[2] "%d дана"
+
+#: ../panel-plugin/systemload.c:192
+#, c-format
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] "Будност: %d дан %d:%02d"
+msgstr[1] "Будност: %d дана %d:%02d"
+msgstr[2] "Будност: %d дана %d:%02d"
+
+#: ../panel-plugin/systemload.c:200
+#, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Будност: %d:%02d"
+
+#: ../panel-plugin/systemload.c:816
+msgid "CPU monitor"
+msgstr "Управљање учесталости процесора"
+
+#: ../panel-plugin/systemload.c:817
+msgid "Memory monitor"
+msgstr "Праћење заузећа мемморије"
+
+#: ../panel-plugin/systemload.c:818
+msgid "Swap monitor"
+msgstr "Праћење помоћне меморије"
+
+#: ../panel-plugin/systemload.c:819
+msgid "Uptime monitor"
+msgstr "Праћење времена будности"
+
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:2
+msgid "System Load Monitor"
+msgstr "Праћење заузећа система"
+
+#: ../panel-plugin/systemload.c:839
+msgid "General"
+msgstr "Опште"
+
+#: ../panel-plugin/systemload.c:841
+msgid "Update interval:"
+msgstr "Учесталост упита:"
+
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/systemload.c:846
+msgid "Power-saving interval:"
+msgstr "Раздобља између штедњи енергије:"
+
+#: ../panel-plugin/systemload.c:860
+msgid "Text to display:"
+msgstr "Текст који ће се приказивати:"
+
+#: ../panel-plugin/systemload.c:864
+msgid "Bar color:"
+msgstr "Боја траке:"
+
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:1
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr ""
+"Прати оптерећење процесора, коришћење помоћне меморије и заузеће меморије"
+
+#: ../panel-plugin/systemload.c:891
+msgid "Copyright (c) 2003-2012\n"
+msgstr "Ауторска права (c) 2003-2012\n"
+
+#: ../panel-plugin/uptime.c:53
+msgid "File /proc/uptime not found!"
+msgstr "Датотека /proc/uptime није пронађена!"
