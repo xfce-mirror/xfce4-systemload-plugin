@@ -1,132 +1,120 @@
-# translation of tr.po to Türkçe
-# English/GB translation of xfce4-systemload-plugin.
-# Copyright (C) 2007 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-systemload-plugin package.
-#
-# Jeff Bailes <thepizzaking@gmail.com>, 2007.
-# Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>, 2012.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>, 2012
+# Jeff Bailes <thepizzaking@gmail.com>, 2007
+# Necdet Yücel <necdetyucel@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: tr\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 23:36+0000\n"
-"PO-Revision-Date: 2012-04-23 07:08+0300\n"
-"Last-Translator: Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>\n"
-"Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2013-07-03 21:20+0200\n"
+"PO-Revision-Date: 2013-09-06 11:08+0000\n"
+"Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Generator: Lokalize 1.2\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
-"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "/proc/stat dosyası bulunamadı!"
 
-#: ../panel-plugin/systemload.c:161
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "İşlemci kullanımı: %ld%%"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Bellek: %ldMB dolu, kapasite: %ldMB"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Takas alanı: %ldMB dolu, kapasite: %ldMB"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:177
 #, c-format
 msgid "No swap"
 msgstr "Takas alanı yok"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:188
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d gün"
 msgstr[1] "%d gün"
-msgstr[2] "%d gün"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "Çalışma süresi: %d gün %d:%02d"
-msgstr[1] "Çalışma süresi: %d gün %d:%02d"
-msgstr[2] "Çalışma süresi: %d gün %d:%02d"
+msgstr[0] "Uptime: %d gün %d:%02d"
+msgstr[1] "Uptime: %d gün %d:%02d"
 
-#: ../panel-plugin/systemload.c:202
-#, fuzzy, c-format
+#: ../panel-plugin/systemload.c:200
+#, c-format
 msgid "Uptime: %d:%02d"
-msgstr "Çalışma süresi: %d gün %d:%02d"
+msgstr "Uptime: %d:%02d"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:816
 msgid "CPU monitor"
 msgstr "CPU çubuğu"
 
-#: ../panel-plugin/systemload.c:861
+#: ../panel-plugin/systemload.c:817
 msgid "Memory monitor"
 msgstr "Bellek çubuğu"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:818
 msgid "Swap monitor"
 msgstr "Takas çubuğu"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:819
 msgid "Uptime monitor"
 msgstr "Hizmet süresi"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Sistem durumu"
 
-#: ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:839
 msgid "General"
 msgstr "Genel"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:841
 msgid "Update interval:"
 msgstr "Güncelleme aralığı:"
 
-#: ../panel-plugin/systemload.c:885 ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:846
 msgid "Power-saving interval:"
 msgstr "Güç artırım zaman aralığı:"
 
-#: ../panel-plugin/systemload.c:904
+#: ../panel-plugin/systemload.c:860
 msgid "Text to display:"
 msgstr "İsim:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:864
 msgid "Bar color:"
 msgstr "Çubuk rengi:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor CPU load, swap usage and memory footprint"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:891
 msgid "Copyright (c) 2003-2012\n"
 msgstr "Telif hakkı (c) 2003-2012\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "/proc/uptime dosyası bulunamadı!"
-
-#~ msgid "Select color"
-#~ msgstr "Renk seç"
-
-#~ msgid "Show monitor"
-#~ msgstr "Göster"
-
-#~ msgid "Uptime:"
-#~ msgstr "Açık kalma süresi:"
