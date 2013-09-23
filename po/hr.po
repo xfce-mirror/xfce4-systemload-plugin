@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ivica  Kolić <ikoli@yahoo.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 21:20+0200\n"
+"PO-Revision-Date: 2013-09-23 14:53+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
+"Language-Team: Croatian (http://www.transifex.com/projects/p/xfce/language/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: ../panel-plugin/cpu.c:63
+msgid "File /proc/stat not found!"
+msgstr "Datoteka /proc/stat nije nađena!"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Učitavanje sustava: %ld%%"
+
+#: ../panel-plugin/systemload.c:166
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Memorija: %ldMB of %ldMB korišteno"
+
+#: ../panel-plugin/systemload.c:174
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: %ldMB of %ldMB korišteno"
+
+#: ../panel-plugin/systemload.c:177
+#, c-format
+msgid "No swap"
+msgstr "Bez swapa"
+
+#: ../panel-plugin/systemload.c:188
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dan"
+msgstr[1] "%d dani"
+msgstr[2] "%d dana"
+
+#: ../panel-plugin/systemload.c:192
+#, c-format
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: ../panel-plugin/systemload.c:200
+#, c-format
+msgid "Uptime: %d:%02d"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:816
+msgid "CPU monitor"
+msgstr "MOnitor procesora"
+
+#: ../panel-plugin/systemload.c:817
+msgid "Memory monitor"
+msgstr "Monitor memorije"
+
+#: ../panel-plugin/systemload.c:818
+msgid "Swap monitor"
+msgstr "Swap monitor"
+
+#: ../panel-plugin/systemload.c:819
+msgid "Uptime monitor"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Monitor učitavanja sustava"
+
+#: ../panel-plugin/systemload.c:839
+msgid "General"
+msgstr "Općenito"
+
+#: ../panel-plugin/systemload.c:841
+msgid "Update interval:"
+msgstr "Interval ažuriranja:"
+
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/systemload.c:846
+msgid "Power-saving interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:860
+msgid "Text to display:"
+msgstr "Tekst za prikaz:"
+
+#: ../panel-plugin/systemload.c:864
+msgid "Bar color:"
+msgstr "Boja trake:"
+
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:891
+msgid "Copyright (c) 2003-2012\n"
+msgstr "Autorska prava (c) 2003-2012\n\n"
+
+#: ../panel-plugin/uptime.c:53
+msgid "File /proc/uptime not found!"
+msgstr "Datoteka /proc/uptime nije nađena!"
