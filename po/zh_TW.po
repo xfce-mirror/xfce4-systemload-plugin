@@ -1,22 +1,24 @@
-# Traditional Chinese translation for XFCE4 system load plugin.
-# Copyright (C) 2003-2005 Riccardo Persichetti.
-# This file is distributed under the same license as the xfce4-systemload-plugin package.
-# Ambrose Li <acli@ada.dhs.org>, 2005.
-# Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ambrose Li <acli@ada.dhs.org>, 2005
+# Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
+# Walter Cheuk <wwycheuk@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.4.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-19 10:33+0000\n"
-"PO-Revision-Date: 2012-07-19 21:45+0800\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
-"Language: zh_TW\n"
+"POT-Creation-Date: 2013-07-03 21:20+0200\n"
+"PO-Revision-Date: 2013-10-12 13:15+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>1);\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
@@ -46,15 +48,13 @@ msgstr "無置換空間"
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d天"
-msgstr[1] "%d天"
+msgstr[0] "%d 天"
 
 #: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "運行時間：%d天又%d:%02d"
-msgstr[1] "運行時間：%d 日 %d:%02d"
+msgstr[0] "運行時間：%d 天 %d:%02d"
 
 #: ../panel-plugin/systemload.c:200
 #, c-format
@@ -77,8 +77,7 @@ msgstr "置換空間監視"
 msgid "Uptime monitor"
 msgstr "運行時間監視"
 
-#: ../panel-plugin/systemload.c:824
-#: ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "系統負載監視"
 
@@ -90,8 +89,7 @@ msgstr "一般"
 msgid "Update interval:"
 msgstr "更新間隔："
 
-#: ../panel-plugin/systemload.c:841
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
 msgid "s"
 msgstr "秒"
 
@@ -107,8 +105,7 @@ msgstr "顯示圖表標題："
 msgid "Bar color:"
 msgstr "棒條顏色："
 
-#: ../panel-plugin/systemload.c:889
-#: ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "監測 CPU 負載、置換空間及記憶體使用量"
 
@@ -119,15 +116,3 @@ msgstr "著作權 (c) 2003-2012\n"
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "找不到 /proc/uptime 檔案！"
-
-#~ msgid "Select color"
-#~ msgstr "請選擇顏色"
-
-#~ msgid "Show monitor"
-#~ msgstr "顯示此項資料"
-
-#~ msgid "Uptime:"
-#~ msgstr "已運作時間 (Uptime)："
-
-#~ msgid "Properties"
-#~ msgstr "屬性"
