@@ -1,133 +1,119 @@
-# Spanish translations for xfce4-systemload-plugin package
-# Copyright (C) 2009 THE xfce4-systemload-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-systemload-plugin package.
-#  <abel.martin.ruiz@gmail.com>, 2009.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#  <abel.martin.ruiz@gmail.com>, 2009
+# Pablo Lezaeta <prflr88@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-19 03:36+0000\n"
-"PO-Revision-Date: 2012-04-18 22:42-0600\n"
-"Last-Translator: Sergio <oigres200@gmail.com>\n"
-"Language-Team: Spanish\n"
-"Language: \n"
+"POT-Creation-Date: 2013-07-03 21:20+0200\n"
+"PO-Revision-Date: 2013-11-20 02:48+0000\n"
+"Last-Translator: Pablo Lezaeta <prflr88@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/xfce/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "¡Archivo /proc/stat no encontrado!"
 
-#: ../panel-plugin/systemload.c:161
+#: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Carga de sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: %ldMB de %ldMB usada"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Swap: %ldMB de %ldMB usada"
+msgstr "Área de intercambio: %ldMB de %ldMB usada"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:177
 #, c-format
 msgid "No swap"
-msgstr "Sin swap"
+msgstr "Sin área de intercambio"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:188
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d día"
 msgstr[1] "%d días"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] ""
-"Tiempo de actividad: %d día\r\n"
-"%d:%02d"
-msgstr[1] ""
-"Tiempo de actividad: %d días\r\n"
-"%d:%02d"
+msgstr[0] "Tiempo de actividad: %d día %d:%02d"
+msgstr[1] "Tiempo de actividad: %d días %d:%02d"
 
-#: ../panel-plugin/systemload.c:202
+#: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Tiempo de actividad: %d:%02d"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:816
 msgid "CPU monitor"
-msgstr "Monitor de CPU"
+msgstr "Monitor de carga de procesador central (CPU)"
 
-#: ../panel-plugin/systemload.c:861
+#: ../panel-plugin/systemload.c:817
 msgid "Memory monitor"
 msgstr "Monitor de memoria"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:818
 msgid "Swap monitor"
-msgstr "Monitor de swap"
+msgstr "Monitor de área de intercambio"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:819
 msgid "Uptime monitor"
 msgstr "Monitor de tiempo en funcionamiento"
 
-#: ../panel-plugin/systemload.c:868
-#: ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de carga de sistema"
 
-#: ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:839
 msgid "General"
 msgstr "General"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:841
 msgid "Update interval:"
 msgstr "Intervalo de actualización:"
 
-#: ../panel-plugin/systemload.c:885
-#: ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:846
 msgid "Power-saving interval:"
 msgstr "Intervalo de ahorro de energía:"
 
-#: ../panel-plugin/systemload.c:904
+#: ../panel-plugin/systemload.c:860
 msgid "Text to display:"
 msgstr "Texto a mostrar:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:864
 msgid "Bar color:"
 msgstr "Color de barra:"
 
-#: ../panel-plugin/systemload.c:933
-#: ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitor de carga de CPU, de uso de swap y de memoria"
+msgstr "Monitor de carga de procesador central (CPU), de uso de área de intercambio y de memoria"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:891
 msgid "Copyright (c) 2003-2012\n"
 msgstr "Copyright (c) 2003-2012\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "¡Archivo /proc/uptime no encontrado!"
-
-#~ msgid "Select color"
-#~ msgstr "Seleccionar color"
-
-#~ msgid "Show monitor"
-#~ msgstr "Mostrar monitor"
-
-#~ msgid "Uptime:"
-#~ msgstr "Tiempo en funcionamiento:"
