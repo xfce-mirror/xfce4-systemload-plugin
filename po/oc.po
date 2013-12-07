@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cedric31 <cvalmary@yahoo.fr>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 21:20+0200\n"
+"PO-Revision-Date: 2013-12-07 09:04+0000\n"
+"Last-Translator: Cedric31 <cvalmary@yahoo.fr>\n"
+"Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/xfce/language/oc/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: oc\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../panel-plugin/cpu.c:63
+msgid "File /proc/stat not found!"
+msgstr "Fichièr /proc/stat pas trobat !"
+
+#: ../panel-plugin/systemload.c:159
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Carga del sistèma : %ld%%"
+
+#: ../panel-plugin/systemload.c:166
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Memòria : %ldMio de %ldMio utilizat"
+
+#: ../panel-plugin/systemload.c:174
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Fichièr d'escambi : %ldMio de %ldMio utilizat"
+
+#: ../panel-plugin/systemload.c:177
+#, c-format
+msgid "No swap"
+msgstr "Pas cap de fichièr d'escambi"
+
+#: ../panel-plugin/systemload.c:188
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d Jorn"
+msgstr[1] "%d Jorns"
+
+#: ../panel-plugin/systemload.c:192
+#, c-format
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] "Temps de foncionament : %d jorn %d:%02d"
+msgstr[1] "Temps de foncionament : %d jorns %d:%02d"
+
+#: ../panel-plugin/systemload.c:200
+#, c-format
+msgid "Uptime: %d:%02d"
+msgstr "Temps de foncionament : %d:%02d"
+
+#: ../panel-plugin/systemload.c:816
+msgid "CPU monitor"
+msgstr "Monitor del CPU"
+
+#: ../panel-plugin/systemload.c:817
+msgid "Memory monitor"
+msgstr "Monitor de la memòria"
+
+#: ../panel-plugin/systemload.c:818
+msgid "Swap monitor"
+msgstr "Monitor del fichièr d'escambi"
+
+#: ../panel-plugin/systemload.c:819
+msgid "Uptime monitor"
+msgstr "Monitor del temps de foncionament"
+
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Monitor de la carga del sistèma"
+
+#: ../panel-plugin/systemload.c:839
+msgid "General"
+msgstr "General"
+
+#: ../panel-plugin/systemload.c:841
+msgid "Update interval:"
+msgstr "Interval de mesa a jorn :"
+
+#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
+msgid "s"
+msgstr "s"
+
+#: ../panel-plugin/systemload.c:846
+msgid "Power-saving interval:"
+msgstr "Interval d'estalvi d'energia :"
+
+#: ../panel-plugin/systemload.c:860
+msgid "Text to display:"
+msgstr "Tèxte d'afichar :"
+
+#: ../panel-plugin/systemload.c:864
+msgid "Bar color:"
+msgstr "Color de barra :"
+
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Monitor de la carga del CPU, utilizacion del fichièr d'escambi e de l'emprencha memòria"
+
+#: ../panel-plugin/systemload.c:891
+msgid "Copyright (c) 2003-2012\n"
+msgstr "Copyright (c) 2003-2012\n"
+
+#: ../panel-plugin/uptime.c:53
+msgid "File /proc/uptime not found!"
+msgstr "Fichièr /proc/uptime pas trobat !"
