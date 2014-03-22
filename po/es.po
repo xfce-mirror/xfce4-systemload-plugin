@@ -4,14 +4,15 @@
 # 
 # Translators:
 #  <abel.martin.ruiz@gmail.com>, 2009
+# Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014
 # Pablo Lezaeta <prflr88@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:20+0200\n"
-"PO-Revision-Date: 2013-11-20 02:48+0000\n"
-"Last-Translator: Pablo Lezaeta <prflr88@gmail.com>\n"
+"PO-Revision-Date: 2014-03-22 11:26+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/xfce/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,17 +27,17 @@ msgstr "¡Archivo /proc/stat no encontrado!"
 #: ../panel-plugin/systemload.c:159
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "Carga de sistema: %ld%%"
+msgstr "Carga del sistema: %ld %%"
 
 #: ../panel-plugin/systemload.c:166
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Memoria: %ldMB de %ldMB usada"
+msgstr "Memoria: %ld MB de %ld MB en uso"
 
 #: ../panel-plugin/systemload.c:174
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Área de intercambio: %ldMB de %ldMB usada"
+msgstr "Área de intercambio: %ld MB de %ld MB en uso"
 
 #: ../panel-plugin/systemload.c:177
 #, c-format
