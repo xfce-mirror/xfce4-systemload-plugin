@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:20+0200\n"
-"PO-Revision-Date: 2014-03-22 11:26+0000\n"
+"PO-Revision-Date: 2014-03-30 17:43+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/xfce/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "¡Archivo /proc/stat no encontrado!"
+msgstr "No se encontró el archivo /proc/stat."
 
 #: ../panel-plugin/systemload.c:159
 #, c-format
@@ -113,8 +113,8 @@ msgstr "Monitor de carga de procesador central (CPU), de uso de área de interca
 
 #: ../panel-plugin/systemload.c:891
 msgid "Copyright (c) 2003-2012\n"
-msgstr "Copyright (c) 2003-2012\n"
+msgstr "© 2003-2012\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "¡Archivo /proc/uptime no encontrado!"
+msgstr "No se encontró el archivo /proc/uptime."
