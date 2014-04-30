@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:20+0200\n"
-"PO-Revision-Date: 2014-04-27 16:57+0000\n"
+"PO-Revision-Date: 2014-04-29 22:52+0000\n"
 "Last-Translator: haarek <haarektrans@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -88,15 +88,15 @@ msgstr "Generelt"
 
 #: ../panel-plugin/systemload.c:841
 msgid "Update interval:"
-msgstr ""
+msgstr "Oppdateringsintervall:"
 
 #: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../panel-plugin/systemload.c:846
 msgid "Power-saving interval:"
-msgstr ""
+msgstr "Strømsparingsintervall:"
 
 #: ../panel-plugin/systemload.c:860
 msgid "Text to display:"
