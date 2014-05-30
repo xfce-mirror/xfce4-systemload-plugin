@@ -624,11 +624,15 @@ monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
 
 #ifdef HAVE_UPOWER_GLIB
 static void
+#if UP_CHECK_VERSION(0, 99, 0)
+upower_changed_cb(UpClient *client, GParamSpec *pspec, t_global_monitor *global)
+#else /* UP_CHECK_VERSION < 0.99 */
 upower_changed_cb(UpClient *client, t_global_monitor *global)
+#endif /* UP_CHECK_VERSION */
 {
     setup_timer(global);
 }
-#endif
+#endif /* HAVE_UPOWER_GLIB */
 
 static void
 entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
@@ -925,10 +929,15 @@ systemload_construct (XfcePanelPlugin *plugin)
 
 #ifdef HAVE_UPOWER_GLIB
     if (global->upower) {
+#if UP_CHECK_VERSION(0, 99, 0)
+        g_signal_connect (global->upower, "notify",
+                          G_CALLBACK(upower_changed_cb), global);
+#else /* UP_CHECK_VERSION < 0.99 */
         g_signal_connect (global->upower, "changed",
                           G_CALLBACK(upower_changed_cb), global);
+#endif /* UP_CHECK_VERSION */
     }
-#endif
+#endif /* HAVE_UPOWER_GLIB */
     
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
 
