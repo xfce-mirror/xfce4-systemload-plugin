@@ -52,6 +52,7 @@ static gchar *MONITOR_ROOT[] = { "SL_Cpu", "SL_Mem", "SL_Swap", "SL_Uptime" };
 
 static gchar *DEFAULT_TEXT[] = { "cpu", "mem", "swap" };
 static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
+static gchar *DEFAULT_COMMAND_TEXT = "xfce4-taskmanager";
 
 #define UPDATE_TIMEOUT 250
 #define UPDATE_TIMEOUT_SECONDS 1
@@ -74,6 +75,12 @@ typedef struct
     GdkColor color;
     gchar    *label_text;
 } t_monitor_options;
+
+typedef struct
+{
+    gboolean enabled;
+    gchar    *command_text;
+} t_command;
 
 typedef struct
 {
@@ -102,15 +109,34 @@ typedef struct
     XfcePanelPlugin   *plugin;
     GtkWidget         *ebox;
     GtkWidget         *box;
+    GtkWidget         *menu_item;
     guint             timeout, timeout_seconds;
     gboolean          use_timeout_seconds;
     guint             timeout_id;
+    t_command         command;
     t_monitor         *monitor[3];
     t_uptime_monitor  *uptime;
 #ifdef HAVE_UPOWER_GLIB
     UpClient          *upower;
 #endif
 } t_global_monitor;
+
+static gboolean
+spawn_system_monitor(GtkWidget *w, t_global_monitor *global)
+{
+    // Spawn defined command; In-terminal: false, Startup-notify: false
+    return xfce_spawn_command_line_on_screen(gdk_screen_get_default(),
+                                             global->command.command_text,
+                                             FALSE, FALSE, NULL);
+}
+
+static gboolean
+click_event(GtkWidget *w, GdkEventButton *event, t_global_monitor *global)
+{
+    if(event->button == 1 && global->command.enabled && *(global->command.command_text))
+        return spawn_system_monitor(w, global);
+    return FALSE;
+}
 
 static gint
 update_monitors(t_global_monitor *global)
@@ -316,6 +342,15 @@ monitor_control_new(XfcePanelPlugin *plugin)
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
+    global->command.enabled = FALSE;
+    global->command.command_text = g_strdup(DEFAULT_COMMAND_TEXT);
+
+    global->menu_item = gtk_image_menu_item_new_with_mnemonic(
+                            _("Run _System Monitor"));
+    GtkWidget* image = gtk_image_new_from_icon_name("utilities-system-monitor",
+                                                    GTK_ICON_SIZE_MENU);
+	gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(global->menu_item), image);
+
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
     
     for(count = 0; count < 3; count++)
@@ -356,6 +391,9 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     if (global->timeout_id)
         g_source_remove(global->timeout_id);
+
+    g_free(global->command.command_text);
+    g_free(global->menu_item);
 
     for(count = 0; count < 3; count++)
     {
@@ -472,6 +510,16 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
                 rc, "Timeout_Seconds", global->timeout_seconds);
         global->use_timeout_seconds = xfce_rc_read_bool_entry (
                 rc, "Use_Timeout_Seconds", global->use_timeout_seconds);
+        global->command.enabled = xfce_rc_read_bool_entry (
+                rc, "Use_Click_Command", global->command.enabled);
+        value = xfce_rc_read_entry (
+                rc, "Click_Command", NULL);
+        if (value && *value)
+        {
+            if (global->command.command_text)
+                g_free(global->command.command_text);
+            global->command.command_text = g_strdup(value);
+        }
     }
 
     for(count = 0; count < 3; count++)
@@ -533,6 +581,8 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     xfce_rc_write_int_entry (rc, "Timeout_Seconds", global->timeout_seconds);
     xfce_rc_write_bool_entry (rc, "Use_Timeout_Seconds",
                               global->use_timeout_seconds);
+    xfce_rc_write_bool_entry (rc, "Use_Click_Command", global->command.enabled);
+    xfce_rc_write_entry (rc, "Click_Command", global->command.command_text);
 
     for(count = 0; count < 3; count++)
     {
@@ -655,7 +705,9 @@ check_button_cb(GtkToggleButton *check_button, t_global_monitor *global)
     *boolvar = gtk_toggle_button_get_active(check_button);
     if (sensitive_widget)
         gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
-    if (oldstate != *boolvar)
+    if (boolvar == &(global->command.enabled)) {
+        gtk_widget_set_visible(global->menu_item, *boolvar);
+    } else if (oldstate != *boolvar)
         setup_monitor(global);
 }
 
@@ -840,7 +892,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     content = GTK_BOX(gtk_dialog_get_content_area (GTK_DIALOG(dlg)));
 
-    table = new_frame(global, content, _("General"), 2, NULL);
+    table = new_frame(global, content, _("General"), 3, NULL);
     new_spin_button(global, table, 0,
             _("Update interval:"), _("s"),
             (gfloat)global->timeout/1000.0, 0.100, 10.000, .050,
@@ -852,7 +904,9 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
             G_CALLBACK(change_timeout_seconds_cb),
             &global->use_timeout_seconds);
 #endif
-    
+    new_entry(global, table, 2,
+              _("System monitor:"),
+              &global->command.command_text, &global->command.enabled);
     for(count = 0; count < 3; count++)
     {
         monitor = global->monitor[count];
@@ -954,6 +1008,14 @@ systemload_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "orientation-changed", 
                       G_CALLBACK (monitor_set_orientation), global);
 #endif
+
+    g_signal_connect (plugin, "button-press-event", G_CALLBACK (click_event),
+                      global);
+
+    xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (global->menu_item));
+    g_signal_connect (GTK_MENU_ITEM(global->menu_item), "activate",
+                      G_CALLBACK (spawn_system_monitor), global);
+    gtk_widget_set_visible (global->menu_item, global->command.enabled);
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", 
