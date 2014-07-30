@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# RacerBG <georgiev_1994@abv.bg>, 2014
+# Georgi Georgiev <georgiev_1994@abv.bg>, 2014
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:20+0200\n"
-"PO-Revision-Date: 2014-02-08 16:24+0000\n"
-"Last-Translator: RacerBG <georgiev_1994@abv.bg>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce/language/bg/)\n"
+"POT-Creation-Date: 2014-07-30 00:31+0200\n"
+"PO-Revision-Date: 2014-07-30 11:11+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,94 +23,102 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Файлът /proc/stat не е намерен!"
 
-#: ../panel-plugin/systemload.c:159
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Натоварване на системата: %ld%%"
 
-#: ../panel-plugin/systemload.c:166
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Памет: %ldМБ от %ldМБ са използвани"
 
-#: ../panel-plugin/systemload.c:174
+#: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldМБ от %ldМБ са използвани"
 
-#: ../panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "No swap"
 msgstr "Липсва swap"
 
-#: ../panel-plugin/systemload.c:188
+#: ../panel-plugin/systemload.c:214
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d ден"
 msgstr[1] "%d дни"
 
-#: ../panel-plugin/systemload.c:192
+#: ../panel-plugin/systemload.c:218
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Време на работа: %d ден %d:%02d"
 msgstr[1] "Време на работа: %d дни %d:%02d"
 
-#: ../panel-plugin/systemload.c:200
+#: ../panel-plugin/systemload.c:226
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Време на работа: %d:%02d"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:349
+msgid "Run _System Monitor"
+msgstr "Стартирай Наблюдение на системата"
+
+#: ../panel-plugin/systemload.c:872
 msgid "CPU monitor"
 msgstr "Наблюдение на ЦП"
 
-#: ../panel-plugin/systemload.c:817
+#: ../panel-plugin/systemload.c:873
 msgid "Memory monitor"
 msgstr "Наблюдение на паметта"
 
-#: ../panel-plugin/systemload.c:818
+#: ../panel-plugin/systemload.c:874
 msgid "Swap monitor"
 msgstr "Наблюдение на swap"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.c:875
 msgid "Uptime monitor"
 msgstr "Наблюдение на времето на работа"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Наблюдение на натоварването на системата"
 
-#: ../panel-plugin/systemload.c:839
+#: ../panel-plugin/systemload.c:895
 msgid "General"
 msgstr "Общи"
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:897
 msgid "Update interval:"
 msgstr "Интервал на обновяване:"
 
-#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:897 ../panel-plugin/systemload.c:902
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:902
 msgid "Power-saving interval:"
 msgstr "Интервал на пестене на енергия:"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:908
+msgid "System monitor:"
+msgstr "Наблюдение на системата:"
+
+#: ../panel-plugin/systemload.c:918
 msgid "Text to display:"
 msgstr "Показване на текст:"
 
-#: ../panel-plugin/systemload.c:864
+#: ../panel-plugin/systemload.c:922
 msgid "Bar color:"
 msgstr "Цвят на стълба:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Наблюдение на натоварването на ЦП и използването на swap паметта"
 
-#: ../panel-plugin/systemload.c:891
+#: ../panel-plugin/systemload.c:949
 msgid "Copyright (c) 2003-2012\n"
 msgstr "Авторски права (c) 2003-2012\n"
 
