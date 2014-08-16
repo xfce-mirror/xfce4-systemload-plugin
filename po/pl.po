@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Dawid <hoek@hoek.pl>, 2014
-# Piotr Sokół <psokol@jabster.pl>, 2009,2012
+# Piotr Sokół <psokol@jabster.pl>, 2009,2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-30 00:31+0200\n"
-"PO-Revision-Date: 2014-07-30 05:33+0000\n"
-"Last-Translator: Dawid <hoek@hoek.pl>\n"
+"PO-Revision-Date: 2014-08-16 07:30+0000\n"
+"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,12 +31,12 @@ msgstr "Obciążenie CPU: %ld%%"
 #: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Zużycie pamięci operacyjnej: %ld MB z spośród %ld MB"
+msgstr "Użycie pamięci operacyjnej: %ld MB spośród %ld MB"
 
 #: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Zużycie przestrzeni wymiany: %ld MB z pośród %ld MB"
+msgstr "Użycie obszaru wymiany: %ld MB spośród %ld MB"
 
 #: ../panel-plugin/systemload.c:203
 #, c-format
@@ -66,7 +66,7 @@ msgstr "Czas działania: %d:%02d"
 
 #: ../panel-plugin/systemload.c:349
 msgid "Run _System Monitor"
-msgstr "Uruchom _Monitor Systemu"
+msgstr "Uruchom _monitor systemu"
 
 #: ../panel-plugin/systemload.c:872
 msgid "CPU monitor"
@@ -78,7 +78,7 @@ msgstr "Pamięć operacyjna"
 
 #: ../panel-plugin/systemload.c:874
 msgid "Swap monitor"
-msgstr "Przestrzeń wymiany"
+msgstr "Obszar wymiany"
 
 #: ../panel-plugin/systemload.c:875
 msgid "Uptime monitor"
@@ -86,7 +86,7 @@ msgstr "Czas pracy"
 
 #: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
-msgstr "Monitor systemu"
+msgstr "Monitor obciążenia systemu"
 
 #: ../panel-plugin/systemload.c:895
 msgid "General"
