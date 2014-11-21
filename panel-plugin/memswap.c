@@ -289,20 +289,11 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 
 #define ARRLEN(X) (sizeof(X)/sizeof(X[0]))
     {
-        static int mib[2];
-        /* 64-bit datatype */
-        if(sizeof(size_t) == 8) {
-            mib[0] = CTL_HW;
-            mib[1] = HW_PHYSMEM64;
-        }
-        /* assume 32-bit datatype */
-        else {
-            mib[0] = CTL_HW;
-            mib[1] = HW_PHYSMEM;
-        }
-        len = sizeof(MTotal);
-        sysctl(mib, ARRLEN(mib), &MTotal, &len, NULL, 0);
-        MTotal >>= 10;
+        static int mib[] = { CTL_HW, HW_PHYSMEM64 };
+        int64_t x;
+        len = sizeof(x);
+        sysctl(mib, ARRLEN(mib), &x, &len, NULL, 0);
+        MTotal = x >> 10;
     }
 
     {
