@@ -86,7 +86,7 @@ msgstr "Monitor do espazo de intercambio"
 msgid "Uptime monitor"
 msgstr "Monitor de tempo de funcionamento"
 
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Monitor de carga do sistema"
 
@@ -118,7 +118,7 @@ msgstr "Cor da barra:"
 msgid "File /proc/uptime not found!"
 msgstr "Non se atopou o ficheiro /proc/uptime!"
 
-#: ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
 "Monitoriza a carga da CPU, e mailo uso do espazo de intercambio e da memoria"

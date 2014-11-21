@@ -77,7 +77,7 @@ msgstr "置換空間監視"
 msgid "Uptime monitor"
 msgstr "運行時間監視"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "系統負載監視"
 
@@ -105,7 +105,7 @@ msgstr "顯示圖表標題："
 msgid "Bar color:"
 msgstr "棒條顏色："
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "監測 CPU 負載、置換空間及記憶體使用量"
 

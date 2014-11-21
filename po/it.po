@@ -81,7 +81,7 @@ msgstr "Indicatore swap"
 msgid "Uptime monitor"
 msgstr "Indicatore funzionamento"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Indicatore del carico di sistema"
 
@@ -113,7 +113,7 @@ msgstr "Testo da visualizzare:"
 msgid "Bar color:"
 msgstr "Colore della barra"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizzata dai programmi"
 

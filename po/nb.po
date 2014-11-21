@@ -78,7 +78,7 @@ msgstr "Vekselfilmonitor"
 msgid "Uptime monitor"
 msgstr "Oppetidsmonitor"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Systemlastmonitor"
 
@@ -106,7 +106,7 @@ msgstr "Tekst å vise:"
 msgid "Bar color:"
 msgstr "Stolpefarge:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Viser CPU-belastning, vekselfilbruk og minneavtrykk"
 

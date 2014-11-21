@@ -76,7 +76,7 @@ msgstr "Επισκόπηση swap"
 msgid "Uptime monitor"
 msgstr "Επισκόπηση ενεργού χρόνου"
 
-#: ../panel-plugin/systemload.c:870 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:870 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "Επισκόπηση φόρτου συστήματος"
 
@@ -104,7 +104,7 @@ msgstr "Κείμενο προς εμφάνιση:"
 msgid "Bar color:"
 msgstr "Χρώμα μπάρας:"
 
-#: ../panel-plugin/systemload.c:935 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:935 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Επισκόπηση φόρτου CPU, χρήσης swap και μνήμης"
 

@@ -85,7 +85,7 @@ msgstr "Подкачка"
 msgid "Uptime monitor"
 msgstr "Время работы"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Системный монитор"
 
@@ -117,7 +117,7 @@ msgstr "Выводить текст:"
 msgid "Bar color:"
 msgstr "Цвет линейки:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Монитор загруженности процессора, использования памяти и подкачки"
 

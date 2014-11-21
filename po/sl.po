@@ -81,7 +81,7 @@ msgstr "Nadzorovalnik izmenjevalnega razdelka"
 msgid "Uptime monitor"
 msgstr "Nadzorovalnik časa vključenosti"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Nadzorovalnik sistemskega bremena"
 
@@ -109,7 +109,7 @@ msgstr "Oznaka za prikaz:"
 msgid "Bar color:"
 msgstr "Barva stolpca:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Nadzor nad bremenom procesorja, pomnilnika in izmenjevalnega razdelka"
 

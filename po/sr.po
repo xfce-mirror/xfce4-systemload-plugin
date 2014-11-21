@@ -83,7 +83,7 @@ msgstr "Праћење помоћне меморије"
 msgid "Uptime monitor"
 msgstr "Праћење времена будности"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Праћење заузећа система"
 
@@ -115,7 +115,7 @@ msgstr "Текст који ће се приказивати:"
 msgid "Bar color:"
 msgstr "Боја траке:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Прати оптерећење процесора, коришћење помоћне меморије и заузеће меморије"
 

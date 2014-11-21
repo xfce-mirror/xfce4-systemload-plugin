@@ -84,7 +84,7 @@ msgstr "Obszar wymiany"
 msgid "Uptime monitor"
 msgstr "Czas pracy"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Monitor obciążenia systemu"
 
@@ -116,7 +116,7 @@ msgstr "Etykieta:"
 msgid "Bar color:"
 msgstr "Kolor wskaźnika:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Dostarcza informacje na temat obciążenia systemu"
 

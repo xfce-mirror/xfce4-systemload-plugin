@@ -78,7 +78,7 @@ msgstr "Monitor de la memòria d'intercanvi"
 msgid "Uptime monitor"
 msgstr "Monitor de temps en funcionament"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "Monitor de càrrega del sistema"
 
@@ -106,7 +106,7 @@ msgstr "Text a mostrar:"
 msgid "Bar color:"
 msgstr "Color de la barra:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr ""
 "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i la empremta de "

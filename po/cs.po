@@ -83,7 +83,7 @@ msgstr "Sledování oddílu swap"
 msgid "Uptime monitor"
 msgstr "Sledování doby spuštění"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Sledování vytížení systému"
 
@@ -115,7 +115,7 @@ msgstr "Zobrazit text:"
 msgid "Bar color:"
 msgstr "Barva panelu:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Sleduje zatížení procesoru, využití oddílu swap a paměti"
 

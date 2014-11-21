@@ -83,7 +83,7 @@ msgstr "مرقاب الإبدال"
 msgid "Uptime monitor"
 msgstr "مرقاب الإشتغال"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "مرقاب حمل النظام"
 
@@ -111,7 +111,7 @@ msgstr "النص للعرض:"
 msgid "Bar color:"
 msgstr "لون الشريط:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "راقب حمل المعالج واستعمال الإبدال والذاكرة"
 

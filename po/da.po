@@ -77,7 +77,7 @@ msgstr "Swapovervågning"
 msgid "Uptime monitor"
 msgstr "Oppetidsovervågning"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "Systembelastnings-overvågning"
 
@@ -105,7 +105,7 @@ msgstr "Tekst at vise:"
 msgid "Bar color:"
 msgstr "Bjælkefarve:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapfilbrug og hukommelsesaftryk"
 

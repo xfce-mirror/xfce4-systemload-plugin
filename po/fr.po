@@ -83,7 +83,7 @@ msgstr "Moniteur du fichier d'échange"
 msgid "Uptime monitor"
 msgstr "Moniteur du temps de fonctionnement"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Moniteur de la charge du système"
 
@@ -115,7 +115,7 @@ msgstr "Texte à afficher :"
 msgid "Bar color:"
 msgstr "Couleur de barre :"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Moniteur de la charge du CPU, utilisation du fichier d'échange et de l'empreinte mémoire"
 

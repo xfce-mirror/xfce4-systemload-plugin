@@ -77,7 +77,7 @@ msgstr "Auslagerungsspeicher-Überwachung"
 msgid "Uptime monitor"
 msgstr "Betriebszeit-Überwachung"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Systemlast-Überwachung"
 
@@ -105,7 +105,7 @@ msgstr "Anzuzeigender Text:"
 msgid "Bar color:"
 msgstr "Balkenfarbe:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU-Auslastung, Swap- und Speichernutzung überwachen"
 

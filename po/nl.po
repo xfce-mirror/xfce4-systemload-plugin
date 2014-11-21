@@ -82,7 +82,7 @@ msgstr "Wisselgeheugenbewaker"
 msgid "Uptime monitor"
 msgstr "Draaiperiode-bewaker"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Systeembelastingbewaker"
 
@@ -114,7 +114,7 @@ msgstr "Tekst om weer te geven:"
 msgid "Bar color:"
 msgstr "Balkkleur:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Toon CPU-belasting, wisselgeheugen- en geheugengebruik"
 

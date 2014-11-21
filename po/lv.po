@@ -81,7 +81,7 @@ msgstr "Maiņvietas pārraugs"
 msgid "Uptime monitor"
 msgstr "Augšlaika pārraugs"
 
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Sistēmas noslodzes pārraugs"
 
@@ -113,7 +113,7 @@ msgstr "Joslu krāsa:"
 msgid "File /proc/uptime not found!"
 msgstr "Fails /proc/uptime nav atrasts!"
 
-#: ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Novēro CPU noslodzi, maiņvietas izmantojumu un atmiņas nospiedumu"
 

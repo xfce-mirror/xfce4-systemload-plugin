@@ -74,7 +74,7 @@ msgstr "Swap كۆزەتكۈ"
 msgid "Uptime monitor"
 msgstr "ئىشلەۋاتقان ۋاقىت كۆزەتكۈ"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "سىستېما يۈكى كۆزەتكۈ"
 
@@ -102,7 +102,7 @@ msgstr "كۆرسىتىدىغان تېكىست:"
 msgid "Bar color:"
 msgstr "بالداق رەڭگى:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU نىڭ يۈكى، swap ۋە ئەسلەكنى كۆزىتىدۇ"
 

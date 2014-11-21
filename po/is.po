@@ -82,7 +82,7 @@ msgstr "Eftirlit með diskminni"
 msgid "Uptime monitor"
 msgstr "Eftirlit með uppitíma"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Eftirlit með kerfisálagi"
 
@@ -114,7 +114,7 @@ msgstr "Texti sem á að sýna:"
 msgid "Bar color:"
 msgstr "Litur súlu:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Fylgjast með örgjörvaálagi, diskminni og vinnsluminni"
 

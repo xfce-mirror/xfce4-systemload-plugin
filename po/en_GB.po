@@ -77,7 +77,7 @@ msgstr "Swap monitor"
 msgid "Uptime monitor"
 msgstr "Uptime monitor"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "System Load Monitor"
 
@@ -105,7 +105,7 @@ msgstr "Text to display:"
 msgid "Bar color:"
 msgstr "Bar colour:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor CPU load, swap usage and memory footprint"
 

@@ -79,7 +79,7 @@ msgstr "Swap monitorea"
 msgid "Uptime monitor"
 msgstr "Abiarazte monitorea"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "Sistema Karga Monitorea"
 
@@ -107,7 +107,7 @@ msgstr "Bistaratzeko testua:"
 msgid "Bar color:"
 msgstr "Barra kolorea:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in:4
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU lan-zama, swap erabilera eta memoria egoera monitorizatu."
 

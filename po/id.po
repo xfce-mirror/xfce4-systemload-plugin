@@ -75,7 +75,7 @@ msgstr "Monitor swap"
 msgid "Uptime monitor"
 msgstr "Monitor waktu hidup"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Monitor Beban Sistem"
 
@@ -103,7 +103,7 @@ msgstr "Teks untuk ditampilkan:"
 msgid "Bar color:"
 msgstr "Warna mistar:"
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor beban CPU, penggunaan swap dan jejak memori"
 

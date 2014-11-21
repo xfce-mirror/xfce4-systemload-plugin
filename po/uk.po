@@ -85,7 +85,7 @@ msgstr "Стеження за файлом підкачки"
 msgid "Uptime monitor"
 msgstr "Стеження за часом роботи"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
 msgid "System Load Monitor"
 msgstr "Стеження за навантаженням системи"
 
@@ -117,7 +117,7 @@ msgstr "Відображуваний текст:"
 msgid "Bar color:"
 msgstr "Колір індикатора:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Стежити за навантаженням процесора, використанням файлу підкачки і основною пам'яттю"
 
