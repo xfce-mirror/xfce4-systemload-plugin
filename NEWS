@@ -3,6 +3,7 @@
 - Support upower 0.99
 - Add a way to run a command when clicking on systemload plugin (bug #3887)
 - Pick up translation fixes (bug #11316)
+- Merge some OpenBSD compatibility patches
 
 1.1.1 (2012/06/30)
 -----------------
