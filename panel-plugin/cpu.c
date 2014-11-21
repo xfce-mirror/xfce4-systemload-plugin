@@ -213,7 +213,6 @@ gulong read_cpuload(void)
 #include <sys/param.h>
 #include <sys/sched.h>
 #include <sys/sysctl.h>
-#include <sys/dkstat.h>
 #include <fcntl.h>
 #include <nlist.h>
 
