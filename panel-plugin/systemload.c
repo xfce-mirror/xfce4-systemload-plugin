@@ -946,7 +946,7 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
       "program-name", PACKAGE_NAME,
       "comments", _("Monitor CPU load, swap usage and memory footprint"),
       "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin",
-      "copyright", _("Copyright (c) 2003-2012\n"),
+      "copyright", _("Copyright (c) 2003-2014\n"),
       "authors", auth, NULL);
 
    if(icon)

@@ -9,7 +9,7 @@ dnl *** Version information ***
 dnl ***************************
 m4_define([systemload_version_major], [1])
 m4_define([systemload_version_minor], [1])
-m4_define([systemload_version_micro], [1])
+m4_define([systemload_version_micro], [2])
 m4_define([systemload_version_build], [r@REVISION@])
 m4_define([systemload_version_tag], [])
 m4_define([systemload_version], [systemload_version_major().systemload_version_minor().systemload_version_micro()ifelse(systemload_version_tag(), [git], [systemload_version_tag()-systemload_version_build()], [systemload_version_tag()])])
@@ -17,7 +17,7 @@ m4_define([systemload_version], [systemload_version_major().systemload_version_m
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2007, 2010
+AC_COPYRIGHT([Copyright (c) 2006-2007, 2014
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-systemload-plugin], [systemload_version], [http://bugzilla.xfce.org/], [xfce4-systemload-plugin])
 AC_PREREQ([2.50])

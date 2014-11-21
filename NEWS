@@ -1,3 +1,9 @@
+1.1.2 (2014/11/21)
+-----------------
+- Support upower 0.99
+- Add a way to run a command when clicking on systemload plugin (bug #3887)
+- Pick up translation fixes (bug #11316)
+
 1.1.1 (2012/06/30)
 -----------------
 - Simplify tooltip handling code
