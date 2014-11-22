@@ -5,15 +5,16 @@
 # Translators:
 # Ambrose Li <acli@ada.dhs.org>, 2005
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
-# Walter Cheuk <wwycheuk@gmail.com>, 2013
+# Jeff Huang <s8321414@gmail.com>, 2014
+# Walter Cheuk <wwycheuk@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:20+0200\n"
-"PO-Revision-Date: 2013-10-12 13:15+0000\n"
-"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce/language/zh_TW/)\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2014-11-22 13:22+0000\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,94 +25,102 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "找不到 /proc/stat 檔案！"
 
-#: ../panel-plugin/systemload.c:159
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "系統負載：%ld%%"
 
-#: ../panel-plugin/systemload.c:166
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "記憶體：%2$ld MB 之中已用 %1$ld MB"
 
-#: ../panel-plugin/systemload.c:174
+#: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "置換空間：%2$ld MB 之中已用 %1$ld MB"
 
-#: ../panel-plugin/systemload.c:177
+#: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "No swap"
 msgstr "無置換空間"
 
-#: ../panel-plugin/systemload.c:188
+#: ../panel-plugin/systemload.c:214
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
 
-#: ../panel-plugin/systemload.c:192
+#: ../panel-plugin/systemload.c:218
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "運行時間：%d 天 %d:%02d"
 
-#: ../panel-plugin/systemload.c:200
+#: ../panel-plugin/systemload.c:226
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "運行時間：%d:%02d"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:350
+msgid "Run _System Monitor"
+msgstr "執行系統監視器(_S)"
+
+#: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
 msgstr "CPU 監視"
 
-#: ../panel-plugin/systemload.c:817
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "記憶體監視"
 
-#: ../panel-plugin/systemload.c:818
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "置換空間監視"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "運行時間監視"
 
-#: ../panel-plugin/systemload.c:824 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "系統負載監視"
 
-#: ../panel-plugin/systemload.c:839
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "一般"
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "更新間隔："
 
-#: ../panel-plugin/systemload.c:841 ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "秒"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
-msgstr "能源節省間隔："
+msgstr "省電間隔："
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:909
+msgid "System monitor:"
+msgstr "系統監視器："
+
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "顯示圖表標題："
 
-#: ../panel-plugin/systemload.c:864
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "棒條顏色："
 
-#: ../panel-plugin/systemload.c:889 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "監測 CPU 負載、置換空間及記憶體使用量"
 
-#: ../panel-plugin/systemload.c:891
-msgid "Copyright (c) 2003-2012\n"
-msgstr "著作權 (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Copyright (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
