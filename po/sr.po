@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Саша Петровић <salepetronije@gmail.com>, 2013-2014
+# Саша Петровић <salepetronije@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 00:31+0200\n"
-"PO-Revision-Date: 2014-11-20 13:04+0000\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2014-11-22 13:53+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -63,65 +64,65 @@ msgstr[2] "Будност: %d дана %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Будност: %d:%02d"
 
-#: ../panel-plugin/systemload.c:349
+#: ../panel-plugin/systemload.c:350
 msgid "Run _System Monitor"
 msgstr "Покрени праћење заузећа система"
 
-#: ../panel-plugin/systemload.c:872
-msgid "CPU monitor"
-msgstr "Управљање учесталости процесора"
-
 #: ../panel-plugin/systemload.c:873
+msgid "CPU monitor"
+msgstr "Праћење процесора"
+
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "Праћење заузећа меморије"
 
-#: ../panel-plugin/systemload.c:874
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "Праћење помоћне меморије"
 
-#: ../panel-plugin/systemload.c:875
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "Праћење времена будности"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Праћење заузећа система"
 
-#: ../panel-plugin/systemload.c:895
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "Опште"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "Учесталост упита:"
 
-#: ../panel-plugin/systemload.c:897 ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
 msgstr "Раздобља између штедњи енергије:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "Праћење система:"
 
-#: ../panel-plugin/systemload.c:918
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "Текст који ће се приказивати:"
 
-#: ../panel-plugin/systemload.c:922
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "Боја траке:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Прати оптерећење процесора, коришћење помоћне меморије и заузеће меморије"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Права умножавања (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Права умножавања (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
