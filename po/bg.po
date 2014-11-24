@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 00:31+0200\n"
-"PO-Revision-Date: 2014-07-30 11:11+0000\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2014-11-24 15:16+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -62,65 +62,65 @@ msgstr[1] "Време на работа: %d дни %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Време на работа: %d:%02d"
 
-#: ../panel-plugin/systemload.c:349
+#: ../panel-plugin/systemload.c:350
 msgid "Run _System Monitor"
 msgstr "Стартирай Наблюдение на системата"
 
-#: ../panel-plugin/systemload.c:872
+#: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
 msgstr "Наблюдение на ЦП"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "Наблюдение на паметта"
 
-#: ../panel-plugin/systemload.c:874
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "Наблюдение на swap"
 
-#: ../panel-plugin/systemload.c:875
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "Наблюдение на времето на работа"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Наблюдение на натоварването на системата"
 
-#: ../panel-plugin/systemload.c:895
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "Общи"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "Интервал на обновяване:"
 
-#: ../panel-plugin/systemload.c:897 ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "с"
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
 msgstr "Интервал на пестене на енергия:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "Наблюдение на системата:"
 
-#: ../panel-plugin/systemload.c:918
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "Показване на текст:"
 
-#: ../panel-plugin/systemload.c:922
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "Цвят на стълба:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Наблюдение на натоварването на ЦП и използването на swap паметта"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Авторски права (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Авторски права (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
