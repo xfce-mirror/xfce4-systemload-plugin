@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 00:31+0200\n"
-"PO-Revision-Date: 2014-07-30 12:47+0000\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2014-11-30 15:33+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -59,65 +59,65 @@ msgstr[0] "เดินเครื่องนาน: %d วัน %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "เดินเครื่องนาน: %d:%02d"
 
-#: ../panel-plugin/systemload.c:349
+#: ../panel-plugin/systemload.c:350
 msgid "Run _System Monitor"
 msgstr "เรียกเครื่องมือเ_ฝ้าสังเกตระบบ"
 
-#: ../panel-plugin/systemload.c:872
+#: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
 msgstr "เฝ้าสังเกตซีพียู"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "เฝ้าสังเกตหน่วยความจำ"
 
-#: ../panel-plugin/systemload.c:874
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "เฝ้าสังเกตพื้นที่สลับ"
 
-#: ../panel-plugin/systemload.c:875
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "เฝ้าสังเกตระยะเวลาเดินเครื่อง"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "เครื่องมือเฝ้าสังเกตโหลดระบบ"
 
-#: ../panel-plugin/systemload.c:895
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "ทั่วไป"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "คาบการปรับข้อมูล:"
 
-#: ../panel-plugin/systemload.c:897 ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "วินาที"
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
 msgstr "คาบขณะประหยัดพลังงาน:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "เครื่องมือเฝ้าสังเกตระบบ:"
 
-#: ../panel-plugin/systemload.c:918
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "ข้อความที่จะแสดง:"
 
-#: ../panel-plugin/systemload.c:922
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "สีของแถบ:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "เฝ้าสังเกตโหลดของซีพียู, การใช้พื้นที่สลับ และการใช้หน่วยความจำ"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Copyright (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Copyright (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
