@@ -4,15 +4,15 @@
 # 
 # Translators:
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2015
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2011
 # Sung Jin Gang <ujuc@ujuc.kr>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 00:31+0200\n"
-"PO-Revision-Date: 2014-08-02 09:35+0000\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2015-01-15 12:04+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -62,65 +62,65 @@ msgstr[0] "가동시간: %d일 %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "가동시간: %d:%02d"
 
-#: ../panel-plugin/systemload.c:349
+#: ../panel-plugin/systemload.c:350
 msgid "Run _System Monitor"
 msgstr "시스템 감시자 실행(_S)"
 
-#: ../panel-plugin/systemload.c:872
+#: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
 msgstr "CPU 감시기"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "메모리 감시기"
 
-#: ../panel-plugin/systemload.c:874
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "스왑 감시기"
 
-#: ../panel-plugin/systemload.c:875
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "동작시간 감시기"
 
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "시스템 부하 감시기"
 
-#: ../panel-plugin/systemload.c:895
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "일반"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "업데이트 주기:"
 
-#: ../panel-plugin/systemload.c:897 ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "초"
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
 msgstr "전원절약 주기:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "시스템 감시자:"
 
-#: ../panel-plugin/systemload.c:918
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "표시할 텍스트:"
 
-#: ../panel-plugin/systemload.c:922
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "막대 색:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU 사용량, 스왑사용량, 메모리 사용량을 감시합니다"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Copyright (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Copyright (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
