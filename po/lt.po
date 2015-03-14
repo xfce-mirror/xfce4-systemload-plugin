@@ -1,48 +1,50 @@
-# translation of xfce4-systemload.
-# Copyright (C) 2003 AUTHORS
-# This file is distributed under the same license as the xfce4-systemload.
-# Mantas <zaz@xxx.lt>, 2003.
-# Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
+# Mantas <zaz@xxx.lt>, 2003
+# Moo, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload 0.3.2\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-19 03:36+0000\n"
-"PO-Revision-Date: 2012-01-21 15:57+0200\n"
-"Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
-"Language-Team: Lietuvių <>\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2015-03-14 17:30+0000\n"
+"Last-Translator: Moo\n"
+"Language-Team: Lithuanian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Byla „/proc/stat“ nerasta!"
 
-#: ../panel-plugin/systemload.c:161
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Sistemos apkrovimas: %ld%%"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Darbinė atmintis: naudojama %ldMB iš %ldMB"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Mainų skirsnis: naudojama %ldMB iš %ldMB"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "No swap"
 msgstr "Mainų skirsnio nėra"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:214
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -50,7 +52,7 @@ msgstr[0] "%d diena"
 msgstr[1] "%d dienos"
 msgstr[2] "%d dienų"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:218
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -58,72 +60,71 @@ msgstr[0] "Veikimo laikas: %d diena %d:%02d"
 msgstr[1] "Veikimo laikas: %d dienos %d:%02d"
 msgstr[2] "Veikimo laikas: %d dienų %d:%02d"
 
-#: ../panel-plugin/systemload.c:202
+#: ../panel-plugin/systemload.c:226
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Veikimo laikas: %d:%02d"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:350
+msgid "Run _System Monitor"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
 msgstr "CPU stebėjimas"
 
-#: ../panel-plugin/systemload.c:861
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "Atminties stebėjimas"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "Mainų skirsnio stebėjimas"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "Veikimo laiko stebėjimas"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Sistemos apkrovimas"
 
-#: ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "Bendra"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "Atnaujinimo intervalas:"
 
-#: ../panel-plugin/systemload.c:885 ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
 msgstr "Energijos taupymo intervals:"
 
-#: ../panel-plugin/systemload.c:904
+#: ../panel-plugin/systemload.c:909
+msgid "System monitor:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "Rodomas tekstas:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "Juostos spalva:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Stebėti CPU apkrovą, mainų srities naudojimą ir atminties naudojimą"
 
-#: ../panel-plugin/systemload.c:935
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Autorinės teisės (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Autorinės Teisės (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "Byla „/proc/uptime“ nerasta!"
-
-#~ msgid "Select color"
-#~ msgstr "Pasirinkite spalvą"
-
-#~ msgid "Show monitor"
-#~ msgstr "Rodyti stebėjimą"
-
-#~ msgid "Uptime:"
-#~ msgstr "Veikimo laikas:"
