@@ -394,7 +394,6 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
         g_source_remove(global->timeout_id);
 
     g_free(global->command.command_text);
-    g_free(global->menu_item);
 
     for(count = 0; count < 3; count++)
     {
