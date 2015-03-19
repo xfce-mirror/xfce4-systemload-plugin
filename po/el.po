@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 12:31+0100\n"
-"PO-Revision-Date: 2015-03-19 00:12+0000\n"
+"PO-Revision-Date: 2015-03-19 09:16+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Ενεργός χρόνος: %d:%02d"
 
 #: ../panel-plugin/systemload.c:350
 msgid "Run _System Monitor"
-msgstr ""
+msgstr "Εκτέλεση παρακολούθησης _συστήματος"
 
 #: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
@@ -104,7 +104,7 @@ msgstr "Διάστημα εξοικομόμησης ενέργειας:"
 
 #: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
-msgstr ""
+msgstr "Παρακολούθηση συστήματος:"
 
 #: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
