@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 12:31+0100\n"
-"PO-Revision-Date: 2015-07-01 08:39+0000\n"
+"PO-Revision-Date: 2015-08-25 17:50+0000\n"
 "Last-Translator: Moo\n"
-"Language-Team: Lithuanian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/lt/)\n"
+"Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,12 +37,12 @@ msgstr "Darbinė atmintis: naudojama %ldMB iš %ldMB"
 #: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Mainų skirsnis: naudojama %ldMB iš %ldMB"
+msgstr "Mainų skaidinys: naudojama %ldMB iš %ldMB"
 
 #: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "No swap"
-msgstr "Mainų skirsnio nėra"
+msgstr "Mainų skaidinio nėra"
 
 #: ../panel-plugin/systemload.c:214
 #, c-format
@@ -79,7 +79,7 @@ msgstr "Atminties stebėjimas"
 
 #: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
-msgstr "Mainų skirsnio stebėjimas"
+msgstr "Mainų skaidinio stebėjimas"
 
 #: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
