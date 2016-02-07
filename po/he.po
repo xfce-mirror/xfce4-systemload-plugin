@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Elishai Eliyahu <e1907@mm.st>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2016-02-07 19:57+0000\n"
+"Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
+"Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/cpu.c:63
+msgid "File /proc/stat not found!"
+msgstr "קובץ proc/stat/ לא נמצא!"
+
+#: ../panel-plugin/systemload.c:185
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "עומס מערכת: %ld%%"
+
+#: ../panel-plugin/systemload.c:192
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "זיכרון: %ldMB מתוך %ldMB בשימוש"
+
+#: ../panel-plugin/systemload.c:200
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "החלף: %ldMB מתוך %ldMB בשימוש"
+
+#: ../panel-plugin/systemload.c:203
+#, c-format
+msgid "No swap"
+msgstr "אין החלף"
+
+#: ../panel-plugin/systemload.c:214
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "יום %d"
+msgstr[1] "%d ימים"
+
+#: ../panel-plugin/systemload.c:218
+#, c-format
+msgid "Uptime: %d day %d:%02d"
+msgid_plural "Uptime: %d days %d:%02d"
+msgstr[0] "זמן עבודה: %d יום %d:%02d "
+msgstr[1] "זמן עבודה: %d ימים %d:%02d "
+
+#: ../panel-plugin/systemload.c:226
+#, c-format
+msgid "Uptime: %d:%02d"
+msgstr "זמן עבודה: %d:%02d "
+
+#: ../panel-plugin/systemload.c:350
+msgid "Run _System Monitor"
+msgstr "הפעל עוקב _מערכת"
+
+#: ../panel-plugin/systemload.c:873
+msgid "CPU monitor"
+msgstr "עוקב מעבד"
+
+#: ../panel-plugin/systemload.c:874
+msgid "Memory monitor"
+msgstr "עוקב זיכרון"
+
+#: ../panel-plugin/systemload.c:875
+msgid "Swap monitor"
+msgstr "עוקב Swap "
+
+#: ../panel-plugin/systemload.c:876
+msgid "Uptime monitor"
+msgstr "עוקב זמן עבודה"
+
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "עוקב עומס מערכת"
+
+#: ../panel-plugin/systemload.c:896
+msgid "General"
+msgstr "כללי"
+
+#: ../panel-plugin/systemload.c:898
+msgid "Update interval:"
+msgstr "מרווח עדכון:"
+
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
+msgid "s"
+msgstr "שניה"
+
+#: ../panel-plugin/systemload.c:903
+msgid "Power-saving interval:"
+msgstr "מרווח חיסכון-הספק:"
+
+#: ../panel-plugin/systemload.c:909
+msgid "System monitor:"
+msgstr "עוקב מערכת:"
+
+#: ../panel-plugin/systemload.c:919
+msgid "Text to display:"
+msgstr "טקסט להצגה:"
+
+#: ../panel-plugin/systemload.c:923
+msgid "Bar color:"
+msgstr "צבע סרגל:"
+
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "עקוב אחר עומס מעבד, שימוש Swap וטביעת רגל זיכרון"
+
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Copyright (c) 2003-2014\n"
+
+#: ../panel-plugin/uptime.c:53
+msgid "File /proc/uptime not found!"
+msgstr "קובץ proc/uptime/ לא נמצא!"
