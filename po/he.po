@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 12:31+0100\n"
-"PO-Revision-Date: 2016-02-07 19:57+0000\n"
+"PO-Revision-Date: 2016-03-14 16:27+0000\n"
 "Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -119,7 +119,7 @@ msgstr "עקוב אחר עומס מעבד, שימוש Swap וטביעת רגל �
 
 #: ../panel-plugin/systemload.c:950
 msgid "Copyright (c) 2003-2014\n"
-msgstr "Copyright (c) 2003-2014\n"
+msgstr "זכות יוצרים (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
