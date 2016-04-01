@@ -1,133 +1,127 @@
-# xfce4-systemload for the XFce desktop environment.
-# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-systemload package.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003,2012
+# Davidmp <medipas@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: XFce 4\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-19 15:06+0000\n"
-"PO-Revision-Date: 2012-04-19 21:16+0100\n"
-"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: ca\n"
-"Language: ca\n"
+"POT-Creation-Date: 2014-11-21 12:31+0100\n"
+"PO-Revision-Date: 2016-04-01 12:28+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>\n"
+"Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-Language: Catalan\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "No s'ha trobat el fitxer «/proc/stat»"
 
-#: ../panel-plugin/systemload.c:161
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:192
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memòria: %ldMB de %ldMB fets servir"
 
-#: ../panel-plugin/systemload.c:176
+#: ../panel-plugin/systemload.c:200
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Memòria d’intercanvi: %ldMB de %ldMB fets servir"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "No swap"
 msgstr "Sense memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:190
+#: ../panel-plugin/systemload.c:214
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dia"
 msgstr[1] "%d dies"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:218
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "En marxa: %d dia %d:%02d"
-msgstr[1] "En marxa: %d dies %d:%02d"
+msgstr[0] "En actiu: %d dia %d:%02d"
+msgstr[1] "En actiu: %d dies %d:%02d"
 
-#: ../panel-plugin/systemload.c:202
+#: ../panel-plugin/systemload.c:226
 #, c-format
 msgid "Uptime: %d:%02d"
-msgstr "En marxa: %d:%02d"
+msgstr "En actiu: %d:%02d"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:350
+msgid "Run _System Monitor"
+msgstr "Executa el monitor del _sistema"
+
+#: ../panel-plugin/systemload.c:873
 msgid "CPU monitor"
 msgstr "Monitor de CPU"
 
-#: ../panel-plugin/systemload.c:861
+#: ../panel-plugin/systemload.c:874
 msgid "Memory monitor"
 msgstr "Monitor de memòria"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.c:875
 msgid "Swap monitor"
 msgstr "Monitor de la memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:863
+#: ../panel-plugin/systemload.c:876
 msgid "Uptime monitor"
 msgstr "Monitor de temps en funcionament"
 
-#: ../panel-plugin/systemload.c:868 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de càrrega del sistema"
 
-#: ../panel-plugin/systemload.c:883
+#: ../panel-plugin/systemload.c:896
 msgid "General"
 msgstr "General"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:898
 msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
-#: ../panel-plugin/systemload.c:885 ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
 msgid "s"
 msgstr "s"
 
-#: ../panel-plugin/systemload.c:890
+#: ../panel-plugin/systemload.c:903
 msgid "Power-saving interval:"
 msgstr "Interval d'estalvi d'energia:"
 
-#: ../panel-plugin/systemload.c:904
+#: ../panel-plugin/systemload.c:909
+msgid "System monitor:"
+msgstr "Monitor del sistema:"
+
+#: ../panel-plugin/systemload.c:919
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:923
 msgid "Bar color:"
 msgstr "Color de la barra:"
 
-#: ../panel-plugin/systemload.c:933 ../panel-plugin/systemload.desktop.in:4
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr ""
-"Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i la empremta de "
-"memòria"
+msgstr "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i la empremta de memòria"
 
-#: ../panel-plugin/systemload.c:935
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Copyright (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:950
+msgid "Copyright (c) 2003-2014\n"
+msgstr "Copyright (c) 2003-2014\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "No s'ha trobat el fitxer «/proc/uptime»"
-
-#~ msgid "Select color"
-#~ msgstr "Seleccioneu el color"
-
-#~ msgid "Show monitor"
-#~ msgstr "Mostra el monitor"
-
-#~ msgid "Uptime:"
-#~ msgstr "Temps en fucionament"
-
-#~ msgid "Properties"
-#~ msgstr "Propietats"
