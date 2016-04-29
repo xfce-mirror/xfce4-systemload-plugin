@@ -2,7 +2,7 @@ dnl xfce4-systemload-plugin - Systemload monitor plugin for xfce4-panel
 dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl 2010 Florian Rivoal <frivoal@xfce.org>
-dnl
+dnl 2012, 2014, 2016 Landry Breuil <landry@xfce.org>
 
 dnl ***************************
 dnl *** Version information ***
@@ -17,7 +17,7 @@ m4_define([systemload_version], [systemload_version_major().systemload_version_m
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2007, 2014
+AC_COPYRIGHT([Copyright (c) 2006-2007, 2014, 2016
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-systemload-plugin], [systemload_version], [http://bugzilla.xfce.org/], [xfce4-systemload-plugin])
 AC_PREREQ([2.50])
