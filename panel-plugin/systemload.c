@@ -824,23 +824,17 @@ static void new_color_button(t_global_monitor *global, GtkTable *table, guint ro
 /* Adds a new spin button, optionally with a checkbox to enable it.
  * Set boolvar to NULL if you do not want a checkbox. */
 static void new_spin_button(t_global_monitor *global, GtkTable *table, guint row,
-                            const gchar *labeltext, const gchar *units,
+                            const gchar *labeltext,
                             gfloat value, gfloat min, gfloat max, gfloat step,
                             GCallback callback, gboolean* boolvar) {
-    GtkWidget *label, *button, *box;
-    /* Hbox for spin button + units */
-    box = gtk_hbox_new(TRUE, 2);
+    GtkWidget *label, *button;
     button = gtk_spin_button_new_with_range (min, max, step);
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), value);
     g_signal_connect (G_OBJECT (button), "value-changed", callback, global);
-    gtk_box_pack_start(GTK_BOX(box), button, FALSE, FALSE, 0);
-    label = gtk_label_new (units);
-    gtk_misc_set_alignment (GTK_MISC(label), 0, .5);
-    gtk_box_pack_start(GTK_BOX(box), label, TRUE, TRUE, 0);
     /* Label/check button */
-    label = new_label_or_check_button(global, labeltext, boolvar, box);
+    label = new_label_or_check_button(global, labeltext, boolvar, button);
     gtk_table_attach_defaults(table, label,  0, 1, row, row+1);
-    gtk_table_attach_defaults(table, box, 1, 2, row, row+1);
+    gtk_table_attach_defaults(table, button, 1, 2, row, row+1);
 }
 
 static void
@@ -876,12 +870,12 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     table = new_frame(global, content, _("General"), 3, NULL);
     new_spin_button(global, table, 0,
-            _("Update interval:"), _("s"),
+            _("Update interval:"),
             (gfloat)global->timeout/1000.0, 0.100, 10.000, .050,
             G_CALLBACK(change_timeout_cb), NULL);
 #ifdef HAVE_UPOWER_GLIB
     new_spin_button(global, table, 1,
-            _("Power-saving interval:"), _("s"),
+            _("Power-saving interval:"),
             (gfloat)global->timeout_seconds, 1, 10, 1,
             G_CALLBACK(change_timeout_seconds_cb),
             &global->use_timeout_seconds);
