@@ -849,9 +849,8 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     
     dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"), 
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                                               GTK_DIALOG_DESTROY_WITH_PARENT |
-                                               GTK_DIALOG_NO_SEPARATOR,
-                                               GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                                               GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               "gtk-close", GTK_RESPONSE_OK,
                                                NULL);
     
     g_signal_connect (G_OBJECT (dlg), "response",
