@@ -66,7 +66,7 @@ typedef struct
 {
     gboolean enabled;
     gboolean use_label;
-    GdkColor color;
+    GdkRGBA  color;
     gchar    *label_text;
 } t_monitor_options;
 
@@ -343,8 +343,8 @@ monitor_control_new(XfcePanelPlugin *plugin)
         global->monitor[count] = g_new(t_monitor, 1);
         global->monitor[count]->options.label_text =
             g_strdup(DEFAULT_TEXT[count]);
-        gdk_color_parse(DEFAULT_COLOR[count],
-                        &global->monitor[count]->options.color);
+        gdk_rgba_parse(&global->monitor[count]->options.color,
+                       DEFAULT_COLOR[count]);
 
         global->monitor[count]->options.use_label = TRUE;
         global->monitor[count]->options.enabled = TRUE;
@@ -520,8 +520,8 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
             
             if ((value = xfce_rc_read_entry (rc, "Color", NULL)))
             {
-                gdk_color_parse(value,
-                                &global->monitor[count]->options.color);
+                gdk_rgba_parse(&global->monitor[count]->options.color,
+                               value);
             }
             if ((value = xfce_rc_read_entry (rc, "Text", NULL)) && *value)
             {
@@ -546,7 +546,6 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 static void
 monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    char value[10];
     gint count;
     XfceRc *rc;
     char *file;
@@ -578,12 +577,7 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
         xfce_rc_write_bool_entry (rc, "Use_Label", 
                 global->monitor[count]->options.use_label);
 
-        g_snprintf(value, 8, "#%02X%02X%02X",
-                   (guint)global->monitor[count]->options.color.red >> 8,
-                   (guint)global->monitor[count]->options.color.green >> 8,
-                   (guint)global->monitor[count]->options.color.blue >> 8);
-
-        xfce_rc_write_entry (rc, "Color", value);
+        xfce_rc_write_entry (rc, "Color", gdk_rgba_to_string(&global->monitor[count]->options.color));
 
         xfce_rc_write_entry (rc, "Text", 
             global->monitor[count]->options.label_text ?
@@ -685,9 +679,9 @@ check_button_cb(GtkToggleButton *check_button, t_global_monitor *global)
 static void
 color_set_cb(GtkColorButton *color_button, t_global_monitor *global)
 {
-    GdkColor* colorvar;
-    colorvar = (GdkColor*)g_object_get_data(G_OBJECT(color_button), "colorvar");
-    gtk_color_button_get_color(color_button, colorvar);
+    GdkRGBA* colorvar;
+    colorvar = (GdkRGBA*)g_object_get_data(G_OBJECT(color_button), "colorvar");
+    gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(color_button), colorvar);
     setup_monitor(global);
 }
 
@@ -796,11 +790,11 @@ static void new_entry(t_global_monitor *global, GtkTable *table, guint row,
 /* Adds a color button to the table, optionally with a checkbox to enable it.
  * Set boolvar to NULL if you do not want a checkbox. */
 static void new_color_button(t_global_monitor *global, GtkTable *table, guint row,
-                             const gchar *labeltext, GdkColor* colorvar,
+                             const gchar *labeltext, GdkRGBA* colorvar,
                              gboolean *boolvar)
 {
     GtkWidget *label, *button;
-    button = gtk_color_button_new_with_color(colorvar);
+    button = gtk_color_button_new_with_rgba(colorvar);
     g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
     g_signal_connect(G_OBJECT(button), "color-set",
                      G_CALLBACK (color_set_cb), global);
