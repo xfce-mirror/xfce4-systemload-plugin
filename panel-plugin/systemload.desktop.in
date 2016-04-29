@@ -6,4 +6,4 @@ _Comment=Monitor CPU load, swap usage and memory footprint
 Icon=utilities-system-monitor
 X-XFCE-Module=systemload
 X-XFCE-Internal=false
-
+X-XFCE-API=2.0
