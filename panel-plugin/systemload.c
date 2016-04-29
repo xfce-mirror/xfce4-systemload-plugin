@@ -728,7 +728,7 @@ static GtkTable* new_frame(t_global_monitor *global, GtkBox *content,
     gtk_table_set_col_spacings (GTK_TABLE(table), 12);
     gtk_table_set_row_spacings (GTK_TABLE(table), 6);
     frame = xfce_gtk_frame_box_new_with_content (title, table);
-    gtk_box_pack_start_defaults (content, frame);
+    gtk_box_pack_start (content, frame, TRUE, TRUE, 0);
     if (boolvar) {
         check = gtk_check_button_new();
         /* Move frame label into check button */
