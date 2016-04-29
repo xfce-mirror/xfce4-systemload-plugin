@@ -426,6 +426,10 @@ static void
 setup_monitor(t_global_monitor *global)
 {
     gint count;
+#if GTK_CHECK_VERSION (3, 16, 0)
+    GtkCssProvider *css_provider;
+    gchar * css;
+#endif
 
     gtk_widget_hide(GTK_WIDGET(global->uptime->ebox));
 
@@ -437,11 +441,10 @@ setup_monitor(t_global_monitor *global)
                            global->monitor[count]->options.label_text);
 
 #if GTK_CHECK_VERSION (3, 16, 0)
-        GtkCssProvider *css_provider;
 #if GTK_CHECK_VERSION (3, 20, 0)
-        gchar * css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
+        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
 #else
-        gchar * css = g_strdup_printf(".progressbar { background-color: %s; background-image: none; }",
+        css = g_strdup_printf(".progressbar { background-color: %s; background-image: none; }",
 #endif
                                       gdk_rgba_to_string(&global->monitor[count]->options.color));
         /* Setup Gtk style */
