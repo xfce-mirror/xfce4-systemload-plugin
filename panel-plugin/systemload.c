@@ -782,7 +782,8 @@ static GtkWidget *new_label_or_check_button(t_global_monitor *global,
                           G_CALLBACK(check_button_cb), global);
     } else {
         label = gtk_label_new_with_mnemonic (labeltext);
-        gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5f); \
+        gtk_widget_set_halign(label, GTK_ALIGN_END);
+        gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
         gtk_label_set_mnemonic_widget(GTK_LABEL(label), target);
     }
     return label;
