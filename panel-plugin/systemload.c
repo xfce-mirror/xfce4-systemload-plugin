@@ -59,13 +59,6 @@ static gchar *DEFAULT_COMMAND_TEXT = "xfce4-taskmanager";
 
 #define BORDER 8
 
-/* check for new Xfce 4.10 panel features */
-#ifdef LIBXFCE4PANEL_CHECK_VERSION
-#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
-#define HAS_PANEL_49
-#endif
-#endif
-
 enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
 
 typedef struct
@@ -254,10 +247,8 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(global->monitor[count]->status), GTK_PROGRESS_LEFT_TO_RIGHT);
         }
     }
-#ifdef HAS_PANEL_49
     gtk_label_set_angle(GTK_LABEL(global->uptime->label),
                         (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
-#endif
 }
 
 static void
@@ -641,7 +632,6 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 }
 
 
-#ifdef HAS_PANEL_49
 static void
 monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
                   t_global_monitor *global)
@@ -659,18 +649,6 @@ monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode,
   monitor_update_orientation (plugin, panel_orientation, orientation, global);
   monitor_set_size (plugin, xfce_panel_plugin_get_size (plugin), global);
 }
-
-
-#else
-static void
-monitor_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
-                         t_global_monitor *global)
-{
-  monitor_update_orientation (plugin, orientation, GTK_ORIENTATION_HORIZONTAL, global);
-  monitor_set_size (plugin, xfce_panel_plugin_get_size (plugin), global);
-}
-#endif
-
 
 #ifdef HAVE_UPOWER_GLIB
 static void
@@ -965,15 +943,9 @@ systemload_construct (XfcePanelPlugin *plugin)
     monitor_read_config (plugin, global);
     
     create_monitor (global);
-#ifdef HAS_PANEL_49
     monitor_set_mode (plugin,
                       xfce_panel_plugin_get_mode (plugin),
                       global);
-#else
-    monitor_set_orientation (plugin, 
-                             xfce_panel_plugin_get_orientation (plugin),
-                             global);
-#endif
 
     setup_monitor (global);
 
@@ -1001,13 +973,8 @@ systemload_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size),
                       global);
 
-#ifdef HAS_PANEL_49
     g_signal_connect (plugin, "mode-changed",
                       G_CALLBACK (monitor_set_mode), global);
-#else
-    g_signal_connect (plugin, "orientation-changed", 
-                      G_CALLBACK (monitor_set_orientation), global);
-#endif
 
     g_signal_connect (plugin, "button-press-event", G_CALLBACK (click_event),
                       global);
