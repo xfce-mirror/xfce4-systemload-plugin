@@ -313,6 +313,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
     int count;
     t_global_monitor *global;
     GtkWidget* image;
+    GtkWidget *label, *box;
     
     global = g_new(t_global_monitor, 1);
 #ifdef HAVE_UPOWER_GLIB
@@ -330,11 +331,15 @@ monitor_control_new(XfcePanelPlugin *plugin)
     global->command.enabled = FALSE;
     global->command.command_text = g_strdup(DEFAULT_COMMAND_TEXT);
 
-    global->menu_item = gtk_image_menu_item_new_with_mnemonic(
-                            _("Run _System Monitor"));
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    label = gtk_label_new_with_mnemonic (_("Run _System Monitor"));
+    global->menu_item = gtk_menu_item_new();
     image = gtk_image_new_from_icon_name("utilities-system-monitor",
                                                     GTK_ICON_SIZE_MENU);
-	gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(global->menu_item), image);
+    gtk_container_add (GTK_CONTAINER (box), image);
+    gtk_container_add (GTK_CONTAINER (box), label);
+    gtk_container_add (GTK_CONTAINER (global->menu_item), box);
+    gtk_widget_show_all (global->menu_item);
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
     
