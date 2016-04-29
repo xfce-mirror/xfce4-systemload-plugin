@@ -248,7 +248,7 @@ create_monitor (t_global_monitor *global)
 {
     gint count;
 
-    global->box = xfce_hvbox_new(xfce_panel_plugin_get_orientation(global->plugin), FALSE, 0);
+    global->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
     gtk_widget_show(global->box);
 
     for(count = 0; count < 3; count++)
@@ -258,7 +258,7 @@ create_monitor (t_global_monitor *global)
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
 
-        global->monitor[count]->box = xfce_hvbox_new(xfce_panel_plugin_get_orientation(global->plugin), FALSE, 0);
+        global->monitor[count]->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
 
         gtk_box_pack_start(GTK_BOX(global->monitor[count]->box),
                            GTK_WIDGET(global->monitor[count]->label),
