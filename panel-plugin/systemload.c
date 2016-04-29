@@ -436,15 +436,33 @@ setup_monitor(t_global_monitor *global)
         gtk_label_set_text(GTK_LABEL(global->monitor[count]->label),
                            global->monitor[count]->options.label_text);
 
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
+#if GTK_CHECK_VERSION (3, 16, 0)
+        GtkCssProvider *css_provider;
+#if GTK_CHECK_VERSION (3, 20, 0)
+        gchar * css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
+#else
+        gchar * css = g_strdup_printf(".progressbar { background-color: %s; background-image: none; }",
+#endif
+                                      gdk_rgba_to_string(&global->monitor[count]->options.color));
+        /* Setup Gtk style */
+        css_provider = gtk_css_provider_new ();
+        gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
+        gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (global->monitor[count]->status))),
+            GTK_STYLE_PROVIDER (css_provider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        g_free(css);
+#else
+        gtk_widget_override_background_color(GTK_WIDGET(global->monitor[count]->status),
                              GTK_STATE_PRELIGHT,
                              &global->monitor[count]->options.color);
-        gtk_widget_modify_bg(GTK_WIDGET(global->monitor[count]->status),
+        gtk_widget_override_background_color(GTK_WIDGET(global->monitor[count]->status),
                              GTK_STATE_SELECTED,
                              &global->monitor[count]->options.color);
-        gtk_widget_modify_base(GTK_WIDGET(global->monitor[count]->status),
+        gtk_widget_override_color(GTK_WIDGET(global->monitor[count]->status),
                                GTK_STATE_SELECTED,
                                &global->monitor[count]->options.color);
+#endif
 
         if(global->monitor[count]->options.enabled)
         {
