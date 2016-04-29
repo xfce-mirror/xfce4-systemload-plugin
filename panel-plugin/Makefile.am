@@ -20,8 +20,6 @@ libsystemload_la_SOURCES =					\
 	cpu.h
 
 libsystemload_la_CFLAGS =					\
-	$(GTK_CFLAGS)							\
-	$(LIBXFCE4UTIL_CFLAGS)						\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
 	$(UPOWER_GLIB_CFLAGS)						\
@@ -35,7 +33,6 @@ libsystemload_la_LDFLAGS = \
 	$(PLATFORM_LDFLAGS)
 
 libsystemload_la_LIBADD =						\
-	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(LIBXFCE4PANEL_LIBS) 						\
 	$(UPOWER_GLIB_LIBS)
