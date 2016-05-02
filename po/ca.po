@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-29 18:31+0200\n"
-"PO-Revision-Date: 2016-05-01 16:01+0000\n"
+"PO-Revision-Date: 2016-05-02 20:03+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "Memòria: %ld MB de %ld MB utilitzades"
 #: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Memòria d’intercanvi: %ld MB de %ld MB utilitzades"
+msgstr "Memòria d'intercanvi: %ld MB de %ld MB utilitzades"
 
 #: ../panel-plugin/systemload.c:197
 #, c-format
@@ -117,7 +117,7 @@ msgstr "Text a mostrar:"
 
 #: ../panel-plugin/systemload.c:907 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i la empremta de memòria"
+msgstr "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i l'empremta de memòria"
 
 #: ../panel-plugin/systemload.c:909
 msgid "Copyright (c) 2003-2016\n"
