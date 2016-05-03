@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-29 18:31+0200\n"
-"PO-Revision-Date: 2016-05-03 12:15+0000\n"
+"PO-Revision-Date: 2016-05-03 16:55+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -55,8 +55,8 @@ msgstr[1] "%d dies"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "En actiu: %d dia %d:%02d"
-msgstr[1] "En actiu: %d dies %d:%02d"
+msgstr[0] "Temps en funcionament: %d dia %d:%02d"
+msgstr[1] "Temps en funcionament: %d dies %d:%02d"
 
 #: ../panel-plugin/systemload.c:220
 #, c-format
@@ -77,11 +77,11 @@ msgstr "Actiu"
 
 #: ../panel-plugin/systemload.c:832
 msgid "CPU monitor"
-msgstr "Monitor de CPU"
+msgstr "Monitor de la CPU"
 
 #: ../panel-plugin/systemload.c:833
 msgid "Memory monitor"
-msgstr "Monitor de memòria"
+msgstr "Monitor de la memòria"
 
 #: ../panel-plugin/systemload.c:834
 msgid "Swap monitor"
@@ -89,11 +89,11 @@ msgstr "Monitor de la memòria d'intercanvi"
 
 #: ../panel-plugin/systemload.c:835
 msgid "Uptime monitor"
-msgstr "Monitor de temps en funcionament"
+msgstr "Monitor del temps en funcionament"
 
 #: ../panel-plugin/systemload.c:840 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
-msgstr "Monitor de càrrega del sistema"
+msgstr "Monitor de la càrrega del sistema"
 
 #: ../panel-plugin/systemload.c:854
 msgid "General"
@@ -117,7 +117,7 @@ msgstr "Text a mostrar:"
 
 #: ../panel-plugin/systemload.c:907 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i l'empremta de memòria"
+msgstr "Monitora la càrrega de la CPU, l'ús de la memòria d'intercanvi i l'empremta de la memòria"
 
 #: ../panel-plugin/systemload.c:909
 msgid "Copyright (c) 2003-2016\n"
