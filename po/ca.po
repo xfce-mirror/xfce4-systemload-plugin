@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-29 18:31+0200\n"
-"PO-Revision-Date: 2016-05-02 20:03+0000\n"
+"PO-Revision-Date: 2016-05-03 12:15+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Color de la barra:"
 
 #: ../panel-plugin/systemload.c:790
 msgid "Active"
-msgstr ""
+msgstr "Actiu"
 
 #: ../panel-plugin/systemload.c:832
 msgid "CPU monitor"
@@ -121,7 +121,7 @@ msgstr "Monitora la càrrega de CPU, l'ús de la memòria d'intercanvi i l'empre
 
 #: ../panel-plugin/systemload.c:909
 msgid "Copyright (c) 2003-2016\n"
-msgstr ""
+msgstr "Copyright (c) 2003-2016\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
