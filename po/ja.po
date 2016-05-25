@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Masato HASHIMOTO <cabezon.hashimoto@gmail.com>, 2008,2012,2014
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 12:31+0100\n"
-"PO-Revision-Date: 2014-11-26 09:39+0000\n"
-"Last-Translator: Masato HASHIMOTO <cabezon.hashimoto@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ja/)\n"
+"POT-Creation-Date: 2016-04-29 18:31+0200\n"
+"PO-Revision-Date: 2016-05-25 06:06+0000\n"
+"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
+"Language-Team: Japanese (http://www.transifex.com/xfce/xfce-panel-plugins/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,102 +23,102 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "ファイル /proc/stat が見つかりませんでした!"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:179
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "システム負荷: %ld%%"
 
-#: ../panel-plugin/systemload.c:192
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "メモリ: %2$ld MB 中 %1$ld MB 使用しています"
 
-#: ../panel-plugin/systemload.c:200
+#: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "スワップ: %2$ld MB 中 %1$ld MB 使用しています"
 
-#: ../panel-plugin/systemload.c:203
+#: ../panel-plugin/systemload.c:197
 #, c-format
 msgid "No swap"
 msgstr "スワップなし"
 
-#: ../panel-plugin/systemload.c:214
+#: ../panel-plugin/systemload.c:208
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d日"
 
-#: ../panel-plugin/systemload.c:218
+#: ../panel-plugin/systemload.c:212
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "稼働時間: %d日%d時間%02d分"
 
-#: ../panel-plugin/systemload.c:226
+#: ../panel-plugin/systemload.c:220
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "稼働時間: %d時間%02d分"
 
-#: ../panel-plugin/systemload.c:350
+#: ../panel-plugin/systemload.c:335
 msgid "Run _System Monitor"
 msgstr "システムモニターを起動(_S)"
 
-#: ../panel-plugin/systemload.c:873
-msgid "CPU monitor"
-msgstr "CPU モニター"
-
-#: ../panel-plugin/systemload.c:874
-msgid "Memory monitor"
-msgstr "メモリモニター"
-
-#: ../panel-plugin/systemload.c:875
-msgid "Swap monitor"
-msgstr "スワップモニター"
-
-#: ../panel-plugin/systemload.c:876
-msgid "Uptime monitor"
-msgstr "稼働時間モニター"
-
-#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
-msgid "System Load Monitor"
-msgstr "システム負荷モニター"
-
-#: ../panel-plugin/systemload.c:896
-msgid "General"
-msgstr "一般"
-
-#: ../panel-plugin/systemload.c:898
-msgid "Update interval:"
-msgstr "更新間隔:"
-
-#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
-msgid "s"
-msgstr "秒"
-
-#: ../panel-plugin/systemload.c:903
-msgid "Power-saving interval:"
-msgstr "省電力時の間隔:"
-
-#: ../panel-plugin/systemload.c:909
-msgid "System monitor:"
-msgstr "システムモニター:"
-
-#: ../panel-plugin/systemload.c:919
-msgid "Text to display:"
-msgstr "表示する文字:"
-
-#: ../panel-plugin/systemload.c:923
+#: ../panel-plugin/systemload.c:788
 msgid "Bar color:"
 msgstr "バーの色:"
 
-#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:790
+msgid "Active"
+msgstr "有効"
+
+#: ../panel-plugin/systemload.c:832
+msgid "CPU monitor"
+msgstr "CPU モニター"
+
+#: ../panel-plugin/systemload.c:833
+msgid "Memory monitor"
+msgstr "メモリモニター"
+
+#: ../panel-plugin/systemload.c:834
+msgid "Swap monitor"
+msgstr "スワップモニター"
+
+#: ../panel-plugin/systemload.c:835
+msgid "Uptime monitor"
+msgstr "稼働時間モニター"
+
+#: ../panel-plugin/systemload.c:840 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "システム負荷モニター"
+
+#: ../panel-plugin/systemload.c:854
+msgid "General"
+msgstr "一般"
+
+#: ../panel-plugin/systemload.c:856
+msgid "Update interval:"
+msgstr "更新間隔:"
+
+#: ../panel-plugin/systemload.c:861
+msgid "Power-saving interval:"
+msgstr "省電力時の間隔:"
+
+#: ../panel-plugin/systemload.c:867
+msgid "System monitor:"
+msgstr "システムモニター:"
+
+#: ../panel-plugin/systemload.c:879
+msgid "Text to display:"
+msgstr "表示する文字:"
+
+#: ../panel-plugin/systemload.c:907 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU 負荷、メモリ、およびスワップファイルの使用状況をモニターします。"
 
-#: ../panel-plugin/systemload.c:950
-msgid "Copyright (c) 2003-2014\n"
-msgstr "Copyright (c) 2003-2014\n"
+#: ../panel-plugin/systemload.c:909
+msgid "Copyright (c) 2003-2016\n"
+msgstr "Copyright (c) 2003-2016\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
