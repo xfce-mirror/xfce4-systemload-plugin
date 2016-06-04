@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# abuyop <abuyop@gmail.com>, 2014
+# abuyop <abuyop@gmail.com>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 00:31+0200\n"
-"PO-Revision-Date: 2014-08-05 17:17+0000\n"
+"POT-Creation-Date: 2016-04-29 18:31+0200\n"
+"PO-Revision-Date: 2016-06-04 15:48+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
-"Language-Team: Malay (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ms/)\n"
+"Language-Team: Malay (http://www.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,102 +22,102 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Fail /proc/stat tidak ditemui!"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:179
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Muatan Sistem: %ld%%"
 
-#: ../panel-plugin/systemload.c:192
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Ingatan: %ldMB dari %ldMB digunakan"
 
-#: ../panel-plugin/systemload.c:200
+#: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Silih: %ldMB dari %ldMB digunakan"
 
-#: ../panel-plugin/systemload.c:203
+#: ../panel-plugin/systemload.c:197
 #, c-format
 msgid "No swap"
 msgstr "Tiada silih"
 
-#: ../panel-plugin/systemload.c:214
+#: ../panel-plugin/systemload.c:208
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d hari"
 
-#: ../panel-plugin/systemload.c:218
+#: ../panel-plugin/systemload.c:212
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Masa Hidup: %d hari %d:%02d"
 
-#: ../panel-plugin/systemload.c:226
+#: ../panel-plugin/systemload.c:220
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Masa Hidup: %d:%02d"
 
-#: ../panel-plugin/systemload.c:349
+#: ../panel-plugin/systemload.c:335
 msgid "Run _System Monitor"
 msgstr "Jalankan Pemantau _Sistem"
 
-#: ../panel-plugin/systemload.c:872
-msgid "CPU monitor"
-msgstr "Pemantau CPU"
-
-#: ../panel-plugin/systemload.c:873
-msgid "Memory monitor"
-msgstr "Pemantau ingatan"
-
-#: ../panel-plugin/systemload.c:874
-msgid "Swap monitor"
-msgstr "Pemantau silih"
-
-#: ../panel-plugin/systemload.c:875
-msgid "Uptime monitor"
-msgstr "Pemantau masa hidup"
-
-#: ../panel-plugin/systemload.c:880 ../panel-plugin/systemload.desktop.in:4
-msgid "System Load Monitor"
-msgstr "Pemantau Muatan Sistem"
-
-#: ../panel-plugin/systemload.c:895
-msgid "General"
-msgstr "Am"
-
-#: ../panel-plugin/systemload.c:897
-msgid "Update interval:"
-msgstr "Sela kemaskini:"
-
-#: ../panel-plugin/systemload.c:897 ../panel-plugin/systemload.c:902
-msgid "s"
-msgstr "s"
-
-#: ../panel-plugin/systemload.c:902
-msgid "Power-saving interval:"
-msgstr "Sela penjimatan-kuasa:"
-
-#: ../panel-plugin/systemload.c:908
-msgid "System monitor:"
-msgstr "Pemantau sistem:"
-
-#: ../panel-plugin/systemload.c:918
-msgid "Text to display:"
-msgstr "Teks dipaparkan:"
-
-#: ../panel-plugin/systemload.c:922
+#: ../panel-plugin/systemload.c:788
 msgid "Bar color:"
 msgstr "Warna palang:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in:5
+#: ../panel-plugin/systemload.c:790
+msgid "Active"
+msgstr "Aktif"
+
+#: ../panel-plugin/systemload.c:832
+msgid "CPU monitor"
+msgstr "Pemantau CPU"
+
+#: ../panel-plugin/systemload.c:833
+msgid "Memory monitor"
+msgstr "Pemantau ingatan"
+
+#: ../panel-plugin/systemload.c:834
+msgid "Swap monitor"
+msgstr "Pemantau silih"
+
+#: ../panel-plugin/systemload.c:835
+msgid "Uptime monitor"
+msgstr "Pemantau masa hidup"
+
+#: ../panel-plugin/systemload.c:840 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Pemantau Muatan Sistem"
+
+#: ../panel-plugin/systemload.c:854
+msgid "General"
+msgstr "Am"
+
+#: ../panel-plugin/systemload.c:856
+msgid "Update interval:"
+msgstr "Sela kemaskini:"
+
+#: ../panel-plugin/systemload.c:861
+msgid "Power-saving interval:"
+msgstr "Sela penjimatan-kuasa:"
+
+#: ../panel-plugin/systemload.c:867
+msgid "System monitor:"
+msgstr "Pemantau sistem:"
+
+#: ../panel-plugin/systemload.c:879
+msgid "Text to display:"
+msgstr "Teks dipaparkan:"
+
+#: ../panel-plugin/systemload.c:907 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Pantau muatan CPU, penggunaan silih dan jejak ingatan"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2012\n"
-msgstr "Hakcipta (c) 2003-2012\n"
+#: ../panel-plugin/systemload.c:909
+msgid "Copyright (c) 2003-2016\n"
+msgstr "Hakcipta (c) 2003-2016\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
