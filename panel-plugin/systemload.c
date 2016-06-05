@@ -771,43 +771,88 @@ static GtkWidget *new_label_or_check_button(t_global_monitor *global,
         g_object_set_data (G_OBJECT(sw), "sensitive_widget", target);
         g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
         gtk_switch_set_active (GTK_SWITCH(sw), *boolvar);
-        check_button_cb (GTK_SWITCH(sw), *boolvar, global);
+        switch_cb (GTK_SWITCH(sw), *boolvar, global);
         g_signal_connect (GTK_WIDGET(sw), "state-set",
-                          G_CALLBACK(check_button_cb), global);
-        gtk_grid_attach(grid, sw, 0, row, 1, 1);
+                          G_CALLBACK(switch_cb), global);
+        gtk_grid_attach(grid, sw, 2, row, 1, 1);
     }
     label = gtk_label_new_with_mnemonic (labeltext);
     gtk_widget_set_halign(label, GTK_ALIGN_END);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), target);
-    gtk_grid_attach(grid, label, 1, row, 1, 1);
+    gtk_grid_attach(grid, label, 0, row, 1, 1);
     return label;
 }
 
-/* Create a new frame, optionally with color button
- * Set colorvar to NULL if you do not want a color button.
- * Returns the GtkGrid inside the frame. */
-static GtkGrid* new_frame(t_global_monitor *global, GtkBox *content,
-                           const gchar *title, gboolean *boolvar, GdkRGBA* colorvar)
+/* Create a new monitor setting  with gtkswitch, and eventually a color button and a checkbox + entry */
+static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int position,
+                           const gchar *title, gboolean *boolvar, GdkRGBA* colorvar,
+                           gboolean * use_label, gchar **labeltext)
 {
-    GtkWidget *frame, *grid, *button = NULL;
-    grid = gtk_grid_new ();
-    gtk_grid_set_column_spacing (GTK_GRID(grid), 12);
-    gtk_grid_set_row_spacing (GTK_GRID(grid), 6);
-    frame = xfce_gtk_frame_box_new_with_content (title, grid);
-    gtk_container_set_border_width(GTK_CONTAINER(frame), 2);
-    gtk_box_pack_start (content, frame, TRUE, TRUE, 0);
-    if (colorvar) {
-        button = gtk_color_button_new_with_rgba(colorvar);
-        g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
-        g_signal_connect(G_OBJECT(button), "color-set",
-                     G_CALLBACK (color_set_cb), global);
-        gtk_grid_attach(GTK_GRID(grid), button, 2, 0, 1, 1);
-        new_label_or_check_button(global, GTK_GRID(grid), 0, _("Bar color:"), boolvar, button);
-    } else if (boolvar)
-        new_label_or_check_button(global, GTK_GRID(grid), 0, _("Active"), boolvar, button);
-    return GTK_GRID(grid);
+    GtkWidget *subgrid, *sw, *label, *button, *check, *entry;
+    gchar *markup;
+
+    sw = gtk_switch_new();
+    g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
+    gtk_switch_set_active (GTK_SWITCH(sw), *boolvar);
+    switch_cb (GTK_SWITCH(sw), *boolvar, global);
+    g_signal_connect (GTK_WIDGET(sw), "state-set",
+                      G_CALLBACK(switch_cb), global);
+
+    markup = g_markup_printf_escaped ("<b>%s</b>", title);
+    label = gtk_label_new (markup);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
+    gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
+    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
+    g_free (markup);
+    gtk_grid_attach(GTK_GRID(grid), label, 0, position, 2, 1);
+    gtk_grid_attach(GTK_GRID(grid), sw, 2, position, 1, 1);
+
+    if (colorvar == NULL)
+        return;
+    subgrid = gtk_grid_new ();
+    g_object_set_data (G_OBJECT(sw), "sensitive_widget", subgrid);
+    gtk_grid_attach(GTK_GRID(grid), subgrid, 0, position + 1, 2, 1);
+    gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
+    gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
+
+    button = gtk_color_button_new_with_rgba(colorvar);
+    g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
+    g_signal_connect(G_OBJECT(button), "color-set",
+                 G_CALLBACK (color_set_cb), global);
+
+    label = gtk_label_new_with_mnemonic (_("Bar color:"));
+    gtk_widget_set_halign(label, GTK_ALIGN_END);
+    gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
+    gtk_label_set_mnemonic_widget(GTK_LABEL(label), button);
+
+    gtk_grid_attach(GTK_GRID(subgrid), label, 1, 1, 1, 1);
+    gtk_grid_attach(GTK_GRID(subgrid), button, 2, 1, 1, 1);
+
+    entry = gtk_entry_new ();
+    g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
+    gtk_entry_set_text (GTK_ENTRY(entry), *labeltext);
+    g_signal_connect (G_OBJECT(entry), "changed",
+                      G_CALLBACK(entry_changed_cb), global);
+
+    label = gtk_label_new_with_mnemonic (_("Text to display:"));
+    gtk_widget_set_halign(label, GTK_ALIGN_END);
+    gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
+    gtk_label_set_mnemonic_widget(GTK_LABEL(label), entry);
+
+    check = gtk_check_button_new();
+    g_object_set_data (G_OBJECT(check), "sensitive_widget", entry);
+    g_object_set_data (G_OBJECT(check), "boolvar", use_label);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(check), *use_label);
+    check_button_cb (GTK_TOGGLE_BUTTON(check), global);
+    g_signal_connect (G_OBJECT(check), "toggled",
+                      G_CALLBACK(check_button_cb), global);
+
+    gtk_grid_attach(GTK_GRID(subgrid), check, 0, 0, 1, 1);
+    gtk_grid_attach(GTK_GRID(subgrid), label, 1, 0, 1, 1);
+    gtk_grid_attach(GTK_GRID(subgrid), entry, 2, 0, 1, 1);
 }
+
 /* Adds an entry box to the grid, optionally with a checkbox to enable it.
  * Set boolvar to NULL if you do not want a checkbox. */
 static void new_entry(t_global_monitor *global, GtkGrid *grid, guint row,
@@ -821,7 +866,7 @@ static void new_entry(t_global_monitor *global, GtkGrid *grid, guint row,
     g_signal_connect (G_OBJECT(entry), "changed",
                       G_CALLBACK(entry_changed_cb), global);
     new_label_or_check_button(global, GTK_GRID(grid), row, labeltext, boolvar, entry);
-    gtk_grid_attach(grid, entry, 2, row, 1, 1);
+    gtk_grid_attach(grid, entry, 1, row, 1, 1);
 }
 
 /* Adds a new spin button, optionally with a checkbox to enable it.
@@ -835,7 +880,7 @@ static void new_spin_button(t_global_monitor *global, GtkGrid *grid, guint row,
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), value);
     g_signal_connect (G_OBJECT (button), "value-changed", callback, global);
     new_label_or_check_button(global, grid, row, labeltext, boolvar, button);
-    gtk_grid_attach(grid, button, 2, row, 1, 1);
+    gtk_grid_attach(grid, button, 1, row, 1, 1);
 }
 
 static void
@@ -843,7 +888,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget           *dlg;
     GtkBox              *content;
-    GtkGrid             *table;
+    GtkWidget           *grid;
     guint                count;
     t_monitor           *monitor;
     static const gchar *FRAME_TEXT[] = {
@@ -869,39 +914,41 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     content = GTK_BOX(gtk_dialog_get_content_area (GTK_DIALOG(dlg)));
 
-    table = new_frame(global, content, _("General"), NULL, NULL);
-    new_spin_button(global, table, 0,
+    grid = gtk_grid_new();
+    gtk_grid_set_column_spacing (GTK_GRID(grid), 12);
+    gtk_grid_set_row_spacing (GTK_GRID(grid), 6);
+    gtk_container_set_border_width(GTK_CONTAINER(grid), 6);
+    gtk_box_pack_start (content, grid, TRUE, TRUE, 0);
+    new_spin_button(global, GTK_GRID(grid), 0,
             _("Update interval:"),
             (gfloat)global->timeout/1000.0, 0.100, 10.000, .050,
             G_CALLBACK(change_timeout_cb), NULL);
 #ifdef HAVE_UPOWER_GLIB
-    new_spin_button(global, table, 1,
+    new_spin_button(global, GTK_GRID(grid), 1,
             _("Power-saving interval:"),
             (gfloat)global->timeout_seconds, 1, 10, 1,
             G_CALLBACK(change_timeout_seconds_cb),
             &global->use_timeout_seconds);
 #endif
-    new_entry(global, table, 2,
+    new_entry(global, GTK_GRID(grid), 2,
               _("System monitor:"),
               &global->command.command_text, &global->command.enabled);
     for(count = 0; count < 3; count++)
     {
         monitor = global->monitor[count];
 
-        table = new_frame(global, content,
-                          _(FRAME_TEXT[count]),
-                          &monitor->options.enabled,
-                          &monitor->options.color);
-
-        new_entry(global, table, 1,
-                  _("Text to display:"), &monitor->options.label_text,
-                  &monitor->options.use_label);
-
+        new_monitor_setting(global, GTK_GRID(grid), 3 + 2 * count,
+                           _(FRAME_TEXT[count]),
+                           &monitor->options.enabled,
+                           &monitor->options.color,
+                           &monitor->options.use_label,
+                           &monitor->options.label_text);
     }
 
     /*uptime monitor options - start*/
-    table = new_frame(global, content,
-                      _(FRAME_TEXT[3]), &global->uptime->enabled, NULL);
+    new_monitor_setting(global, GTK_GRID(grid), 10,
+                      _(FRAME_TEXT[3]), &global->uptime->enabled,
+                      NULL, NULL, NULL);
     /*uptime monitor options - end*/
 
     gtk_widget_show_all (dlg);
