@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-29 18:31+0200\n"
-"PO-Revision-Date: 2016-05-03 16:55+0000\n"
+"POT-Creation-Date: 2016-06-05 18:31+0200\n"
+"PO-Revision-Date: 2016-06-18 07:09+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "No s'ha trobat el fitxer «/proc/stat»"
+msgstr "No s'ha trobat el fitxer «/proc/stat»!"
 
 #: ../panel-plugin/systemload.c:179
 #, c-format
@@ -61,68 +61,60 @@ msgstr[1] "Temps en funcionament: %d dies %d:%02d"
 #: ../panel-plugin/systemload.c:220
 #, c-format
 msgid "Uptime: %d:%02d"
-msgstr "En actiu: %d:%02d"
+msgstr "Temps en funcionament: %d:%02d"
 
 #: ../panel-plugin/systemload.c:335
 msgid "Run _System Monitor"
 msgstr "Executa el monitor del _sistema"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
 msgstr "Color de la barra:"
 
-#: ../panel-plugin/systemload.c:790
-msgid "Active"
-msgstr "Actiu"
-
-#: ../panel-plugin/systemload.c:832
-msgid "CPU monitor"
-msgstr "Monitor de la CPU"
-
-#: ../panel-plugin/systemload.c:833
-msgid "Memory monitor"
-msgstr "Monitor de la memòria"
-
-#: ../panel-plugin/systemload.c:834
-msgid "Swap monitor"
-msgstr "Monitor de la memòria d'intercanvi"
-
-#: ../panel-plugin/systemload.c:835
-msgid "Uptime monitor"
-msgstr "Monitor del temps en funcionament"
-
-#: ../panel-plugin/systemload.c:840 ../panel-plugin/systemload.desktop.in.h:1
-msgid "System Load Monitor"
-msgstr "Monitor de la càrrega del sistema"
-
-#: ../panel-plugin/systemload.c:854
-msgid "General"
-msgstr "General"
-
-#: ../panel-plugin/systemload.c:856
-msgid "Update interval:"
-msgstr "Interval d'actualització:"
-
-#: ../panel-plugin/systemload.c:861
-msgid "Power-saving interval:"
-msgstr "Interval d'estalvi d'energia:"
-
-#: ../panel-plugin/systemload.c:867
-msgid "System monitor:"
-msgstr "Monitor del sistema:"
-
-#: ../panel-plugin/systemload.c:879
+#: ../panel-plugin/systemload.c:838
 msgid "Text to display:"
 msgstr "Text a mostrar:"
 
-#: ../panel-plugin/systemload.c:907 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:895
+msgid "CPU monitor"
+msgstr "Monitor de la CPU"
+
+#: ../panel-plugin/systemload.c:896
+msgid "Memory monitor"
+msgstr "Monitor de la memòria"
+
+#: ../panel-plugin/systemload.c:897
+msgid "Swap monitor"
+msgstr "Monitor de la memòria d'intercanvi"
+
+#: ../panel-plugin/systemload.c:898
+msgid "Uptime monitor"
+msgstr "Monitor del temps en funcionament"
+
+#: ../panel-plugin/systemload.c:903 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Monitor de la càrrega del sistema"
+
+#: ../panel-plugin/systemload.c:923
+msgid "Update interval:"
+msgstr "Interval d'actualització:"
+
+#: ../panel-plugin/systemload.c:928
+msgid "Power-saving interval:"
+msgstr "Interval d'estalvi d'energia:"
+
+#: ../panel-plugin/systemload.c:934
+msgid "System monitor:"
+msgstr "Monitor del sistema:"
+
+#: ../panel-plugin/systemload.c:972 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitora la càrrega de la CPU, l'ús de la memòria d'intercanvi i l'empremta de la memòria"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:974
 msgid "Copyright (c) 2003-2016\n"
 msgstr "Copyright (c) 2003-2016\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "No s'ha trobat el fitxer «/proc/uptime»"
+msgstr "No s'ha trobat el fitxer «/proc/uptime»!"
