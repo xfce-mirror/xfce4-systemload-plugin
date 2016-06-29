@@ -3,17 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Allan Nordhøy <comradekingu@gmail.com>, 2015
-# Harald <haarektrans@gmail.com>, 2014
+# Allan Nordhøy <epost@anotheragency.no>, 2015
+# Allan Nordhøy <epost@anotheragency.no>, 2016
+# Harald H. <haarektrans@gmail.com>, 2014
 # Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 12:31+0100\n"
-"PO-Revision-Date: 2015-02-21 14:35+0000\n"
-"Last-Translator: Allan Nordhøy <comradekingu@gmail.com>\n"
-"Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nb/)\n"
+"POT-Creation-Date: 2016-06-05 18:31+0200\n"
+"PO-Revision-Date: 2016-06-29 10:58+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,104 +25,96 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Filen /proc/stat ikke funnet!"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:179
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systemlast: %ld%%"
 
-#: ../panel-plugin/systemload.c:192
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Minne: %ldMB of %ldMB brukt"
 
-#: ../panel-plugin/systemload.c:200
+#: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Vekselfil: %ldMB of %ldMB brukt"
 
-#: ../panel-plugin/systemload.c:203
+#: ../panel-plugin/systemload.c:197
 #, c-format
 msgid "No swap"
 msgstr "Ingen vekselfil"
 
-#: ../panel-plugin/systemload.c:214
+#: ../panel-plugin/systemload.c:208
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dag"
 msgstr[1] "%d dager"
 
-#: ../panel-plugin/systemload.c:218
+#: ../panel-plugin/systemload.c:212
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Oppetid: %d dag %d:%02d"
 msgstr[1] "Oppetid: %d dager %d:%02d"
 
-#: ../panel-plugin/systemload.c:226
+#: ../panel-plugin/systemload.c:220
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Oppetid: %d:%02d"
 
-#: ../panel-plugin/systemload.c:350
+#: ../panel-plugin/systemload.c:335
 msgid "Run _System Monitor"
 msgstr "Kjør _systemmonitor"
 
-#: ../panel-plugin/systemload.c:873
-msgid "CPU monitor"
-msgstr "Prosessormonitor"
-
-#: ../panel-plugin/systemload.c:874
-msgid "Memory monitor"
-msgstr "Minnemonitor"
-
-#: ../panel-plugin/systemload.c:875
-msgid "Swap monitor"
-msgstr "Vekselfilmonitor"
-
-#: ../panel-plugin/systemload.c:876
-msgid "Uptime monitor"
-msgstr "Oppetidsmonitor"
-
-#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
-msgid "System Load Monitor"
-msgstr "Systemlastmonitor"
-
-#: ../panel-plugin/systemload.c:896
-msgid "General"
-msgstr "Generelt"
-
-#: ../panel-plugin/systemload.c:898
-msgid "Update interval:"
-msgstr "Oppdateringsintervall:"
-
-#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
-msgid "s"
-msgstr "s"
-
-#: ../panel-plugin/systemload.c:903
-msgid "Power-saving interval:"
-msgstr "Strømsparingsintervall:"
-
-#: ../panel-plugin/systemload.c:909
-msgid "System monitor:"
-msgstr "Systemmonitor:"
-
-#: ../panel-plugin/systemload.c:919
-msgid "Text to display:"
-msgstr "Tekst å vise:"
-
-#: ../panel-plugin/systemload.c:923
+#: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
 msgstr "Stolpefarge:"
 
-#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:838
+msgid "Text to display:"
+msgstr "Tekst å vise:"
+
+#: ../panel-plugin/systemload.c:895
+msgid "CPU monitor"
+msgstr "Prosessormonitor"
+
+#: ../panel-plugin/systemload.c:896
+msgid "Memory monitor"
+msgstr "Minnemonitor"
+
+#: ../panel-plugin/systemload.c:897
+msgid "Swap monitor"
+msgstr "Vekselfilmonitor"
+
+#: ../panel-plugin/systemload.c:898
+msgid "Uptime monitor"
+msgstr "Oppetidsmonitor"
+
+#: ../panel-plugin/systemload.c:903 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Systemlastmonitor"
+
+#: ../panel-plugin/systemload.c:923
+msgid "Update interval:"
+msgstr "Oppdateringsintervall:"
+
+#: ../panel-plugin/systemload.c:928
+msgid "Power-saving interval:"
+msgstr "Strømsparingsintervall:"
+
+#: ../panel-plugin/systemload.c:934
+msgid "System monitor:"
+msgstr "Systemmonitor:"
+
+#: ../panel-plugin/systemload.c:972 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Viser CPU-belastning, vekselfilbruk og minneavtrykk"
 
-#: ../panel-plugin/systemload.c:950
-msgid "Copyright (c) 2003-2014\n"
-msgstr "Kopirett (c) 2003-2014\n"
+#: ../panel-plugin/systemload.c:974
+msgid "Copyright (c) 2003-2016\n"
+msgstr "Kopirett (c) 2003-2016\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
