@@ -50,6 +50,7 @@ static unsigned long MTotal = 0;
 static unsigned long MFree = 0;
 static unsigned long MBuffers = 0;
 static unsigned long MCached = 0;
+static unsigned long MAvail = 0;
 static unsigned long MUsed = 0;
 static unsigned long STotal = 0;
 static unsigned long SFree = 0;
@@ -59,7 +60,7 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
 {
     int fd;
     size_t n;
-    char *b_MTotal, *b_MFree, *b_MBuffers, *b_MCached, *b_STotal, *b_SFree;
+    char *b_MTotal, *b_MFree, *b_MBuffers, *b_MCached, *b_MAvail, *b_STotal, *b_SFree;
 
     if ((fd = open("/proc/meminfo", O_RDONLY)) < 0)
     {
@@ -91,6 +92,15 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     b_MCached = strstr(MemInfoBuf, "Cached");
     if (!b_MCached || !sscanf(b_MCached + strlen("Cached"), ": %lu", &MCached))
         return -1;
+
+    /* In Linux 3.14+, use MemAvailable instead */
+    b_MAvail = strstr(MemInfoBuf, "MemAvailable");
+    if (b_MAvail && sscanf(b_MAvail + strlen("MemAvailable"), ": %lu", &MAvail))
+    {
+        MFree = MAvail;
+        MBuffers = 0;
+        MCached = 0;
+    }
 
     b_STotal = strstr(MemInfoBuf, "SwapTotal");
     if (!b_STotal || !sscanf(b_STotal + strlen("SwapTotal"), ": %lu", &STotal))
