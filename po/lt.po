@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 12:31+0100\n"
-"PO-Revision-Date: 2016-03-17 17:36+0000\n"
+"POT-Creation-Date: 2016-06-05 18:31+0200\n"
+"PO-Revision-Date: 2016-09-14 09:16+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -22,29 +22,29 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "Byla „/proc/stat“ nerasta!"
+msgstr "Failas „/proc/stat“ nerastas!"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:179
 #, c-format
 msgid "System Load: %ld%%"
-msgstr "Sistemos apkrovimas: %ld%%"
+msgstr "Sistemos apkrova: %ld%%"
 
-#: ../panel-plugin/systemload.c:192
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Darbinė atmintis: naudojama %ldMB iš %ldMB"
 
-#: ../panel-plugin/systemload.c:200
+#: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Mainų skaidinys: naudojama %ldMB iš %ldMB"
 
-#: ../panel-plugin/systemload.c:203
+#: ../panel-plugin/systemload.c:197
 #, c-format
 msgid "No swap"
 msgstr "Mainų skaidinio nėra"
 
-#: ../panel-plugin/systemload.c:214
+#: ../panel-plugin/systemload.c:208
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -52,7 +52,7 @@ msgstr[0] "%d diena"
 msgstr[1] "%d dienos"
 msgstr[2] "%d dienų"
 
-#: ../panel-plugin/systemload.c:218
+#: ../panel-plugin/systemload.c:212
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -60,71 +60,63 @@ msgstr[0] "Veikimo laikas: %d diena %d:%02d"
 msgstr[1] "Veikimo laikas: %d dienos %d:%02d"
 msgstr[2] "Veikimo laikas: %d dienų %d:%02d"
 
-#: ../panel-plugin/systemload.c:226
+#: ../panel-plugin/systemload.c:220
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Veikimo laikas: %d:%02d"
 
-#: ../panel-plugin/systemload.c:350
+#: ../panel-plugin/systemload.c:335
 msgid "Run _System Monitor"
-msgstr "Paleisti _sistemos monitorių"
+msgstr "Paleisti _sistemos prižiūryklę"
 
-#: ../panel-plugin/systemload.c:873
-msgid "CPU monitor"
-msgstr "CPU stebėjimas"
-
-#: ../panel-plugin/systemload.c:874
-msgid "Memory monitor"
-msgstr "Atminties stebėjimas"
-
-#: ../panel-plugin/systemload.c:875
-msgid "Swap monitor"
-msgstr "Mainų skaidinio stebėjimas"
-
-#: ../panel-plugin/systemload.c:876
-msgid "Uptime monitor"
-msgstr "Veikimo laiko stebėjimas"
-
-#: ../panel-plugin/systemload.c:881 ../panel-plugin/systemload.desktop.in.h:1
-msgid "System Load Monitor"
-msgstr "Sistemos apkrovimas"
-
-#: ../panel-plugin/systemload.c:896
-msgid "General"
-msgstr "Bendra"
-
-#: ../panel-plugin/systemload.c:898
-msgid "Update interval:"
-msgstr "Atnaujinimo intervalas:"
-
-#: ../panel-plugin/systemload.c:898 ../panel-plugin/systemload.c:903
-msgid "s"
-msgstr "s"
-
-#: ../panel-plugin/systemload.c:903
-msgid "Power-saving interval:"
-msgstr "Energijos taupymo intervalas:"
-
-#: ../panel-plugin/systemload.c:909
-msgid "System monitor:"
-msgstr "Sistemos monitorius:"
-
-#: ../panel-plugin/systemload.c:919
-msgid "Text to display:"
-msgstr "Rodomas tekstas:"
-
-#: ../panel-plugin/systemload.c:923
+#: ../panel-plugin/systemload.c:824
 msgid "Bar color:"
 msgstr "Juostos spalva:"
 
-#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:838
+msgid "Text to display:"
+msgstr "Rodomas tekstas:"
+
+#: ../panel-plugin/systemload.c:895
+msgid "CPU monitor"
+msgstr "CPU prižiūryklė"
+
+#: ../panel-plugin/systemload.c:896
+msgid "Memory monitor"
+msgstr "Atminties prižiūryklė"
+
+#: ../panel-plugin/systemload.c:897
+msgid "Swap monitor"
+msgstr "Mainų skaidinio prižiūryklė"
+
+#: ../panel-plugin/systemload.c:898
+msgid "Uptime monitor"
+msgstr "Veikimo laiko prižiūryklė"
+
+#: ../panel-plugin/systemload.c:903 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Sistemos apkrovos prižiūryklė"
+
+#: ../panel-plugin/systemload.c:923
+msgid "Update interval:"
+msgstr "Atnaujinimo intervalas:"
+
+#: ../panel-plugin/systemload.c:928
+msgid "Power-saving interval:"
+msgstr "Energijos taupymo intervalas:"
+
+#: ../panel-plugin/systemload.c:934
+msgid "System monitor:"
+msgstr "Sistemos prižiūryklė:"
+
+#: ../panel-plugin/systemload.c:972 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Stebėti CPU apkrovą, mainų srities naudojimą ir atminties naudojimą"
 
-#: ../panel-plugin/systemload.c:950
-msgid "Copyright (c) 2003-2014\n"
-msgstr "Autorinės Teisės (c) 2003-2014\n"
+#: ../panel-plugin/systemload.c:974
+msgid "Copyright (c) 2003-2016\n"
+msgstr "Autorių teisės (c) 2003-2016\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "Byla „/proc/uptime“ nerasta!"
+msgstr "Failas „/proc/uptime“ nerastas!"
