@@ -1,3 +1,8 @@
+1.2.0 (2016/11/01)
+-----------------
+- set progressbar trough and color minimal width/height to 4px so that it looks like with gtk+2
+- Use MemAvailable on Linux 3.14+ (#12686)
+
 1.1.99 (2016/06/05)
 -----------------
 - port to gtk+3/libxfce4ui-2/libxfce4panel-2.0
