@@ -627,24 +627,8 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 static gboolean
 monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 {
-    gint count;
 
     gtk_container_set_border_width (GTK_CONTAINER (global->ebox), (size > 26 ? 2 : 1));
-    for(count = 0; count < 3; count++)
-    {
-        if (xfce_panel_plugin_get_orientation (plugin) == 
-                GTK_ORIENTATION_HORIZONTAL)
-        {
-            gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
-                                        8, -1);
-        }
-        else
-        {
-            gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
-                                        -1, 8);
-        }
-    }
-    
     setup_monitor(global);
 
     return TRUE;
