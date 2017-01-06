@@ -455,7 +455,7 @@ setup_monitor(t_global_monitor *global)
                                                       background-color: %s; background-image: none; }",
                                       cssminsizes, cssminsizes,
 #else
-        css = g_strdup_printf(".progressbar { background-color: %s; background-image: none; }",
+        css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }",
 #endif
                                       gdk_rgba_to_string(&global->monitor[count]->options.color));
         /* Setup Gtk style */
