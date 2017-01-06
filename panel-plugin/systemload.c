@@ -248,6 +248,9 @@ static void
 create_monitor (t_global_monitor *global)
 {
     gint count;
+#if GTK_CHECK_VERSION (3, 16, 0)
+    GtkCssProvider *css_provider;
+#endif
 
     global->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
     gtk_widget_show(global->box);
@@ -258,6 +261,20 @@ create_monitor (t_global_monitor *global)
             gtk_label_new(global->monitor[count]->options.label_text);
 
         global->monitor[count]->status = GTK_WIDGET(gtk_progress_bar_new());
+#if GTK_CHECK_VERSION (3, 16, 0)
+        css_provider = gtk_css_provider_new ();
+        gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (global->monitor[count]->status))),
+            GTK_STYLE_PROVIDER (css_provider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_css_provider_load_from_data (css_provider, "\
+            progressbar.horizontal trough { min-height: 4px; }\
+            progressbar.horizontal progress { min-height: 4px; }\
+            progressbar.vertical trough { min-width: 4px; }\
+            progressbar.vertical progress { min-width: 4px; }",
+             -1, NULL);
+        g_object_set_data(G_OBJECT(global->monitor[count]->status), "css_provider", css_provider);
+#endif
 
         global->monitor[count]->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
 
@@ -432,7 +449,6 @@ setup_monitor(t_global_monitor *global)
 {
     gint count;
 #if GTK_CHECK_VERSION (3, 16, 0)
-    GtkCssProvider *css_provider;
     gchar * css;
 #endif
 
@@ -447,24 +463,14 @@ setup_monitor(t_global_monitor *global)
 
 #if GTK_CHECK_VERSION (3, 16, 0)
 #if GTK_CHECK_VERSION (3, 20, 0)
-        gchar * cssminsizes = "min-width: 4px; min-height: 0px";
-        if (gtk_orientable_get_orientation(GTK_ORIENTABLE(global->monitor[count]->status)) == GTK_ORIENTATION_HORIZONTAL)
-            cssminsizes = "min-width: 0px; min-height: 4px";
-        css = g_strdup_printf("progressbar trough { %s } \
-                               progressbar progress { %s ; \
-                                                      background-color: %s; background-image: none; }",
-                                      cssminsizes, cssminsizes,
+        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
 #else
         css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }",
 #endif
-                                      gdk_rgba_to_string(&global->monitor[count]->options.color));
-        /* Setup Gtk style */
-        css_provider = gtk_css_provider_new ();
-        gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
-        gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (global->monitor[count]->status))),
-            GTK_STYLE_PROVIDER (css_provider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+                              gdk_rgba_to_string(&global->monitor[count]->options.color));
+        gtk_css_provider_load_from_data (
+            g_object_get_data(G_OBJECT(global->monitor[count]->status), "css_provider"),
+            css, strlen(css), NULL);
         g_free(css);
 #else
         gtk_widget_override_background_color(GTK_WIDGET(global->monitor[count]->status),
