@@ -2,7 +2,7 @@
  * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
  * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
  * Copyright (c) 2012 David Schneider <dnschneid@gmail.com>
- * Copyright (c) 2014-2016 Landry Breuil <landry@xfce.org>
+ * Copyright (c) 2014-2017 Landry Breuil <landry@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -983,7 +983,7 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
       "program-name", PACKAGE_NAME,
       "comments", _("Monitor CPU load, swap usage and memory footprint"),
       "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin",
-      "copyright", _("Copyright (c) 2003-2016\n"),
+      "copyright", _("Copyright (c) 2003-2017\n"),
       "authors", auth, NULL);
 
    if(icon)
