@@ -6,13 +6,13 @@
 # Aputsiak Niels Janussen <aj@isit.gl>, 2015
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Per Kongstad <p_kongstad@op.pl>, 2008,2010
-# scootergrisen, 2016
+# scootergrisen, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 18:31+0200\n"
-"PO-Revision-Date: 2016-12-08 23:35+0000\n"
+"POT-Creation-Date: 2017-02-10 00:31+0100\n"
+"PO-Revision-Date: 2017-02-13 08:11+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -64,57 +64,57 @@ msgstr[1] "Oppetid: %d dage %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Oppetid: %d:%02d"
 
-#: ../panel-plugin/systemload.c:335
+#: ../panel-plugin/systemload.c:352
 msgid "Run _System Monitor"
 msgstr "Start _systemovervågningen"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:836
 msgid "Bar color:"
 msgstr "Bjælkefarve:"
 
-#: ../panel-plugin/systemload.c:838
+#: ../panel-plugin/systemload.c:850
 msgid "Text to display:"
 msgstr "Tekst at vise:"
 
-#: ../panel-plugin/systemload.c:895
+#: ../panel-plugin/systemload.c:907
 msgid "CPU monitor"
 msgstr "CPU-overvågning"
 
-#: ../panel-plugin/systemload.c:896
+#: ../panel-plugin/systemload.c:908
 msgid "Memory monitor"
 msgstr "Hukommelsesovervågning"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:909
 msgid "Swap monitor"
 msgstr "Swapovervågning"
 
-#: ../panel-plugin/systemload.c:898
+#: ../panel-plugin/systemload.c:910
 msgid "Uptime monitor"
 msgstr "Oppetidsovervågning"
 
-#: ../panel-plugin/systemload.c:903 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Systembelastnings-overvågning"
 
-#: ../panel-plugin/systemload.c:923
+#: ../panel-plugin/systemload.c:935
 msgid "Update interval:"
 msgstr "Opdateringsinterval:"
 
-#: ../panel-plugin/systemload.c:928
+#: ../panel-plugin/systemload.c:940
 msgid "Power-saving interval:"
 msgstr "Strømbesparelsesinterval:"
 
-#: ../panel-plugin/systemload.c:934
+#: ../panel-plugin/systemload.c:946
 msgid "System monitor:"
 msgstr "Systemovervågning:"
 
-#: ../panel-plugin/systemload.c:972 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapfilbrug og hukommelsesaftryk"
 
-#: ../panel-plugin/systemload.c:974
-msgid "Copyright (c) 2003-2016\n"
-msgstr "Ophavsret (c) 2003-2016\n"
+#: ../panel-plugin/systemload.c:986
+msgid "Copyright (c) 2003-2017\n"
+msgstr "Ophavsret (c) 2003-2017\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
