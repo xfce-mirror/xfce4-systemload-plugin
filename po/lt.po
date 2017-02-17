@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-02-10 11:03+0000\n"
+"PO-Revision-Date: 2017-02-17 20:36+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -37,12 +37,12 @@ msgstr "Darbinė atmintis: naudojama %ldMB iš %ldMB"
 #: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Mainų skaidinys: naudojama %ldMB iš %ldMB"
+msgstr "Sukeitimų skaidinys: naudojama %ldMB iš %ldMB"
 
 #: ../panel-plugin/systemload.c:197
 #, c-format
 msgid "No swap"
-msgstr "Mainų skaidinio nėra"
+msgstr "Sukeitimų skaidinio nėra"
 
 #: ../panel-plugin/systemload.c:208
 #, c-format
@@ -87,7 +87,7 @@ msgstr "Atminties prižiūryklė"
 
 #: ../panel-plugin/systemload.c:909
 msgid "Swap monitor"
-msgstr "Mainų skaidinio prižiūryklė"
+msgstr "Sukeitimų skaidinio prižiūryklė"
 
 #: ../panel-plugin/systemload.c:910
 msgid "Uptime monitor"
@@ -111,7 +111,7 @@ msgstr "Sistemos prižiūryklė:"
 
 #: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Stebėti CPU apkrovą, mainų srities naudojimą ir atminties naudojimą"
+msgstr "Stebėti CPU apkrovą, sukeitimų srities naudojimą ir atminties naudojimą"
 
 #: ../panel-plugin/systemload.c:986
 msgid "Copyright (c) 2003-2017\n"
