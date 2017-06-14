@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-06-12 14:55+0000\n"
+"PO-Revision-Date: 2017-06-14 15:29+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "เฝ้าสังเกตโหลดของซีพียู, �
 
 #: ../panel-plugin/systemload.c:986
 msgid "Copyright (c) 2003-2017\n"
-msgstr ""
+msgstr "Copyright (c) 2003-2017\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
