@@ -6,13 +6,13 @@
 # Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>, 2012
 # Jeff Bailes <thepizzaking@gmail.com>, 2007
 # Natavan Mirzayeva <mirzayevanatavan@gmail.com>, 2014
-# Necdet Yücel <necdetyucel@gmail.com>, 2013,2016
+# Necdet Yücel <necdetyucel@gmail.com>, 2013,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-05 18:31+0200\n"
-"PO-Revision-Date: 2016-07-25 08:32+0000\n"
+"POT-Creation-Date: 2017-02-10 00:31+0100\n"
+"PO-Revision-Date: 2017-07-24 08:53+0000\n"
 "Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -64,57 +64,57 @@ msgstr[1] "Uptime: %d gün %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Uptime: %d:%02d"
 
-#: ../panel-plugin/systemload.c:335
+#: ../panel-plugin/systemload.c:352
 msgid "Run _System Monitor"
 msgstr "Run _Sistem Monitörü"
 
-#: ../panel-plugin/systemload.c:824
+#: ../panel-plugin/systemload.c:836
 msgid "Bar color:"
 msgstr "Çubuk rengi:"
 
-#: ../panel-plugin/systemload.c:838
+#: ../panel-plugin/systemload.c:850
 msgid "Text to display:"
 msgstr "İsim:"
 
-#: ../panel-plugin/systemload.c:895
+#: ../panel-plugin/systemload.c:907
 msgid "CPU monitor"
 msgstr "CPU çubuğu"
 
-#: ../panel-plugin/systemload.c:896
+#: ../panel-plugin/systemload.c:908
 msgid "Memory monitor"
 msgstr "Bellek çubuğu"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:909
 msgid "Swap monitor"
 msgstr "Takas çubuğu"
 
-#: ../panel-plugin/systemload.c:898
+#: ../panel-plugin/systemload.c:910
 msgid "Uptime monitor"
 msgstr "Hizmet süresi"
 
-#: ../panel-plugin/systemload.c:903 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Sistem durumu"
 
-#: ../panel-plugin/systemload.c:923
+#: ../panel-plugin/systemload.c:935
 msgid "Update interval:"
 msgstr "Güncelleme aralığı:"
 
-#: ../panel-plugin/systemload.c:928
+#: ../panel-plugin/systemload.c:940
 msgid "Power-saving interval:"
 msgstr "Güç artırım zaman aralığı:"
 
-#: ../panel-plugin/systemload.c:934
+#: ../panel-plugin/systemload.c:946
 msgid "System monitor:"
 msgstr "Sistem monitörü:"
 
-#: ../panel-plugin/systemload.c:972 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor CPU load, swap usage and memory footprint"
 
-#: ../panel-plugin/systemload.c:974
-msgid "Copyright (c) 2003-2016\n"
-msgstr "Telif Hakkı (c) 2003-2016\n"
+#: ../panel-plugin/systemload.c:986
+msgid "Copyright (c) 2003-2017\n"
+msgstr "Telif Hakkı (c) 2003-2017\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
