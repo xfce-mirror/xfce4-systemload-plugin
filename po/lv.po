@@ -1,58 +1,57 @@
-# Swedish translation for xfce4-systemload-plugin
-# Copyright (c) 2006 Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce4-systemload-plugin package.
-#
-# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
-# Rihards Prieditis <rprieditis@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Rihards Priedītis <rprieditis@gmail.com>, 2009
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-systemload-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-18 17:17+0200\n"
-"PO-Revision-Date: 2009-09-18 23:19+0100\n"
-"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
-"Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
-"Language: lv\n"
+"POT-Creation-Date: 2017-02-10 00:31+0100\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Latvian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Fails /proc/stat nav atrasts!"
 
-#: ../panel-plugin/systemload.c:153
+#: ../panel-plugin/systemload.c:179
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Sistēmas noslodze: %ld%%"
 
-#: ../panel-plugin/systemload.c:160
+#: ../panel-plugin/systemload.c:186
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Atmiņa: %ldMB no %ldMB tiek lietoti"
 
-#: ../panel-plugin/systemload.c:168
+#: ../panel-plugin/systemload.c:194
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Maiņvieta: %ldMB no %ldMB tiek izmantota"
 
-#: ../panel-plugin/systemload.c:171
+#: ../panel-plugin/systemload.c:197
 #, c-format
 msgid "No swap"
 msgstr "Nav maiņvietas"
 
-#: ../panel-plugin/systemload.c:182
-#, fuzzy, c-format
+#: ../panel-plugin/systemload.c:208
+#, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d dienas"
-msgstr[1] "%d dienas"
-msgstr[2] "%d dienas"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:212
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -60,65 +59,63 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../panel-plugin/systemload.c:194
-#, fuzzy, c-format
+#: ../panel-plugin/systemload.c:220
+#, c-format
 msgid "Uptime: %d:%02d"
-msgstr "Augšlaiks:"
+msgstr ""
 
-#: ../panel-plugin/systemload.c:811
-msgid "CPU monitor"
-msgstr "CPU pārraugs"
-
-#: ../panel-plugin/systemload.c:812
-msgid "Memory monitor"
-msgstr "Atmiņa pārraugs"
-
-#: ../panel-plugin/systemload.c:813
-msgid "Swap monitor"
-msgstr "Maiņvietas pārraugs"
-
-#: ../panel-plugin/systemload.c:814
-msgid "Uptime monitor"
-msgstr "Augšlaika pārraugs"
-
-#: ../panel-plugin/systemload.c:819 ../panel-plugin/systemload.desktop.in:4
-msgid "System Load Monitor"
-msgstr "Sistēmas noslodzes pārraugs"
-
-#: ../panel-plugin/systemload.c:834
-msgid "General"
+#: ../panel-plugin/systemload.c:352
+msgid "Run _System Monitor"
 msgstr ""
 
 #: ../panel-plugin/systemload.c:836
-msgid "Update interval:"
-msgstr ""
+msgid "Bar color:"
+msgstr "Joslu krāsa:"
 
-#: ../panel-plugin/systemload.c:836 ../panel-plugin/systemload.c:841
-msgid "s"
-msgstr ""
-
-#: ../panel-plugin/systemload.c:841
-msgid "Power-saving interval:"
-msgstr ""
-
-#: ../panel-plugin/systemload.c:855
+#: ../panel-plugin/systemload.c:850
 msgid "Text to display:"
 msgstr "Rādāmais teksts:"
 
-#: ../panel-plugin/systemload.c:859
-msgid "Bar color:"
-msgstr "Joslu krāsa:"
+#: ../panel-plugin/systemload.c:907
+msgid "CPU monitor"
+msgstr "CPU pārraugs"
+
+#: ../panel-plugin/systemload.c:908
+msgid "Memory monitor"
+msgstr "Atmiņa pārraugs"
+
+#: ../panel-plugin/systemload.c:909
+msgid "Swap monitor"
+msgstr "Maiņvietas pārraugs"
+
+#: ../panel-plugin/systemload.c:910
+msgid "Uptime monitor"
+msgstr "Augšlaika pārraugs"
+
+#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Sistēmas noslodzes pārraugs"
+
+#: ../panel-plugin/systemload.c:935
+msgid "Update interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:940
+msgid "Power-saving interval:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:946
+msgid "System monitor:"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Novēro CPU noslodzi, maiņvietas izmantojumu un atmiņas nospiedumu"
+
+#: ../panel-plugin/systemload.c:986
+msgid "Copyright (c) 2003-2017\n"
+msgstr ""
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
 msgstr "Fails /proc/uptime nav atrasts!"
-
-#: ../panel-plugin/systemload.desktop.in:5
-msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Novēro CPU noslodzi, maiņvietas izmantojumu un atmiņas nospiedumu"
-
-#~ msgid "Select color"
-#~ msgstr "Norādiet krāsu"
-
-#~ msgid "Show monitor"
-#~ msgstr "Rādīt pārraugu"
