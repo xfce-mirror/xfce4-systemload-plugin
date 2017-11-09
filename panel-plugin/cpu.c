@@ -97,15 +97,11 @@ gulong read_cpuload(void)
     return cpu_used;
 }
 
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__DragonFly__)
 
 #include <osreldate.h>
 #include <sys/types.h>
-#if __FreeBSD_version < 500101
-#include <sys/dkstat.h>
-#else
 #include <sys/resource.h>
-#endif
 #include <sys/sysctl.h>
 #include <devstat.h>
 #include <fcntl.h>

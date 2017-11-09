@@ -60,7 +60,7 @@ gulong read_uptime(void)
     return uptime;
 }
 
-#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__DragonFly__)
 
 #ifdef __NetBSD__
 /*

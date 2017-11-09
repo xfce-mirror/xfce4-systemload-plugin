@@ -128,7 +128,7 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     return 0;
 }
 
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__DragonFly__)
 /*
  * This is inspired by /usr/src/usr.bin/top/machine.c 
  *
