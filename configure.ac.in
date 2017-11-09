@@ -21,6 +21,7 @@ AC_COPYRIGHT([Copyright (c) 2006-2007, 2014, 2016
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-systemload-plugin], [systemload_version], [http://bugzilla.xfce.org/], [xfce4-systemload-plugin])
 AC_PREREQ([2.50])
+AC_CONFIG_MACRO_DIRS([m4])
 
 dnl ***************************
 dnl *** Initialize automake ***
@@ -35,7 +36,7 @@ dnl ********************************
 AC_PROG_CC()
 AC_PROG_LD()
 AC_PROG_INSTALL()
-AC_PROG_INTLTOOL()
+IT_PROG_INTLTOOL([0.35.0])
 
 dnl ***************************
 dnl *** Disable static libs ***
