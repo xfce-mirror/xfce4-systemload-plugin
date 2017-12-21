@@ -724,6 +724,7 @@ switch_cb(GtkSwitch *check_button, gboolean state, t_global_monitor *global)
     sensitive_widget = g_object_get_data(G_OBJECT(check_button), "sensitive_widget");
     oldstate = *boolvar;
     *boolvar = state;
+    gtk_switch_set_state (check_button, state);
     if (sensitive_widget)
         gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
     if (boolvar == &(global->command.enabled)) {
