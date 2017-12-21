@@ -783,6 +783,7 @@ static GtkWidget *new_label_or_check_button(t_global_monitor *global,
         g_object_set_data (G_OBJECT(sw), "sensitive_widget", target);
         g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
         gtk_switch_set_active (GTK_SWITCH(sw), *boolvar);
+        gtk_widget_set_valign (GTK_WIDGET (sw), GTK_ALIGN_CENTER);
         switch_cb (GTK_SWITCH(sw), *boolvar, global);
         g_signal_connect (GTK_WIDGET(sw), "state-set",
                           G_CALLBACK(switch_cb), global);
