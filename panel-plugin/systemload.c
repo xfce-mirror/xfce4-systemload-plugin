@@ -840,6 +840,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
 
     button = gtk_color_button_new_with_rgba(colorvar);
+    gtk_widget_set_halign(button, GTK_ALIGN_START);
     g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
     g_signal_connect(G_OBJECT(button), "color-set",
                  G_CALLBACK (color_set_cb), global);
