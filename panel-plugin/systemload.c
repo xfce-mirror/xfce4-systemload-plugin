@@ -331,7 +331,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
     t_global_monitor *global;
     GtkWidget* image;
     GtkWidget *label, *box;
-    
+
     global = g_new(t_global_monitor, 1);
 #ifdef HAVE_UPOWER_GLIB
     global->upower = up_client_new();
@@ -359,7 +359,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
     gtk_widget_show_all (global->menu_item);
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
-    
+
     for(count = 0; count < 3; count++)
     {
         global->monitor[count] = g_new(t_monitor, 1);
@@ -377,10 +377,10 @@ monitor_control_new(XfcePanelPlugin *plugin)
         global->monitor[count]->history[3] = 0;
 
     }
-    
+
     global->uptime = g_new(t_uptime_monitor, 1);
     global->uptime->enabled = TRUE;
-    
+
     return global;
 }
 
@@ -514,16 +514,16 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     const char *value;
     char *file;
     XfceRc *rc;
-    
+
     if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
         return;
-    
+
     rc = xfce_rc_simple_open (file, TRUE);
     g_free (file);
 
     if (!rc)
         return;
-    
+
     if (xfce_rc_has_group (rc, "Main"))
     {
         xfce_rc_set_group (rc, "Main");
@@ -549,13 +549,13 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
         if (xfce_rc_has_group (rc, MONITOR_ROOT[count]))
         {
             xfce_rc_set_group (rc, MONITOR_ROOT[count]);
-            
-            global->monitor[count]->options.enabled = 
+
+            global->monitor[count]->options.enabled =
                 xfce_rc_read_bool_entry (rc, "Enabled", TRUE);
 
-            global->monitor[count]->options.use_label = 
+            global->monitor[count]->options.use_label =
                 xfce_rc_read_bool_entry (rc, "Use_Label", TRUE);
-            
+
             if ((value = xfce_rc_read_entry (rc, "Color", NULL)))
             {
                 gdk_rgba_parse(&global->monitor[count]->options.color,
@@ -572,8 +572,8 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
         if (xfce_rc_has_group (rc, MONITOR_ROOT[3]))
         {
             xfce_rc_set_group (rc, MONITOR_ROOT[3]);
-            
-            global->uptime->enabled = 
+
+            global->uptime->enabled =
                 xfce_rc_read_bool_entry (rc, "Enabled", TRUE);
         }
     }
@@ -590,7 +590,7 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
         return;
-    
+
     rc = xfce_rc_simple_open (file, FALSE);
     g_free (file);
 
@@ -609,15 +609,15 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         xfce_rc_set_group (rc, MONITOR_ROOT[count]);
 
-        xfce_rc_write_bool_entry (rc, "Enabled", 
+        xfce_rc_write_bool_entry (rc, "Enabled",
                 global->monitor[count]->options.enabled);
-        
-        xfce_rc_write_bool_entry (rc, "Use_Label", 
+
+        xfce_rc_write_bool_entry (rc, "Use_Label",
                 global->monitor[count]->options.use_label);
 
         xfce_rc_write_entry (rc, "Color", gdk_rgba_to_string(&global->monitor[count]->options.color));
 
-        xfce_rc_write_entry (rc, "Text", 
+        xfce_rc_write_entry (rc, "Text",
             global->monitor[count]->options.label_text ?
                 global->monitor[count]->options.label_text : "");
     }
@@ -638,7 +638,7 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
     gtk_container_set_border_width (GTK_CONTAINER (global->ebox), (size > 26 ? 2 : 1));
     for(count = 0; count < 3; count++)
     {
-        if (xfce_panel_plugin_get_orientation (plugin) == 
+        if (xfce_panel_plugin_get_orientation (plugin) ==
                 GTK_ORIENTATION_HORIZONTAL)
         {
             gtk_widget_set_size_request(GTK_WIDGET(global->monitor[count]->status),
@@ -650,7 +650,7 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
                                         -1, 8);
         }
     }
-    
+
     setup_monitor(global);
 
     return TRUE;
@@ -743,7 +743,7 @@ color_set_cb(GtkColorButton *color_button, t_global_monitor *global)
 }
 
 static void
-monitor_dialog_response (GtkWidget *dlg, int response, 
+monitor_dialog_response (GtkWidget *dlg, int response,
                          t_global_monitor *global)
 {
     gtk_widget_destroy (dlg);
@@ -913,13 +913,13 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     };
 
     xfce_panel_plugin_block_menu (plugin);
-    
-    dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"), 
+
+    dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"),
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT,
                                                "gtk-close", GTK_RESPONSE_OK,
                                                NULL);
-    
+
     g_signal_connect (G_OBJECT (dlg), "response",
                       G_CALLBACK (monitor_dialog_response), global);
 
@@ -996,13 +996,13 @@ static void
 systemload_construct (XfcePanelPlugin *plugin)
 {
     t_global_monitor *global;
- 
+
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
-    
+
     global = monitor_control_new (plugin);
 
     monitor_read_config (plugin, global);
-    
+
     create_monitor (global);
     monitor_set_mode (plugin,
                       xfce_panel_plugin_get_mode (plugin),
@@ -1025,10 +1025,10 @@ systemload_construct (XfcePanelPlugin *plugin)
 #endif /* UP_CHECK_VERSION */
     }
 #endif /* HAVE_UPOWER_GLIB */
-    
+
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
 
-    g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config), 
+    g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config),
                       global);
 
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size),
@@ -1046,7 +1046,7 @@ systemload_construct (XfcePanelPlugin *plugin)
     gtk_widget_set_visible (global->menu_item, global->command.enabled);
 
     xfce_panel_plugin_menu_show_configure (plugin);
-    g_signal_connect (plugin, "configure-plugin", 
+    g_signal_connect (plugin, "configure-plugin",
                       G_CALLBACK (monitor_create_options), global);
 
     xfce_panel_plugin_menu_show_about(plugin);
@@ -1055,4 +1055,3 @@ systemload_construct (XfcePanelPlugin *plugin)
 }
 
 XFCE_PANEL_PLUGIN_REGISTER (systemload_construct);
-
