@@ -702,24 +702,6 @@ entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
 }
 
 static void
-check_button_cb(GtkToggleButton *check_button, t_global_monitor *global)
-{
-    gboolean oldstate;
-    gboolean* boolvar;
-    gpointer sensitive_widget;
-    boolvar = (gboolean*)g_object_get_data(G_OBJECT(check_button), "boolvar");
-    sensitive_widget = g_object_get_data(G_OBJECT(check_button), "sensitive_widget");
-    oldstate = *boolvar;
-    *boolvar = gtk_toggle_button_get_active(check_button);
-    if (sensitive_widget)
-        gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
-    if (boolvar == &(global->command.enabled)) {
-        gtk_widget_set_visible(global->menu_item, *boolvar);
-    } else if (oldstate != *boolvar)
-        setup_monitor(global);
-}
-
-static void
 switch_cb(GtkSwitch *check_button, gboolean state, t_global_monitor *global)
 {
     gboolean oldstate;
