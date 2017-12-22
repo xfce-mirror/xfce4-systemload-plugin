@@ -895,6 +895,7 @@ static void new_spin_button(t_global_monitor *global, GtkGrid *grid, guint row,
                             GCallback callback, gboolean* boolvar) {
     GtkWidget *button;
     button = gtk_spin_button_new_with_range (min, max, step);
+    gtk_widget_set_halign (button, GTK_ALIGN_START);
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), value);
     g_signal_connect (G_OBJECT (button), "value-changed", callback, global);
     new_label_or_check_button(global, grid, row, labeltext, boolvar, button);
