@@ -791,7 +791,7 @@ static GtkWidget *new_label_or_check_button(t_global_monitor *global,
         gtk_grid_attach(grid, sw, 2, row, 1, 1);
     }
     label = gtk_label_new_with_mnemonic (labeltext);
-    gtk_widget_set_halign(label, GTK_ALIGN_END);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), target);
     gtk_grid_attach(grid, label, 0, row, 1, 1);
@@ -836,7 +836,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
                  G_CALLBACK (color_set_cb), global);
 
     label = gtk_label_new_with_mnemonic (_("Bar color:"));
-    gtk_widget_set_halign(label, GTK_ALIGN_END);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), button);
 
@@ -850,7 +850,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
                       G_CALLBACK(entry_changed_cb), global);
 
     label = gtk_label_new_with_mnemonic (_("Text to display:"));
-    gtk_widget_set_halign(label, GTK_ALIGN_END);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), entry);
 
