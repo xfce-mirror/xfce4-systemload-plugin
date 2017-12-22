@@ -853,27 +853,12 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
 }
 
-/* Adds a new spin button, optionally with a checkbox to enable it.
- * Set boolvar to NULL if you do not want a checkbox. */
-static void new_spin_button(t_global_monitor *global, GtkGrid *grid, guint row,
-                            const gchar *labeltext,
-                            gfloat value, gfloat min, gfloat max, gfloat step,
-                            GCallback callback, gboolean* boolvar) {
-    GtkWidget *button;
-    button = gtk_spin_button_new_with_range (min, max, step);
-    gtk_widget_set_halign (button, GTK_ALIGN_START);
-    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), value);
-    g_signal_connect (G_OBJECT (button), "value-changed", callback, global);
-    new_label_or_check_button(global, grid, row, labeltext, boolvar, button);
-    gtk_grid_attach(grid, button, 1, row, 1, 1);
-}
-
 static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget           *dlg;
     GtkBox              *content;
-    GtkWidget           *grid, *label, *entry;
+    GtkWidget           *grid, *label, *entry, *button;
     guint                count;
     t_monitor           *monitor;
     static const gchar *FRAME_TEXT[] = {
@@ -904,24 +889,31 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_grid_set_row_spacing (GTK_GRID(grid), 6);
     gtk_container_set_border_width(GTK_CONTAINER(grid), 12);
     gtk_box_pack_start (content, grid, TRUE, TRUE, 0);
+
     label = gtk_label_new (NULL);
     gtk_label_set_markup (GTK_LABEL (label), _("<b>General</b>"));
     gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
     gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
+
     /* Update interval */
-    new_spin_button(global, GTK_GRID(grid), 1,
-            _("Update interval:"),
-            (gfloat)global->timeout/1000.0, 0.100, 10.000, .050,
-            G_CALLBACK(change_timeout_cb), NULL);
+    button = gtk_spin_button_new_with_range (0.100, 10.000, .050);
+    gtk_widget_set_halign (button, GTK_ALIGN_START);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout/1000.0);
+    g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_cb), global);
+    new_label_or_check_button (global, GTK_GRID (grid), 1, _("Update interval:"), NULL, button);
+    gtk_grid_attach (GTK_GRID (grid), button, 1, 1, 1, 1);
+
 #ifdef HAVE_UPOWER_GLIB
     /* Power-saving interval */
-    new_spin_button(global, GTK_GRID(grid), 2,
-            _("Power-saving interval:"),
-            (gfloat)global->timeout_seconds, 1, 10, 1,
-            G_CALLBACK(change_timeout_seconds_cb),
-            &global->use_timeout_seconds);
+    button = gtk_spin_button_new_with_range (1, 10, 1);
+    gtk_widget_set_halign (button, GTK_ALIGN_START);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout_seconds);
+    g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_seconds_cb), global);
+    new_label_or_check_button(global, GTK_GRID (grid), 2, _("Power-saving interval:"), &global->use_timeout_seconds, button);
+    gtk_grid_attach(GTK_GRID (grid), button, 1, 2, 1, 1);
 #endif
+
     /* System Monitor */
     entry = gtk_entry_new ();
     g_object_set_data (G_OBJECT(entry), "charvar", &global->command.command_text);
@@ -930,6 +922,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                       G_CALLBACK(entry_changed_cb), global);
     new_label_or_check_button(global, GTK_GRID (grid), 3, _("System monitor:"), &global->command.enabled, entry);
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
+
     /* Add options for the three monitors */
     for(count = 0; count < 3; count++)
     {
