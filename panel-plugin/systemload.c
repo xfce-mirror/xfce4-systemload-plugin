@@ -342,7 +342,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
-    global->command.enabled = FALSE;
+    global->command.enabled = TRUE;
     global->command.command_text = g_strdup(DEFAULT_COMMAND_TEXT);
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
