@@ -519,10 +519,8 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
             global->timeout = 500;
         global->timeout_seconds = xfce_rc_read_int_entry (
                 rc, "Timeout_Seconds", global->timeout_seconds);
-        global->use_timeout_seconds = xfce_rc_read_bool_entry (
-                rc, "Use_Timeout_Seconds", global->use_timeout_seconds);
-        global->command.enabled = xfce_rc_read_bool_entry (
-                rc, "Use_Click_Command", global->command.enabled);
+        if (global->timeout_seconds > 0)
+            global->use_timeout_seconds = TRUE;
         value = xfce_rc_read_entry (
                 rc, "Click_Command", NULL);
         if (value && *value)
@@ -530,6 +528,8 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
             if (global->command.command_text)
                 g_free(global->command.command_text);
             global->command.command_text = g_strdup(value);
+            if (strlen(value) > 0)
+                global->command.enabled = TRUE;
         }
     }
 
