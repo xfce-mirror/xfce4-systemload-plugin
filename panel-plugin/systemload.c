@@ -698,6 +698,13 @@ entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
     else
         *use_label = (gboolean *) TRUE;
     *charvar = g_strdup(gtk_entry_get_text(GTK_ENTRY(entry)));
+
+    /* Show or hide the system monitor menu item */
+    if (!global->command.enabled)
+        gtk_widget_set_visible(global->menu_item, FALSE);
+    else
+        gtk_widget_set_visible(global->menu_item, TRUE);
+
     setup_monitor(global);
 }
 
@@ -750,33 +757,25 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 static void
 change_timeout_seconds_cb(GtkSpinButton *spin, t_global_monitor *global)
 {
+    gboolean** use_timeout_seconds = (gboolean**)g_object_get_data (G_OBJECT(spin), "boolvar");
     global->timeout_seconds = gtk_spin_button_get_value(spin);
+
+    if (global->timeout_seconds == 0)
+        *use_timeout_seconds = (gboolean *) FALSE;
+    else
+        *use_timeout_seconds = (gboolean *) TRUE;
 
     setup_timer(global);
 }
 #endif
 
-/* Creates a switch box if boolvar is non-null, and its label.
- * If it is a check box, it will control the sensitivity of target.
- * If it is a label, its mnemonic will point to target.
+/* Creates a label, its mnemonic will point to target.
  * Returns the widget. */
-static GtkWidget *new_label_or_check_button(t_global_monitor *global,
-                                            GtkGrid *grid, guint row,
-                                            const gchar *labeltext,
-                                            gboolean *boolvar, GtkWidget *target)
+static GtkWidget *new_label (GtkGrid *grid, guint row,
+                             const gchar *labeltext, GtkWidget *target)
 {
-    GtkWidget *label, *sw;
-    if (boolvar) {
-        sw = gtk_switch_new();
-        g_object_set_data (G_OBJECT(sw), "sensitive_widget", target);
-        g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
-        gtk_switch_set_active (GTK_SWITCH(sw), *boolvar);
-        gtk_widget_set_valign (GTK_WIDGET (sw), GTK_ALIGN_CENTER);
-        switch_cb (GTK_SWITCH(sw), *boolvar, global);
-        g_signal_connect (GTK_WIDGET(sw), "state-set",
-                          G_CALLBACK(switch_cb), global);
-        gtk_grid_attach(grid, sw, 2, row, 1, 1);
-    }
+    GtkWidget *label;
+
     label = gtk_label_new_with_mnemonic (labeltext);
     gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
@@ -797,6 +796,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     sw = gtk_switch_new();
     g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
     gtk_switch_set_active (GTK_SWITCH(sw), *boolvar);
+    gtk_widget_set_halign (sw, GTK_ALIGN_END);
     gtk_widget_set_valign (sw, GTK_ALIGN_CENTER);
     gtk_widget_set_margin_top (sw, 12);
     switch_cb (GTK_SWITCH(sw), *boolvar, global);
@@ -810,8 +810,8 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_widget_set_margin_top (label, 12);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
     g_free (markup);
-    gtk_grid_attach(GTK_GRID(grid), label, 0, position, 2, 1);
-    gtk_grid_attach(GTK_GRID(grid), sw, 2, position, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), label, 0, position, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
 
     if (colorvar == NULL)
         return;
@@ -837,6 +837,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_grid_attach(GTK_GRID(subgrid), button, 1, 1, 1, 1);
 
     entry = gtk_entry_new ();
+    gtk_widget_set_hexpand (entry, TRUE);
     g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
     g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
     gtk_entry_set_text (GTK_ENTRY(entry), *labeltext);
@@ -844,8 +845,8 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
                       G_CALLBACK(entry_changed_cb), global);
 
     label = gtk_label_new_with_mnemonic (_("Text:"));
-    gtk_widget_set_halign(label, GTK_ALIGN_START);
-    gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
     gtk_widget_set_margin_start (label, 18);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), entry);
 
@@ -898,30 +899,34 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     /* Update interval */
     button = gtk_spin_button_new_with_range (0.100, 10.000, .050);
+    gtk_label_set_mnemonic_widget (GTK_LABEL(label), button);
     gtk_widget_set_halign (button, GTK_ALIGN_START);
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout/1000.0);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_cb), global);
-    new_label_or_check_button (global, GTK_GRID (grid), 1, _("Update interval:"), NULL, button);
     gtk_grid_attach (GTK_GRID (grid), button, 1, 1, 1, 1);
+    new_label (GTK_GRID (grid), 1, _("Update interval:"), button);
 
 #ifdef HAVE_UPOWER_GLIB
     /* Power-saving interval */
-    button = gtk_spin_button_new_with_range (1, 10, 1);
+    button = gtk_spin_button_new_with_range (0, 10, 1);
     gtk_widget_set_halign (button, GTK_ALIGN_START);
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout_seconds);
+    g_object_set_data (G_OBJECT(button), "boolvar", &global->use_timeout_seconds);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_seconds_cb), global);
-    new_label_or_check_button(global, GTK_GRID (grid), 2, _("Power-saving interval:"), &global->use_timeout_seconds, button);
-    gtk_grid_attach(GTK_GRID (grid), button, 1, 2, 1, 1);
+    gtk_grid_attach (GTK_GRID (grid), button, 1, 2, 1, 1);
+    new_label (GTK_GRID (grid), 2, _("Power-saving interval:"), button);
 #endif
 
     /* System Monitor */
     entry = gtk_entry_new ();
+    gtk_widget_set_hexpand (entry, TRUE);
     g_object_set_data (G_OBJECT(entry), "charvar", &global->command.command_text);
     gtk_entry_set_text (GTK_ENTRY(entry), global->command.command_text);
+    g_object_set_data (G_OBJECT(entry), "boolvar", &global->command.enabled);
     g_signal_connect (G_OBJECT(entry), "changed",
                       G_CALLBACK(entry_changed_cb), global);
-    new_label_or_check_button(global, GTK_GRID (grid), 3, _("System monitor:"), &global->command.enabled, entry);
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
+    label = new_label (GTK_GRID (grid), 3, _("System monitor:"), entry);
 
     /* Add options for the three monitors */
     for(count = 0; count < 3; count++)
