@@ -589,9 +589,6 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     xfce_rc_set_group (rc, "Main");
     xfce_rc_write_int_entry (rc, "Timeout", global->timeout);
     xfce_rc_write_int_entry (rc, "Timeout_Seconds", global->timeout_seconds);
-    xfce_rc_write_bool_entry (rc, "Use_Timeout_Seconds",
-                              global->use_timeout_seconds);
-    xfce_rc_write_bool_entry (rc, "Use_Click_Command", global->command.enabled);
     xfce_rc_write_entry (rc, "Click_Command", global->command.command_text);
 
     for(count = 0; count < 3; count++)
