@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-11-03 11:13+0000\n"
+"POT-Creation-Date: 2017-12-23 12:32+0100\n"
+"PO-Revision-Date: 2017-12-23 19:28+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -25,94 +25,102 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Filen /proc/stat blev ikke fundet!"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Systembelastning: %ld%%"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Hukommelse: %ldMB af %ldMB brugt"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB af %ldMB brugt"
 
-#: ../panel-plugin/systemload.c:197
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "No swap"
 msgstr "Ingen swap"
 
-#: ../panel-plugin/systemload.c:208
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dag"
 msgstr[1] "%d dage"
 
-#: ../panel-plugin/systemload.c:212
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Oppetid: %d dag %d:%02d"
 msgstr[1] "Oppetid: %d dage %d:%02d"
 
-#: ../panel-plugin/systemload.c:220
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Oppetid: %d:%02d"
 
-#: ../panel-plugin/systemload.c:352
-msgid "Run _System Monitor"
-msgstr "Kør _systemovervågning"
+#: ../panel-plugin/systemload.c:809
+msgid "Color:"
+msgstr "Farve:"
 
-#: ../panel-plugin/systemload.c:836
-msgid "Bar color:"
-msgstr "Bjælkefarve:"
+#: ../panel-plugin/systemload.c:826
+msgid "Text:"
+msgstr "Tekst:"
 
-#: ../panel-plugin/systemload.c:850
-msgid "Text to display:"
-msgstr "Tekst som skal vises:"
-
-#: ../panel-plugin/systemload.c:907
+#: ../panel-plugin/systemload.c:845
 msgid "CPU monitor"
 msgstr "CPU-overvågning"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:846
 msgid "Memory monitor"
 msgstr "Hukommelsesovervågning"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:847
 msgid "Swap monitor"
 msgstr "Swapovervågning"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:848
 msgid "Uptime monitor"
 msgstr "Oppetidsovervågning"
 
-#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:853 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Systembelastningsovervågning"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:874
+msgid "<b>General</b>"
+msgstr "<b>Generelt</b>"
+
+#: ../panel-plugin/systemload.c:886
 msgid "Update interval:"
 msgstr "Opdateringsinterval:"
 
-#: ../panel-plugin/systemload.c:940
+#: ../panel-plugin/systemload.c:892
+msgid "Update interval when in power-saving mode"
+msgstr "Opdateringsinterval i strømbesparelsestilstand"
+
+#: ../panel-plugin/systemload.c:897
 msgid "Power-saving interval:"
 msgstr "Strømbesparelsesinterval:"
 
-#: ../panel-plugin/systemload.c:946
+#: ../panel-plugin/systemload.c:906
+msgid "Launched when clicking on the plugin"
+msgstr "Startes når der klikkes på pluginet"
+
+#: ../panel-plugin/systemload.c:910
 msgid "System monitor:"
 msgstr "Systemovervågning:"
 
-#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapforbrug og hukommelsesaftryk"
 
-#: ../panel-plugin/systemload.c:986
+#: ../panel-plugin/systemload.c:950
 msgid "Copyright (c) 2003-2017\n"
 msgstr "Ophavsret (c) 2003-2017\n"
 
