@@ -891,7 +891,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     /* Power-saving interval */
     button = gtk_spin_button_new_with_range (0, 10, 1);
     gtk_widget_set_halign (button, GTK_ALIGN_START);
-    gtk_widget_set_tooltip_text(GTK_WIDGET(button), _("Update interval when in power-saving mode"));
+    gtk_widget_set_tooltip_text(GTK_WIDGET(button), _("Update interval when running on battery (uses regular update interval if set to zero)"));
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout_seconds);
     g_object_set_data (G_OBJECT(button), "boolvar", &global->use_timeout_seconds);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_seconds_cb), global);
