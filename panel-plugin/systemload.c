@@ -103,7 +103,6 @@ typedef struct
     XfcePanelPlugin   *plugin;
     GtkWidget         *ebox;
     GtkWidget         *box;
-    GtkWidget         *menu_item;
     guint             timeout, timeout_seconds;
     gboolean          use_timeout_seconds;
     guint             timeout_id;
@@ -329,8 +328,6 @@ monitor_control_new(XfcePanelPlugin *plugin)
 {
     int count;
     t_global_monitor *global;
-    GtkWidget* image;
-    GtkWidget *label, *box;
 
     global = g_new(t_global_monitor, 1);
 #ifdef HAVE_UPOWER_GLIB
@@ -347,16 +344,6 @@ monitor_control_new(XfcePanelPlugin *plugin)
 
     global->command.enabled = FALSE;
     global->command.command_text = g_strdup(DEFAULT_COMMAND_TEXT);
-
-    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-    label = gtk_label_new_with_mnemonic (_("Run _System Monitor"));
-    global->menu_item = gtk_menu_item_new();
-    image = gtk_image_new_from_icon_name("utilities-system-monitor",
-                                                    GTK_ICON_SIZE_MENU);
-    gtk_container_add (GTK_CONTAINER (box), image);
-    gtk_container_add (GTK_CONTAINER (box), label);
-    gtk_container_add (GTK_CONTAINER (global->menu_item), box);
-    gtk_widget_show_all (global->menu_item);
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
@@ -699,12 +686,6 @@ entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
         *use_label = (gboolean *) TRUE;
     *charvar = g_strdup(gtk_entry_get_text(GTK_ENTRY(entry)));
 
-    /* Show or hide the system monitor menu item */
-    if (!global->command.enabled)
-        gtk_widget_set_visible(global->menu_item, FALSE);
-    else
-        gtk_widget_set_visible(global->menu_item, TRUE);
-
     setup_monitor(global);
 }
 
@@ -721,9 +702,7 @@ switch_cb(GtkSwitch *check_button, gboolean state, t_global_monitor *global)
     gtk_switch_set_state (check_button, state);
     if (sensitive_widget)
         gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
-    if (boolvar == &(global->command.enabled)) {
-        gtk_widget_set_visible(global->menu_item, *boolvar);
-    } else if (oldstate != *boolvar)
+    if (oldstate != *boolvar)
         setup_monitor(global);
 }
 
@@ -790,7 +769,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
                            const gchar *title, gboolean *boolvar, GdkRGBA* colorvar,
                            gboolean * use_label, gchar **labeltext)
 {
-    GtkWidget *subgrid, *sw, *label, *button, *check, *entry;
+    GtkWidget *subgrid, *sw, *label, *button, *entry;
     gchar *markup;
 
     sw = gtk_switch_new();
@@ -1020,11 +999,6 @@ systemload_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "button-press-event", G_CALLBACK (click_event),
                       global);
-
-    xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (global->menu_item));
-    g_signal_connect (GTK_MENU_ITEM(global->menu_item), "activate",
-                      G_CALLBACK (spawn_system_monitor), global);
-    gtk_widget_set_visible (global->menu_item, global->command.enabled);
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin",
