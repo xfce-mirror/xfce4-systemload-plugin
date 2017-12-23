@@ -700,7 +700,7 @@ switch_cb(GtkSwitch *check_button, gboolean state, t_global_monitor *global)
     *boolvar = state;
     gtk_switch_set_state (check_button, state);
     if (sensitive_widget)
-        gtk_widget_set_sensitive(GTK_WIDGET(sensitive_widget), *boolvar);
+        gtk_revealer_set_reveal_child (GTK_REVEALER (sensitive_widget), *boolvar);
     if (oldstate != *boolvar)
         setup_monitor(global);
 }
@@ -768,7 +768,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
                            const gchar *title, gboolean *boolvar, GdkRGBA* colorvar,
                            gboolean * use_label, gchar **labeltext)
 {
-    GtkWidget *subgrid, *sw, *label, *button, *entry;
+    GtkWidget *revealer, *subgrid, *sw, *label, *button, *entry;
     gchar *markup;
 
     sw = gtk_switch_new();
@@ -793,43 +793,40 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
 
     if (colorvar == NULL)
         return;
+    revealer = gtk_revealer_new ();
     subgrid = gtk_grid_new ();
-    g_object_set_data (G_OBJECT(sw), "sensitive_widget", subgrid);
-    gtk_grid_attach(GTK_GRID(grid), subgrid, 0, position + 1, 2, 1);
+    gtk_container_add (GTK_CONTAINER (revealer), subgrid);
+    gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
+    g_object_set_data (G_OBJECT(sw), "sensitive_widget", revealer);
+    gtk_grid_attach(GTK_GRID(grid), revealer, 0, position + 1, 2, 1);
     gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
     gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
 
+    label = gtk_label_new_with_mnemonic (_("Options:"));
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+    gtk_widget_set_margin_start (label, 18);
+    gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
+    gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
+
+    /* Entry for the optional monitor label */
+    entry = gtk_entry_new ();
+    gtk_widget_set_hexpand (entry, TRUE);
+    gtk_widget_set_margin_start (entry, 12);
+    g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
+    g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
+    gtk_entry_set_text (GTK_ENTRY(entry), *labeltext);
+    g_signal_connect (G_OBJECT(entry), "changed",
+    G_CALLBACK(entry_changed_cb), global);
+    gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
+
+    /* Colorbutton to set the progressbar color */
     button = gtk_color_button_new_with_rgba(colorvar);
     gtk_widget_set_halign(button, GTK_ALIGN_START);
     g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
     g_signal_connect(G_OBJECT(button), "color-set",
                  G_CALLBACK (color_set_cb), global);
-
-    label = gtk_label_new_with_mnemonic (_("Color:"));
-    gtk_widget_set_halign(label, GTK_ALIGN_START);
-    gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_start (label, 18);
-    gtk_label_set_mnemonic_widget(GTK_LABEL(label), button);
-
-    gtk_grid_attach(GTK_GRID(subgrid), label, 0, 1, 1, 1);
-    gtk_grid_attach(GTK_GRID(subgrid), button, 1, 1, 1, 1);
-
-    entry = gtk_entry_new ();
-    gtk_widget_set_hexpand (entry, TRUE);
-    g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
-    g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
-    gtk_entry_set_text (GTK_ENTRY(entry), *labeltext);
-    g_signal_connect (G_OBJECT(entry), "changed",
-                      G_CALLBACK(entry_changed_cb), global);
-
-    label = gtk_label_new_with_mnemonic (_("Text:"));
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
-    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_start (label, 18);
-    gtk_label_set_mnemonic_widget(GTK_LABEL(label), entry);
-
-    gtk_grid_attach(GTK_GRID(subgrid), label, 0, 0, 1, 1);
-    gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
+    gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
 }
 
 static void
