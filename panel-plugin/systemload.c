@@ -55,7 +55,7 @@ static gchar *DEFAULT_TEXT[] = { "cpu", "mem", "swap" };
 static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
 static gchar *DEFAULT_COMMAND_TEXT = "xfce4-taskmanager";
 
-#define UPDATE_TIMEOUT 250
+#define UPDATE_TIMEOUT 500
 #define UPDATE_TIMEOUT_SECONDS 1
 
 #define BORDER 8
@@ -515,6 +515,8 @@ monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
     {
         xfce_rc_set_group (rc, "Main");
         global->timeout = xfce_rc_read_int_entry (rc, "Timeout", global->timeout);
+        if (global->timeout < 500)
+            global->timeout = 500;
         global->timeout_seconds = xfce_rc_read_int_entry (
                 rc, "Timeout_Seconds", global->timeout_seconds);
         global->use_timeout_seconds = xfce_rc_read_bool_entry (
@@ -877,7 +879,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
 
     /* Update interval */
-    button = gtk_spin_button_new_with_range (0.100, 10.000, .050);
+    button = gtk_spin_button_new_with_range (0.5, 10.0, .1);
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), button);
     gtk_widget_set_halign (button, GTK_ALIGN_START);
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout/1000.0);
