@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-23 00:32+0100\n"
-"PO-Revision-Date: 2017-12-23 07:30+0000\n"
+"POT-Creation-Date: 2017-12-24 00:33+0100\n"
+"PO-Revision-Date: 2017-12-24 15:41+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -25,98 +25,100 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "No s'ha trobat el fitxer «/proc/stat»!"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memòria: %ld MB de %ld MB utilitzades"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Memòria d'intercanvi: %ld MB de %ld MB utilitzades"
 
-#: ../panel-plugin/systemload.c:197
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "No swap"
 msgstr "Sense memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:208
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dia"
 msgstr[1] "%d dies"
 
-#: ../panel-plugin/systemload.c:212
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Temps en funcionament: %d dia %d:%02d"
 msgstr[1] "Temps en funcionament: %d dies %d:%02d"
 
-#: ../panel-plugin/systemload.c:220
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Temps en funcionament: %d:%02d"
 
-#: ../panel-plugin/systemload.c:352
-msgid "Run _System Monitor"
-msgstr "Executa el monitor del _sistema"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "Opcions:"
 
-#: ../panel-plugin/systemload.c:830
-msgid "Color:"
-msgstr "Color:"
-
-#: ../panel-plugin/systemload.c:846
-msgid "Text:"
-msgstr "Text:"
-
-#: ../panel-plugin/systemload.c:865
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "Monitor de la CPU"
 
-#: ../panel-plugin/systemload.c:866
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "Monitor de la memòria"
 
-#: ../panel-plugin/systemload.c:867
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "Monitor de la memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:868
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "Monitor del temps en funcionament"
 
-#: ../panel-plugin/systemload.c:873 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de la càrrega del sistema"
 
-#: ../panel-plugin/systemload.c:894
+#: ../panel-plugin/systemload.c:870
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/systemload.c:904
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
-#: ../panel-plugin/systemload.c:913
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "Interval d'actualització quan funciona amb la bateria (s'utilitza l'interval d'actualització comú si s'estableix a zero)"
+
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "Interval d'estalvi d'energia:"
 
-#: ../panel-plugin/systemload.c:923
+#: ../panel-plugin/systemload.c:902
+msgid "Launched when clicking on the plugin"
+msgstr "Es llança en fer clic al connector"
+
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "Monitor del sistema:"
 
-#: ../panel-plugin/systemload.c:962 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitora la càrrega de la CPU, l'ús de la memòria d'intercanvi i l'empremta de la memòria"
 
-#: ../panel-plugin/systemload.c:964
+#: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
 msgstr "Drets d'autor (c) 2003-2017\n"
 
