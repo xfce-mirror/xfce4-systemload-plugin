@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"POT-Creation-Date: 2017-12-24 00:33+0100\n"
+"PO-Revision-Date: 2017-12-24 15:35+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -23,27 +23,27 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Није пронађена датотека /proc/stat!"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Оптерећење система: %ld%%"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Меморија: %ldMB од %ldMB заузето"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Помоћна меморија: %ldMB од %ldMB заузето"
 
-#: ../panel-plugin/systemload.c:197
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "No swap"
 msgstr "Нема помоћне меморије"
 
-#: ../panel-plugin/systemload.c:208
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -51,7 +51,7 @@ msgstr[0] "%d дан"
 msgstr[1] "%d дана"
 msgstr[2] "%d дана"
 
-#: ../panel-plugin/systemload.c:212
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -59,60 +59,66 @@ msgstr[0] "Будност: %d дан %d:%02d"
 msgstr[1] "Будност: %d дана %d:%02d"
 msgstr[2] "Будност: %d дана %d:%02d"
 
-#: ../panel-plugin/systemload.c:220
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Будност: %d:%02d"
 
-#: ../panel-plugin/systemload.c:352
-msgid "Run _System Monitor"
-msgstr "Покрени праћење заузећа система"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "Могућности:"
 
-#: ../panel-plugin/systemload.c:836
-msgid "Bar color:"
-msgstr "Боја траке:"
-
-#: ../panel-plugin/systemload.c:850
-msgid "Text to display:"
-msgstr "Натпис који ће се приказивати:"
-
-#: ../panel-plugin/systemload.c:907
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "Праћење процесора"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "Праћење заузећа меморије"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "Праћење помоћне меморије"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "Праћење времена будности"
 
-#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Праћење заузећа система"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:870
+msgid "<b>General</b>"
+msgstr "<b>Опште</b>"
+
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "Учесталост упита:"
 
-#: ../panel-plugin/systemload.c:940
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "Време освежавања приликом коришћења батерије (користи уобичајено освежавање ако је поставка на нули)"
+
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "Раздобља између штедњи снаге:"
 
-#: ../panel-plugin/systemload.c:946
+#: ../panel-plugin/systemload.c:902
+msgid "Launched when clicking on the plugin"
+msgstr "Покренуто кликом на прикључак"
+
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "Праћење система:"
 
-#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Прати оптерећење процесора, коришћење помоћне меморије и заузеће меморије"
 
-#: ../panel-plugin/systemload.c:986
+#: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
 msgstr "Права умножавања(c) 2003-2017\n"
 
