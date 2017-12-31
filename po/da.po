@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-23 12:32+0100\n"
-"PO-Revision-Date: 2017-12-23 19:28+0000\n"
+"POT-Creation-Date: 2017-12-24 00:33+0100\n"
+"PO-Revision-Date: 2017-12-31 12:36+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -64,63 +64,61 @@ msgstr[1] "Oppetid: %d dage %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Oppetid: %d:%02d"
 
-#: ../panel-plugin/systemload.c:809
-msgid "Color:"
-msgstr "Farve:"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "Valgmuligheder:"
 
-#: ../panel-plugin/systemload.c:826
-msgid "Text:"
-msgstr "Tekst:"
-
-#: ../panel-plugin/systemload.c:845
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "CPU-overvågning"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "Hukommelsesovervågning"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "Swapovervågning"
 
-#: ../panel-plugin/systemload.c:848
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "Oppetidsovervågning"
 
-#: ../panel-plugin/systemload.c:853 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Systembelastningsovervågning"
 
-#: ../panel-plugin/systemload.c:874
+#: ../panel-plugin/systemload.c:870
 msgid "<b>General</b>"
 msgstr "<b>Generelt</b>"
 
-#: ../panel-plugin/systemload.c:886
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "Opdateringsinterval:"
 
-#: ../panel-plugin/systemload.c:892
-msgid "Update interval when in power-saving mode"
-msgstr "Opdateringsinterval i strømbesparelsestilstand"
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "Opdateringsinterval ved brug af batteri (bruger almindeligt opdateringsinterval hvis sat til nul)"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "Strømbesparelsesinterval:"
 
-#: ../panel-plugin/systemload.c:906
+#: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
 msgstr "Startes når der klikkes på pluginet"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "Systemovervågning:"
 
-#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapforbrug og hukommelsesaftryk"
 
-#: ../panel-plugin/systemload.c:950
+#: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
 msgstr "Ophavsret (c) 2003-2017\n"
 
