@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Elishai Eliyahu <e1907@mm.st>, 2016-2017
+# Elishai Eliyahu <e1907@mm.st>, 2016-2018
 # GenghisKhan <genghiskhan@gmx.ca>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-23 12:32+0100\n"
-"PO-Revision-Date: 2017-12-23 19:43+0000\n"
+"POT-Creation-Date: 2017-12-24 00:33+0100\n"
+"PO-Revision-Date: 2018-01-07 16:55+0000\n"
 "Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -62,63 +62,61 @@ msgstr[1] "זמן עבודה: %d ימים %d:%02d "
 msgid "Uptime: %d:%02d"
 msgstr "זמן עבודה: %d:%02d "
 
-#: ../panel-plugin/systemload.c:809
-msgid "Color:"
-msgstr "צבע:"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "אפשרויות:"
 
-#: ../panel-plugin/systemload.c:826
-msgid "Text:"
-msgstr "טקסט:"
-
-#: ../panel-plugin/systemload.c:845
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "עוקב מעבד"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "עוקב זיכרון"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "עוקב הֶחְלֵף"
 
-#: ../panel-plugin/systemload.c:848
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "עוקב זמן עבודה"
 
-#: ../panel-plugin/systemload.c:853 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "עוקב עומס מערכת"
 
-#: ../panel-plugin/systemload.c:874
+#: ../panel-plugin/systemload.c:870
 msgid "<b>General</b>"
 msgstr "<b>כללי</b>"
 
-#: ../panel-plugin/systemload.c:886
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "מרווח עדכון:"
 
-#: ../panel-plugin/systemload.c:892
-msgid "Update interval when in power-saving mode"
-msgstr "מרווח עדכון כאשר במצב חסכון באנרגיה"
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "מרווח עדכון כאשר פועל על סוללה (משתמש במרווח עדכון רגיל אם שווה לאפס)"
 
-#: ../panel-plugin/systemload.c:897
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "מרווח חיסכון-הספק:"
 
-#: ../panel-plugin/systemload.c:906
+#: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
 msgstr "מופעל בקליק על התוסף"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "עוקב מערכת:"
 
-#: ../panel-plugin/systemload.c:948 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "עקוב אחר עומס מעבד, שימוש הֶחְלֵף וטביעת רגל זיכרון"
 
-#: ../panel-plugin/systemload.c:950
+#: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
 msgstr "זכויות יוצרים (c) 2003-2017\n"
 
