@@ -6,14 +6,14 @@
 # Charles Monzat <superboa@hotmail.fr>, 2017
 # jc1 <jc1.quebecos@gmail.com>, 2013
 # Louis Moureaux <inactive+louis94@transifex.com>, 2014
-# Urien Desterres <urien.desterres@gmail.com>, 2014
+# Urien Desterres <urien.desterres@gmail.com>, 2014,2018
 # Yannick Le Guen <leguen.yannick@gmail.com>, 2014,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-01-03 21:23+0000\n"
+"PO-Revision-Date: 2018-01-13 07:19+0000\n"
 "Last-Translator: Urien Desterres <urien.desterres@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -101,7 +101,7 @@ msgstr "Intervalle de mise à jour :"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Intervalle de mise à jour lors du fonctionnement sur batterie (utilise l'intervalle de mise à jour standard si réglé sur zéro)"
 
 #: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
@@ -109,7 +109,7 @@ msgstr "Intervalle d'économie d'énergie :"
 
 #: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "Démarré en cliquant sur le greffon"
 
 #: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
