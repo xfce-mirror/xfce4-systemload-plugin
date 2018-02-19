@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-01-07 00:46+0000\n"
+"PO-Revision-Date: 2018-02-19 12:37+0000\n"
 "Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Käynnissä: %d:%02d"
 
 #: ../panel-plugin/systemload.c:805
 msgid "Options:"
-msgstr ""
+msgstr "Valinnat:"
 
 #: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
