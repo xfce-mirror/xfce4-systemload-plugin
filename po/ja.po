@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Masato HASHIMOTO <cabezon.hashimoto@gmail.com>, 2008,2012,2014
-# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2016-2017
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2016-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-09-25 08:17+0000\n"
+"POT-Creation-Date: 2017-12-24 00:33+0100\n"
+"PO-Revision-Date: 2018-04-03 23:44+0000\n"
 "Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/xfce/xfce-panel-plugins/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -23,92 +23,98 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "ファイル /proc/stat が見つかりませんでした!"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "システム負荷: %ld%%"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "メモリ: %2$ld MB 中 %1$ld MB 使用しています"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "スワップ: %2$ld MB 中 %1$ld MB 使用しています"
 
-#: ../panel-plugin/systemload.c:197
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "No swap"
 msgstr "スワップなし"
 
-#: ../panel-plugin/systemload.c:208
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d日"
 
-#: ../panel-plugin/systemload.c:212
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "稼働時間: %d日%d時間%02d分"
 
-#: ../panel-plugin/systemload.c:220
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "稼働時間: %d時間%02d分"
 
-#: ../panel-plugin/systemload.c:352
-msgid "Run _System Monitor"
-msgstr "システムモニターを起動(_S)"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "オプション:"
 
-#: ../panel-plugin/systemload.c:836
-msgid "Bar color:"
-msgstr "バーの色:"
-
-#: ../panel-plugin/systemload.c:850
-msgid "Text to display:"
-msgstr "表示する文字:"
-
-#: ../panel-plugin/systemload.c:907
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "CPU モニター"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "メモリモニター"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "スワップモニター"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "稼働時間モニター"
 
-#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "システム負荷モニター"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:870
+msgid "<b>General</b>"
+msgstr "<b>一般</b>"
+
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "更新間隔:"
 
-#: ../panel-plugin/systemload.c:940
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "バッテリーで動作している場合の更新間隔 (ゼロに設定されている場合、定期更新間隔を使用)"
+
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "省電力時の間隔:"
 
-#: ../panel-plugin/systemload.c:946
+#: ../panel-plugin/systemload.c:902
+msgid "Launched when clicking on the plugin"
+msgstr "プラグインをクリックすると起動する"
+
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "システムモニター:"
 
-#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU 負荷、メモリ、およびスワップファイルの使用状況をモニターします。"
 
-#: ../panel-plugin/systemload.c:986
+#: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
 msgstr "Copyright (c) 2003-2017\n"
 
