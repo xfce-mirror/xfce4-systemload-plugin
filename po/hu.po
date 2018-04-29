@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-04-28 21:15+0000\n"
+"PO-Revision-Date: 2018-04-29 10:03+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgstr "Frissítés gyakorisága:"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Frissítési időköz akkumulátoron történő futáskor (a szokásos időköz, ha nullára állítja)"
 
 #: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
@@ -108,11 +108,11 @@ msgstr "Energiatakarékosság időköze:"
 
 #: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "A bővítményre kattintáskor indítva"
 
 #: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
-msgstr ""
+msgstr "Rendszerfigyelő:"
 
 #: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
@@ -120,7 +120,7 @@ msgstr "Processzorterhelés, lapozóterület- és memóriahasználat figyelése"
 
 #: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
-msgstr ""
+msgstr "Copyright (c) 2003-2017\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
