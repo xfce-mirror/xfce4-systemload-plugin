@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-07-11 15:10+0000\n"
+"PO-Revision-Date: 2018-07-15 10:49+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr "Monitora il carico della CPU, l'utilizzo della swap e la memoria utilizz
 
 #: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2017\n"
-msgstr "Copyright (c) 2003-2017\n"
+msgstr "Copyright © 2003-2017\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
