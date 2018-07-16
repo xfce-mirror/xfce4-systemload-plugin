@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-07-15 10:49+0000\n"
+"PO-Revision-Date: 2018-07-16 08:22+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "File /proc/stat non trovato!"
+msgstr "Impossibile trovare il file /proc/stat!"
 
 #: ../panel-plugin/systemload.c:178
 #, c-format
@@ -33,12 +33,12 @@ msgstr "Carico del sistema: %ld%%"
 #: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Memoria: utilizzati %ldMB di %ldMB"
+msgstr "Memoria: utilizzati %ldMB su %ldMB"
 
 #: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Swap: utilizzati %ldMB di %ldMB"
+msgstr "Swap: utilizzati %ldMB su %ldMB"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
@@ -56,13 +56,13 @@ msgstr[1] "%d giorni"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "Tempo di funzionamento: %d giorno %d:%02d"
-msgstr[1] "Tempo di funzionamento: %d giorni %d:%02d"
+msgstr[0] "Tempo di attività: %d giorno %d:%02d"
+msgstr[1] "Tempo di attività: %d giorni %d:%02d"
 
 #: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
-msgstr "Tempo di funzionamento: %d:%02d"
+msgstr "Tempo di attività: %d:%02d"
 
 #: ../panel-plugin/systemload.c:805
 msgid "Options:"
@@ -70,19 +70,19 @@ msgstr "Opzioni:"
 
 #: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
-msgstr "Indicatore CPU"
+msgstr "Indicatore della CPU"
 
 #: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
-msgstr "Indicatore memoria"
+msgstr "Indicatore della memoria"
 
 #: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
-msgstr "Indicatore swap"
+msgstr "Indicatore della swap"
 
 #: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
-msgstr "Indicatore funzionamento"
+msgstr "Indicatore del tempo di attività"
 
 #: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
@@ -108,7 +108,7 @@ msgstr "Intervallo di risparmio energetico:"
 
 #: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
-msgstr "Avviato mentre si sta facendo click sul plugin"
+msgstr "Avviato mentre si sta facendo click sul componente aggiuntivo"
 
 #: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
@@ -124,4 +124,4 @@ msgstr "Copyright © 2003-2017\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "File /proc/uptime non trovato!"
+msgstr "Impossibile trovare il file /proc/uptime!"
