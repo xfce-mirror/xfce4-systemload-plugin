@@ -757,7 +757,7 @@ static GtkWidget *new_label (GtkGrid *grid, guint row,
     label = gtk_label_new_with_mnemonic (labeltext);
     gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_start (label, 18);
+    gtk_widget_set_margin_start (label, 12);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), target);
     gtk_grid_attach(grid, label, 0, row, 1, 1);
     return label;
@@ -805,7 +805,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     label = gtk_label_new_with_mnemonic (_("Options:"));
     gtk_widget_set_halign (label, GTK_ALIGN_START);
     gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_start (label, 18);
+    gtk_widget_set_margin_start (label, 12);
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
     gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
 
