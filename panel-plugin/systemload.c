@@ -806,7 +806,6 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_widget_set_halign (label, GTK_ALIGN_START);
     gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
     gtk_widget_set_margin_start (label, 12);
-    gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
     gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
 
     /* Entry for the optional monitor label */
@@ -822,6 +821,7 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
 
     /* Colorbutton to set the progressbar color */
     button = gtk_color_button_new_with_rgba(colorvar);
+    gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
     gtk_widget_set_halign(button, GTK_ALIGN_START);
     g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
     g_signal_connect(G_OBJECT(button), "color-set",
