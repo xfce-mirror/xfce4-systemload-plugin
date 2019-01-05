@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-06-16 14:23+0000\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2019-01-05 11:53+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -115,8 +115,8 @@ msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "เฝ้าสังเกตโหลดของซีพียู, การใช้พื้นที่สลับ และการใช้หน่วยความจำ"
 
 #: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2017\n"
-msgstr "Copyright (c) 2003-2017\n"
+msgid "Copyright (c) 2003-2018\n"
+msgstr "Copyright (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
