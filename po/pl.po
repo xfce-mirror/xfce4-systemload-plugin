@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hoek <dawid.job@gmail.com>, 2014
+# Dawid Job <hoek@tuta.io>, 2014
 # No Ne, 2017
 # Piotr Sokół <psokol.l10n@gmail.com>, 2009,2012,2014
 # Piotr Strębski <strebski@gmail.com>, 2015-2017
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2017-12-24 08:05+0000\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2018-12-03 21:40+0000\n"
 "Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -123,8 +123,8 @@ msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Dostarcza informacje na temat obciążenia systemu"
 
 #: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2017\n"
-msgstr "Prawa autorskie (c) 2003-2017\n"
+msgid "Copyright (c) 2003-2018\n"
+msgstr "Prawa autorskie (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
