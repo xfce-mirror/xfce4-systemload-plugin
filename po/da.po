@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2017-12-31 12:36+0000\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2018-12-03 21:40+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -119,8 +119,8 @@ msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Overvåg CPU-belastning, swapforbrug og hukommelsesaftryk"
 
 #: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2017\n"
-msgstr "Ophavsret (c) 2003-2017\n"
+msgid "Copyright (c) 2003-2018\n"
+msgstr "Ophavsret (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
