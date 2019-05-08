@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-09-23 19:21+0000\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2018-12-03 21:40+0000\n"
 "Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -23,95 +23,101 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Fichièr /proc/stat pas trobat !"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Carga del sistèma : %ld%%"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memòria : %ldMio de %ldMio utilizat"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Fichièr d'escambi : %ldMio de %ldMio utilizat"
 
-#: ../panel-plugin/systemload.c:197
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "No swap"
 msgstr "Pas cap de fichièr d'escambi"
 
-#: ../panel-plugin/systemload.c:208
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d Jorn"
 msgstr[1] "%d Jorns"
 
-#: ../panel-plugin/systemload.c:212
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Temps de foncionament : %d jorn %d:%02d"
 msgstr[1] "Temps de foncionament : %d jorns %d:%02d"
 
-#: ../panel-plugin/systemload.c:220
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Temps de foncionament : %d:%02d"
 
-#: ../panel-plugin/systemload.c:352
-msgid "Run _System Monitor"
-msgstr "Aviar lo monitor del _sistèma"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "Opcions :"
 
-#: ../panel-plugin/systemload.c:836
-msgid "Bar color:"
-msgstr "Color de barra :"
-
-#: ../panel-plugin/systemload.c:850
-msgid "Text to display:"
-msgstr "Tèxte d'afichar :"
-
-#: ../panel-plugin/systemload.c:907
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "Monitor del CPU"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "Monitor de la memòria"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "Monitor del fichièr d'escambi"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "Monitor del temps de foncionament"
 
-#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de la carga del sistèma"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:870
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "Interval de mesa a jorn :"
 
-#: ../panel-plugin/systemload.c:940
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "Interval d'estalvi d'energia :"
 
-#: ../panel-plugin/systemload.c:946
+#: ../panel-plugin/systemload.c:902
+msgid "Launched when clicking on the plugin"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "Monitor del sistèma :"
 
-#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor de la carga del CPU, utilizacion del fichièr d'escambi e de l'emprencha memòria"
 
-#: ../panel-plugin/systemload.c:986
-msgid "Copyright (c) 2003-2017\n"
+#: ../panel-plugin/systemload.c:946
+msgid "Copyright (c) 2003-2018\n"
 msgstr ""
 
 #: ../panel-plugin/uptime.c:53
