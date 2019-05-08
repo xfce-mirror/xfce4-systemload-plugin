@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2018-01-07 16:55+0000\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2018-12-03 21:40+0000\n"
 "Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
@@ -49,6 +49,8 @@ msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "יום %d"
 msgstr[1] "%d ימים"
+msgstr[2] "%d ימים"
+msgstr[3] "%d ימים"
 
 #: ../panel-plugin/systemload.c:211
 #, c-format
@@ -56,6 +58,8 @@ msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "זמן עבודה: %d יום %d:%02d "
 msgstr[1] "זמן עבודה: %d ימים %d:%02d "
+msgstr[2] "זמן עבודה: %d ימים %d:%02d "
+msgstr[3] "זמן עבודה: %d ימים %d:%02d "
 
 #: ../panel-plugin/systemload.c:219
 #, c-format
@@ -117,8 +121,8 @@ msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "עקוב אחר עומס מעבד, שימוש הֶחְלֵף וטביעת רגל זיכרון"
 
 #: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2017\n"
-msgstr "זכויות יוצרים (c) 2003-2017\n"
+msgid "Copyright (c) 2003-2018\n"
+msgstr "זכויות יוצרים (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
