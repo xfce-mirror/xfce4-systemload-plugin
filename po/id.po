@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 00:31+0100\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2018-12-03 21:40+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,94 +22,100 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Berkas /proc/stat tak ditemukan!"
 
-#: ../panel-plugin/systemload.c:179
+#: ../panel-plugin/systemload.c:178
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Beban Sistem: %ld%%"
 
-#: ../panel-plugin/systemload.c:186
+#: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memori: %ldMB dari %ldMB yang terpakai"
 
-#: ../panel-plugin/systemload.c:194
+#: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB dari %ldMB yang terpakai"
 
-#: ../panel-plugin/systemload.c:197
+#: ../panel-plugin/systemload.c:196
 #, c-format
 msgid "No swap"
 msgstr "Tak ada swap"
 
-#: ../panel-plugin/systemload.c:208
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d hari"
 
-#: ../panel-plugin/systemload.c:212
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Waktu Hidup: %d hari %d:%02d"
 
-#: ../panel-plugin/systemload.c:220
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Waktu Hidup: %d:%02d"
 
-#: ../panel-plugin/systemload.c:352
-msgid "Run _System Monitor"
-msgstr "Jalankan Monitor _Sistem"
+#: ../panel-plugin/systemload.c:805
+msgid "Options:"
+msgstr "Opsi:"
 
-#: ../panel-plugin/systemload.c:836
-msgid "Bar color:"
-msgstr "Warna mistar:"
-
-#: ../panel-plugin/systemload.c:850
-msgid "Text to display:"
-msgstr "Teks untuk ditampilkan:"
-
-#: ../panel-plugin/systemload.c:907
+#: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
 msgstr "Monitor CPU"
 
-#: ../panel-plugin/systemload.c:908
+#: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
 msgstr "Monitor memori"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
 msgstr "Monitor swap"
 
-#: ../panel-plugin/systemload.c:910
+#: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
 msgstr "Monitor waktu hidup"
 
-#: ../panel-plugin/systemload.c:915 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor Beban Sistem"
 
-#: ../panel-plugin/systemload.c:935
+#: ../panel-plugin/systemload.c:870
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
 msgstr "Interval pemutakhiran:"
 
-#: ../panel-plugin/systemload.c:940
+#: ../panel-plugin/systemload.c:888
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
 msgstr "Interval penyimpanan daya:"
 
-#: ../panel-plugin/systemload.c:946
+#: ../panel-plugin/systemload.c:902
+msgid "Launched when clicking on the plugin"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
 msgstr "Monitor sistem:"
 
-#: ../panel-plugin/systemload.c:984 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor beban CPU, penggunaan swap dan jejak memori"
 
-#: ../panel-plugin/systemload.c:986
-msgid "Copyright (c) 2003-2017\n"
-msgstr "Hak Cipta (c) 2003-2017\n"
+#: ../panel-plugin/systemload.c:946
+msgid "Copyright (c) 2003-2018\n"
+msgstr ""
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
