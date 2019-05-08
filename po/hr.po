@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-24 00:33+0100\n"
-"PO-Revision-Date: 2017-12-24 06:01+0000\n"
+"POT-Creation-Date: 2018-12-03 22:40+0100\n"
+"PO-Revision-Date: 2018-12-03 21:40+0000\n"
 "Last-Translator: Edin Veskovic <edin.lockedin@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -122,8 +122,8 @@ msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Nadgledaj opterećenje procesora, upotrebu pričuvne memorije i zauzeće radne memorije"
 
 #: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2017\n"
-msgstr "Autorska prava (c) 2003-2017\n"
+msgid "Copyright (c) 2003-2018\n"
+msgstr "Autorska prava (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
