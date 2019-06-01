@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2019-05-15 23:03+0000\n"
+"PO-Revision-Date: 2019-05-31 22:50+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -70,19 +70,19 @@ msgstr "Valgmuligheder:"
 
 #: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
-msgstr "CPU-overvågning"
+msgstr "Overvågning af CPU"
 
 #: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
-msgstr "Hukommelsesovervågning"
+msgstr "Overvågning af hukommelse"
 
 #: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
-msgstr "Swapovervågning"
+msgstr "Overvågning af swap"
 
 #: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
-msgstr "Oppetidsovervågning"
+msgstr "Overvågning af oppetid"
 
 #: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
