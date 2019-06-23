@@ -7,6 +7,7 @@ Makefile
 Makefile.in
 aclocal.m4
 autom4te.cache/
+compile
 config.*
 configure
 configure.ac
@@ -17,6 +18,7 @@ intltool-merge.in
 intltool-update.in
 libtool
 ltmain.sh
+m4/
 missing
 mkinstalldirs
 panel-plugin/systemload.desktop
