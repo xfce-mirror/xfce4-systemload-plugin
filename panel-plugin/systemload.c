@@ -436,7 +436,7 @@ setup_monitor(t_global_monitor *global)
 {
     gint count;
 #if GTK_CHECK_VERSION (3, 16, 0)
-    gchar * css;
+    gchar *css, *color;
 #endif
 
     gtk_widget_hide(GTK_WIDGET(global->uptime->ebox));
@@ -449,15 +449,16 @@ setup_monitor(t_global_monitor *global)
                            global->monitor[count]->options.label_text);
 
 #if GTK_CHECK_VERSION (3, 16, 0)
+        color = gdk_rgba_to_string(&global->monitor[count]->options.color);
 #if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }",
+        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }", color);
 #else
-        css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }",
+        css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }", color);
 #endif
-                              gdk_rgba_to_string(&global->monitor[count]->options.color));
         gtk_css_provider_load_from_data (
             g_object_get_data(G_OBJECT(global->monitor[count]->status), "css_provider"),
             css, strlen(css), NULL);
+        g_free(color);
         g_free(css);
 #else
         gtk_widget_override_background_color(GTK_WIDGET(global->monitor[count]->status),
@@ -575,7 +576,7 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     gint count;
     XfceRc *rc;
-    char *file;
+    char *file, *color;
 
     if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
         return;
@@ -601,7 +602,9 @@ monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
         xfce_rc_write_bool_entry (rc, "Use_Label",
                 global->monitor[count]->options.use_label);
 
-        xfce_rc_write_entry (rc, "Color", gdk_rgba_to_string(&global->monitor[count]->options.color));
+        color = gdk_rgba_to_string (&global->monitor[count]->options.color);
+        xfce_rc_write_entry (rc, "Color", color);
+        g_free (color);
 
         xfce_rc_write_entry (rc, "Text",
             global->monitor[count]->options.label_text ?
