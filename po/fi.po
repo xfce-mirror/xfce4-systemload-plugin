@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2019-07-16 21:03+0000\n"
+"PO-Revision-Date: 2019-07-17 08:34+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -33,12 +33,12 @@ msgstr "Järjestelmän kuorma: %ld%%"
 #: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Muisti: %ldMt/%ldMt käytössä"
+msgstr "Muisti: %ld Mt/%ld Mt käytössä"
 
 #: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Sivutus: %ldMt/%ldMt käytössä"
+msgstr "Sivutus: %ld Mt/%ld Mt käytössä"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
