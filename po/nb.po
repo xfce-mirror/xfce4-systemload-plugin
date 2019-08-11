@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2019-07-24 12:04+0000\n"
+"PO-Revision-Date: 2019-08-11 06:02+0000\n"
 "Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "Filen /proc/stat ikke funnet!"
+msgstr "Fant ikke filen /proc/stat."
 
 #: ../panel-plugin/systemload.c:178
 #, c-format
@@ -125,4 +125,4 @@ msgstr "Copyright (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "Filen /proc/uptime ikke funnet!"
+msgstr "Fant ikke filen /proc/uptime."
