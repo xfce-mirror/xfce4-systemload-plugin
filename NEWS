@@ -1,3 +1,9 @@
+1.2.3 (2019/09/13)
+-----------------
+- fix possible leak
+- fix a crash when opening the properties dialog
+- tons of translation updates
+
 1.2.2 (2018/11/29)
 -----------------
 - general rework of the preferences dialog
