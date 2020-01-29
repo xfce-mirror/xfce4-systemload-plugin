@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Besnik <besnik@programeshqip.org>, 2007,2018,2020
 # Besnik <besnik@programeshqip.org>, 2007
 # Besnik <besnik@programeshqip.org>, 2018
 msgid ""
@@ -10,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2018-12-04 07:02+0000\n"
+"PO-Revision-Date: 2020-01-29 12:03+0000\n"
 "Last-Translator: Besnik <besnik@programeshqip.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "Nuk u gjet kartelë /proc/stat!"
+msgstr "S’u gjet kartelë /proc/stat!"
 
 #: ../panel-plugin/systemload.c:178
 #, c-format
@@ -54,7 +55,7 @@ msgstr[1] "%d ditë"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "Kohë punimi: %d day %d:%02d"
+msgstr[0] "Kohë punimi: %d ditë %d:%02d"
 msgstr[1] "Kohë punimi: %d ditë %d:%02d"
 
 #: ../panel-plugin/systemload.c:219
@@ -76,7 +77,7 @@ msgstr "Mbikëqyrës kujtese"
 
 #: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
-msgstr "Mbikëqyrës \"swap\"-i"
+msgstr "Mbikëqyrës swap-i"
 
 #: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
@@ -114,7 +115,7 @@ msgstr "Mbikëqyrës sistemi:"
 
 #: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Mbikëqyr ngarkesë CPU-je, përdorim hapësire \"swap\" dhe harxhim kujtese"
+msgstr "Mbikëqyr ngarkese CPU-je, përdorim hapësire swap-i dhe harxhim kujtese"
 
 #: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2018\n"
@@ -122,4 +123,4 @@ msgstr "Të drejta kopjimi (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "Nuk u gjet kartelë /proc/uptime!"
+msgstr "S’u gjet kartelë /proc/uptime!"
