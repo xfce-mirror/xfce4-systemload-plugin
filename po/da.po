@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2015
+# Aputsiak Niels Janussen <aj@isit.gl>, 2015
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Per Kongstad <p_kongstad@op.pl>, 2008,2010
 # scootergrisen, 2016-2017,2019
