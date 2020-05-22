@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2020-05-21 08:56+0000\n"
+"PO-Revision-Date: 2020-05-22 22:44+0000\n"
 "Last-Translator: Priit Jõerüüt <transifex@joeruut.com>\n"
 "Language-Team: Estonian (http://www.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -67,49 +67,49 @@ msgstr "Seadistused:"
 
 #: ../panel-plugin/systemload.c:841
 msgid "CPU monitor"
-msgstr ""
+msgstr "Protsessori koormuse jälgija"
 
 #: ../panel-plugin/systemload.c:842
 msgid "Memory monitor"
-msgstr ""
+msgstr "Mälukasutuse jälgija"
 
 #: ../panel-plugin/systemload.c:843
 msgid "Swap monitor"
-msgstr ""
+msgstr "Saaleala kasutuse jälgija"
 
 #: ../panel-plugin/systemload.c:844
 msgid "Uptime monitor"
-msgstr ""
+msgstr "Ülalolekuaja jälgija"
 
 #: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
-msgstr ""
+msgstr "Süsteemi koormuse jälgija"
 
 #: ../panel-plugin/systemload.c:870
 msgid "<b>General</b>"
-msgstr ""
+msgstr "<b>Üldine</b>"
 
 #: ../panel-plugin/systemload.c:882
 msgid "Update interval:"
-msgstr ""
+msgstr "Uuendamise välp:"
 
 #: ../panel-plugin/systemload.c:888
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Andmete uuendamise välp, kui arvuti on akutoitel (kui väärtus on null, siis kasutatakse tavavälpa)"
 
 #: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
-msgstr ""
+msgstr "Uuendamise välp akutoitel:"
 
 #: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "Rakendus, mida käivitatakse pistikprogrammi klõpsimisel"
 
 #: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
-msgstr ""
+msgstr "Tegumihaldur:"
 
 #: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
