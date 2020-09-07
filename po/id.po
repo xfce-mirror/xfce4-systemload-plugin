@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2020-05-28 12:39+0000\n"
+"PO-Revision-Date: 2020-09-07 11:34+0000\n"
 "Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,7 @@ msgstr "Interval pemutakhiran:"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Jeda pembaruan ketika berjalan dengan baterai (menggunakan jeda pembaruan reguler jika disetel ke nol)"
 
 #: ../panel-plugin/systemload.c:893
 msgid "Power-saving interval:"
@@ -103,7 +103,7 @@ msgstr "Interval penyimpanan daya:"
 
 #: ../panel-plugin/systemload.c:902
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "Diluncurkan ketika klik pada plugin"
 
 #: ../panel-plugin/systemload.c:906
 msgid "System monitor:"
@@ -115,7 +115,7 @@ msgstr "Monitor beban CPU, penggunaan swap dan jejak memori"
 
 #: ../panel-plugin/systemload.c:946
 msgid "Copyright (c) 2003-2018\n"
-msgstr ""
+msgstr "Hak Cipta (c) 2003-2018\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
