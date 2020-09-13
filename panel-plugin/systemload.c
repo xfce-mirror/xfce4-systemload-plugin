@@ -30,6 +30,7 @@
 #include <config.h>
 #endif
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -131,6 +132,32 @@ click_event(GtkWidget *w, GdkEventButton *event, t_global_monitor *global)
     return FALSE;
 }
 
+static void
+set_fraction(GtkProgressBar *bar, gdouble fraction)
+{
+    GtkAllocation alloc;
+    gint max_alloc;
+
+    gtk_widget_get_allocation(GTK_WIDGET(bar), &alloc);
+
+    /* max_alloc is independent from horizontal/vertical orientation of the bar */
+    max_alloc = MAX(alloc.width, alloc.height);
+    if (max_alloc > 0)
+        fraction = round(fraction * max_alloc) / max_alloc;
+
+    if (gtk_progress_bar_get_fraction(bar) != fraction)
+        gtk_progress_bar_set_fraction(bar, fraction);
+}
+
+static void
+set_tooltip(GtkWidget *w, const gchar *caption)
+{
+    gchar *displayed_caption = gtk_widget_get_tooltip_text (w);
+    if (g_strcmp0(displayed_caption, caption) != 0)
+        gtk_widget_set_tooltip_text (w, caption);
+    g_free (displayed_caption);
+}
+
 static gint
 update_monitors(t_global_monitor *global)
 {
@@ -169,7 +196,7 @@ update_monitors(t_global_monitor *global)
             global->monitor[count]->history[1] =
                 global->monitor[count]->history[0];
 
-            gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(global->monitor[count]->status),
+            set_fraction(GTK_PROGRESS_BAR(global->monitor[count]->status),
                  global->monitor[count]->value_read / 100.0);
         }
     }
@@ -177,14 +204,14 @@ update_monitors(t_global_monitor *global)
     {
         g_snprintf(caption, sizeof(caption), _("System Load: %ld%%"),
                    global->monitor[0]->value_read);
-        gtk_widget_set_tooltip_text(GTK_WIDGET(global->monitor[0]->ebox), caption);
+        set_tooltip(global->monitor[0]->ebox, caption);
     }
 
     if (global->monitor[1]->options.enabled)
     {
         g_snprintf(caption, sizeof(caption), _("Memory: %ldMB of %ldMB used"),
                    MUsed >> 10 , MTotal >> 10);
-        gtk_widget_set_tooltip_text(GTK_WIDGET(global->monitor[1]->ebox), caption);
+        set_tooltip(global->monitor[1]->ebox, caption);
     }
 
     if (global->monitor[2]->options.enabled)
@@ -195,7 +222,7 @@ update_monitors(t_global_monitor *global)
         else
             g_snprintf(caption, sizeof(caption), _("No swap"));
 
-        gtk_widget_set_tooltip_text(GTK_WIDGET(global->monitor[2]->ebox), caption);
+        set_tooltip(global->monitor[2]->ebox, caption);
     }
 
     if (global->uptime->enabled)
@@ -218,7 +245,7 @@ update_monitors(t_global_monitor *global)
                                caption);
             g_snprintf(caption, sizeof(caption), _("Uptime: %d:%02d"), hours, mins);
         }
-        gtk_widget_set_tooltip_text(GTK_WIDGET(global->uptime->ebox), caption);
+        set_tooltip(global->uptime->ebox, caption);
     }
     return TRUE;
 }
