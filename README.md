@@ -2,9 +2,7 @@
 
 # xfce4-systemload-plugin
 
-A system load plugin for the Xfce4 desktop environment. It displays the
-current CPU load, the memory in use, the swap space and the system uptime in
-the Xfce4 panel.
+xfce4-systemload-plugin displays current CPU load, memory in use, swap space, and system uptime in xfce4-panel.
 
 ----
 
