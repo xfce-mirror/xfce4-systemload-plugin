@@ -17,8 +17,7 @@ m4_define([systemload_version], [systemload_version_major().systemload_version_m
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2007, 2014, 2016, 2018
-        The Xfce development team. All rights reserved.])
+AC_COPYRIGHT([Copyright (c) 2006-2020 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-systemload-plugin], [systemload_version], [https://gitlab.xfce.org/panel-plugins/xfce4-systemload-plugin/], [xfce4-systemload-plugin])
 AC_PREREQ([2.50])
 AC_CONFIG_MACRO_DIRS([m4])
