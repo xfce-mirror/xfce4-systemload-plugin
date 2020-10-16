@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Dawid Job <hoek@tuta.io>, 2014
-# No Ne, 2017
+# No Ne, 2017,2020
 # Piotr Sokół <psokol.l10n@gmail.com>, 2009,2012,2014
 # Piotr Strębski <strebski@gmail.com>, 2015-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2018-12-03 21:40+0000\n"
+"POT-Creation-Date: 2020-10-15 12:49+0200\n"
+"PO-Revision-Date: 2020-10-15 14:49+0000\n"
 "Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -68,63 +68,63 @@ msgstr[3] "Czas działania: %d dni, %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Czas działania: %d:%02d"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:808
 msgid "Options:"
 msgstr "Opcje:"
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:844
 msgid "CPU monitor"
 msgstr "CPU"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:845
 msgid "Memory monitor"
 msgstr "Pamięć operacyjna"
 
-#: ../panel-plugin/systemload.c:843
+#: ../panel-plugin/systemload.c:846
 msgid "Swap monitor"
 msgstr "Obszar wymiany"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:847
 msgid "Uptime monitor"
 msgstr "Czas pracy"
 
-#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor obciążenia systemu"
 
-#: ../panel-plugin/systemload.c:870
+#: ../panel-plugin/systemload.c:873
 msgid "<b>General</b>"
 msgstr "<b>Ogólne</b>"
 
-#: ../panel-plugin/systemload.c:882
+#: ../panel-plugin/systemload.c:885
 msgid "Update interval:"
 msgstr "Okres aktualizacji:"
 
-#: ../panel-plugin/systemload.c:888
+#: ../panel-plugin/systemload.c:891
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Okres aktualizacji podczas pracy na baterii (używa regularnego okresu aktualizacji, jeśli jest ustawiony na zero)"
 
-#: ../panel-plugin/systemload.c:893
+#: ../panel-plugin/systemload.c:896
 msgid "Power-saving interval:"
 msgstr "Okres oszczędzania energii:"
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:905
 msgid "Launched when clicking on the plugin"
 msgstr "Uruchomiony po kliknięciu wtyczki"
 
-#: ../panel-plugin/systemload.c:906
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "Monitor systemu:"
 
-#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Dostarcza informacje na temat obciążenia systemu"
 
-#: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2018\n"
-msgstr "Prawa autorskie (c) 2003-2018\n"
+#: ../panel-plugin/systemload.c:949
+msgid "Copyright (c) 2003-2020\n"
+msgstr "Prawa autorskie (c) 2003-2020\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
