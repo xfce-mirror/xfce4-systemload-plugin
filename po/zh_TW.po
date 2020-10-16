@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2018-12-03 21:40+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>\n"
+"POT-Creation-Date: 2020-10-15 12:49+0200\n"
+"PO-Revision-Date: 2020-10-15 10:49+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,63 +62,63 @@ msgstr[0] "運行時間：%d 天 %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "運行時間：%d:%02d"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:808
 msgid "Options:"
 msgstr "選項："
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:844
 msgid "CPU monitor"
 msgstr "CPU 監視"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:845
 msgid "Memory monitor"
 msgstr "記憶體監視"
 
-#: ../panel-plugin/systemload.c:843
+#: ../panel-plugin/systemload.c:846
 msgid "Swap monitor"
 msgstr "置換空間監視"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:847
 msgid "Uptime monitor"
 msgstr "運行時間監視"
 
-#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "系統負載監視"
 
-#: ../panel-plugin/systemload.c:870
+#: ../panel-plugin/systemload.c:873
 msgid "<b>General</b>"
 msgstr "<b>一般</b>"
 
-#: ../panel-plugin/systemload.c:882
+#: ../panel-plugin/systemload.c:885
 msgid "Update interval:"
 msgstr "更新間隔："
 
-#: ../panel-plugin/systemload.c:888
+#: ../panel-plugin/systemload.c:891
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "當在電池上執行時的更新間隔（若設定為零則使用一般的更新間隔）"
 
-#: ../panel-plugin/systemload.c:893
+#: ../panel-plugin/systemload.c:896
 msgid "Power-saving interval:"
 msgstr "省電間隔："
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:905
 msgid "Launched when clicking on the plugin"
 msgstr "當點選外掛程式時啟動"
 
-#: ../panel-plugin/systemload.c:906
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "系統監視器："
 
-#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "監測 CPU 負載、置換空間及記憶體使用量"
 
-#: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2018\n"
-msgstr "Copyright (c) 2003-2018\n"
+#: ../panel-plugin/systemload.c:949
+msgid "Copyright (c) 2003-2020\n"
+msgstr ""
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
