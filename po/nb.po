@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-03 22:40+0100\n"
-"PO-Revision-Date: 2019-08-11 06:02+0000\n"
-"Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
+"POT-Creation-Date: 2020-10-15 12:49+0200\n"
+"PO-Revision-Date: 2020-10-15 10:49+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,63 +65,63 @@ msgstr[1] "Oppetid: %d dager %d:%02d"
 msgid "Uptime: %d:%02d"
 msgstr "Oppetid: %d:%02d"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:808
 msgid "Options:"
 msgstr "Alternativer:"
 
-#: ../panel-plugin/systemload.c:841
+#: ../panel-plugin/systemload.c:844
 msgid "CPU monitor"
 msgstr "Prosessormonitor"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:845
 msgid "Memory monitor"
 msgstr "Minnemonitor"
 
-#: ../panel-plugin/systemload.c:843
+#: ../panel-plugin/systemload.c:846
 msgid "Swap monitor"
 msgstr "Vekselfilmonitor"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:847
 msgid "Uptime monitor"
 msgstr "Oppetidsmonitor"
 
-#: ../panel-plugin/systemload.c:849 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Systemlastmonitor"
 
-#: ../panel-plugin/systemload.c:870
+#: ../panel-plugin/systemload.c:873
 msgid "<b>General</b>"
 msgstr "<b>Generelt</b>"
 
-#: ../panel-plugin/systemload.c:882
+#: ../panel-plugin/systemload.c:885
 msgid "Update interval:"
 msgstr "Oppdateringsintervall:"
 
-#: ../panel-plugin/systemload.c:888
+#: ../panel-plugin/systemload.c:891
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Oppdateringsintervall når strømtilførselen er fra batteri (velg null for å bruke det vanlige oppdateringsintervallet)"
 
-#: ../panel-plugin/systemload.c:893
+#: ../panel-plugin/systemload.c:896
 msgid "Power-saving interval:"
 msgstr "Strømsparingsintervall:"
 
-#: ../panel-plugin/systemload.c:902
+#: ../panel-plugin/systemload.c:905
 msgid "Launched when clicking on the plugin"
 msgstr "Lastes ved å klikke på programtillegget"
 
-#: ../panel-plugin/systemload.c:906
+#: ../panel-plugin/systemload.c:909
 msgid "System monitor:"
 msgstr "Systemmonitor:"
 
-#: ../panel-plugin/systemload.c:944 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Viser CPU-belastning, vekselfilbruk og minneavtrykk"
 
-#: ../panel-plugin/systemload.c:946
-msgid "Copyright (c) 2003-2018\n"
-msgstr "Copyright (c) 2003-2018\n"
+#: ../panel-plugin/systemload.c:949
+msgid "Copyright (c) 2003-2020\n"
+msgstr ""
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
