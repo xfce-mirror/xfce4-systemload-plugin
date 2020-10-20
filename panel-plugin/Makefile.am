@@ -35,7 +35,8 @@ libsystemload_la_LDFLAGS = \
 libsystemload_la_LIBADD =						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(LIBXFCE4PANEL_LIBS) 						\
-	$(UPOWER_GLIB_LIBS)
+	$(UPOWER_GLIB_LIBS)						\
+	-lm
 
 #
 # Desktop file
