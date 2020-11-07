@@ -713,33 +713,26 @@ upower_changed_cb(UpClient *client, t_global_monitor *global)
 static void
 entry_changed_cb(GtkEntry *entry, t_global_monitor *global)
 {
-    gchar** charvar = (gchar**)g_object_get_data (G_OBJECT(entry), "charvar");
-    gboolean** use_label = (gboolean**)g_object_get_data (G_OBJECT(entry), "boolvar");
-    g_free(*charvar);
-    if (gtk_entry_get_text_length (entry) == 0)
-        *use_label = (gboolean *) FALSE;
-    else
-        *use_label = (gboolean *) TRUE;
-    *charvar = g_strdup(gtk_entry_get_text(GTK_ENTRY(entry)));
-
-    setup_monitor(global);
+    gchar **charvar = (gchar**) g_object_get_data (G_OBJECT (entry), "charvar");
+    gboolean *use_label = (gboolean*) g_object_get_data (G_OBJECT (entry), "boolvar");
+    g_free (*charvar);
+    *use_label = (gtk_entry_get_text_length (entry) != 0);
+    *charvar = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
+    setup_monitor (global);
 }
 
 static void
 switch_cb(GtkSwitch *check_button, gboolean state, t_global_monitor *global)
 {
-    gboolean oldstate;
-    gboolean* boolvar;
-    gpointer sensitive_widget;
-    boolvar = (gboolean*)g_object_get_data(G_OBJECT(check_button), "boolvar");
-    sensitive_widget = g_object_get_data(G_OBJECT(check_button), "sensitive_widget");
-    oldstate = *boolvar;
+    gboolean *boolvar = (gboolean*) g_object_get_data (G_OBJECT (check_button), "boolvar");
+    gpointer sensitive_widget = g_object_get_data (G_OBJECT (check_button), "sensitive_widget");
+    gboolean oldstate = *boolvar;
     *boolvar = state;
     gtk_switch_set_state (check_button, state);
     if (sensitive_widget)
-        gtk_revealer_set_reveal_child (GTK_REVEALER (sensitive_widget), *boolvar);
-    if (oldstate != *boolvar)
-        setup_monitor(global);
+        gtk_revealer_set_reveal_child (GTK_REVEALER (sensitive_widget), state);
+    if (oldstate != state)
+        setup_monitor (global);
 }
 
 static void
@@ -772,15 +765,10 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 static void
 change_timeout_seconds_cb(GtkSpinButton *spin, t_global_monitor *global)
 {
-    gboolean** use_timeout_seconds = (gboolean**)g_object_get_data (G_OBJECT(spin), "boolvar");
-    global->timeout_seconds = gtk_spin_button_get_value(spin);
-
-    if (global->timeout_seconds == 0)
-        *use_timeout_seconds = (gboolean *) FALSE;
-    else
-        *use_timeout_seconds = (gboolean *) TRUE;
-
-    setup_timer(global);
+    gboolean *use_timeout_seconds = (gboolean*) g_object_get_data (G_OBJECT (spin), "boolvar");
+    global->timeout_seconds = gtk_spin_button_get_value (spin);
+    *use_timeout_seconds = (global->timeout_seconds != 0);
+    setup_timer (global);
 }
 #endif
 
@@ -801,11 +789,12 @@ static GtkWidget *new_label (GtkGrid *grid, guint row,
 }
 
 /* Create a new monitor setting  with gtkswitch, and eventually a color button and a checkbox + entry */
-static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int position,
-                           const gchar *title, gboolean *boolvar, GdkRGBA* colorvar,
-                           gboolean * use_label, gchar **labeltext)
+static void
+new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
+                     const gchar *title, gboolean *boolvar, GdkRGBA *colorvar,
+                     gboolean *use_label, gchar **labeltext)
 {
-    GtkWidget *revealer, *subgrid, *sw, *label, *button, *entry;
+    GtkWidget *sw, *label;
     gchar *markup;
 
     sw = gtk_switch_new();
@@ -814,7 +803,6 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_widget_set_halign (sw, GTK_ALIGN_END);
     gtk_widget_set_valign (sw, GTK_ALIGN_CENTER);
     gtk_widget_set_margin_top (sw, 12);
-    switch_cb (GTK_SWITCH(sw), *boolvar, global);
     g_signal_connect (GTK_WIDGET(sw), "state-set",
                       G_CALLBACK(switch_cb), global);
 
@@ -828,42 +816,48 @@ static void new_monitor_setting(t_global_monitor *global, GtkGrid *grid, int pos
     gtk_grid_attach(GTK_GRID(grid), label, 0, position, 1, 1);
     gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
 
-    if (colorvar == NULL)
-        return;
-    revealer = gtk_revealer_new ();
-    subgrid = gtk_grid_new ();
-    gtk_container_add (GTK_CONTAINER (revealer), subgrid);
-    gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
-    g_object_set_data (G_OBJECT(sw), "sensitive_widget", revealer);
-    gtk_grid_attach(GTK_GRID(grid), revealer, 0, position + 1, 2, 1);
-    gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
-    gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
+    if (colorvar != NULL)
+    {
+        GtkWidget *revealer, *subgrid, *button, *entry;
 
-    label = gtk_label_new_with_mnemonic (_("Options:"));
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
-    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_start (label, 12);
-    gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
+        revealer = gtk_revealer_new ();
+        subgrid = gtk_grid_new ();
+        gtk_container_add (GTK_CONTAINER (revealer), subgrid);
+        gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
+        g_object_set_data (G_OBJECT(sw), "sensitive_widget", revealer);
+        gtk_grid_attach(GTK_GRID(grid), revealer, 0, position + 1, 2, 1);
+        gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
+        gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
 
-    /* Entry for the optional monitor label */
-    entry = gtk_entry_new ();
-    gtk_widget_set_hexpand (entry, TRUE);
-    gtk_widget_set_margin_start (entry, 12);
-    g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
-    g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
-    gtk_entry_set_text (GTK_ENTRY(entry), *labeltext);
-    g_signal_connect (G_OBJECT(entry), "changed",
-    G_CALLBACK(entry_changed_cb), global);
-    gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
+        label = gtk_label_new_with_mnemonic (_("Options:"));
+        gtk_widget_set_halign (label, GTK_ALIGN_START);
+        gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+        gtk_widget_set_margin_start (label, 12);
+        gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
 
-    /* Colorbutton to set the progressbar color */
-    button = gtk_color_button_new_with_rgba(colorvar);
-    gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
-    gtk_widget_set_halign(button, GTK_ALIGN_START);
-    g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
-    g_signal_connect(G_OBJECT(button), "color-set",
-                 G_CALLBACK (color_set_cb), global);
-    gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+        /* Entry for the optional monitor label */
+        entry = gtk_entry_new ();
+        gtk_widget_set_hexpand (entry, TRUE);
+        gtk_widget_set_margin_start (entry, 12);
+        g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
+        g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
+        if (*use_label)
+            gtk_entry_set_text (GTK_ENTRY (entry), *labeltext);
+        g_signal_connect (G_OBJECT(entry), "changed",
+        G_CALLBACK(entry_changed_cb), global);
+        gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
+
+        /* Colorbutton to set the progressbar color */
+        button = gtk_color_button_new_with_rgba(colorvar);
+        gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
+        gtk_widget_set_halign(button, GTK_ALIGN_START);
+        g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
+        g_signal_connect(G_OBJECT(button), "color-set",
+                     G_CALLBACK (color_set_cb), global);
+        gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+    }
+
+    switch_cb (GTK_SWITCH (sw), *boolvar, global);
 }
 
 static void
@@ -873,7 +867,6 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     GtkBox              *content;
     GtkWidget           *grid, *label, *entry, *button;
     guint                count;
-    t_monitor           *monitor;
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
             N_ ("Memory monitor"),
@@ -945,7 +938,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     /* Add options for the three monitors */
     for(count = 0; count < 3; count++)
     {
-        monitor = global->monitor[count];
+        t_monitor *monitor = global->monitor[count];
 
         new_monitor_setting(global, GTK_GRID(grid), 4 + 2 * count,
                            _(FRAME_TEXT[count]),
