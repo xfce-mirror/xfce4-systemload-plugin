@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-15 12:49+0200\n"
-"PO-Revision-Date: 2020-10-18 11:32+0000\n"
+"PO-Revision-Date: 2020-11-16 01:13+0000\n"
 "Last-Translator: Emin Tufan <etcetin@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
-msgstr "/proc/stat dosyası bulunamadı!"
+msgstr "/proc/stat bulunamadı!"
 
 #: ../panel-plugin/systemload.c:178
 #, c-format
@@ -34,12 +34,12 @@ msgstr "Sistem Yükü: %%%ld"
 #: ../panel-plugin/systemload.c:185
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Bellek: %ldMB dolu, kapasite: %ldMB"
+msgstr "Bellek: %ldMB / %ldMB kullanıldı"
 
 #: ../panel-plugin/systemload.c:193
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Takas alanı: %ldMB dolu, kapasite: %ldMB"
+msgstr "Takas Alanı: %ldMB / %ldMB kullanıldı"
 
 #: ../panel-plugin/systemload.c:196
 #, c-format
@@ -57,13 +57,13 @@ msgstr[1] "%d gün"
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "Uptime: %d gün %d:%02d"
-msgstr[1] "Hizmet süresi: %d gün %d:%02d"
+msgstr[0] "Çalışma süresi: %d gün %d:%02d"
+msgstr[1] "Çalışma süresi: %d gün %d:%02d"
 
 #: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Uptime: %d:%02d"
-msgstr "Hizmet süresi: %d:%02d"
+msgstr "Çalışma süresi: %d:%02d"
 
 #: ../panel-plugin/systemload.c:808
 msgid "Options:"
@@ -83,7 +83,7 @@ msgstr "Takas alanı gözlemcisi"
 
 #: ../panel-plugin/systemload.c:847
 msgid "Uptime monitor"
-msgstr "Hizmet süresi gözlemcisi"
+msgstr "Çalışma süresi gözlemcisi"
 
 #: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
@@ -101,11 +101,11 @@ msgstr "Güncelleme aralığı:"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr "Pille çalışırken aralığı güncelle (sıfıra ayarlanırsa düzenli güncelleme aralığı kullanır)"
+msgstr "Pille çalışırken güncelleme aralığı (sıfıra ayarlanırsa olağan güncelleme aralığı kullanır)"
 
 #: ../panel-plugin/systemload.c:896
 msgid "Power-saving interval:"
-msgstr "Güç artırım zaman aralığı:"
+msgstr "Güç tasarrufu zaman aralığı:"
 
 #: ../panel-plugin/systemload.c:905
 msgid "Launched when clicking on the plugin"
@@ -125,4 +125,4 @@ msgstr "Telif Hakkı (c) 2003-2020\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
-msgstr "/proc/uptime dosyası bulunamadı!"
+msgstr "/proc/uptime bulunamadı!"
