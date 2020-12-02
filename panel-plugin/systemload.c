@@ -165,7 +165,7 @@ set_tooltip(GtkWidget *w, const gchar *caption)
     g_free(displayed_caption);
 }
 
-static gint
+static void
 update_monitors(t_global_monitor *global)
 {
 
@@ -254,7 +254,6 @@ update_monitors(t_global_monitor *global)
         }
         set_tooltip(global->uptime->ebox, caption);
     }
-    return TRUE;
 }
 
 static void
@@ -434,6 +433,15 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
     g_free(global);
 }
 
+static gboolean
+update_monitors_cb(gpointer user_data)
+{
+    t_global_monitor *global = user_data;
+
+    update_monitors (global);
+    return TRUE;
+}
+
 static void
 setup_timer(t_global_monitor *global)
 {
@@ -446,7 +454,7 @@ setup_timer(t_global_monitor *global)
             if (!up_client_get_lid_is_closed(global->upower)) {
                 global->timeout_id = g_timeout_add_seconds(
                                         global->timeout_seconds,
-                                        (GSourceFunc)update_monitors, global);
+                                        update_monitors_cb, global);
             } else {
                 /* Don't do any timeout if the lid is closed on battery */
                 global->timeout_id = 0;
@@ -455,7 +463,7 @@ setup_timer(t_global_monitor *global)
         }
     }
 #endif
-    global->timeout_id = g_timeout_add(global->timeout, (GSourceFunc)update_monitors, global);
+    global->timeout_id = g_timeout_add(global->timeout, update_monitors_cb, global);
     /* reduce the default tooltip timeout to be smaller than the update interval otherwise
      * we won't see tooltips on GTK 2.16 or newer */
     settings = gtk_settings_get_default();
