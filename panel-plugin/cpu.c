@@ -260,7 +260,7 @@ void init_stats()
        kc = kstat_open();
 }
 
-gulong read_cpuload()
+gulong read_cpuload(void)
 {
     gulong used, total;
     kstat_t *ksp;

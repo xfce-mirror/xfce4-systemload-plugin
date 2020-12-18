@@ -115,7 +115,7 @@ gulong read_uptime(void)
 
 #include <kstat.h>
 
-gulong read_uptime()
+gulong read_uptime(void)
 {
    kstat_ctl_t *kc;
    kstat_t *ks;
