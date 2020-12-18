@@ -28,6 +28,6 @@
 #define __UPTIME_H
 #include <gtk/gtk.h>
 
-gulong read_uptime();
+gulong read_uptime(void);
 
 #endif /* ndef __CPU_H */

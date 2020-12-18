@@ -28,6 +28,6 @@
 #define __CPU_H
 #include <gtk/gtk.h>
 
-gulong read_cpuload();
+gulong read_cpuload(void);
 
 #endif /* ndef __CPU_H */
