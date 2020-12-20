@@ -1,3 +1,26 @@
+1.2.4 (2020/12/21)
+------------------
+- Fix missing-prototypes
+- Remove GSourceFunc casts
+- Fix the properties dialog and a hidden memory corruption
+- Avoid repainting bars if there are no visual changes
+- Update copyright year
+- Update URLs
+- Create README.md and update configure.ac.in
+- Add basic GitLab pipeline
+- Update URLs from goodies.x.o to docs.x.o (Bug #16178)
+- Allow compilation with panel 4.15
+- Translation Updates:
+  Albanian, Arabic, Basque, Belarusian, Bulgarian, Catalan, Chinese
+  (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch, Eastern
+  Armenian, English (Australia), English (Canada), English (United
+  Kingdom), Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Korean, Latvian, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Russian, Serbian,
+  Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, Urdu,
+  Urdu (Pakistan), Uyghur
+
 1.2.3 (2019/09/13)
 -----------------
 - fix possible leak
