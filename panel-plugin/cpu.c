@@ -72,10 +72,13 @@ gulong read_cpuload(void)
     {
 	    case 4:
 		    iowait = 0;
+		    G_GNUC_FALLTHROUGH;
 	    case 5:
 		    irq = 0;
+		    G_GNUC_FALLTHROUGH;
 	    case 6:
 		    softirq = 0;
+		    G_GNUC_FALLTHROUGH;
 	    case 7:
 		    guest = 0;
     }
