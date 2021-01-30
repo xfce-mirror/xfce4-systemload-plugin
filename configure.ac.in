@@ -28,7 +28,7 @@ dnl ***************************
 dnl *** Initialize automake ***
 dnl ***************************
 AM_INIT_AUTOMAKE([1.8 dist-bzip2 tar-ustar no-dist-gzip foreign])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AM_MAINTAINER_MODE()
 AM_SILENT_RULES([yes])
 
@@ -50,11 +50,6 @@ dnl *************************************
 dnl *** Check for kvm, needed for BSD ***
 dnl *************************************
 AC_CHECK_LIB([kvm], [kvm_open])
-
-dnl **********************************
-dnl *** Check for standard headers ***
-dnl **********************************
-AC_HEADER_STDC()
 
 dnl ******************************
 dnl *** Check for i18n support ***
