@@ -24,7 +24,7 @@ mkinstalldirs
 panel-plugin/systemload.desktop
 panel-plugin/systemload.desktop.in
 po/*.gmo
-po/.intltool-merge-cache
+po/.intltool-merge-cache*
 po/stamp-it
 po/Makefile.in.in
 po/POTFILES
