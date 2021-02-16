@@ -282,7 +282,7 @@ systemload_config_init (SystemloadConfig *config)
 static void
 systemload_config_finalize (GObject *object)
 {
-  SystemloadConfig *config = systemload_CONFIG (object);
+  SystemloadConfig *config = SYSTEMLOAD_CONFIG (object);
 
   xfconf_shutdown();
   g_free (config->system_monitor_command);
@@ -301,7 +301,7 @@ systemload_config_get_property (GObject    *object,
                                 GValue     *value,
                                 GParamSpec *pspec)
 {
-  SystemloadConfig     *config = systemload_CONFIG (object);
+  SystemloadConfig     *config = SYSTEMLOAD_CONFIG (object);
 
   switch (prop_id)
     {
@@ -383,7 +383,7 @@ systemload_config_set_property (GObject      *object,
                                 const GValue *value,
                                 GParamSpec   *pspec)
 {
-  SystemloadConfig     *config = systemload_CONFIG (object);
+  SystemloadConfig     *config = SYSTEMLOAD_CONFIG (object);
   guint                 val_uint;
   gboolean              val_bool;
 
@@ -522,7 +522,7 @@ systemload_config_set_property (GObject      *object,
 gboolean
 systemload_config_get_enable_keyboard_shortcuts (SystemloadConfig *config)
 {
-  g_return_val_if_fail (IS_systemload_CONFIG (config), DEFAULT_ENABLE_KEYBOARD_SHORTCUTS);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_ENABLE_KEYBOARD_SHORTCUTS);
 
   return config->enable_keyboard_shortcuts;
 }
@@ -532,7 +532,7 @@ systemload_config_get_enable_keyboard_shortcuts (SystemloadConfig *config)
 guint
 systemload_config_get_volume_step (SystemloadConfig *config)
 {
-  g_return_val_if_fail (IS_systemload_CONFIG (config), DEFAULT_VOLUME_STEP);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_VOLUME_STEP);
 
   return config->volume_step;
 }
@@ -542,7 +542,7 @@ systemload_config_get_volume_step (SystemloadConfig *config)
 const gchar *
 systemload_config_get_mixer_command (SystemloadConfig *config)
 {
-  g_return_val_if_fail (IS_systemload_CONFIG (config), DEFAULT_MIXER_COMMAND);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_MIXER_COMMAND);
 
   return config->mixer_command;
 }
@@ -556,7 +556,7 @@ systemload_config_new (const gchar     *property_base)
   XfconfChannel       *channel;
   gchar               *property;
 
-  config = g_object_new (TYPE_systemload_CONFIG, NULL);
+  config = g_object_new (TYPE_SYSTEMLOAD_CONFIG, NULL);
 
   if (xfconf_init (NULL))
     {
