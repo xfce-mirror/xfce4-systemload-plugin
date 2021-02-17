@@ -518,35 +518,135 @@ systemload_config_set_property (GObject      *object,
 }
 
 
-/*
-gboolean
-systemload_config_get_enable_keyboard_shortcuts (SystemloadConfig *config)
-{
-  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_ENABLE_KEYBOARD_SHORTCUTS);
-
-  return config->enable_keyboard_shortcuts;
-}
-
-
 
 guint
-systemload_config_get_volume_step (SystemloadConfig *config)
+systemload_config_get_timeout (SystemloadConfig *config)
 {
-  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_VOLUME_STEP);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_TIMEOUT);
 
-  return config->volume_step;
+  return config->timeout;
 }
 
+guint
+systemload_config_get_timeout_seconds (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_TIMEOUT_SECONDS);
 
+  return config->timeout_seconds;
+}
 
 const gchar *
-systemload_config_get_mixer_command (SystemloadConfig *config)
+systemload_config_get_system_monitor_command (SystemloadConfig *config)
 {
-  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_MIXER_COMMAND);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_SYSTEM_MONITOR_COMMAND);
 
-  return config->mixer_command;
+  return config->system_monitor_command;
 }
-*/
+
+gboolean
+systemload_config_get_uptime_enabled (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->uptime;
+}
+
+gboolean
+systemload_config_get_cpu_enabled (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->cpu_enabled;
+}
+
+gboolean
+systemload_config_get_cpu_use_label (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->cpu_use_label;
+}
+
+const gchar *
+systemload_config_get_cpu_label (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_CPU_LABEL);
+
+  return config->cpu_label;
+}
+
+const GdkRGBA *
+systemload_config_get_cpu_color (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
+
+  return config->cpu_color;
+}
+
+gboolean
+systemload_config_get_memory_enabled (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->memory_enabled;
+}
+
+gboolean
+systemload_config_get_memory_use_label (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->memory_use_label;
+}
+
+const gchar *
+systemload_config_get_memory_label (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_MEMORY_LABEL);
+
+  return config->memory_label;
+}
+
+const GdkRGBA *
+systemload_config_get_memory_color (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
+
+  return config->memory_color;
+}
+
+gboolean
+systemload_config_get_swap_enabled (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->swap_enabled;
+}
+
+gboolean
+systemload_config_get_swap_use_label (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+
+  return config->swap_use_label;
+}
+
+const gchar *
+systemload_config_get_swap_label (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_SWAP_LABEL);
+
+  return config->swap_label;
+}
+
+const GdkRGBA *
+systemload_config_get_swap_color (SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
+
+  return config->swap_color;
+}
+
 
 
 SystemloadConfig *

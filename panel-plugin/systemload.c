@@ -45,6 +45,7 @@
 #include <upower.h>
 #endif
 
+#include "settings.h"
 #include "cpu.h"
 #include "memswap.h"
 #include "uptime.h"
@@ -102,6 +103,7 @@ typedef struct
 typedef struct
 {
     XfcePanelPlugin   *plugin;
+    SystemloadConfig  *config;
     GtkWidget         *ebox;
     GtkWidget         *box;
     guint             timeout, timeout_seconds;
@@ -996,6 +998,9 @@ systemload_construct (XfcePanelPlugin *plugin)
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     global = monitor_control_new (plugin);
+
+    /* initialize xfconf */
+    global->config = systemload_config_new (xfce_panel_plugin_get_property_base (plugin));
 
     monitor_read_config (plugin, global);
 

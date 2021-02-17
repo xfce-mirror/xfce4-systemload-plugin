@@ -38,34 +38,28 @@ GType              systemload_config_get_type                       (void)      
 
 SystemloadConfig  *systemload_config_new                            (const gchar          *property_base);
 
-/*
-gboolean           pulseaudio_config_get_enable_keyboard_shortcuts  (SystemloadConfig     *config);
-gboolean           pulseaudio_config_get_enable_multimedia_keys     (SystemloadConfig     *config);
-gboolean           pulseaudio_config_get_show_notifications         (SystemloadConfig     *config);
-guint              pulseaudio_config_get_volume_step                (SystemloadConfig     *config);
-guint              pulseaudio_config_get_volume_max                 (SystemloadConfig     *config);
-const gchar       *pulseaudio_config_get_mixer_command              (SystemloadConfig     *config);
-gchar            **pulseaudio_config_get_mpris_players              (SystemloadConfig     *config);
+guint              systemload_config_get_timeout                    (SystemloadConfig     *config);
+guint              systemload_config_get_timeout_seconds            (SystemloadConfig     *config);
+const gchar       *systemload_config_get_system_monitor_command     (SystemloadConfig     *config);
+gboolean           systemload_config_get_uptime_enabled             (SystemloadConfig     *config);
 
-gboolean           pulseaudio_config_get_enable_mpris               (SystemloadConfig     *config);
-void               pulseaudio_config_set_mpris_players              (SystemloadConfig     *config,
-                                                                     gchar               **players);
-void               pulseaudio_config_add_mpris_player               (SystemloadConfig     *config,
-                                                                     gchar                *player);
+gboolean           systemload_config_get_cpu_enabled                (SystemloadConfig     *config);
+gboolean           systemload_config_get_cpu_use_label              (SystemloadConfig     *config);
+const gchar       *systemload_config_get_cpu_label                  (SystemloadConfig     *config);
+const GdkRGBA     *systemload_config_get_cpu_color                  (SystemloadConfig     *config);
 
-void               pulseaudio_config_player_blacklist_add           (SystemloadConfig     *config,
-                                                                     const gchar          *player);
-void               pulseaudio_config_player_blacklist_remove        (SystemloadConfig     *config,
-                                                                     const gchar          *player);
-gboolean           pulseaudio_config_player_blacklist_lookup        (SystemloadConfig     *config,
-                                                                     gchar                *player);
+gboolean           systemload_config_get_memory_enabled             (SystemloadConfig     *config);
+gboolean           systemload_config_get_memory_use_label           (SystemloadConfig     *config);
+const gchar       *systemload_config_get_memory_label               (SystemloadConfig     *config);
+const GdkRGBA     *systemload_config_get_memory_color               (SystemloadConfig     *config);
 
-void               pulseaudio_config_clear_known_players            (SystemloadConfig     *config);
+gboolean           systemload_config_get_swap_enabled               (SystemloadConfig     *config);
+gboolean           systemload_config_get_swap_use_label             (SystemloadConfig     *config);
+const gchar       *systemload_config_get_swap_label                 (SystemloadConfig     *config);
+const GdkRGBA     *systemload_config_get_swap_color                 (SystemloadConfig     *config);
 
-void               pulseaudio_config_set_can_raise_wnck             (SystemloadConfig     *config,
-                                                                     gboolean              can_raise);
-gboolean           pulseaudio_config_get_can_raise_wnck             (SystemloadConfig     *config);
-*/
+
+
 G_END_DECLS
 
 #endif /* !__SYSTEMLOAD_CONFIG_H__ */
