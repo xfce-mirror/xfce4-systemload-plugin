@@ -969,15 +969,15 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 static void
 monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-   GdkPixbuf *icon;
-   const gchar *auth[] = {
+    const gchar *auth[] = {
       "Riccardo Persichetti <riccardo.persichetti@tin.it>",
       "Florian Rivoal <frivoal@xfce.org>",
       "Landry Breuil <landry@xfce.org>",
-      "David Schneider <dnschneid@gmail.com>", NULL };
-   icon = xfce_panel_pixbuf_from_source("utilities-system-monitor", NULL, 32);
-   gtk_show_about_dialog(NULL,
-      "logo", icon,
+      "David Schneider <dnschneid@gmail.com>",
+      "Simon Steinbeiß", NULL };
+
+    gtk_show_about_dialog (NULL,
+      "logo-icon-name", "utilities-system-monitor",
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_BSD),
       "version", PACKAGE_VERSION,
       "program-name", PACKAGE_NAME,
@@ -985,9 +985,6 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
       "website", "https://docs.xfce.org/panel-plugins/xfce4-systemload-plugin",
       "copyright", _("Copyright (c) 2003-2020\n"),
       "authors", auth, NULL);
-
-   if(icon)
-      g_object_unref(G_OBJECT(icon));
 }
 
 static void
