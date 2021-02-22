@@ -51,8 +51,6 @@
 #include "uptime.h"
 
 /* for xml: */
-static gchar *MONITOR_ROOT[] = { "SL_Cpu", "SL_Mem", "SL_Swap", "SL_Uptime" };
-
 static gchar *DEFAULT_TEXT[] = { "cpu", "memory", "swap" };
 
 static gchar *DEFAULT_COMMAND_TEXT = "xfce4-taskmanager";
@@ -66,7 +64,7 @@ typedef struct
 {
     gboolean enabled;
     gboolean use_label;
-    GdkRGBA  *color;
+    GdkRGBA  color;
     gchar    *label_text;
 } t_monitor_options;
 
@@ -385,8 +383,8 @@ monitor_control_new(XfcePanelPlugin *plugin)
         global->monitor[count] = g_new(t_monitor, 1);
         global->monitor[count]->options.label_text =
             g_strdup(DEFAULT_TEXT[count]);
-        gdk_rgba_parse(global->monitor[count]->options.color,
-                       DEFAULT_COLOR[count]);
+        //gdk_rgba_parse(global->monitor[count]->options.color,
+        //               DEFAULT_COLOR[count]);
 
         global->monitor[count]->options.use_label = TRUE;
         global->monitor[count]->options.enabled = TRUE;
@@ -490,10 +488,10 @@ setup_monitor(t_global_monitor *global)
         gtk_label_set_text(GTK_LABEL(global->monitor[count]->label),
                            global->monitor[count]->options.label_text);
 
-        if (global->monitor[count]->options.color)
+        if (&global->monitor[count]->options.color)
         {
 #if GTK_CHECK_VERSION (3, 16, 0)
-        color = gdk_rgba_to_string(global->monitor[count]->options.color);
+        color = gdk_rgba_to_string(&global->monitor[count]->options.color);
 #if GTK_CHECK_VERSION (3, 20, 0)
         css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }", color);
 #else
@@ -507,13 +505,13 @@ setup_monitor(t_global_monitor *global)
 #else
         gtk_widget_override_background_color(GTK_WIDGET(global->monitor[count]->status),
                              GTK_STATE_PRELIGHT,
-                             global->monitor[count]->options.color);
+                             &global->monitor[count]->options.color);
         gtk_widget_override_background_color(GTK_WIDGET(global->monitor[count]->status),
                              GTK_STATE_SELECTED,
-                             global->monitor[count]->options.color);
+                             &global->monitor[count]->options.color);
         gtk_widget_override_color(GTK_WIDGET(global->monitor[count]->status),
                                GTK_STATE_SELECTED,
-                               global->monitor[count]->options.color);
+                               &global->monitor[count]->options.color);
 #endif
         }
 
@@ -559,17 +557,17 @@ monitor_config_init(XfcePanelPlugin *plugin, t_global_monitor *global)
     global->monitor[CPU_MONITOR]->options.enabled = systemload_config_get_cpu_enabled (global->config);
     global->monitor[CPU_MONITOR]->options.use_label = systemload_config_get_cpu_use_label (global->config);
     global->monitor[CPU_MONITOR]->options.label_text = systemload_config_get_cpu_label (global->config);
-    global->monitor[CPU_MONITOR]->options.color = systemload_config_get_cpu_color (global->config);
+    global->monitor[CPU_MONITOR]->options.color = *systemload_config_get_cpu_color (global->config);
 
     global->monitor[MEM_MONITOR]->options.enabled = systemload_config_get_memory_enabled (global->config);
     global->monitor[MEM_MONITOR]->options.use_label = systemload_config_get_memory_use_label (global->config);
     global->monitor[MEM_MONITOR]->options.label_text = systemload_config_get_memory_label (global->config);
-    global->monitor[MEM_MONITOR]->options.color = systemload_config_get_memory_color (global->config);
+    global->monitor[MEM_MONITOR]->options.color = *systemload_config_get_memory_color (global->config);
 
     global->monitor[SWAP_MONITOR]->options.enabled = systemload_config_get_swap_enabled (global->config);
     global->monitor[SWAP_MONITOR]->options.use_label = systemload_config_get_swap_use_label (global->config);
     global->monitor[SWAP_MONITOR]->options.label_text = systemload_config_get_swap_label (global->config);
-    global->monitor[SWAP_MONITOR]->options.color = systemload_config_get_swap_color (global->config);
+    global->monitor[SWAP_MONITOR]->options.color = *systemload_config_get_swap_color (global->config);
 
     global->uptime->enabled = systemload_config_get_uptime_enabled (global->config);
 }
@@ -777,23 +775,22 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
         g_signal_connect (G_OBJECT(entry), "changed",
         G_CALLBACK(entry_changed_cb), global);
         gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
-    if (colorvar != NULL)
-    {
-        /* Colorbutton to set the progressbar color */
-        button = gtk_color_button_new_with_rgba(colorvar);
-        gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
-        gtk_widget_set_halign(button, GTK_ALIGN_START);
-        setting_name = g_strconcat (setting, "-color", NULL);
-        g_warning ("setting name %s", setting_name);
-        g_object_bind_property (G_OBJECT (global->config), setting_name,
-                                G_OBJECT (button), "rgba",
-                                G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
-        g_free (setting_name);
-        g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
-        g_signal_connect(G_OBJECT(button), "color-set",
-                     G_CALLBACK (color_set_cb), global);
-        gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
-    }
+        if (colorvar != NULL)
+        {
+            /* Colorbutton to set the progressbar color */
+            button = gtk_color_button_new_with_rgba(colorvar);
+            gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
+            gtk_widget_set_halign(button, GTK_ALIGN_START);
+            setting_name = g_strconcat (setting, "-color", NULL);
+            g_object_bind_property (G_OBJECT (global->config), setting_name,
+                                    G_OBJECT (button), "rgba",
+                                    G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+            g_free (setting_name);
+            g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
+            g_signal_connect(G_OBJECT(button), "color-set",
+                         G_CALLBACK (color_set_cb), global);
+            gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+        }
     }
 
     switch_cb (GTK_SWITCH (sw), *boolvar, global);
@@ -806,7 +803,6 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     GtkBox              *content;
     GtkWidget           *grid, *label, *entry, *button;
     guint                count;
-    gboolean             boolvar;
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
             N_ ("Memory monitor"),
@@ -886,7 +882,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         new_monitor_setting(global, GTK_GRID(grid), 4 + 2 * count,
                            _(FRAME_TEXT[count]),
                            &monitor->options.enabled,
-                            monitor->options.color,
+                           &monitor->options.color,
                            &monitor->options.use_label,
                            &monitor->options.label_text,
                            (DEFAULT_TEXT[count]));

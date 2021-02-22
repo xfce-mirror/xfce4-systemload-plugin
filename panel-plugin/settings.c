@@ -49,6 +49,7 @@
 #define DEFAULT_CPU_LABEL "cpu"
 #define DEFAULT_MEMORY_LABEL "mem"
 #define DEFAULT_SWAP_LABEL "swap"
+static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
 
 
 
@@ -81,17 +82,17 @@ struct _SystemloadConfig
   gboolean         cpu_enabled;
   gboolean         cpu_use_label;
   gchar           *cpu_label;
-  GdkRGBA         *cpu_color;
+  GdkRGBA          cpu_color;
 
   gboolean         memory_enabled;
   gboolean         memory_use_label;
   gchar           *memory_label;
-  GdkRGBA         *memory_color;
+  GdkRGBA          memory_color;
 
   gboolean         swap_enabled;
   gboolean         swap_use_label;
   gchar           *swap_label;
-  GdkRGBA         *swap_color;
+  GdkRGBA          swap_color;
 
 };
 
@@ -275,21 +276,15 @@ systemload_config_init (SystemloadConfig *config)
   config->cpu_enabled = TRUE;
   config->cpu_use_label = TRUE;
   config->cpu_label = g_strdup (DEFAULT_CPU_LABEL);
-  g_warning ("cpu color: %s", DEFAULT_COLOR[CPU_MONITOR]);
-  if (gdk_rgba_parse (config->cpu_color,
-                  DEFAULT_COLOR[0]) == FALSE)
-    g_warning ("cpu color value not set");
+  gdk_rgba_parse (&config->cpu_color, DEFAULT_COLOR[CPU_MONITOR]);
   config->memory_enabled = TRUE;
   config->memory_use_label = TRUE;
   config->memory_label = g_strdup (DEFAULT_MEMORY_LABEL);
-  g_warning ("mem color: %s", DEFAULT_COLOR[MEM_MONITOR]);
-  gdk_rgba_parse (config->memory_color,
-                  DEFAULT_COLOR[1]);
+  gdk_rgba_parse (&config->memory_color, DEFAULT_COLOR[MEM_MONITOR]);
   config->swap_enabled = TRUE;
   config->swap_use_label = TRUE;
   config->swap_label = g_strdup (DEFAULT_SWAP_LABEL);
-  gdk_rgba_parse (config->swap_color,
-                  DEFAULT_COLOR[2]);
+  gdk_rgba_parse (&config->swap_color, DEFAULT_COLOR[SWAP_MONITOR]);
 }
 
 
@@ -302,11 +297,8 @@ systemload_config_finalize (GObject *object)
   xfconf_shutdown();
   g_free (config->system_monitor_command);
   g_free (config->cpu_label);
-  gdk_rgba_free (config->cpu_color);
   g_free (config->memory_label);
-  gdk_rgba_free (config->memory_color);
   g_free (config->swap_label);
-  gdk_rgba_free (config->swap_color);
 
   G_OBJECT_CLASS (systemload_config_parent_class)->finalize (object);
 }
@@ -352,8 +344,7 @@ systemload_config_get_property (GObject    *object,
       break;
 
     case PROP_CPU_COLOR:
-      g_warning ("get cpu color property");
-      g_value_set_boxed (value, config->cpu_color);
+      g_value_set_boxed (value, &config->cpu_color);
       break;
 
     case PROP_MEMORY_ENABLED:
@@ -369,7 +360,7 @@ systemload_config_get_property (GObject    *object,
       break;
 
     case PROP_MEMORY_COLOR:
-      g_value_set_boxed (value, config->memory_color);
+      g_value_set_boxed (value, &config->memory_color);
       break;
 
     case PROP_SWAP_ENABLED:
@@ -385,7 +376,7 @@ systemload_config_get_property (GObject    *object,
       break;
 
     case PROP_SWAP_COLOR:
-      g_value_set_boxed (value, config->swap_color);
+      g_value_set_boxed (value, &config->swap_color);
       break;
 
     default:
@@ -405,6 +396,7 @@ systemload_config_set_property (GObject      *object,
   SystemloadConfig     *config = SYSTEMLOAD_CONFIG (object);
   guint                 val_uint;
   gboolean              val_bool;
+  GdkRGBA              *rgba;
 
   switch (prop_id)
     {
@@ -469,10 +461,8 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_CPU_COLOR:
-      g_warning ("set cpu color property");
-      if (config->cpu_color != NULL)
-        gdk_rgba_free (config->cpu_color);
-      config->cpu_color = g_value_dup_boxed (value);
+      rgba = g_value_dup_boxed (value);
+      config->cpu_color = *rgba;
       g_object_notify (G_OBJECT (config), "cpu-color");
       g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
       break;
@@ -503,9 +493,8 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_MEMORY_COLOR:
-      if (config->memory_color != NULL)
-        gdk_rgba_free (config->memory_color);
-      config->memory_color = g_value_dup_boxed (value);
+      rgba = g_value_dup_boxed (value);
+      config->memory_color = *rgba;
       g_object_notify (G_OBJECT (config), "memory-color");
       g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
       break;
@@ -536,9 +525,8 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_SWAP_COLOR:
-      if (config->swap_color != NULL)
-        gdk_rgba_free (config->swap_color);
-      config->swap_color = g_value_dup_boxed (value);
+      rgba = g_value_dup_boxed (value);
+      config->swap_color = *rgba;
       g_object_notify (G_OBJECT (config), "swap-color");
       g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
       break;
@@ -607,14 +595,12 @@ systemload_config_get_cpu_label (SystemloadConfig *config)
   return config->cpu_label;
 }
 
-const GdkRGBA *
+GdkRGBA *
 systemload_config_get_cpu_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
 
-  if (config->cpu_color == NULL)
-    g_warning ("somehow no color ?");
-  return config->cpu_color;
+  return &config->cpu_color;
 }
 
 gboolean
@@ -641,12 +627,12 @@ systemload_config_get_memory_label (SystemloadConfig *config)
   return config->memory_label;
 }
 
-const GdkRGBA *
+GdkRGBA *
 systemload_config_get_memory_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
 
-  return config->memory_color;
+  return &config->memory_color;
 }
 
 gboolean
@@ -673,12 +659,12 @@ systemload_config_get_swap_label (SystemloadConfig *config)
   return config->swap_label;
 }
 
-const GdkRGBA *
+GdkRGBA *
 systemload_config_get_swap_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
 
-  return config->swap_color;
+  return &config->swap_color;
 }
 
 

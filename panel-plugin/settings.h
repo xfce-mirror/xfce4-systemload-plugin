@@ -24,7 +24,6 @@
 
 G_BEGIN_DECLS
 
-static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
 enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
 
 typedef struct _SystemloadConfigClass SystemloadConfigClass;
@@ -49,17 +48,17 @@ gboolean           systemload_config_get_uptime_enabled             (SystemloadC
 gboolean           systemload_config_get_cpu_enabled                (SystemloadConfig     *config);
 gboolean           systemload_config_get_cpu_use_label              (SystemloadConfig     *config);
 const gchar       *systemload_config_get_cpu_label                  (SystemloadConfig     *config);
-const GdkRGBA     *systemload_config_get_cpu_color                  (SystemloadConfig     *config);
+GdkRGBA           *systemload_config_get_cpu_color                  (SystemloadConfig     *config);
 
 gboolean           systemload_config_get_memory_enabled             (SystemloadConfig     *config);
 gboolean           systemload_config_get_memory_use_label           (SystemloadConfig     *config);
 const gchar       *systemload_config_get_memory_label               (SystemloadConfig     *config);
-const GdkRGBA     *systemload_config_get_memory_color               (SystemloadConfig     *config);
+GdkRGBA           *systemload_config_get_memory_color               (SystemloadConfig     *config);
 
 gboolean           systemload_config_get_swap_enabled               (SystemloadConfig     *config);
 gboolean           systemload_config_get_swap_use_label             (SystemloadConfig     *config);
 const gchar       *systemload_config_get_swap_label                 (SystemloadConfig     *config);
-const GdkRGBA     *systemload_config_get_swap_color                 (SystemloadConfig     *config);
+GdkRGBA           *systemload_config_get_swap_color                 (SystemloadConfig     *config);
 
 
 
