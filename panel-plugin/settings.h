@@ -24,6 +24,9 @@
 
 G_BEGIN_DECLS
 
+static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
+enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
+
 typedef struct _SystemloadConfigClass SystemloadConfigClass;
 typedef struct _SystemloadConfig      SystemloadConfig;
 

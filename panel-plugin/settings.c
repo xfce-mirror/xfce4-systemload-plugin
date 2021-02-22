@@ -52,7 +52,6 @@
 
 
 
-
 static void                 systemload_config_finalize       (GObject          *object);
 static void                 systemload_config_get_property   (GObject          *object,
                                                               guint             prop_id,
@@ -152,7 +151,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
 
   g_object_class_install_property (gobject_class,
                                    PROP_TIMEOUT_SECONDS,
-                                   g_param_spec_uint ("timeout", NULL, NULL,
+                                   g_param_spec_uint ("timeout-seconds", NULL, NULL,
                                                       1, 10000, DEFAULT_TIMEOUT_SECONDS,
                                                       G_PARAM_READWRITE |
                                                       G_PARAM_STATIC_STRINGS));
@@ -166,7 +165,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
 
   g_object_class_install_property (gobject_class,
                                    PROP_UPTIME,
-                                   g_param_spec_boolean ("uptime", NULL, NULL,
+                                   g_param_spec_boolean ("uptime-enabled", NULL, NULL,
                                                          TRUE,
                                                          G_PARAM_READWRITE |
                                                          G_PARAM_STATIC_STRINGS));
@@ -272,9 +271,25 @@ systemload_config_init (SystemloadConfig *config)
   config->timeout = DEFAULT_TIMEOUT;
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
   config->system_monitor_command = DEFAULT_SYSTEM_MONITOR_COMMAND;
+  config->uptime = TRUE;
+  config->cpu_enabled = TRUE;
+  config->cpu_use_label = TRUE;
   config->cpu_label = g_strdup (DEFAULT_CPU_LABEL);
+  g_warning ("cpu color: %s", DEFAULT_COLOR[CPU_MONITOR]);
+  if (gdk_rgba_parse (config->cpu_color,
+                  DEFAULT_COLOR[0]) == FALSE)
+    g_warning ("cpu color value not set");
+  config->memory_enabled = TRUE;
+  config->memory_use_label = TRUE;
   config->memory_label = g_strdup (DEFAULT_MEMORY_LABEL);
+  g_warning ("mem color: %s", DEFAULT_COLOR[MEM_MONITOR]);
+  gdk_rgba_parse (config->memory_color,
+                  DEFAULT_COLOR[1]);
+  config->swap_enabled = TRUE;
+  config->swap_use_label = TRUE;
   config->swap_label = g_strdup (DEFAULT_SWAP_LABEL);
+  gdk_rgba_parse (config->swap_color,
+                  DEFAULT_COLOR[2]);
 }
 
 
@@ -287,8 +302,11 @@ systemload_config_finalize (GObject *object)
   xfconf_shutdown();
   g_free (config->system_monitor_command);
   g_free (config->cpu_label);
+  gdk_rgba_free (config->cpu_color);
   g_free (config->memory_label);
+  gdk_rgba_free (config->memory_color);
   g_free (config->swap_label);
+  gdk_rgba_free (config->swap_color);
 
   G_OBJECT_CLASS (systemload_config_parent_class)->finalize (object);
 }
@@ -334,6 +352,7 @@ systemload_config_get_property (GObject    *object,
       break;
 
     case PROP_CPU_COLOR:
+      g_warning ("get cpu color property");
       g_value_set_boxed (value, config->cpu_color);
       break;
 
@@ -419,7 +438,7 @@ systemload_config_set_property (GObject      *object,
       if (config->uptime != val_bool)
         {
           config->uptime = val_bool;
-          g_object_notify (G_OBJECT (config), "uptime");
+          g_object_notify (G_OBJECT (config), "uptime-enabled");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
       break;
@@ -450,7 +469,12 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_CPU_COLOR:
-      //g_value_set_boxed (value, config->cpu_color);
+      g_warning ("set cpu color property");
+      if (config->cpu_color != NULL)
+        gdk_rgba_free (config->cpu_color);
+      config->cpu_color = g_value_dup_boxed (value);
+      g_object_notify (G_OBJECT (config), "cpu-color");
+      g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
       break;
 
     case PROP_MEMORY_ENABLED:
@@ -479,7 +503,11 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_MEMORY_COLOR:
-      //g_value_set_boxed (value, config->memory_color);
+      if (config->memory_color != NULL)
+        gdk_rgba_free (config->memory_color);
+      config->memory_color = g_value_dup_boxed (value);
+      g_object_notify (G_OBJECT (config), "memory-color");
+      g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
       break;
 
     case PROP_SWAP_ENABLED:
@@ -508,7 +536,11 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_SWAP_COLOR:
-      //g_value_set_boxed (value, config->swap_color);
+      if (config->swap_color != NULL)
+        gdk_rgba_free (config->swap_color);
+      config->swap_color = g_value_dup_boxed (value);
+      g_object_notify (G_OBJECT (config), "swap-color");
+      g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
       break;
 
     default:
@@ -580,6 +612,8 @@ systemload_config_get_cpu_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
 
+  if (config->cpu_color == NULL)
+    g_warning ("somehow no color ?");
   return config->cpu_color;
 }
 
@@ -674,8 +708,8 @@ systemload_config_new (const gchar     *property_base)
       xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, "system-monitor-command");
       g_free (property);
 
-      property = g_strconcat (property_base, "/uptime", NULL);
-      xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, "uptime");
+      property = g_strconcat (property_base, "/uptime/enabled", NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, "uptime-enabled");
       g_free (property);
 
       property = g_strconcat (property_base, "/cpu/enabled", NULL);
