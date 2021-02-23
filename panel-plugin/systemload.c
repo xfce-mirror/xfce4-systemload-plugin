@@ -3,6 +3,7 @@
  * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
  * Copyright (c) 2012 David Schneider <dnschneid@gmail.com>
  * Copyright (c) 2014-2017 Landry Breuil <landry@xfce.org>
+ * Copyright (c) 2021 Simon Steinbeiss <simon@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -793,14 +794,14 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     dlg = xfce_titled_dialog_new_with_mixed_buttons (_("System Load Monitor"),
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               "window-close-symbolic", "Close",
+                                               "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
                                                NULL);
 
     g_signal_connect (G_OBJECT (dlg), "response",
                       G_CALLBACK (monitor_dialog_response), global);
 
     gtk_window_set_position (GTK_WINDOW (dlg), GTK_WIN_POS_CENTER);
-    gtk_window_set_icon_name (GTK_WINDOW (dlg), "utilities-system-monitor");
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.panel.systemload");
 
     content = GTK_BOX(gtk_dialog_get_content_area (GTK_DIALOG(dlg)));
 
@@ -896,7 +897,7 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
       "Simon Steinbeiß", NULL };
 
     gtk_show_about_dialog (NULL,
-      "logo-icon-name", "utilities-system-monitor",
+      "logo-icon-name", "org.xfce.panel.systemload",
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_BSD),
       "version", PACKAGE_VERSION,
       "program-name", PACKAGE_NAME,
