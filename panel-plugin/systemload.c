@@ -494,7 +494,7 @@ setup_monitor(t_global_monitor *global)
 #if GTK_CHECK_VERSION (3, 16, 0)
         color = gdk_rgba_to_string(&global->monitor[count]->options.color);
 #if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }", color);
+        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; border-color: %s; }", color, color);
 #else
         css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }", color);
 #endif
