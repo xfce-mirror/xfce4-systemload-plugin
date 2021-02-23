@@ -669,7 +669,6 @@ monitor_dialog_response (GtkWidget *dlg, int response,
 {
     gtk_widget_destroy (dlg);
     xfce_panel_plugin_unblock_menu (global->plugin);
-    //monitor_write_config (global->plugin, global);
 }
 
 static void
@@ -812,10 +811,10 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     xfce_panel_plugin_block_menu (plugin);
 
-    dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"),
+    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("System Load Monitor"),
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               "window-close-symbolic", GTK_RESPONSE_OK,
+                                               "window-close-symbolic", "Close",
                                                NULL);
 
     g_signal_connect (G_OBJECT (dlg), "response",
@@ -952,9 +951,6 @@ systemload_construct (XfcePanelPlugin *plugin)
 #endif /* HAVE_UPOWER_GLIB */
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
-
-    //g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config),
-    //                  global);
 
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size),
                       global);
