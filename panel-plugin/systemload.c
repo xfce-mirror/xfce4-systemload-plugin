@@ -366,39 +366,55 @@ monitor_control_new(XfcePanelPlugin *plugin)
     global->upower = up_client_new();
 #endif
     global->plugin = plugin;
-    global->timeout = UPDATE_TIMEOUT;
-    global->timeout_seconds = UPDATE_TIMEOUT_SECONDS;
+
+    /* initialize xfconf */
+    global->config = systemload_config_new (xfce_panel_plugin_get_property_base (plugin));
+
+    global->timeout = systemload_config_get_timeout (global->config);
+    if (global->timeout < 500)
+        global->timeout = 500;
+    global->timeout_seconds = systemload_config_get_timeout_seconds (global->config);
+    if (global->timeout_seconds > 0)
+        global->use_timeout_seconds = TRUE;
+
     global->use_timeout_seconds = TRUE;
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
-    global->command.enabled = TRUE;
-    global->command.command_text = g_strdup(DEFAULT_COMMAND_TEXT);
+    global->command.command_text = systemload_config_get_system_monitor_command (global->config);
+    if (strlen(global->command.command_text) > 0)
+        global->command.enabled = TRUE;
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
     for(count = 0; count < 3; count++)
     {
         global->monitor[count] = g_new(t_monitor, 1);
-        global->monitor[count]->options.label_text =
-            g_strdup(DEFAULT_TEXT[count]);
-        //gdk_rgba_parse(global->monitor[count]->options.color,
-        //               DEFAULT_COLOR[count]);
-
-        global->monitor[count]->options.use_label = TRUE;
-        global->monitor[count]->options.enabled = TRUE;
-
         global->monitor[count]->history[0] = 0;
         global->monitor[count]->history[1] = 0;
         global->monitor[count]->history[2] = 0;
         global->monitor[count]->history[3] = 0;
 
     }
+    global->monitor[CPU_MONITOR]->options.enabled = systemload_config_get_cpu_enabled (global->config);
+    global->monitor[CPU_MONITOR]->options.use_label = systemload_config_get_cpu_use_label (global->config);
+    global->monitor[CPU_MONITOR]->options.label_text = systemload_config_get_cpu_label (global->config);
+    global->monitor[CPU_MONITOR]->options.color = *systemload_config_get_cpu_color (global->config);
+
+    global->monitor[MEM_MONITOR]->options.enabled = systemload_config_get_memory_enabled (global->config);
+    global->monitor[MEM_MONITOR]->options.use_label = systemload_config_get_memory_use_label (global->config);
+    global->monitor[MEM_MONITOR]->options.label_text = systemload_config_get_memory_label (global->config);
+    global->monitor[MEM_MONITOR]->options.color = *systemload_config_get_memory_color (global->config);
+
+    global->monitor[SWAP_MONITOR]->options.enabled = systemload_config_get_swap_enabled (global->config);
+    global->monitor[SWAP_MONITOR]->options.use_label = systemload_config_get_swap_use_label (global->config);
+    global->monitor[SWAP_MONITOR]->options.label_text = systemload_config_get_swap_label (global->config);
+    global->monitor[SWAP_MONITOR]->options.color = *systemload_config_get_swap_color (global->config);
 
     global->uptime = g_new(t_uptime_monitor, 1);
-    global->uptime->enabled = TRUE;
+    global->uptime->enabled = systemload_config_get_uptime_enabled (global->config);
 
     return global;
 }
@@ -537,40 +553,6 @@ setup_monitor(t_global_monitor *global)
     }
 
     setup_timer(global);
-}
-
-static void
-monitor_config_init(XfcePanelPlugin *plugin, t_global_monitor *global)
-{
-    /* initialize xfconf */
-    global->config = systemload_config_new (xfce_panel_plugin_get_property_base (plugin));
-
-    global->timeout = systemload_config_get_timeout (global->config);
-    if (global->timeout < 500)
-        global->timeout = 500;
-    global->timeout_seconds = systemload_config_get_timeout_seconds (global->config);
-    if (global->timeout_seconds > 0)
-        global->use_timeout_seconds = TRUE;
-    global->command.command_text = systemload_config_get_system_monitor_command (global->config);
-    if (strlen(global->command.command_text) > 0)
-        global->command.enabled = TRUE;
-
-    global->monitor[CPU_MONITOR]->options.enabled = systemload_config_get_cpu_enabled (global->config);
-    global->monitor[CPU_MONITOR]->options.use_label = systemload_config_get_cpu_use_label (global->config);
-    global->monitor[CPU_MONITOR]->options.label_text = systemload_config_get_cpu_label (global->config);
-    global->monitor[CPU_MONITOR]->options.color = *systemload_config_get_cpu_color (global->config);
-
-    global->monitor[MEM_MONITOR]->options.enabled = systemload_config_get_memory_enabled (global->config);
-    global->monitor[MEM_MONITOR]->options.use_label = systemload_config_get_memory_use_label (global->config);
-    global->monitor[MEM_MONITOR]->options.label_text = systemload_config_get_memory_label (global->config);
-    global->monitor[MEM_MONITOR]->options.color = *systemload_config_get_memory_color (global->config);
-
-    global->monitor[SWAP_MONITOR]->options.enabled = systemload_config_get_swap_enabled (global->config);
-    global->monitor[SWAP_MONITOR]->options.use_label = systemload_config_get_swap_use_label (global->config);
-    global->monitor[SWAP_MONITOR]->options.label_text = systemload_config_get_swap_label (global->config);
-    global->monitor[SWAP_MONITOR]->options.color = *systemload_config_get_swap_color (global->config);
-
-    global->uptime->enabled = systemload_config_get_uptime_enabled (global->config);
 }
 
 static gboolean
@@ -925,8 +907,6 @@ systemload_construct (XfcePanelPlugin *plugin)
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     global = monitor_control_new (plugin);
-
-    monitor_config_init (plugin, global);
 
     create_monitor (global);
     monitor_set_mode (plugin,
