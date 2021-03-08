@@ -51,15 +51,7 @@
 #include "memswap.h"
 #include "uptime.h"
 
-/* for xml: */
-static gchar *DEFAULT_TEXT[] = { "cpu", "memory", "swap" };
 
-static gchar *DEFAULT_COMMAND_TEXT = "xfce4-taskmanager";
-
-#define UPDATE_TIMEOUT 0.5
-#define UPDATE_TIMEOUT_SECONDS 1
-
-#define BORDER 8
 
 typedef struct
 {
@@ -657,7 +649,7 @@ monitor_dialog_response (GtkWidget *dlg, int response,
 static void
 change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 {
-    global->timeout = gtk_spin_button_get_value(spin) * 1000;
+    global->timeout = gtk_spin_button_get_value(spin);
 
     setup_timer(global);
 }
@@ -783,13 +775,18 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget           *dlg;
     GtkBox              *content;
-    GtkWidget           *grid, *label, *entry, *button;
+    GtkWidget           *grid, *label, *entry, *button, *box;
     guint                count;
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
             N_ ("Memory monitor"),
             N_ ("Swap monitor"),
             N_ ("Uptime monitor")
+    };
+    static const gchar *DEFAULT_TEXT[] = {
+            "cpu",
+            "memory",
+            "swap"
     };
 
     xfce_panel_plugin_block_menu (plugin);
@@ -821,15 +818,19 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
 
     /* Update interval */
-    button = gtk_spin_button_new_with_range (0.5, 10.0, .1);
+    button = gtk_spin_button_new_with_range (500, 10000, 50);
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), button);
     gtk_widget_set_halign (button, GTK_ALIGN_START);
-    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout/1000.0);
-    //g_object_bind_property (G_OBJECT (global->config), "timeout",
-    //                        G_OBJECT (button), "value",
-    //                        G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout);
+    g_object_bind_property (G_OBJECT (global->config), "timeout",
+                            G_OBJECT (button), "value",
+                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_cb), global);
-    gtk_grid_attach (GTK_GRID (grid), button, 1, 1, 1, 1);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    label = gtk_label_new ("ms");
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+    gtk_grid_attach (GTK_GRID (grid), box, 1, 1, 1, 1);
     new_label (GTK_GRID (grid), 1, _("Update interval:"), button);
 
 #ifdef HAVE_UPOWER_GLIB
@@ -839,8 +840,15 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_widget_set_tooltip_text(GTK_WIDGET(button), _("Update interval when running on battery (uses regular update interval if set to zero)"));
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout_seconds);
     g_object_set_data (G_OBJECT(button), "boolvar", &global->use_timeout_seconds);
+    g_object_bind_property (G_OBJECT (global->config), "timeout-seconds",
+                            G_OBJECT (button), "value",
+                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_seconds_cb), global);
-    gtk_grid_attach (GTK_GRID (grid), button, 1, 2, 1, 1);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    label = gtk_label_new ("s");
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+    gtk_grid_attach (GTK_GRID (grid), box, 1, 2, 1, 1);
     new_label (GTK_GRID (grid), 2, _("Power-saving interval:"), button);
 #endif
 
