@@ -6,12 +6,14 @@ AM_CPPFLAGS =								\
 
 plugindir =								\
 	$(libdir)/xfce4/panel/plugins
-	
+
 plugin_LTLIBRARIES =							\
 	libsystemload.la
 
 libsystemload_la_SOURCES =					\
 	systemload.c							\
+	settings.c							\
+	settings.h							\
 	uptime.c							\
 	uptime.h							\
 	memswap.c							\
@@ -21,6 +23,7 @@ libsystemload_la_SOURCES =					\
 
 libsystemload_la_CFLAGS =					\
 	$(LIBXFCE4UI_CFLAGS)						\
+	$(XFCONF_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
 	$(UPOWER_GLIB_CFLAGS)						\
 	$(PLATFORM_CFLAGS)
@@ -34,6 +37,7 @@ libsystemload_la_LDFLAGS = \
 
 libsystemload_la_LIBADD =						\
 	$(LIBXFCE4UI_LIBS)						\
+	$(XFCONF_LIBS)						\
 	$(LIBXFCE4PANEL_LIBS) 						\
 	$(UPOWER_GLIB_LIBS)						\
 	-lm
