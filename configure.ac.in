@@ -66,6 +66,7 @@ dnl *** Check for required packages ***
 dnl ***********************************
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.14.0])
 XDT_CHECK_OPTIONAL_PACKAGE([UPOWER_GLIB], [upower-glib], [0.9.0], [upower],
                            [upower for adapting update interval to power state])
 
@@ -76,8 +77,13 @@ XDT_FEATURE_DEBUG([systemload_debug_default])
 
 AC_CONFIG_FILES([
 Makefile
+data/Makefile
+data/icons/Makefile
+data/icons/16x16/Makefile
+data/icons/32x32/Makefile
+data/icons/128x128/Makefile
+data/icons/scalable/Makefile
 panel-plugin/Makefile
 po/Makefile.in
 ])
 AC_OUTPUT
-
