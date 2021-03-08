@@ -3,6 +3,7 @@
  * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
  * Copyright (c) 2012 David Schneider <dnschneid@gmail.com>
  * Copyright (c) 2014-2017 Landry Breuil <landry@xfce.org>
+ * Copyright (c) 2021 Simon Steinbeiss <simon@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -45,23 +46,12 @@
 #include <upower.h>
 #endif
 
+#include "settings.h"
 #include "cpu.h"
 #include "memswap.h"
 #include "uptime.h"
 
-/* for xml: */
-static gchar *MONITOR_ROOT[] = { "SL_Cpu", "SL_Mem", "SL_Swap", "SL_Uptime" };
 
-static gchar *DEFAULT_TEXT[] = { "cpu", "mem", "swap" };
-static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
-static gchar *DEFAULT_COMMAND_TEXT = "xfce4-taskmanager";
-
-#define UPDATE_TIMEOUT 500
-#define UPDATE_TIMEOUT_SECONDS 1
-
-#define BORDER 8
-
-enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
 
 typedef struct
 {
@@ -102,6 +92,7 @@ typedef struct
 typedef struct
 {
     XfcePanelPlugin   *plugin;
+    SystemloadConfig  *config;
     GtkWidget         *ebox;
     GtkWidget         *box;
     guint             timeout, timeout_seconds;
@@ -180,7 +171,7 @@ update_monitors(t_global_monitor *global)
         global->monitor[1]->history[0] = mem;
         global->monitor[2]->history[0] = swap;
     }
-    if (global->uptime->enabled)
+    if (systemload_config_get_uptime_enabled (global->config))
         global->uptime->value_read = read_uptime();
 
     for(count = 0; count < 3; count++)
@@ -367,39 +358,55 @@ monitor_control_new(XfcePanelPlugin *plugin)
     global->upower = up_client_new();
 #endif
     global->plugin = plugin;
-    global->timeout = UPDATE_TIMEOUT;
-    global->timeout_seconds = UPDATE_TIMEOUT_SECONDS;
+
+    /* initialize xfconf */
+    global->config = systemload_config_new (xfce_panel_plugin_get_property_base (plugin));
+
+    global->timeout = systemload_config_get_timeout (global->config);
+    if (global->timeout < 500)
+        global->timeout = 500;
+    global->timeout_seconds = systemload_config_get_timeout_seconds (global->config);
+    if (global->timeout_seconds > 0)
+        global->use_timeout_seconds = TRUE;
+
     global->use_timeout_seconds = TRUE;
     global->timeout_id = 0;
     global->ebox = gtk_event_box_new();
     gtk_widget_show(global->ebox);
     global->box = NULL;
 
-    global->command.enabled = TRUE;
-    global->command.command_text = g_strdup(DEFAULT_COMMAND_TEXT);
+    global->command.command_text = systemload_config_get_system_monitor_command (global->config);
+    if (strlen(global->command.command_text) > 0)
+        global->command.enabled = TRUE;
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
     for(count = 0; count < 3; count++)
     {
         global->monitor[count] = g_new(t_monitor, 1);
-        global->monitor[count]->options.label_text =
-            g_strdup(DEFAULT_TEXT[count]);
-        gdk_rgba_parse(&global->monitor[count]->options.color,
-                       DEFAULT_COLOR[count]);
-
-        global->monitor[count]->options.use_label = TRUE;
-        global->monitor[count]->options.enabled = TRUE;
-
         global->monitor[count]->history[0] = 0;
         global->monitor[count]->history[1] = 0;
         global->monitor[count]->history[2] = 0;
         global->monitor[count]->history[3] = 0;
 
     }
+    global->monitor[CPU_MONITOR]->options.enabled = systemload_config_get_cpu_enabled (global->config);
+    global->monitor[CPU_MONITOR]->options.use_label = systemload_config_get_cpu_use_label (global->config);
+    global->monitor[CPU_MONITOR]->options.label_text = systemload_config_get_cpu_label (global->config);
+    global->monitor[CPU_MONITOR]->options.color = *systemload_config_get_cpu_color (global->config);
+
+    global->monitor[MEM_MONITOR]->options.enabled = systemload_config_get_memory_enabled (global->config);
+    global->monitor[MEM_MONITOR]->options.use_label = systemload_config_get_memory_use_label (global->config);
+    global->monitor[MEM_MONITOR]->options.label_text = systemload_config_get_memory_label (global->config);
+    global->monitor[MEM_MONITOR]->options.color = *systemload_config_get_memory_color (global->config);
+
+    global->monitor[SWAP_MONITOR]->options.enabled = systemload_config_get_swap_enabled (global->config);
+    global->monitor[SWAP_MONITOR]->options.use_label = systemload_config_get_swap_use_label (global->config);
+    global->monitor[SWAP_MONITOR]->options.label_text = systemload_config_get_swap_label (global->config);
+    global->monitor[SWAP_MONITOR]->options.color = *systemload_config_get_swap_color (global->config);
 
     global->uptime = g_new(t_uptime_monitor, 1);
-    global->uptime->enabled = TRUE;
+    global->uptime->enabled = systemload_config_get_uptime_enabled (global->config);
 
     return global;
 }
@@ -490,10 +497,12 @@ setup_monitor(t_global_monitor *global)
         gtk_label_set_text(GTK_LABEL(global->monitor[count]->label),
                            global->monitor[count]->options.label_text);
 
+        if (&global->monitor[count]->options.color)
+        {
 #if GTK_CHECK_VERSION (3, 16, 0)
         color = gdk_rgba_to_string(&global->monitor[count]->options.color);
 #if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; }", color);
+        css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; border-color: %s; }", color, color);
 #else
         css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }", color);
 #endif
@@ -513,6 +522,7 @@ setup_monitor(t_global_monitor *global)
                                GTK_STATE_SELECTED,
                                &global->monitor[count]->options.color);
 #endif
+        }
 
         if(global->monitor[count]->options.enabled)
         {
@@ -535,130 +545,6 @@ setup_monitor(t_global_monitor *global)
     }
 
     setup_timer(global);
-}
-
-static void
-monitor_read_config(XfcePanelPlugin *plugin, t_global_monitor *global)
-{
-    gint count;
-    const char *value;
-    char *file;
-    XfceRc *rc;
-
-    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
-        return;
-
-    rc = xfce_rc_simple_open (file, TRUE);
-    g_free (file);
-
-    if (!rc)
-        return;
-
-    if (xfce_rc_has_group (rc, "Main"))
-    {
-        xfce_rc_set_group (rc, "Main");
-        global->timeout = xfce_rc_read_int_entry (rc, "Timeout", global->timeout);
-        if (global->timeout < 500)
-            global->timeout = 500;
-        global->timeout_seconds = xfce_rc_read_int_entry (
-                rc, "Timeout_Seconds", global->timeout_seconds);
-        if (global->timeout_seconds > 0)
-            global->use_timeout_seconds = TRUE;
-        value = xfce_rc_read_entry (
-                rc, "Click_Command", NULL);
-        if (value && *value)
-        {
-            if (global->command.command_text)
-                g_free(global->command.command_text);
-            global->command.command_text = g_strdup(value);
-            if (strlen(value) > 0)
-                global->command.enabled = TRUE;
-        }
-    }
-
-    for(count = 0; count < 3; count++)
-    {
-        if (xfce_rc_has_group (rc, MONITOR_ROOT[count]))
-        {
-            xfce_rc_set_group (rc, MONITOR_ROOT[count]);
-
-            global->monitor[count]->options.enabled =
-                xfce_rc_read_bool_entry (rc, "Enabled", TRUE);
-
-            global->monitor[count]->options.use_label =
-                xfce_rc_read_bool_entry (rc, "Use_Label", TRUE);
-
-            if ((value = xfce_rc_read_entry (rc, "Color", NULL)))
-            {
-                gdk_rgba_parse(&global->monitor[count]->options.color,
-                               value);
-            }
-            if ((value = xfce_rc_read_entry (rc, "Text", NULL)) && *value)
-            {
-                if (global->monitor[count]->options.label_text)
-                    g_free(global->monitor[count]->options.label_text);
-                global->monitor[count]->options.label_text =
-                    g_strdup(value);
-            }
-        }
-        if (xfce_rc_has_group (rc, MONITOR_ROOT[3]))
-        {
-            xfce_rc_set_group (rc, MONITOR_ROOT[3]);
-
-            global->uptime->enabled =
-                xfce_rc_read_bool_entry (rc, "Enabled", TRUE);
-        }
-    }
-
-    xfce_rc_close (rc);
-}
-
-static void
-monitor_write_config(XfcePanelPlugin *plugin, t_global_monitor *global)
-{
-    gint count;
-    XfceRc *rc;
-    char *file, *color;
-
-    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
-        return;
-
-    rc = xfce_rc_simple_open (file, FALSE);
-    g_free (file);
-
-    if (!rc)
-        return;
-
-    xfce_rc_set_group (rc, "Main");
-    xfce_rc_write_int_entry (rc, "Timeout", global->timeout);
-    xfce_rc_write_int_entry (rc, "Timeout_Seconds", global->timeout_seconds);
-    xfce_rc_write_entry (rc, "Click_Command", global->command.command_text);
-
-    for(count = 0; count < 3; count++)
-    {
-        xfce_rc_set_group (rc, MONITOR_ROOT[count]);
-
-        xfce_rc_write_bool_entry (rc, "Enabled",
-                global->monitor[count]->options.enabled);
-
-        xfce_rc_write_bool_entry (rc, "Use_Label",
-                global->monitor[count]->options.use_label);
-
-        color = gdk_rgba_to_string (&global->monitor[count]->options.color);
-        xfce_rc_write_entry (rc, "Color", color);
-        g_free (color);
-
-        xfce_rc_write_entry (rc, "Text",
-            global->monitor[count]->options.label_text ?
-                global->monitor[count]->options.label_text : "");
-    }
-
-    xfce_rc_set_group (rc, MONITOR_ROOT[3]);
-
-    xfce_rc_write_bool_entry (rc, "Enabled",
-            global->uptime->enabled);
-
-    xfce_rc_close (rc);
 }
 
 static gboolean
@@ -758,13 +644,12 @@ monitor_dialog_response (GtkWidget *dlg, int response,
 {
     gtk_widget_destroy (dlg);
     xfce_panel_plugin_unblock_menu (global->plugin);
-    monitor_write_config (global->plugin, global);
 }
 
 static void
 change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
 {
-    global->timeout = gtk_spin_button_get_value(spin) * 1000;
+    global->timeout = gtk_spin_button_get_value(spin);
 
     setup_timer(global);
 }
@@ -800,10 +685,11 @@ static GtkWidget *new_label (GtkGrid *grid, guint row,
 static void
 new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
                      const gchar *title, gboolean *boolvar, GdkRGBA *colorvar,
-                     gboolean *use_label, gchar **labeltext)
+                     gboolean *use_label, gchar **labeltext, const gchar *setting)
 {
     GtkWidget *sw, *label;
-    gchar *markup;
+    gchar *markup, *setting_name;
+    GtkWidget *revealer, *subgrid, *button, *entry;
 
     sw = gtk_switch_new();
     g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
@@ -811,8 +697,13 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
     gtk_widget_set_halign (sw, GTK_ALIGN_END);
     gtk_widget_set_valign (sw, GTK_ALIGN_CENTER);
     gtk_widget_set_margin_top (sw, 12);
+    setting_name = g_strconcat (setting, "-enabled", NULL);
+    g_object_bind_property (G_OBJECT (global->config), setting_name,
+                            G_OBJECT (sw), "active",
+                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     g_signal_connect (GTK_WIDGET(sw), "state-set",
                       G_CALLBACK(switch_cb), global);
+    g_free (setting_name);
 
     markup = g_markup_printf_escaped ("<b>%s</b>", title);
     label = gtk_label_new (markup);
@@ -824,10 +715,9 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
     gtk_grid_attach(GTK_GRID(grid), label, 0, position, 1, 1);
     gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
 
-    if (colorvar != NULL)
-    {
-        GtkWidget *revealer, *subgrid, *button, *entry;
 
+    if (g_strcmp0 (setting, "uptime") != 0)
+    {
         revealer = gtk_revealer_new ();
         subgrid = gtk_grid_new ();
         gtk_container_add (GTK_CONTAINER (revealer), subgrid);
@@ -849,20 +739,32 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
         gtk_widget_set_margin_start (entry, 12);
         g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
         g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
+        setting_name = g_strconcat (setting, "-label", NULL);
+        g_object_bind_property (G_OBJECT (global->config), setting_name,
+                                G_OBJECT (entry), "text",
+                                G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+        g_free (setting_name);
         if (*use_label)
             gtk_entry_set_text (GTK_ENTRY (entry), *labeltext);
         g_signal_connect (G_OBJECT(entry), "changed",
         G_CALLBACK(entry_changed_cb), global);
         gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
-
-        /* Colorbutton to set the progressbar color */
-        button = gtk_color_button_new_with_rgba(colorvar);
-        gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
-        gtk_widget_set_halign(button, GTK_ALIGN_START);
-        g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
-        g_signal_connect(G_OBJECT(button), "color-set",
-                     G_CALLBACK (color_set_cb), global);
-        gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+        if (colorvar != NULL)
+        {
+            /* Colorbutton to set the progressbar color */
+            button = gtk_color_button_new_with_rgba(colorvar);
+            gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
+            gtk_widget_set_halign(button, GTK_ALIGN_START);
+            setting_name = g_strconcat (setting, "-color", NULL);
+            g_object_bind_property (G_OBJECT (global->config), setting_name,
+                                    G_OBJECT (button), "rgba",
+                                    G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+            g_free (setting_name);
+            g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
+            g_signal_connect(G_OBJECT(button), "color-set",
+                         G_CALLBACK (color_set_cb), global);
+            gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+        }
     }
 
     switch_cb (GTK_SWITCH (sw), *boolvar, global);
@@ -873,7 +775,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget           *dlg;
     GtkBox              *content;
-    GtkWidget           *grid, *label, *entry, *button;
+    GtkWidget           *grid, *label, *entry, *button, *box;
     guint                count;
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
@@ -881,20 +783,25 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
             N_ ("Swap monitor"),
             N_ ("Uptime monitor")
     };
+    static const gchar *DEFAULT_TEXT[] = {
+            "cpu",
+            "memory",
+            "swap"
+    };
 
     xfce_panel_plugin_block_menu (plugin);
 
-    dlg = xfce_titled_dialog_new_with_buttons (_("System Load Monitor"),
+    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("System Load Monitor"),
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               "gtk-close", GTK_RESPONSE_OK,
+                                               "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
                                                NULL);
 
     g_signal_connect (G_OBJECT (dlg), "response",
                       G_CALLBACK (monitor_dialog_response), global);
 
     gtk_window_set_position (GTK_WINDOW (dlg), GTK_WIN_POS_CENTER);
-    gtk_window_set_icon_name (GTK_WINDOW (dlg), "xfce4-settings");
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.panel.systemload");
 
     content = GTK_BOX(gtk_dialog_get_content_area (GTK_DIALOG(dlg)));
 
@@ -911,12 +818,19 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
 
     /* Update interval */
-    button = gtk_spin_button_new_with_range (0.5, 10.0, .1);
+    button = gtk_spin_button_new_with_range (500, 10000, 50);
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), button);
     gtk_widget_set_halign (button, GTK_ALIGN_START);
-    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout/1000.0);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout);
+    g_object_bind_property (G_OBJECT (global->config), "timeout",
+                            G_OBJECT (button), "value",
+                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_cb), global);
-    gtk_grid_attach (GTK_GRID (grid), button, 1, 1, 1, 1);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    label = gtk_label_new ("ms");
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+    gtk_grid_attach (GTK_GRID (grid), box, 1, 1, 1, 1);
     new_label (GTK_GRID (grid), 1, _("Update interval:"), button);
 
 #ifdef HAVE_UPOWER_GLIB
@@ -926,8 +840,15 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_widget_set_tooltip_text(GTK_WIDGET(button), _("Update interval when running on battery (uses regular update interval if set to zero)"));
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout_seconds);
     g_object_set_data (G_OBJECT(button), "boolvar", &global->use_timeout_seconds);
+    g_object_bind_property (G_OBJECT (global->config), "timeout-seconds",
+                            G_OBJECT (button), "value",
+                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_seconds_cb), global);
-    gtk_grid_attach (GTK_GRID (grid), button, 1, 2, 1, 1);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    label = gtk_label_new ("s");
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+    gtk_grid_attach (GTK_GRID (grid), box, 1, 2, 1, 1);
     new_label (GTK_GRID (grid), 2, _("Power-saving interval:"), button);
 #endif
 
@@ -953,13 +874,14 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                            &monitor->options.enabled,
                            &monitor->options.color,
                            &monitor->options.use_label,
-                           &monitor->options.label_text);
+                           &monitor->options.label_text,
+                           (DEFAULT_TEXT[count]));
     }
 
     /* Uptime monitor options */
     new_monitor_setting(global, GTK_GRID(grid), 11,
-                      _(FRAME_TEXT[3]), &global->uptime->enabled,
-                      NULL, NULL, NULL);
+                       _(FRAME_TEXT[3]), &global->uptime->enabled,
+                       NULL, NULL, NULL, "uptime");
 
     gtk_widget_show_all (dlg);
 }
@@ -967,25 +889,22 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 static void
 monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-   GdkPixbuf *icon;
-   const gchar *auth[] = {
+    const gchar *auth[] = {
       "Riccardo Persichetti <riccardo.persichetti@tin.it>",
       "Florian Rivoal <frivoal@xfce.org>",
       "Landry Breuil <landry@xfce.org>",
-      "David Schneider <dnschneid@gmail.com>", NULL };
-   icon = xfce_panel_pixbuf_from_source("utilities-system-monitor", NULL, 32);
-   gtk_show_about_dialog(NULL,
-      "logo", icon,
+      "David Schneider <dnschneid@gmail.com>",
+      "Simon Steinbeiß", NULL };
+
+    gtk_show_about_dialog (NULL,
+      "logo-icon-name", "org.xfce.panel.systemload",
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_BSD),
       "version", PACKAGE_VERSION,
       "program-name", PACKAGE_NAME,
       "comments", _("Monitor CPU load, swap usage and memory footprint"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-systemload-plugin",
-      "copyright", _("Copyright (c) 2003-2020\n"),
+      "copyright", _("Copyright (c) 2003-2021\n"),
       "authors", auth, NULL);
-
-   if(icon)
-      g_object_unref(G_OBJECT(icon));
 }
 
 static void
@@ -996,8 +915,6 @@ systemload_construct (XfcePanelPlugin *plugin)
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     global = monitor_control_new (plugin);
-
-    monitor_read_config (plugin, global);
 
     create_monitor (global);
     monitor_set_mode (plugin,
@@ -1023,9 +940,6 @@ systemload_construct (XfcePanelPlugin *plugin)
 #endif /* HAVE_UPOWER_GLIB */
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (monitor_free), global);
-
-    g_signal_connect (plugin, "save", G_CALLBACK (monitor_write_config),
-                      global);
 
     g_signal_connect (plugin, "size-changed", G_CALLBACK (monitor_set_size),
                       global);
