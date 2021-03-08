@@ -13,6 +13,7 @@ plugin_LTLIBRARIES =							\
 libsystemload_la_SOURCES =					\
 	systemload.c							\
 	settings.c							\
+	settings.h							\
 	uptime.c							\
 	uptime.h							\
 	memswap.c							\
