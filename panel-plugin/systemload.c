@@ -642,8 +642,15 @@ static void
 monitor_dialog_response (GtkWidget *dlg, int response,
                          t_global_monitor *global)
 {
-    gtk_widget_destroy (dlg);
-    xfce_panel_plugin_unblock_menu (global->plugin);
+    if (response == GTK_RESPONSE_HELP)
+    {
+        xfce_dialog_show_help (GTK_WINDOW (dlg), PACKAGE_NAME, NULL, NULL);
+    }
+    else
+    {
+        gtk_widget_destroy (dlg);
+        xfce_panel_plugin_unblock_menu (global->plugin);
+    }
 }
 
 static void
@@ -795,6 +802,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT,
                                                "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
+                                               "help-browser", _("_Help"), GTK_RESPONSE_HELP,
                                                NULL);
 
     g_signal_connect (G_OBJECT (dlg), "response",
