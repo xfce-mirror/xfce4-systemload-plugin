@@ -1,6 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS =								\
+	icons							\
 	panel-plugin							\
 	po
 
@@ -34,4 +35,3 @@ DISTCLEANFILES =							\
 	intltool-extract						\
 	intltool-merge							\
 	intltool-update
-
