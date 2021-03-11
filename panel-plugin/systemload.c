@@ -95,7 +95,8 @@ typedef struct
     SystemloadConfig  *config;
     GtkWidget         *ebox;
     GtkWidget         *box;
-    guint             timeout, timeout_seconds;
+    guint             timeout; /* milliseconds */
+    guint             timeout_seconds;
     gboolean          use_timeout_seconds;
     guint             timeout_id;
     t_command         command;
@@ -695,58 +696,68 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
                      const gchar *title, gboolean *boolvar, GdkRGBA *colorvar,
                      gboolean *use_label, gchar **labeltext, const gchar *setting)
 {
-    GtkWidget *sw, *label;
-    gchar *markup, *setting_name;
-    GtkWidget *revealer, *subgrid, *button, *entry;
+    GtkBox    *box;
+    GtkGrid   *subgrid1;
+    GtkWidget *label, *sw;
+    gchar     *markup, *setting_name;
+
+    box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6));
+    gtk_widget_set_margin_top (GTK_WIDGET (box), 6);
+    gtk_grid_attach (GTK_GRID (grid), GTK_WIDGET (box), 0, position, 2, 1);
+
+    subgrid1 = GTK_GRID (gtk_grid_new ());
+    gtk_grid_set_column_spacing (subgrid1, 6);
+    gtk_grid_set_row_spacing (subgrid1, 6);
+    gtk_box_pack_start (box, GTK_WIDGET (subgrid1), FALSE, FALSE, 0);
 
     sw = gtk_switch_new();
-    g_object_set_data (G_OBJECT(sw), "boolvar", boolvar);
-    gtk_switch_set_active (GTK_SWITCH(sw), *boolvar);
-    gtk_widget_set_halign (sw, GTK_ALIGN_END);
+    g_object_set_data (G_OBJECT (sw), "boolvar", boolvar);
+    gtk_widget_set_halign (sw, GTK_ALIGN_START);
     gtk_widget_set_valign (sw, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_top (sw, 12);
+    gtk_switch_set_active (GTK_SWITCH (sw), *boolvar);
     setting_name = g_strconcat (setting, "-enabled", NULL);
     g_object_bind_property (G_OBJECT (global->config), setting_name,
                             G_OBJECT (sw), "active",
                             G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
-    g_signal_connect (GTK_WIDGET(sw), "state-set",
-                      G_CALLBACK(switch_cb), global);
+    g_signal_connect (G_OBJECT (sw), "state-set", G_CALLBACK (switch_cb), global);
     g_free (setting_name);
+    gtk_grid_attach (subgrid1, sw, 0, 0, 1, 1);
 
     markup = g_markup_printf_escaped ("<b>%s</b>", title);
     label = gtk_label_new (markup);
-    gtk_widget_set_halign(label, GTK_ALIGN_START);
-    gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_top (label, 12);
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
     g_free (markup);
-    gtk_grid_attach(GTK_GRID(grid), label, 0, position, 1, 1);
-    gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
-
+    gtk_grid_attach (subgrid1, label, 1, 0, 1, 1);
 
     if (g_strcmp0 (setting, "uptime") != 0)
     {
-        revealer = gtk_revealer_new ();
-        subgrid = gtk_grid_new ();
-        gtk_container_add (GTK_CONTAINER (revealer), subgrid);
-        gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
-        g_object_set_data (G_OBJECT(sw), "sensitive_widget", revealer);
-        gtk_grid_attach(GTK_GRID(grid), revealer, 0, position + 1, 2, 1);
-        gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
-        gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
+        GtkGrid   *subgrid2 = GTK_GRID (gtk_grid_new ());
+        GtkWidget *revealer = gtk_revealer_new ();
+        GtkWidget *entry = gtk_entry_new ();
 
-        label = gtk_label_new_with_mnemonic (_("Options:"));
-        gtk_widget_set_halign (label, GTK_ALIGN_START);
-        gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+        gtk_grid_set_row_spacing (subgrid2, 6);
+
+        revealer = gtk_revealer_new ();
+        gtk_container_add (GTK_CONTAINER (revealer), GTK_WIDGET (subgrid2));
+        gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
+        g_object_set_data (G_OBJECT (sw), "sensitive_widget", revealer);
+        gtk_grid_attach (subgrid1, revealer, 1, 1, 1, 1);
+
+        label = gtk_label_new_with_mnemonic (_("Label:"));
+        gtk_widget_set_halign (entry, GTK_ALIGN_START);
+        gtk_widget_set_valign (entry, GTK_ALIGN_BASELINE);
         gtk_widget_set_margin_start (label, 12);
-        gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
+        gtk_grid_attach (subgrid2, label, 0, 0, 1, 1);
 
         /* Entry for the optional monitor label */
-        entry = gtk_entry_new ();
-        gtk_widget_set_hexpand (entry, TRUE);
+        gtk_entry_set_width_chars (GTK_ENTRY (entry), 10);
+        gtk_widget_set_halign (entry, GTK_ALIGN_START);
+        gtk_widget_set_valign (entry, GTK_ALIGN_BASELINE);
         gtk_widget_set_margin_start (entry, 12);
-        g_object_set_data (G_OBJECT(entry), "charvar", labeltext);
-        g_object_set_data (G_OBJECT(entry), "boolvar", use_label);
+        g_object_set_data (G_OBJECT (entry), "charvar", labeltext);
+        g_object_set_data (G_OBJECT (entry), "boolvar", use_label);
         setting_name = g_strconcat (setting, "-label", NULL);
         g_object_bind_property (G_OBJECT (global->config), setting_name,
                                 G_OBJECT (entry), "text",
@@ -754,24 +765,33 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
         g_free (setting_name);
         if (*use_label)
             gtk_entry_set_text (GTK_ENTRY (entry), *labeltext);
-        g_signal_connect (G_OBJECT(entry), "changed",
-        G_CALLBACK(entry_changed_cb), global);
-        gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
+        g_signal_connect (G_OBJECT (entry), "changed",
+        G_CALLBACK (entry_changed_cb), global);
+        gtk_grid_attach (subgrid2, entry, 1, 0, 1, 1);
+
+        label = gtk_label_new_with_mnemonic (_("Color:"));
+        gtk_widget_set_halign (entry, GTK_ALIGN_START);
+        gtk_widget_set_valign (entry, GTK_ALIGN_CENTER);
+        gtk_widget_set_margin_start (label, 12);
+        gtk_grid_attach (subgrid2, label, 0, 1, 1, 1);
+
         if (colorvar != NULL)
         {
             /* Colorbutton to set the progressbar color */
-            button = gtk_color_button_new_with_rgba(colorvar);
+            GtkWidget *button = gtk_color_button_new_with_rgba (colorvar);
             gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
-            gtk_widget_set_halign(button, GTK_ALIGN_START);
+            gtk_widget_set_halign (button, GTK_ALIGN_START);
+            gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
+            gtk_widget_set_margin_start (button, 12);
             setting_name = g_strconcat (setting, "-color", NULL);
             g_object_bind_property (G_OBJECT (global->config), setting_name,
                                     G_OBJECT (button), "rgba",
                                     G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
             g_free (setting_name);
-            g_object_set_data(G_OBJECT(button), "colorvar", colorvar);
-            g_signal_connect(G_OBJECT(button), "color-set",
+            g_object_set_data (G_OBJECT (button), "colorvar", colorvar);
+            g_signal_connect (G_OBJECT (button), "color-set",
                          G_CALLBACK (color_set_cb), global);
-            gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+            gtk_grid_attach (subgrid2, button, 1, 1, 1, 1);
         }
     }
 
@@ -783,7 +803,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     GtkWidget *dlg;
     GtkBox    *content;
-    GtkWidget *grid, *label, *entry, *button, *box;
+    GtkWidget *box, *button, *entry, *grid, *label, *separator;
     gsize      count;
 
     static const gchar *FRAME_TEXT[] = {
@@ -874,12 +894,17 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
     label = new_label (GTK_GRID (grid), 3, _("System monitor:"), entry);
 
+    separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+    gtk_widget_set_margin_top (separator, 6);
+    gtk_widget_set_margin_bottom (separator, 6);
+    gtk_grid_attach (GTK_GRID (grid), separator, 0, 4, 2, 1);
+
     /* Add options for the three monitors */
     for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         t_monitor *monitor = global->monitor[count];
 
-        new_monitor_setting(global, GTK_GRID(grid), 4 + 2 * count,
+        new_monitor_setting(global, GTK_GRID(grid), 5 + count,
                            _(FRAME_TEXT[count]),
                            &monitor->options.enabled,
                            &monitor->options.color,
