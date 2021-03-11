@@ -162,7 +162,8 @@ update_monitors(t_global_monitor *global)
 
     gchar caption[128];
     gulong mem, swap, MTotal, MUsed, STotal, SUsed;
-    gint count, days, hours, mins;
+    gint days, hours, mins;
+    gsize count;
 
     if (global->monitor[0]->options.enabled)
         global->monitor[0]->history[0] = read_cpuload();
@@ -174,7 +175,7 @@ update_monitors(t_global_monitor *global)
     if (systemload_config_get_uptime_enabled (global->config))
         global->uptime->value_read = read_uptime();
 
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         if (global->monitor[count]->options.enabled)
         {
@@ -253,9 +254,9 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
                             GtkOrientation    orientation,
                             t_global_monitor *global)
 {
-    gint count;
+    gsize count;
     gtk_orientable_set_orientation(GTK_ORIENTABLE(global->box), panel_orientation);
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(global->monitor[count]->box), panel_orientation);
         gtk_label_set_angle(GTK_LABEL(global->monitor[count]->label),
@@ -270,7 +271,7 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
 static void
 create_monitor (t_global_monitor *global)
 {
-    gint count;
+    gsize count;
 #if GTK_CHECK_VERSION (3, 16, 0)
     GtkCssProvider *css_provider;
 #endif
@@ -278,7 +279,7 @@ create_monitor (t_global_monitor *global)
     global->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
     gtk_widget_show(global->box);
 
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         global->monitor[count]->label =
             gtk_label_new(global->monitor[count]->options.label_text);
@@ -350,7 +351,7 @@ create_monitor (t_global_monitor *global)
 static t_global_monitor *
 monitor_control_new(XfcePanelPlugin *plugin)
 {
-    int count;
+    gsize count;
     t_global_monitor *global;
 
     global = g_new(t_global_monitor, 1);
@@ -381,7 +382,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         global->monitor[count] = g_new(t_monitor, 1);
         global->monitor[count]->history[0] = 0;
@@ -414,7 +415,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
 static void
 monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    gint count;
+    gsize count;
 
 #ifdef HAVE_UPOWER_GLIB
     if (global->upower) {
@@ -428,7 +429,7 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     g_free(global->command.command_text);
 
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         if (global->monitor[count]->options.label_text)
             g_free(global->monitor[count]->options.label_text);
@@ -483,14 +484,14 @@ setup_timer(t_global_monitor *global)
 static void
 setup_monitor(t_global_monitor *global)
 {
-    gint count;
+    gsize count;
 #if GTK_CHECK_VERSION (3, 16, 0)
     gchar *css, *color;
 #endif
 
     gtk_widget_hide(GTK_WIDGET(global->uptime->ebox));
 
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         gtk_widget_hide(GTK_WIDGET(global->monitor[count]->ebox));
         gtk_widget_hide(global->monitor[count]->label);
@@ -550,10 +551,10 @@ setup_monitor(t_global_monitor *global)
 static gboolean
 monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
 {
-    gint count;
+    gsize count;
 
     gtk_container_set_border_width (GTK_CONTAINER (global->ebox), (size > 26 ? 2 : 1));
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         if (xfce_panel_plugin_get_orientation (plugin) ==
                 GTK_ORIENTATION_HORIZONTAL)
@@ -780,10 +781,11 @@ new_monitor_setting (t_global_monitor *global, GtkGrid *grid, int position,
 static void
 monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
-    GtkWidget           *dlg;
-    GtkBox              *content;
-    GtkWidget           *grid, *label, *entry, *button, *box;
-    guint                count;
+    GtkWidget *dlg;
+    GtkBox    *content;
+    GtkWidget *grid, *label, *entry, *button, *box;
+    gsize      count;
+
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
             N_ ("Memory monitor"),
@@ -873,7 +875,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     label = new_label (GTK_GRID (grid), 3, _("System monitor:"), entry);
 
     /* Add options for the three monitors */
-    for(count = 0; count < 3; count++)
+    for(count = 0; count < G_N_ELEMENTS (global->monitor); count++)
     {
         t_monitor *monitor = global->monitor[count];
 
