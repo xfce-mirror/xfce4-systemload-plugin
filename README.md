@@ -8,7 +8,7 @@ xfce4-systemload-plugin displays current CPU load, memory in use, swap space, an
 
 ### Homepage
 
-[Xfce4-systemload-plugin documentation](https://docs.xfce.org/panel-plugins/xfce4-systemload-plugin)
+[Xfce4-systemload-plugin documentation](https://docs.xfce.org/panel-plugins/xfce4-systemload-plugin/start)
 
 ### Changelog
 
