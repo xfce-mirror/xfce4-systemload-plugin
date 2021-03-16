@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 12:49+0200\n"
-"PO-Revision-Date: 2020-11-24 23:59+0000\n"
+"POT-Creation-Date: 2021-03-10 00:48+0100\n"
+"PO-Revision-Date: 2021-03-16 22:07+0000\n"
 "Last-Translator: Michael Martins <michaelfm21@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -25,102 +25,110 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "Arquivo /proc/stat não localizado!"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Carga do sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:210
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memória: %ldMB de %ldMB usados"
 
-#: ../panel-plugin/systemload.c:193
+#: ../panel-plugin/systemload.c:218
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB de %ldMB usados"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:221
 #, c-format
 msgid "No swap"
 msgstr "Sem swap"
 
-#: ../panel-plugin/systemload.c:207
+#: ../panel-plugin/systemload.c:232
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dia"
 msgstr[1] "%d dias"
 
-#: ../panel-plugin/systemload.c:211
+#: ../panel-plugin/systemload.c:236
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
 msgstr[0] "Tempo ligado: %d dia %d:%02d"
 msgstr[1] "Tempo ligado: %d dias %d:%02d"
 
-#: ../panel-plugin/systemload.c:219
+#: ../panel-plugin/systemload.c:244
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "Tempo ligado: %d:%02d"
 
-#: ../panel-plugin/systemload.c:808
+#: ../panel-plugin/systemload.c:737
 msgid "Options:"
 msgstr "Opções:"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:788
 msgid "CPU monitor"
 msgstr "Monitor de CPU"
 
-#: ../panel-plugin/systemload.c:845
+#: ../panel-plugin/systemload.c:789
 msgid "Memory monitor"
 msgstr "Monitor de memória"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:790
 msgid "Swap monitor"
 msgstr "Monitor de swap"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:791
 msgid "Uptime monitor"
 msgstr "Monitor de tempo ativo"
 
-#: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:801 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de Carga do Sistema"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:804
+msgid "_Close"
+msgstr "_Fechar"
+
+#: ../panel-plugin/systemload.c:805
+msgid "_Help"
+msgstr "A_juda"
+
+#: ../panel-plugin/systemload.c:823
 msgid "<b>General</b>"
 msgstr "<b>Geral</b>"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:842
 msgid "Update interval:"
 msgstr "Intervalo de atualização:"
 
-#: ../panel-plugin/systemload.c:891
+#: ../panel-plugin/systemload.c:848
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Intervalo de atualização quando estiver usando a bateria (usa o intervalo normal se definido como zero)"
 
-#: ../panel-plugin/systemload.c:896
+#: ../panel-plugin/systemload.c:860
 msgid "Power-saving interval:"
 msgstr "Intervalo da economia de energia:"
 
-#: ../panel-plugin/systemload.c:905
+#: ../panel-plugin/systemload.c:869
 msgid "Launched when clicking on the plugin"
 msgstr "Lançado quando clicar no plug-in"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:873
 msgid "System monitor:"
 msgstr "Monitor de sistema:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:912 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitore a carga de CPU, uso de swap e o rastro da memória"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2020\n"
-msgstr "Copyright (c) 2003-2020\n"
+#: ../panel-plugin/systemload.c:914
+msgid "Copyright (c) 2003-2021\n"
+msgstr "Copyright (c) 2003-2021\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
