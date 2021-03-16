@@ -595,7 +595,7 @@ systemload_config_get_cpu_label (SystemloadConfig *config)
   return config->cpu_label;
 }
 
-GdkRGBA *
+const GdkRGBA *
 systemload_config_get_cpu_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
@@ -627,7 +627,7 @@ systemload_config_get_memory_label (SystemloadConfig *config)
   return config->memory_label;
 }
 
-GdkRGBA *
+const GdkRGBA *
 systemload_config_get_memory_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
@@ -659,7 +659,7 @@ systemload_config_get_swap_label (SystemloadConfig *config)
   return config->swap_label;
 }
 
-GdkRGBA *
+const GdkRGBA *
 systemload_config_get_swap_color (SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
