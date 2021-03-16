@@ -36,7 +36,7 @@ typedef struct _SystemloadConfig      SystemloadConfig;
 #define IS_SYSTEMLOAD_CONFIG_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_SYSTEMLOAD_CONFIG))
 #define SYSTEMLOAD_CONFIG_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_SYSTEMLOAD_CONFIG, SystemloadConfigClass))
 
-GType              systemload_config_get_type                       (void)                                       G_GNUC_CONST;
+GType              systemload_config_get_type                       (void) G_GNUC_CONST;
 
 SystemloadConfig  *systemload_config_new                            (const gchar          *property_base);
 
@@ -48,19 +48,17 @@ gboolean           systemload_config_get_uptime_enabled             (SystemloadC
 gboolean           systemload_config_get_cpu_enabled                (SystemloadConfig     *config);
 gboolean           systemload_config_get_cpu_use_label              (SystemloadConfig     *config);
 const gchar       *systemload_config_get_cpu_label                  (SystemloadConfig     *config);
-GdkRGBA           *systemload_config_get_cpu_color                  (SystemloadConfig     *config);
+const GdkRGBA     *systemload_config_get_cpu_color                  (SystemloadConfig     *config);
 
 gboolean           systemload_config_get_memory_enabled             (SystemloadConfig     *config);
 gboolean           systemload_config_get_memory_use_label           (SystemloadConfig     *config);
 const gchar       *systemload_config_get_memory_label               (SystemloadConfig     *config);
-GdkRGBA           *systemload_config_get_memory_color               (SystemloadConfig     *config);
+const GdkRGBA     *systemload_config_get_memory_color               (SystemloadConfig     *config);
 
 gboolean           systemload_config_get_swap_enabled               (SystemloadConfig     *config);
 gboolean           systemload_config_get_swap_use_label             (SystemloadConfig     *config);
 const gchar       *systemload_config_get_swap_label                 (SystemloadConfig     *config);
-GdkRGBA           *systemload_config_get_swap_color                 (SystemloadConfig     *config);
-
-
+const GdkRGBA     *systemload_config_get_swap_color                 (SystemloadConfig     *config);
 
 G_END_DECLS
 
