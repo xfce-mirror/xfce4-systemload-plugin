@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 12:49+0200\n"
-"PO-Revision-Date: 2020-10-15 18:06+0000\n"
+"POT-Creation-Date: 2021-03-10 00:48+0100\n"
+"PO-Revision-Date: 2021-03-16 17:36+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -23,27 +23,27 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "קובץ proc/stat/ לא נמצא!"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:203
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "עומס מערכת: %ld%%"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:210
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "זיכרון: %ldMB מתוך %ldMB בשימוש"
 
-#: ../panel-plugin/systemload.c:193
+#: ../panel-plugin/systemload.c:218
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "החלף: %ldMB מתוך %ldMB בשימוש"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:221
 #, c-format
 msgid "No swap"
 msgstr "אין החלף"
 
-#: ../panel-plugin/systemload.c:207
+#: ../panel-plugin/systemload.c:232
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -52,7 +52,7 @@ msgstr[1] "%d ימים"
 msgstr[2] "%d ימים"
 msgstr[3] "%d ימים"
 
-#: ../panel-plugin/systemload.c:211
+#: ../panel-plugin/systemload.c:236
 #, c-format
 msgid "Uptime: %d day %d:%02d"
 msgid_plural "Uptime: %d days %d:%02d"
@@ -61,68 +61,76 @@ msgstr[1] "זמן עבודה: %d ימים %d:%02d "
 msgstr[2] "זמן עבודה: %d ימים %d:%02d "
 msgstr[3] "זמן עבודה: %d ימים %d:%02d "
 
-#: ../panel-plugin/systemload.c:219
+#: ../panel-plugin/systemload.c:244
 #, c-format
 msgid "Uptime: %d:%02d"
 msgstr "זמן עבודה: %d:%02d "
 
-#: ../panel-plugin/systemload.c:808
+#: ../panel-plugin/systemload.c:737
 msgid "Options:"
 msgstr "אפשרויות:"
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:788
 msgid "CPU monitor"
 msgstr "עוקב מעבד"
 
-#: ../panel-plugin/systemload.c:845
+#: ../panel-plugin/systemload.c:789
 msgid "Memory monitor"
 msgstr "עוקב זיכרון"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:790
 msgid "Swap monitor"
 msgstr "עוקב הֶחְלֵף"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:791
 msgid "Uptime monitor"
 msgstr "עוקב זמן עבודה"
 
-#: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:801 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "עוקב עומס מערכת"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:804
+msgid "_Close"
+msgstr "_סגור"
+
+#: ../panel-plugin/systemload.c:805
+msgid "_Help"
+msgstr "_עזרה"
+
+#: ../panel-plugin/systemload.c:823
 msgid "<b>General</b>"
 msgstr "<b>כללי</b>"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:842
 msgid "Update interval:"
 msgstr "מרווח עדכון:"
 
-#: ../panel-plugin/systemload.c:891
+#: ../panel-plugin/systemload.c:848
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "מרווח עדכון כאשר פועל על סוללה (משתמש במרווח עדכון רגיל אם שווה לאפס)"
 
-#: ../panel-plugin/systemload.c:896
+#: ../panel-plugin/systemload.c:860
 msgid "Power-saving interval:"
 msgstr "מרווח חיסכון-הספק:"
 
-#: ../panel-plugin/systemload.c:905
+#: ../panel-plugin/systemload.c:869
 msgid "Launched when clicking on the plugin"
 msgstr "מופעל בקליק על התוסף"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:873
 msgid "System monitor:"
 msgstr "עוקב מערכת:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:912 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "עקוב אחר עומס מעבד, שימוש הֶחְלֵף וטביעת רגל זיכרון"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2020\n"
-msgstr "זכויות יוצרים (c) 2003-2020\n"
+#: ../panel-plugin/systemload.c:914
+msgid "Copyright (c) 2003-2021\n"
+msgstr "זכויות יוצרים (c) 2003-2021\n"
 
 #: ../panel-plugin/uptime.c:53
 msgid "File /proc/uptime not found!"
