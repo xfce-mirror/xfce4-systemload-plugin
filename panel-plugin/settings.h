@@ -24,7 +24,12 @@
 
 G_BEGIN_DECLS
 
-enum { CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR };
+#define MIN_TIMEOUT 500
+#define MAX_TIMEOUT 10000
+
+typedef enum {
+    CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR
+} SystemloadMonitor;
 
 typedef struct _SystemloadConfigClass SystemloadConfigClass;
 typedef struct _SystemloadConfig      SystemloadConfig;
@@ -40,25 +45,19 @@ GType              systemload_config_get_type                       (void) G_GNU
 
 SystemloadConfig  *systemload_config_new                            (const gchar          *property_base);
 
-guint              systemload_config_get_timeout                    (SystemloadConfig     *config);
-guint              systemload_config_get_timeout_seconds            (SystemloadConfig     *config);
-const gchar       *systemload_config_get_system_monitor_command     (SystemloadConfig     *config);
-gboolean           systemload_config_get_uptime_enabled             (SystemloadConfig     *config);
+void               systemload_config_on_change                      (SystemloadConfig     *config,
+                                                                     gboolean             (*callback)(gpointer user_data),
+                                                                     gpointer             user_data);
 
-gboolean           systemload_config_get_cpu_enabled                (SystemloadConfig     *config);
-gboolean           systemload_config_get_cpu_use_label              (SystemloadConfig     *config);
-const gchar       *systemload_config_get_cpu_label                  (SystemloadConfig     *config);
-const GdkRGBA     *systemload_config_get_cpu_color                  (SystemloadConfig     *config);
+guint              systemload_config_get_timeout                    (const SystemloadConfig *config);
+guint              systemload_config_get_timeout_seconds            (const SystemloadConfig *config);
+const gchar       *systemload_config_get_system_monitor_command     (const SystemloadConfig *config);
+gboolean           systemload_config_get_uptime_enabled             (const SystemloadConfig *config);
 
-gboolean           systemload_config_get_memory_enabled             (SystemloadConfig     *config);
-gboolean           systemload_config_get_memory_use_label           (SystemloadConfig     *config);
-const gchar       *systemload_config_get_memory_label               (SystemloadConfig     *config);
-const GdkRGBA     *systemload_config_get_memory_color               (SystemloadConfig     *config);
-
-gboolean           systemload_config_get_swap_enabled               (SystemloadConfig     *config);
-gboolean           systemload_config_get_swap_use_label             (SystemloadConfig     *config);
-const gchar       *systemload_config_get_swap_label                 (SystemloadConfig     *config);
-const GdkRGBA     *systemload_config_get_swap_color                 (SystemloadConfig     *config);
+gboolean           systemload_config_get_enabled   (const SystemloadConfig *config, SystemloadMonitor monitor);
+gboolean           systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonitor monitor);
+const gchar       *systemload_config_get_label     (const SystemloadConfig *config, SystemloadMonitor monitor);
+const GdkRGBA     *systemload_config_get_color     (const SystemloadConfig *config, SystemloadMonitor monitor);
 
 G_END_DECLS
 
