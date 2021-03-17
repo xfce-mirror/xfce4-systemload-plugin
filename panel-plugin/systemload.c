@@ -700,7 +700,7 @@ new_monitor_setting (t_global_monitor *global,
         gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
         gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
 
-        label = gtk_label_new_with_mnemonic (_("Options:"));
+        label = gtk_label_new_with_mnemonic (_("Label:"));
         gtk_widget_set_halign (label, GTK_ALIGN_START);
         gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
         gtk_widget_set_margin_start (label, 12);
@@ -709,7 +709,7 @@ new_monitor_setting (t_global_monitor *global,
         /* Entry for the optional monitor label */
         entry = gtk_entry_new ();
         gtk_widget_set_hexpand (entry, TRUE);
-        gtk_widget_set_margin_start (entry, 12);
+        gtk_widget_set_tooltip_text (entry, _("Leave empty to disable the label"));
         setting_name = g_strconcat (setting, "-label", NULL);
         g_object_bind_property (G_OBJECT (global->config), setting_name,
                                 G_OBJECT (entry), "text",
@@ -727,6 +727,7 @@ new_monitor_setting (t_global_monitor *global,
 
             gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
             gtk_widget_set_halign(button, GTK_ALIGN_START);
+            gtk_widget_set_margin_start (button, 12);
             setting_name = g_strconcat (setting, "-color", NULL);
             g_object_bind_property (G_OBJECT (global->config), setting_name,
                                     G_OBJECT (button), "rgba",
