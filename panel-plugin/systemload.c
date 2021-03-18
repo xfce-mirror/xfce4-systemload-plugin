@@ -143,6 +143,14 @@ set_fraction(GtkProgressBar *bar, gdouble fraction)
 }
 
 static void
+set_label_text(GtkLabel *label, const gchar *text)
+{
+    const gchar *displayed_text = gtk_label_get_text(label);
+    if (g_strcmp0(displayed_text, text) != 0)
+        gtk_label_set_text(label, text);
+}
+
+static void
 set_tooltip(GtkWidget *w, const gchar *caption)
 {
     gchar *displayed_caption = gtk_widget_get_tooltip_text(w);
@@ -155,9 +163,7 @@ static void
 update_monitors(t_global_monitor *global)
 {
     const SystemloadConfig *config = global->config;
-    gchar caption[128];
     gulong mem, swap, MTotal, MUsed, STotal, SUsed;
-    gint days, hours, mins;
     gsize i;
 
     if (systemload_config_get_enabled (config, CPU_MONITOR))
@@ -201,50 +207,60 @@ update_monitors(t_global_monitor *global)
 
     if (systemload_config_get_enabled (config, CPU_MONITOR))
     {
-        g_snprintf(caption, sizeof(caption), _("System Load: %ld%%"),
+        gchar tooltip[128];
+        g_snprintf(tooltip, sizeof(tooltip), _("System Load: %ld%%"),
                    global->monitor[CPU_MONITOR]->value_read);
-        set_tooltip(global->monitor[CPU_MONITOR]->ebox, caption);
+        set_tooltip(global->monitor[CPU_MONITOR]->ebox, tooltip);
     }
 
     if (systemload_config_get_enabled (config, MEM_MONITOR))
     {
-        g_snprintf(caption, sizeof(caption), _("Memory: %ldMB of %ldMB used"),
+        gchar tooltip[128];
+        g_snprintf(tooltip, sizeof(tooltip), _("Memory: %ldMB of %ldMB used"),
                    MUsed >> 10 , MTotal >> 10);
-        set_tooltip(global->monitor[MEM_MONITOR]->ebox, caption);
+        set_tooltip(global->monitor[MEM_MONITOR]->ebox, tooltip);
     }
 
     if (systemload_config_get_enabled (config, SWAP_MONITOR))
     {
+        gchar tooltip[128];
+
         if (STotal)
-            g_snprintf(caption, sizeof(caption), _("Swap: %ldMB of %ldMB used"),
+            g_snprintf(tooltip, sizeof(tooltip), _("Swap: %ldMB of %ldMB used"),
                        SUsed >> 10, STotal >> 10);
         else
-            g_snprintf(caption, sizeof(caption), _("No swap"));
+            g_snprintf(tooltip, sizeof(tooltip), _("No swap"));
 
-        set_tooltip(global->monitor[SWAP_MONITOR]->ebox, caption);
+        set_tooltip(global->monitor[SWAP_MONITOR]->ebox, tooltip);
     }
 
     if (systemload_config_get_uptime_enabled (config))
     {
+        gint days, hours, mins;
+        gchar days_str[2][32], hours_str[2][32], mins_str[2][32];
+        gchar text[128], tooltip[128];
+
         days = global->uptime.value_read / 86400;
         hours = (global->uptime.value_read / 3600) % 24;
         mins = (global->uptime.value_read / 60) % 60;
-        if (days > 0) {
-            g_snprintf(caption, sizeof(caption), ngettext("%d day", "%d days", days), days);
-            gtk_label_set_text(GTK_LABEL(global->uptime.label),
-                               caption);
-            g_snprintf(caption, sizeof(caption),
-                       ngettext("Uptime: %d day %d:%02d", "Uptime: %d days %d:%02d", days),
-                       days, hours, mins);
-        }
+
+        g_snprintf(days_str[0], sizeof(days_str), _("%dd"), days);
+        g_snprintf(hours_str[0], sizeof(hours_str), _("%dh"), hours);
+        g_snprintf(mins_str[0], sizeof(mins_str), _("%dm"), mins);
+
+        g_snprintf(days_str[1], sizeof(days_str), ngettext("%d day", "%d days", days), days);
+        g_snprintf(hours_str[1], sizeof(hours_str), ngettext("%d hour", "%d hours", hours), hours);
+        g_snprintf(mins_str[1], sizeof(mins_str), ngettext("%d minute", "%d minutes", mins), mins);
+
+        if (days > 0)
+            g_snprintf(text, sizeof(text), "%s %s %s", days_str[0], hours_str[0], mins_str[0]);
         else
-        {
-            g_snprintf(caption, sizeof(caption), "%d:%02d", hours, mins);
-            gtk_label_set_text(GTK_LABEL(global->uptime.label),
-                               caption);
-            g_snprintf(caption, sizeof(caption), _("Uptime: %d:%02d"), hours, mins);
-        }
-        set_tooltip(global->uptime.ebox, caption);
+            g_snprintf(text, sizeof(text), "%s %s", hours_str[0], mins_str[0]);
+
+        g_snprintf(tooltip, sizeof(tooltip), _("Uptime: %s, %s, %s"), days_str[1], hours_str[1], mins_str[1]);
+
+        set_label_text(GTK_LABEL(global->uptime.label), text);
+        set_tooltip(global->uptime.ebox, tooltip);
     }
 }
 
@@ -307,7 +323,7 @@ create_monitor (t_global_monitor *global)
 
         gtk_box_pack_start(GTK_BOX(global->monitor[i]->box),
                            GTK_WIDGET(global->monitor[i]->label),
-                           FALSE, FALSE, 2);
+                           FALSE, FALSE, 0);
 
         global->monitor[i]->ebox = gtk_event_box_new();
         gtk_widget_show(global->monitor[i]->ebox);
@@ -453,15 +469,44 @@ setup_timer(t_global_monitor *global)
 }
 
 static void
-setup_monitor(t_global_monitor *global)
+set_margin (const t_global_monitor *global, GtkWidget *w, gint margin)
+{
+    if (xfce_panel_plugin_get_orientation (global->plugin) == GTK_ORIENTATION_HORIZONTAL)
+    {
+        gtk_widget_set_margin_start (w, margin);
+        gtk_widget_set_margin_top (w, 0);
+    }
+    else
+    {
+        gtk_widget_set_margin_start (w, 0);
+        gtk_widget_set_margin_top (w, margin);
+    }
+}
+
+static void
+setup_monitors(t_global_monitor *global)
 {
     const SystemloadConfig *config = global->config;
     gsize i;
+    guint n_enabled = 0, n_enabled_labels = 0;
 #if GTK_CHECK_VERSION (3, 16, 0)
     gchar *css, *color_str;
 #endif
 
     gtk_widget_hide(GTK_WIDGET(global->uptime.ebox));
+
+    /* determine the number of enabled monitors and the number of enabled labels */
+    for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
+    {
+        SystemloadMonitor monitor = i;
+        if (systemload_config_get_enabled (config, monitor))
+        {
+            gboolean label_visible = systemload_config_get_use_label (config, monitor) &&
+                                     strlen (systemload_config_get_label (config, monitor)) != 0;
+            n_enabled++;
+            n_enabled_labels += (label_visible ? 1 : 0);
+        }
+    }
 
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
@@ -498,35 +543,30 @@ setup_monitor(t_global_monitor *global)
 
         if (systemload_config_get_enabled (config, monitor))
         {
-            gtk_widget_show(GTK_WIDGET(m->ebox));
+            gboolean label_visible = systemload_config_get_use_label (config, monitor) &&
+                                     strlen (systemload_config_get_label (config, monitor)) != 0;
 
-            gtk_widget_set_visible (m->label,
-                                    systemload_config_get_use_label (config, monitor) &&
-                                    strlen (systemload_config_get_label (config, monitor)) != 0);
-
-            gtk_widget_show(GTK_WIDGET(m->status));
+            gtk_widget_show_all(GTK_WIDGET(m->ebox));
+            gtk_widget_set_visible (m->label, label_visible);
+            set_margin (global, m->ebox, (n_enabled_labels == 0) ? 0 : 6);
         }
     }
 
     if (systemload_config_get_uptime_enabled (config))
     {
-        if (systemload_config_get_enabled (config, CPU_MONITOR) ||
-            systemload_config_get_enabled (config, MEM_MONITOR) ||
-            systemload_config_get_enabled (config, SWAP_MONITOR))
-        {
-            gtk_container_set_border_width(GTK_CONTAINER(global->uptime.ebox), 2);
-        }
-        gtk_widget_show(global->uptime.ebox);
+        gtk_widget_show_all (global->uptime.ebox);
+        set_margin (global, global->uptime.ebox, (n_enabled == 0) ? 0 : 6);
     }
 
-    setup_timer(global);
+    setup_timer (global);
 }
 
 static gboolean
 setup_monitor_cb(gpointer user_data)
 {
     t_global_monitor *global = user_data;
-    setup_monitor (global);
+    setup_monitors (global);
+    update_monitors (global);
     return TRUE;
 }
 
@@ -551,7 +591,7 @@ monitor_set_size(XfcePanelPlugin *plugin, int size, t_global_monitor *global)
         }
     }
 
-    setup_monitor(global);
+    setup_monitors (global);
 
     return TRUE;
 }
@@ -882,7 +922,7 @@ systemload_construct (XfcePanelPlugin *plugin)
                       xfce_panel_plugin_get_mode (plugin),
                       global);
 
-    setup_monitor (global);
+    setup_monitors (global);
 
     gtk_container_add (GTK_CONTAINER (plugin), global->ebox);
 
