@@ -271,7 +271,7 @@ systemload_config_init (SystemloadConfig *config)
 {
   config->timeout = DEFAULT_TIMEOUT;
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
-  config->system_monitor_command = DEFAULT_SYSTEM_MONITOR_COMMAND;
+  config->system_monitor_command = g_strdup (DEFAULT_SYSTEM_MONITOR_COMMAND);
   config->uptime = TRUE;
   config->cpu_enabled = TRUE;
   config->cpu_use_label = TRUE;
@@ -422,8 +422,14 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_SYSTEM_MONITOR_COMMAND:
-      g_free (config->system_monitor_command);
-      config->system_monitor_command = g_value_dup_string (value);
+      val_string = g_value_get_string (value);
+      if (g_strcmp0 (config->system_monitor_command, val_string) != 0)
+        {
+          g_free (config->system_monitor_command);
+          config->system_monitor_command = g_value_dup_string (value);
+          g_object_notify (G_OBJECT (config), "system-monitor-command");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
       break;
 
     case PROP_UPTIME:
