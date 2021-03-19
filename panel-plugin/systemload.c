@@ -869,6 +869,9 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_widget_set_hexpand (entry, TRUE);
     gtk_entry_set_text (GTK_ENTRY(entry), global->command.command_text);
     gtk_widget_set_tooltip_text(GTK_WIDGET(entry), _("Launched when clicking on the plugin"));
+    g_object_bind_property (G_OBJECT (config), "system-monitor-command",
+                            G_OBJECT (entry), "text",
+                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     g_signal_connect (G_OBJECT(entry), "changed",
                       G_CALLBACK(command_entry_changed_cb), global);
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
