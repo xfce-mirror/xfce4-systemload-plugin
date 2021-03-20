@@ -135,7 +135,7 @@ set_fraction(GtkProgressBar *bar, gdouble fraction)
     gtk_widget_get_allocation(GTK_WIDGET(bar), &alloc);
 
     max_alloc = MAX(alloc.width, alloc.height);
-    if (max_alloc > 0)
+    if (max_alloc > 1)
         fraction = round(fraction * max_alloc) / max_alloc;
 
     if (gtk_progress_bar_get_fraction(bar) != fraction)
