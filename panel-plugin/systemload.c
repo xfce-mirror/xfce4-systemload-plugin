@@ -66,8 +66,7 @@ typedef struct
     GtkWidget  *status;
     GtkWidget  *ebox;
 
-    gulong     history[4];
-    gulong     value_read;
+    gulong     value_read; /* Range: 0% ... 100% */
 } t_monitor;
 
 typedef struct
@@ -166,14 +165,17 @@ update_monitors(t_global_monitor *global)
     gulong mem, swap, MTotal, MUsed, STotal, SUsed;
     gsize i;
 
+    for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
+        global->monitor[i]->value_read = 0;
+
     if (systemload_config_get_enabled (config, CPU_MONITOR))
-        global->monitor[CPU_MONITOR]->history[0] = read_cpuload();
+        global->monitor[CPU_MONITOR]->value_read = read_cpuload();
     if (systemload_config_get_enabled (config, MEM_MONITOR) ||
         systemload_config_get_enabled (config, SWAP_MONITOR))
     {
         read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed);
-        global->monitor[MEM_MONITOR]->history[0] = mem;
-        global->monitor[SWAP_MONITOR]->history[0] = swap;
+        global->monitor[MEM_MONITOR]->value_read = mem;
+        global->monitor[SWAP_MONITOR]->value_read = swap;
     }
     if (systemload_config_get_uptime_enabled (config))
         global->uptime.value_read = read_uptime();
@@ -181,27 +183,12 @@ update_monitors(t_global_monitor *global)
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
         const SystemloadMonitor monitor = i;
+        t_monitor *m = global->monitor[monitor];
 
         if (systemload_config_get_enabled (config, monitor))
         {
-            if (global->monitor[i]->history[0] > 100)
-                global->monitor[i]->history[0] = 100;
-
-            global->monitor[i]->value_read =
-                (global->monitor[i]->history[0] +
-                 global->monitor[i]->history[1] +
-                 global->monitor[i]->history[2] +
-                 global->monitor[i]->history[3]) / 4;
-
-            global->monitor[i]->history[3] =
-                global->monitor[i]->history[2];
-            global->monitor[i]->history[2] =
-                global->monitor[i]->history[1];
-            global->monitor[i]->history[1] =
-                global->monitor[i]->history[0];
-
-            set_fraction(GTK_PROGRESS_BAR(global->monitor[i]->status),
-                 global->monitor[i]->value_read / 100.0);
+            gulong value = MIN(m->value_read, 100);
+            set_fraction(GTK_PROGRESS_BAR(global->monitor[i]->status), value / 100.0);
         }
     }
 
