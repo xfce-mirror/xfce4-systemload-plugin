@@ -26,7 +26,8 @@
 
 #ifndef __CPU_H
 #define __CPU_H
-#include <gtk/gtk.h>
+
+#include <glib.h>
 
 gulong read_cpuload(void);
 
