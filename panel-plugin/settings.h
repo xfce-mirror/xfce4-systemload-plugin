@@ -27,7 +27,10 @@ G_BEGIN_DECLS
 #define MAX_TIMEOUT 10000
 
 typedef enum {
-    CPU_MONITOR, MEM_MONITOR, SWAP_MONITOR
+    CPU_MONITOR,
+    MEM_MONITOR,
+    NET_MONITOR,
+    SWAP_MONITOR,
 } SystemloadMonitor;
 
 typedef struct _SystemloadConfigClass SystemloadConfigClass;

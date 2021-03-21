@@ -46,9 +46,10 @@
 #include <upower.h>
 #endif
 
-#include "settings.h"
 #include "cpu.h"
 #include "memswap.h"
+#include "network.h"
+#include "settings.h"
 #include "uptime.h"
 
 
@@ -87,7 +88,7 @@ typedef struct
     gboolean          use_timeout_seconds;
     guint             timeout_id;
     t_command         command;
-    t_monitor         *monitor[3];
+    t_monitor         *monitor[4];
     t_uptime_monitor  uptime;
 #ifdef HAVE_UPOWER_GLIB
     UpClient          *upower;
@@ -162,7 +163,8 @@ static void
 update_monitors(t_global_monitor *global)
 {
     const SystemloadConfig *config = global->config;
-    gulong mem, swap, MTotal, MUsed, STotal, SUsed;
+    gulong mem, net, swap;
+    gulong MTotal = 0, MUsed = 0, NTotal = 0, STotal = 0, SUsed = 0;
     gsize i;
 
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
@@ -173,9 +175,16 @@ update_monitors(t_global_monitor *global)
     if (systemload_config_get_enabled (config, MEM_MONITOR) ||
         systemload_config_get_enabled (config, SWAP_MONITOR))
     {
-        read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed);
-        global->monitor[MEM_MONITOR]->value_read = mem;
-        global->monitor[SWAP_MONITOR]->value_read = swap;
+        if (read_memswap(&mem, &swap, &MTotal, &MUsed, &STotal, &SUsed) == 0)
+        {
+            global->monitor[MEM_MONITOR]->value_read = mem;
+            global->monitor[SWAP_MONITOR]->value_read = swap;
+        }
+    }
+    if (systemload_config_get_enabled (config, NET_MONITOR))
+    {
+        if (read_netload (&net, &NTotal) == 0)
+            global->monitor[NET_MONITOR]->value_read = net;
     }
     if (systemload_config_get_uptime_enabled (config))
         global->uptime.value_read = read_uptime();
@@ -206,6 +215,14 @@ update_monitors(t_global_monitor *global)
         g_snprintf(tooltip, sizeof(tooltip), _("Memory: %ldMB of %ldMB used"),
                    MUsed >> 10 , MTotal >> 10);
         set_tooltip(global->monitor[MEM_MONITOR]->ebox, tooltip);
+    }
+
+    if (systemload_config_get_enabled (config, NET_MONITOR))
+    {
+        gchar tooltip[128];
+        g_snprintf(tooltip, sizeof(tooltip), _("Network: %ld Mbit/s"),
+                   (glong) round (NTotal / 1e6));
+        set_tooltip(global->monitor[NET_MONITOR]->ebox, tooltip);
     }
 
     if (systemload_config_get_enabled (config, SWAP_MONITOR))
@@ -779,12 +796,14 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
             N_ ("Memory monitor"),
+            N_ ("Network monitor"),
             N_ ("Swap monitor"),
             N_ ("Uptime monitor")
     };
-    static const gchar *DEFAULT_TEXT[] = {
+    static const gchar *SETTING_TEXT[] = {
             "cpu",
             "memory",
+            "network",
             "swap"
     };
 
@@ -869,10 +888,11 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         new_monitor_setting (global, GTK_GRID(grid), 4 + 2 * i,
                              _(FRAME_TEXT[i]),
                              TRUE,
-                             (DEFAULT_TEXT[i]));
+                             SETTING_TEXT[i]);
 
     /* Uptime monitor options */
-    new_monitor_setting (global, GTK_GRID(grid), 11, _(FRAME_TEXT[3]), FALSE, "uptime");
+    new_monitor_setting (global, GTK_GRID(grid), 4 + 2*G_N_ELEMENTS (global->monitor),
+                         _(FRAME_TEXT[4]), FALSE, "uptime");
 
     gtk_widget_show_all (dlg);
 }
@@ -881,11 +901,14 @@ static void
 monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     const gchar *auth[] = {
-      "Riccardo Persichetti <riccardo.persichetti@tin.it>",
-      "Florian Rivoal <frivoal@xfce.org>",
-      "Landry Breuil <landry@xfce.org>",
       "David Schneider <dnschneid@gmail.com>",
-      "Simon Steinbeiß", NULL };
+      "Florian Rivoal <frivoal@xfce.org>",
+      "Jan Ziak <0xe2.0x9a.0x9b@xfce.org>",
+      "Landry Breuil <landry@xfce.org>",
+      "Riccardo Persichetti <riccardo.persichetti@tin.it>",
+      "Simon Steinbeiß",
+      NULL
+    };
 
     gtk_show_about_dialog (NULL,
       "logo-icon-name", "org.xfce.panel.systemload",
