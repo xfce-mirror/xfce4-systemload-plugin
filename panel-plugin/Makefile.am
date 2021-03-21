@@ -18,12 +18,15 @@ libsystemload_la_SOURCES =					\
 	uptime.h							\
 	memswap.c							\
 	memswap.h							\
+	network.c							\
+	network.h							\
 	cpu.c								\
 	cpu.h
 
 libsystemload_la_CFLAGS =					\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(XFCONF_CFLAGS)						\
+	$(LIBGTOP_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
 	$(UPOWER_GLIB_CFLAGS)						\
 	$(PLATFORM_CFLAGS)
@@ -38,6 +41,7 @@ libsystemload_la_LDFLAGS = \
 libsystemload_la_LIBADD =						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(XFCONF_LIBS)						\
+	$(LIBGTOP_LIBS) 						\
 	$(LIBXFCE4PANEL_LIBS) 						\
 	$(UPOWER_GLIB_LIBS)						\
 	-lm

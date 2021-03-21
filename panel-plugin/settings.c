@@ -48,8 +48,15 @@
 #define DEFAULT_SYSTEM_MONITOR_COMMAND "xfce4-taskmanager"
 #define DEFAULT_CPU_LABEL "cpu"
 #define DEFAULT_MEMORY_LABEL "mem"
+#define DEFAULT_NETWORK_LABEL "net"
 #define DEFAULT_SWAP_LABEL "swap"
-static gchar *DEFAULT_COLOR[] = { "#0000c0", "#00c000", "#f0f000" };
+
+static gchar *DEFAULT_COLOR[] = {
+    "#0000c0", /* CPU */
+    "#00c000", /* MEM */
+    "#c00000", /* NET */
+    "#f0f000", /* SWAP */
+};
 
 
 
@@ -89,6 +96,11 @@ struct _SystemloadConfig
   gchar           *memory_label;
   GdkRGBA          memory_color;
 
+  gboolean         network_enabled;
+  gboolean         network_use_label;
+  gchar           *network_label;
+  GdkRGBA          network_color;
+
   gboolean         swap_enabled;
   gboolean         swap_use_label;
   gchar           *swap_label;
@@ -111,6 +123,10 @@ enum
     PROP_MEMORY_USE_LABEL,
     PROP_MEMORY_LABEL,
     PROP_MEMORY_COLOR,
+    PROP_NETWORK_ENABLED,
+    PROP_NETWORK_USE_LABEL,
+    PROP_NETWORK_LABEL,
+    PROP_NETWORK_COLOR,
     PROP_SWAP_ENABLED,
     PROP_SWAP_USE_LABEL,
     PROP_SWAP_LABEL,
@@ -228,6 +244,34 @@ systemload_config_class_init (SystemloadConfigClass *klass)
                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
+                                   PROP_NETWORK_ENABLED,
+                                   g_param_spec_boolean ("network-enabled", NULL, NULL,
+                                                         TRUE,
+                                                         G_PARAM_READWRITE |
+                                                         G_PARAM_STATIC_STRINGS));
+
+  g_object_class_install_property (gobject_class,
+                                   PROP_NETWORK_USE_LABEL,
+                                   g_param_spec_boolean ("network-use-label", NULL, NULL,
+                                                         TRUE,
+                                                         G_PARAM_READWRITE |
+                                                         G_PARAM_STATIC_STRINGS));
+
+  g_object_class_install_property (gobject_class,
+                                   PROP_NETWORK_LABEL,
+                                   g_param_spec_string ("network-label", NULL, NULL,
+                                                        DEFAULT_NETWORK_LABEL,
+                                                        G_PARAM_READWRITE |
+                                                        G_PARAM_STATIC_STRINGS));
+
+  g_object_class_install_property (gobject_class,
+                                   PROP_NETWORK_COLOR,
+                                   g_param_spec_boxed ("network-color",
+                                                       NULL, NULL,
+                                                       GDK_TYPE_RGBA,
+                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
+  g_object_class_install_property (gobject_class,
                                    PROP_SWAP_ENABLED,
                                    g_param_spec_boolean ("swap-enabled", NULL, NULL,
                                                          TRUE,
@@ -281,6 +325,10 @@ systemload_config_init (SystemloadConfig *config)
   config->memory_use_label = TRUE;
   config->memory_label = g_strdup (DEFAULT_MEMORY_LABEL);
   gdk_rgba_parse (&config->memory_color, DEFAULT_COLOR[MEM_MONITOR]);
+  config->network_enabled = TRUE;
+  config->network_use_label = TRUE;
+  config->network_label = g_strdup (DEFAULT_NETWORK_LABEL);
+  gdk_rgba_parse (&config->network_color, DEFAULT_COLOR[NET_MONITOR]);
   config->swap_enabled = TRUE;
   config->swap_use_label = TRUE;
   config->swap_label = g_strdup (DEFAULT_SWAP_LABEL);
@@ -298,6 +346,7 @@ systemload_config_finalize (GObject *object)
   g_free (config->system_monitor_command);
   g_free (config->cpu_label);
   g_free (config->memory_label);
+  g_free (config->network_label);
   g_free (config->swap_label);
 
   G_OBJECT_CLASS (systemload_config_parent_class)->finalize (object);
@@ -361,6 +410,22 @@ systemload_config_get_property (GObject    *object,
 
     case PROP_MEMORY_COLOR:
       g_value_set_boxed (value, &config->memory_color);
+      break;
+
+    case PROP_NETWORK_ENABLED:
+      g_value_set_boolean (value, config->network_enabled);
+      break;
+
+    case PROP_NETWORK_USE_LABEL:
+      g_value_set_boolean (value, config->network_use_label);
+      break;
+
+    case PROP_NETWORK_LABEL:
+      g_value_set_string (value, config->network_label);
+      break;
+
+    case PROP_NETWORK_COLOR:
+      g_value_set_boxed (value, &config->network_color);
       break;
 
     case PROP_SWAP_ENABLED:
@@ -526,6 +591,48 @@ systemload_config_set_property (GObject      *object,
       g_boxed_free (GDK_TYPE_RGBA, val_rgba);
       break;
 
+    case PROP_NETWORK_ENABLED:
+      val_bool = g_value_get_boolean (value);
+      if (config->network_enabled != val_bool)
+        {
+          config->network_enabled = val_bool;
+          g_object_notify (G_OBJECT (config), "network-enabled");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
+    case PROP_NETWORK_USE_LABEL:
+      val_bool = g_value_get_boolean (value);
+      if (config->network_use_label != val_bool)
+        {
+          config->network_use_label = val_bool;
+          g_object_notify (G_OBJECT (config), "network-use-label");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
+    case PROP_NETWORK_LABEL:
+      val_string = g_value_get_string (value);
+      if (g_strcmp0 (config->network_label, val_string) != 0)
+        {
+          g_free (config->network_label);
+          config->network_label = g_value_dup_string (value);
+          g_object_notify (G_OBJECT (config), "network-label");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
+    case PROP_NETWORK_COLOR:
+      val_rgba = g_value_dup_boxed (value);
+      if (!gdk_rgba_equal (&config->network_color, val_rgba))
+        {
+          config->network_color = *val_rgba;
+          g_object_notify (G_OBJECT (config), "network-color");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      g_boxed_free (GDK_TYPE_RGBA, val_rgba);
+      break;
+
     case PROP_SWAP_ENABLED:
       val_bool = g_value_get_boolean (value);
       if (config->swap_enabled != val_bool)
@@ -619,6 +726,8 @@ systemload_config_get_enabled (const SystemloadConfig *config, SystemloadMonitor
       return config->cpu_enabled;
     case MEM_MONITOR:
       return config->memory_enabled;
+    case NET_MONITOR:
+      return config->network_enabled;
     case SWAP_MONITOR:
       return config->swap_enabled;
     default:
@@ -637,6 +746,8 @@ systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonit
       return config->cpu_use_label;
     case MEM_MONITOR:
       return config->memory_use_label;
+    case NET_MONITOR:
+      return config->network_use_label;
     case SWAP_MONITOR:
       return config->swap_use_label;
     default:
@@ -655,6 +766,8 @@ systemload_config_get_label (const SystemloadConfig *config, SystemloadMonitor m
       return config->cpu_label;
     case MEM_MONITOR:
       return config->memory_label;
+    case NET_MONITOR:
+      return config->network_label;
     case SWAP_MONITOR:
       return config->swap_label;
     default:
@@ -673,6 +786,8 @@ systemload_config_get_color (const SystemloadConfig *config, SystemloadMonitor m
       return &config->cpu_color;
     case MEM_MONITOR:
       return &config->memory_color;
+    case NET_MONITOR:
+      return &config->network_color;
     case SWAP_MONITOR:
       return &config->swap_color;
     default:
@@ -741,6 +856,22 @@ systemload_config_new (const gchar     *property_base)
 
       property = g_strconcat (property_base, "/memory/color", NULL);
       xfconf_g_property_bind_gdkrgba (channel, property, config, "memory-color");
+      g_free (property);
+
+      property = g_strconcat (property_base, "/network/enabled", NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, "network-enabled");
+      g_free (property);
+
+      property = g_strconcat (property_base, "/network/use-label", NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, "network-use-label");
+      g_free (property);
+
+      property = g_strconcat (property_base, "/network/label", NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, "network-label");
+      g_free (property);
+
+      property = g_strconcat (property_base, "/network/color", NULL);
+      xfconf_g_property_bind_gdkrgba (channel, property, config, "network-color");
       g_free (property);
 
       property = g_strconcat (property_base, "/swap/enabled", NULL);
