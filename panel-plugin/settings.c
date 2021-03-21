@@ -46,12 +46,15 @@
 #define DEFAULT_TIMEOUT 500
 #define DEFAULT_TIMEOUT_SECONDS 1
 #define DEFAULT_SYSTEM_MONITOR_COMMAND "xfce4-taskmanager"
-#define DEFAULT_CPU_LABEL "cpu"
-#define DEFAULT_MEMORY_LABEL "mem"
-#define DEFAULT_NETWORK_LABEL "net"
-#define DEFAULT_SWAP_LABEL "swap"
 
-static gchar *DEFAULT_COLOR[] = {
+static gchar *const DEFAULT_LABEL[] = {
+    "cpu",
+    "mem",
+    "net",
+    "swap",
+};
+
+static gchar *const DEFAULT_COLOR[] = {
     "#0000c0", /* CPU */
     "#00c000", /* MEM */
     "#c00000", /* NET */
@@ -86,29 +89,16 @@ struct _SystemloadConfig
   gchar           *system_monitor_command;
   gboolean         uptime;
 
-  gboolean         cpu_enabled;
-  gboolean         cpu_use_label;
-  gchar           *cpu_label;
-  GdkRGBA          cpu_color;
-
-  gboolean         memory_enabled;
-  gboolean         memory_use_label;
-  gchar           *memory_label;
-  GdkRGBA          memory_color;
-
-  gboolean         network_enabled;
-  gboolean         network_use_label;
-  gchar           *network_label;
-  GdkRGBA          network_color;
-
-  gboolean         swap_enabled;
-  gboolean         swap_use_label;
-  gchar           *swap_label;
-  GdkRGBA          swap_color;
-
+  struct
+  {
+    gboolean       enabled;
+    gboolean       use_label;
+    gchar         *label;
+    GdkRGBA        color;
+  } monitor[4];
 };
 
-enum
+typedef enum
   {
     PROP_0,
     PROP_TIMEOUT,
@@ -132,7 +122,7 @@ enum
     PROP_SWAP_LABEL,
     PROP_SWAP_COLOR,
     N_PROPERTIES,
-  };
+  } SystemloadProperty;
 
 enum
   {
@@ -141,6 +131,37 @@ enum
   };
 
 static guint systemload_config_signals [LAST_SIGNAL] = { 0, };
+
+static SystemloadMonitor
+prop2monitor (SystemloadProperty p)
+{
+  switch (p)
+    {
+    case PROP_CPU_ENABLED:
+    case PROP_CPU_USE_LABEL:
+    case PROP_CPU_LABEL:
+    case PROP_CPU_COLOR:
+      return CPU_MONITOR;
+    case PROP_MEMORY_ENABLED:
+    case PROP_MEMORY_USE_LABEL:
+    case PROP_MEMORY_LABEL:
+    case PROP_MEMORY_COLOR:
+      return MEM_MONITOR;
+    case PROP_NETWORK_ENABLED:
+    case PROP_NETWORK_USE_LABEL:
+    case PROP_NETWORK_LABEL:
+    case PROP_NETWORK_COLOR:
+      return NET_MONITOR;
+    case PROP_SWAP_ENABLED:
+    case PROP_SWAP_USE_LABEL:
+    case PROP_SWAP_LABEL:
+    case PROP_SWAP_COLOR:
+      return SWAP_MONITOR;
+    default:
+      /* Ideally, this codepath is never reached */
+      return 0;
+    }
+}
 
 
 
@@ -204,7 +225,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
   g_object_class_install_property (gobject_class,
                                    PROP_CPU_LABEL,
                                    g_param_spec_string ("cpu-label", NULL, NULL,
-                                                        DEFAULT_CPU_LABEL,
+                                                        DEFAULT_LABEL[CPU_MONITOR],
                                                         G_PARAM_READWRITE |
                                                         G_PARAM_STATIC_STRINGS));
 
@@ -232,7 +253,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
   g_object_class_install_property (gobject_class,
                                    PROP_MEMORY_LABEL,
                                    g_param_spec_string ("memory-label", NULL, NULL,
-                                                        DEFAULT_MEMORY_LABEL,
+                                                        DEFAULT_LABEL[MEM_MONITOR],
                                                         G_PARAM_READWRITE |
                                                         G_PARAM_STATIC_STRINGS));
 
@@ -260,7 +281,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
   g_object_class_install_property (gobject_class,
                                    PROP_NETWORK_LABEL,
                                    g_param_spec_string ("network-label", NULL, NULL,
-                                                        DEFAULT_NETWORK_LABEL,
+                                                        DEFAULT_LABEL[NET_MONITOR],
                                                         G_PARAM_READWRITE |
                                                         G_PARAM_STATIC_STRINGS));
 
@@ -288,7 +309,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
   g_object_class_install_property (gobject_class,
                                    PROP_SWAP_LABEL,
                                    g_param_spec_string ("swap-label", NULL, NULL,
-                                                        DEFAULT_SWAP_LABEL,
+                                                        DEFAULT_LABEL[SWAP_MONITOR],
                                                         G_PARAM_READWRITE |
                                                         G_PARAM_STATIC_STRINGS));
 
@@ -313,26 +334,19 @@ systemload_config_class_init (SystemloadConfigClass *klass)
 static void
 systemload_config_init (SystemloadConfig *config)
 {
+  gsize i;
+
   config->timeout = DEFAULT_TIMEOUT;
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
   config->system_monitor_command = g_strdup (DEFAULT_SYSTEM_MONITOR_COMMAND);
   config->uptime = TRUE;
-  config->cpu_enabled = TRUE;
-  config->cpu_use_label = TRUE;
-  config->cpu_label = g_strdup (DEFAULT_CPU_LABEL);
-  gdk_rgba_parse (&config->cpu_color, DEFAULT_COLOR[CPU_MONITOR]);
-  config->memory_enabled = TRUE;
-  config->memory_use_label = TRUE;
-  config->memory_label = g_strdup (DEFAULT_MEMORY_LABEL);
-  gdk_rgba_parse (&config->memory_color, DEFAULT_COLOR[MEM_MONITOR]);
-  config->network_enabled = TRUE;
-  config->network_use_label = TRUE;
-  config->network_label = g_strdup (DEFAULT_NETWORK_LABEL);
-  gdk_rgba_parse (&config->network_color, DEFAULT_COLOR[NET_MONITOR]);
-  config->swap_enabled = TRUE;
-  config->swap_use_label = TRUE;
-  config->swap_label = g_strdup (DEFAULT_SWAP_LABEL);
-  gdk_rgba_parse (&config->swap_color, DEFAULT_COLOR[SWAP_MONITOR]);
+  for (i = 0; i < G_N_ELEMENTS (config->monitor); i++)
+    {
+      config->monitor[i].enabled = TRUE;
+      config->monitor[i].use_label = TRUE;
+      config->monitor[i].label = g_strdup (DEFAULT_LABEL[i]);
+      gdk_rgba_parse (&config->monitor[i].color, DEFAULT_COLOR[i]);
+    }
 }
 
 
@@ -341,13 +355,12 @@ static void
 systemload_config_finalize (GObject *object)
 {
   SystemloadConfig *config = SYSTEMLOAD_CONFIG (object);
+  gsize i;
 
   xfconf_shutdown();
   g_free (config->system_monitor_command);
-  g_free (config->cpu_label);
-  g_free (config->memory_label);
-  g_free (config->network_label);
-  g_free (config->swap_label);
+  for (i = 0; i < G_N_ELEMENTS (config->monitor); i++)
+    g_free (config->monitor[i].label);
 
   G_OBJECT_CLASS (systemload_config_parent_class)->finalize (object);
 }
@@ -360,7 +373,7 @@ systemload_config_get_property (GObject    *object,
                                 GValue     *value,
                                 GParamSpec *pspec)
 {
-  SystemloadConfig     *config = SYSTEMLOAD_CONFIG (object);
+  const SystemloadConfig *config = SYSTEMLOAD_CONFIG (object);
 
   switch (prop_id)
     {
@@ -381,67 +394,31 @@ systemload_config_get_property (GObject    *object,
       break;
 
     case PROP_CPU_ENABLED:
-      g_value_set_boolean (value, config->cpu_enabled);
+    case PROP_MEMORY_ENABLED:
+    case PROP_NETWORK_ENABLED:
+    case PROP_SWAP_ENABLED:
+      g_value_set_boolean (value, config->monitor[prop2monitor(prop_id)].enabled);
       break;
 
     case PROP_CPU_USE_LABEL:
-      g_value_set_boolean (value, config->cpu_use_label);
+    case PROP_MEMORY_USE_LABEL:
+    case PROP_NETWORK_USE_LABEL:
+    case PROP_SWAP_USE_LABEL:
+      g_value_set_boolean (value, config->monitor[prop2monitor(prop_id)].use_label);
       break;
 
     case PROP_CPU_LABEL:
-      g_value_set_string (value, config->cpu_label);
+    case PROP_MEMORY_LABEL:
+    case PROP_NETWORK_LABEL:
+    case PROP_SWAP_LABEL:
+      g_value_set_string (value, config->monitor[prop2monitor(prop_id)].label);
       break;
 
     case PROP_CPU_COLOR:
-      g_value_set_boxed (value, &config->cpu_color);
-      break;
-
-    case PROP_MEMORY_ENABLED:
-      g_value_set_boolean (value, config->memory_enabled);
-      break;
-
-    case PROP_MEMORY_USE_LABEL:
-      g_value_set_boolean (value, config->memory_use_label);
-      break;
-
-    case PROP_MEMORY_LABEL:
-      g_value_set_string (value, config->memory_label);
-      break;
-
     case PROP_MEMORY_COLOR:
-      g_value_set_boxed (value, &config->memory_color);
-      break;
-
-    case PROP_NETWORK_ENABLED:
-      g_value_set_boolean (value, config->network_enabled);
-      break;
-
-    case PROP_NETWORK_USE_LABEL:
-      g_value_set_boolean (value, config->network_use_label);
-      break;
-
-    case PROP_NETWORK_LABEL:
-      g_value_set_string (value, config->network_label);
-      break;
-
     case PROP_NETWORK_COLOR:
-      g_value_set_boxed (value, &config->network_color);
-      break;
-
-    case PROP_SWAP_ENABLED:
-      g_value_set_boolean (value, config->swap_enabled);
-      break;
-
-    case PROP_SWAP_USE_LABEL:
-      g_value_set_boolean (value, config->swap_use_label);
-      break;
-
-    case PROP_SWAP_LABEL:
-      g_value_set_string (value, config->swap_label);
-      break;
-
     case PROP_SWAP_COLOR:
-      g_value_set_boxed (value, &config->swap_color);
+      g_value_set_boxed (value, &config->monitor[prop2monitor(prop_id)].color);
       break;
 
     default:
@@ -509,9 +486,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_CPU_ENABLED:
       val_bool = g_value_get_boolean (value);
-      if (config->cpu_enabled != val_bool)
+      if (config->monitor[CPU_MONITOR].enabled != val_bool)
         {
-          config->cpu_enabled = val_bool;
+          config->monitor[CPU_MONITOR].enabled = val_bool;
           g_object_notify (G_OBJECT (config), "cpu-enabled");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -519,9 +496,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_CPU_USE_LABEL:
       val_bool = g_value_get_boolean (value);
-      if (config->cpu_use_label != val_bool)
+      if (config->monitor[CPU_MONITOR].use_label != val_bool)
         {
-          config->cpu_use_label = val_bool;
+          config->monitor[CPU_MONITOR].use_label = val_bool;
           g_object_notify (G_OBJECT (config), "cpu-use-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -529,10 +506,10 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_CPU_LABEL:
       val_string = g_value_get_string (value);
-      if (g_strcmp0 (config->cpu_label, val_string) != 0)
+      if (g_strcmp0 (config->monitor[CPU_MONITOR].label, val_string) != 0)
         {
-          g_free (config->cpu_label);
-          config->cpu_label = g_value_dup_string (value);
+          g_free (config->monitor[CPU_MONITOR].label);
+          config->monitor[CPU_MONITOR].label = g_value_dup_string (value);
           g_object_notify (G_OBJECT (config), "cpu-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -540,9 +517,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_CPU_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->cpu_color, val_rgba))
+      if (!gdk_rgba_equal (&config->monitor[CPU_MONITOR].color, val_rgba))
         {
-          config->cpu_color = *val_rgba;
+          config->monitor[CPU_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "cpu-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -551,9 +528,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_MEMORY_ENABLED:
       val_bool = g_value_get_boolean (value);
-      if (config->memory_enabled != val_bool)
+      if (config->monitor[MEM_MONITOR].enabled != val_bool)
         {
-          config->memory_enabled = val_bool;
+          config->monitor[MEM_MONITOR].enabled = val_bool;
           g_object_notify (G_OBJECT (config), "memory-enabled");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -561,9 +538,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_MEMORY_USE_LABEL:
       val_bool = g_value_get_boolean (value);
-      if (config->memory_use_label != val_bool)
+      if (config->monitor[MEM_MONITOR].use_label != val_bool)
         {
-          config->memory_use_label = val_bool;
+          config->monitor[MEM_MONITOR].use_label = val_bool;
           g_object_notify (G_OBJECT (config), "memory-use-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -571,10 +548,10 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_MEMORY_LABEL:
       val_string = g_value_get_string (value);
-      if (g_strcmp0 (config->memory_label, val_string) != 0)
+      if (g_strcmp0 (config->monitor[MEM_MONITOR].label, val_string) != 0)
         {
-          g_free (config->memory_label);
-          config->memory_label = g_value_dup_string (value);
+          g_free (config->monitor[MEM_MONITOR].label);
+          config->monitor[MEM_MONITOR].label = g_value_dup_string (value);
           g_object_notify (G_OBJECT (config), "memory-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -582,9 +559,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_MEMORY_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->memory_color, val_rgba))
+      if (!gdk_rgba_equal (&config->monitor[MEM_MONITOR].color, val_rgba))
         {
-          config->memory_color = *val_rgba;
+          config->monitor[MEM_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "memory-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -593,9 +570,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_NETWORK_ENABLED:
       val_bool = g_value_get_boolean (value);
-      if (config->network_enabled != val_bool)
+      if (config->monitor[NET_MONITOR].enabled != val_bool)
         {
-          config->network_enabled = val_bool;
+          config->monitor[NET_MONITOR].enabled = val_bool;
           g_object_notify (G_OBJECT (config), "network-enabled");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -603,9 +580,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_NETWORK_USE_LABEL:
       val_bool = g_value_get_boolean (value);
-      if (config->network_use_label != val_bool)
+      if (config->monitor[NET_MONITOR].use_label != val_bool)
         {
-          config->network_use_label = val_bool;
+          config->monitor[NET_MONITOR].use_label = val_bool;
           g_object_notify (G_OBJECT (config), "network-use-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -613,10 +590,10 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_NETWORK_LABEL:
       val_string = g_value_get_string (value);
-      if (g_strcmp0 (config->network_label, val_string) != 0)
+      if (g_strcmp0 (config->monitor[NET_MONITOR].label, val_string) != 0)
         {
-          g_free (config->network_label);
-          config->network_label = g_value_dup_string (value);
+          g_free (config->monitor[NET_MONITOR].label);
+          config->monitor[NET_MONITOR].label = g_value_dup_string (value);
           g_object_notify (G_OBJECT (config), "network-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -624,9 +601,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_NETWORK_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->network_color, val_rgba))
+      if (!gdk_rgba_equal (&config->monitor[NET_MONITOR].color, val_rgba))
         {
-          config->network_color = *val_rgba;
+          config->monitor[NET_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "network-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -635,9 +612,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_SWAP_ENABLED:
       val_bool = g_value_get_boolean (value);
-      if (config->swap_enabled != val_bool)
+      if (config->monitor[SWAP_MONITOR].enabled != val_bool)
         {
-          config->swap_enabled = val_bool;
+          config->monitor[SWAP_MONITOR].enabled = val_bool;
           g_object_notify (G_OBJECT (config), "swap-enabled");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -645,9 +622,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_SWAP_USE_LABEL:
       val_bool = g_value_get_boolean (value);
-      if (config->swap_use_label != val_bool)
+      if (config->monitor[SWAP_MONITOR].use_label != val_bool)
         {
-          config->swap_use_label = val_bool;
+          config->monitor[SWAP_MONITOR].use_label = val_bool;
           g_object_notify (G_OBJECT (config), "swap-use-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -655,10 +632,10 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_SWAP_LABEL:
       val_string = g_value_get_string (value);
-      if (g_strcmp0 (config->swap_label, val_string) != 0)
+      if (g_strcmp0 (config->monitor[SWAP_MONITOR].label, val_string) != 0)
         {
-          g_free (config->swap_label);
-          config->swap_label = g_value_dup_string (value);
+          g_free (config->monitor[SWAP_MONITOR].label);
+          config->monitor[SWAP_MONITOR].label = g_value_dup_string (value);
           g_object_notify (G_OBJECT (config), "swap-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -666,9 +643,9 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_SWAP_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->swap_color, val_rgba))
+      if (!gdk_rgba_equal (&config->monitor[SWAP_MONITOR].color, val_rgba))
         {
-          config->swap_color = *val_rgba;
+          config->monitor[SWAP_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "swap-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
@@ -720,19 +697,10 @@ systemload_config_get_enabled (const SystemloadConfig *config, SystemloadMonitor
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
 
-  switch (monitor)
-    {
-    case CPU_MONITOR:
-      return config->cpu_enabled;
-    case MEM_MONITOR:
-      return config->memory_enabled;
-    case NET_MONITOR:
-      return config->network_enabled;
-    case SWAP_MONITOR:
-      return config->swap_enabled;
-    default:
+  if (monitor >= 0 && (gsize) monitor < G_N_ELEMENTS (config->monitor))
+      return config->monitor[monitor].enabled;
+  else
       return TRUE;
-    }
 }
 
 gboolean
@@ -740,19 +708,10 @@ systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonit
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
 
-  switch (monitor)
-    {
-    case CPU_MONITOR:
-      return config->cpu_use_label;
-    case MEM_MONITOR:
-      return config->memory_use_label;
-    case NET_MONITOR:
-      return config->network_use_label;
-    case SWAP_MONITOR:
-      return config->swap_use_label;
-    default:
+  if (monitor >= 0 && (gsize) monitor < G_N_ELEMENTS (config->monitor))
+      return config->monitor[monitor].use_label;
+  else
       return TRUE;
-    }
 }
 
 const gchar *
@@ -760,19 +719,10 @@ systemload_config_get_label (const SystemloadConfig *config, SystemloadMonitor m
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), "");
 
-  switch (monitor)
-    {
-    case CPU_MONITOR:
-      return config->cpu_label;
-    case MEM_MONITOR:
-      return config->memory_label;
-    case NET_MONITOR:
-      return config->network_label;
-    case SWAP_MONITOR:
-      return config->swap_label;
-    default:
+  if (monitor >= 0 && (gsize) monitor < G_N_ELEMENTS (config->monitor))
+      return config->monitor[monitor].label;
+  else
       return "";
-    }
 }
 
 const GdkRGBA *
@@ -780,19 +730,10 @@ systemload_config_get_color (const SystemloadConfig *config, SystemloadMonitor m
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
 
-  switch (monitor)
-    {
-    case CPU_MONITOR:
-      return &config->cpu_color;
-    case MEM_MONITOR:
-      return &config->memory_color;
-    case NET_MONITOR:
-      return &config->network_color;
-    case SWAP_MONITOR:
-      return &config->swap_color;
-    default:
+  if (monitor >= 0 && (gsize) monitor < G_N_ELEMENTS (config->monitor))
+      return &config->monitor[monitor].color;
+  else
       return NULL;
-    }
 }
 
 
