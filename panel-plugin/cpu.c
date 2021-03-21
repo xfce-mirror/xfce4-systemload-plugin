@@ -28,18 +28,16 @@
 #include <config.h>
 #endif
 
+#include <fcntl.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <fcntl.h>
-#include <gtk/gtk.h>
-
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
-#include "cpu.h" 
+#include "cpu.h"
 
 #if defined(__linux__) || defined(__FreeBSD_kernel__)
 
+#include <glib/gi18n.h>
 #include <stdint.h>
 
 #define PROC_STAT "/proc/stat"
@@ -60,7 +58,7 @@ gulong read_cpuload(void)
 
     fd = fopen(PROC_STAT, "r");
     if (!fd) {
-        g_warning(_("File /proc/stat not found!"));
+        g_warning("%s", _("File /proc/stat not found!"));
         return 0;
     }
 
