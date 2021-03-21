@@ -901,11 +901,14 @@ static void
 monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
     const gchar *auth[] = {
-      "Riccardo Persichetti <riccardo.persichetti@tin.it>",
-      "Florian Rivoal <frivoal@xfce.org>",
-      "Landry Breuil <landry@xfce.org>",
       "David Schneider <dnschneid@gmail.com>",
-      "Simon Steinbeiß", NULL };
+      "Florian Rivoal <frivoal@xfce.org>",
+      "Jan Ziak <0xe2.0x9a.0x9b@xfce.org>",
+      "Landry Breuil <landry@xfce.org>",
+      "Riccardo Persichetti <riccardo.persichetti@tin.it>",
+      "Simon Steinbeiß",
+      NULL
+    };
 
     gtk_show_about_dialog (NULL,
       "logo-icon-name", "org.xfce.panel.systemload",
