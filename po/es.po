@@ -6,6 +6,7 @@
 #  <abel.martin.ruiz@gmail.com>, 2009
 # Adolfo Jayme-Barrientos, 2014
 # Adolfo Jayme-Barrientos, 2014
+# Casper casper, 2021
 # gabrieltandil <gabriel.tandil@gmail.com>, 2014,2016
 # gabrieltandil <gabriel.tandil@gmail.com>, 2014,2016
 # Ignacio Poggi <ignaciop.3@gmail.com>, 2020
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-10 00:48+0100\n"
-"PO-Revision-Date: 2021-03-13 10:28+0000\n"
-"Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
+"POT-Creation-Date: 2021-03-18 12:49+0100\n"
+"PO-Revision-Date: 2021-03-21 10:30+0000\n"
+"Last-Translator: Casper casper\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,108 +31,134 @@ msgstr ""
 msgid "File /proc/stat not found!"
 msgstr "No se ha encontrado el archivo /proc/stat."
 
-#: ../panel-plugin/systemload.c:203
+#: ../panel-plugin/systemload.c:211
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Carga del sistema: %ld %%"
 
-#: ../panel-plugin/systemload.c:210
+#: ../panel-plugin/systemload.c:219
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: %ld MB de %ld MB en uso"
 
-#: ../panel-plugin/systemload.c:218
+#: ../panel-plugin/systemload.c:229
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Espacio de intercambio: %ld MB de %ld MB en uso"
 
-#: ../panel-plugin/systemload.c:221
+#: ../panel-plugin/systemload.c:232
 #, c-format
 msgid "No swap"
 msgstr "Sin espacio de intercambio"
 
-#: ../panel-plugin/systemload.c:232
+#: ../panel-plugin/systemload.c:247
+#, c-format
+msgid "%dd"
+msgstr "%dd"
+
+#: ../panel-plugin/systemload.c:248
+#, c-format
+msgid "%dh"
+msgstr "%dh"
+
+#: ../panel-plugin/systemload.c:249
+#, c-format
+msgid "%dm"
+msgstr "%dm"
+
+#: ../panel-plugin/systemload.c:251
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d día"
 msgstr[1] "%d días"
 
-#: ../panel-plugin/systemload.c:236
+#: ../panel-plugin/systemload.c:252
 #, c-format
-msgid "Uptime: %d day %d:%02d"
-msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "Tiempo de actividad: %d día %d:%02d"
-msgstr[1] "Tiempo de actividad: %d días %d:%02d"
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%dhora"
+msgstr[1] "%dhoras"
 
-#: ../panel-plugin/systemload.c:244
+#: ../panel-plugin/systemload.c:253
 #, c-format
-msgid "Uptime: %d:%02d"
-msgstr "Tiempo de actividad: %d:%02d"
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%dminuto"
+msgstr[1] "%dminutos"
 
-#: ../panel-plugin/systemload.c:737
-msgid "Options:"
-msgstr "Opciones:"
+#: ../panel-plugin/systemload.c:260
+#, c-format
+msgid "Uptime: %s, %s, %s"
+msgstr "Tiempo de actividad: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:743
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: ../panel-plugin/systemload.c:752
+msgid "Leave empty to disable the label"
+msgstr "Dejar vacío para desactivar la etiqueta"
+
+#: ../panel-plugin/systemload.c:793
 msgid "CPU monitor"
 msgstr "Monitor del procesador"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:794
 msgid "Memory monitor"
 msgstr "Monitor de la memoria"
 
-#: ../panel-plugin/systemload.c:790
+#: ../panel-plugin/systemload.c:795
 msgid "Swap monitor"
 msgstr "Monitor del espacio de intercambio"
 
-#: ../panel-plugin/systemload.c:791
+#: ../panel-plugin/systemload.c:796
 msgid "Uptime monitor"
 msgstr "Monitor del tiempo de actividad"
 
-#: ../panel-plugin/systemload.c:801 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:806 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de la carga de sistema"
 
-#: ../panel-plugin/systemload.c:804
+#: ../panel-plugin/systemload.c:809
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:810
 msgid "_Help"
 msgstr "_Ayuda"
 
-#: ../panel-plugin/systemload.c:823
+#: ../panel-plugin/systemload.c:828
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:847
 msgid "Update interval:"
 msgstr "Intervalo de actualización:"
 
-#: ../panel-plugin/systemload.c:848
+#: ../panel-plugin/systemload.c:853
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Intervalo de actualización al funcionar con batería (usa el intervalo de actualización estándar si se ajusta a cero)"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:864
 msgid "Power-saving interval:"
 msgstr "Intervalo de ahorro de energía:"
 
-#: ../panel-plugin/systemload.c:869
+#: ../panel-plugin/systemload.c:871
 msgid "Launched when clicking on the plugin"
 msgstr "Ejecutar al hacer clic en el complemento"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:875
 msgid "System monitor:"
 msgstr "Monitor del sistema:"
 
-#: ../panel-plugin/systemload.c:912 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:905 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor del uso del procesador, del espacio de intercambio y de la memoria"
 
-#: ../panel-plugin/systemload.c:914
+#: ../panel-plugin/systemload.c:907
 msgid "Copyright (c) 2003-2021\n"
 msgstr "Copyright (c) 2003-2021\n"
 
