@@ -20,7 +20,6 @@
 #define __SYSTEMLOAD_CONFIG_H__
 
 #include <glib.h>
-#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 

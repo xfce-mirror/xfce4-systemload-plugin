@@ -28,7 +28,7 @@
 #include <config.h>
 #endif
 
-#include <gtk/gtk.h>
+#include <glib.h>
 
 #include "memswap.h"
 

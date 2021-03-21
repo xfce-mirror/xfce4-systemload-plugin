@@ -28,18 +28,15 @@
 #include <config.h>
 #endif
 
-#include <gtk/gtk.h>
-
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
-
 #include "uptime.h"
 
 #if defined(__linux__) || defined(__FreeBSD_kernel__)
+
+#include <fcntl.h>
+#include <glib/gi18n.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <fcntl.h>
 
 #define PROC_UPTIME "/proc/uptime"
 
@@ -50,7 +47,7 @@ gulong read_uptime(void)
 
     fd = fopen(PROC_UPTIME, "r");
     if (!fd) {
-        g_warning(_("File /proc/uptime not found!"));
+        g_warning("%s", _("File /proc/uptime not found!"));
         return 0;
     }
     if (!fscanf(fd, "%lu", &uptime))

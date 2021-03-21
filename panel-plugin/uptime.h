@@ -26,7 +26,8 @@
 
 #ifndef __UPTIME_H
 #define __UPTIME_H
-#include <gtk/gtk.h>
+
+#include <glib.h>
 
 gulong read_uptime(void);
 
