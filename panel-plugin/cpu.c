@@ -66,20 +66,10 @@ gulong read_cpuload(void)
     nb_read = fscanf (fd, "%*s %llu %llu %llu %llu %llu %llu %llu %*u %llu",
                       &user, &unice, &usystem, &idle, &iowait, &irq, &softirq, &guest);
     fclose(fd);
-    switch (nb_read) /* fall through intentional */
-    {
-        case 4:
-            iowait = 0;
-            G_GNUC_FALLTHROUGH;
-        case 5:
-            irq = 0;
-            G_GNUC_FALLTHROUGH;
-        case 6:
-            softirq = 0;
-            G_GNUC_FALLTHROUGH;
-        case 7:
-            guest = 0;
-    }
+    if (nb_read <= 4) iowait = 0;
+    if (nb_read <= 5) irq = 0;
+    if (nb_read <= 6) softirq = 0;
+    if (nb_read <= 7) guest = 0;
 
     used = user + unice + usystem + irq + softirq + guest;
     total = used + idle + iowait;
