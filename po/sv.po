@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-04-05 14:49+0000\n"
+"PO-Revision-Date: 2021-04-17 06:06+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +97,7 @@ msgstr "Etikett:"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Lämna tomt för att inaktivera etiketten"
 
 #: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
