@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Elishai Eliyahu <elishai@mailfence.com>, 2016-2018
+# Elishai Eliyahu <elishai@mailfence.com>, 2021
 # GenghisKhan <genghiskhan@gmx.ca>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-10 00:48+0100\n"
-"PO-Revision-Date: 2021-03-16 17:36+0000\n"
+"POT-Creation-Date: 2021-03-21 12:50+0100\n"
+"PO-Revision-Date: 2021-03-21 18:20+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -19,31 +20,51 @@ msgstr ""
 "Language: he\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.c:61
 msgid "File /proc/stat not found!"
 msgstr "קובץ proc/stat/ לא נמצא!"
 
-#: ../panel-plugin/systemload.c:203
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "עומס מערכת: %ld%%"
 
-#: ../panel-plugin/systemload.c:210
+#: ../panel-plugin/systemload.c:215
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "זיכרון: %ldMB מתוך %ldMB בשימוש"
 
-#: ../panel-plugin/systemload.c:218
+#: ../panel-plugin/systemload.c:223
+#, c-format
+msgid "Network: %ld Mbit/s"
+msgstr "רשת: %ld Mbit/s"
+
+#: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "החלף: %ldMB מתוך %ldMB בשימוש"
 
-#: ../panel-plugin/systemload.c:221
+#: ../panel-plugin/systemload.c:236
 #, c-format
 msgid "No swap"
 msgstr "אין החלף"
 
-#: ../panel-plugin/systemload.c:232
+#: ../panel-plugin/systemload.c:251
+#, c-format
+msgid "%dd"
+msgstr "%dd"
+
+#: ../panel-plugin/systemload.c:252
+#, c-format
+msgid "%dh"
+msgstr "%dh"
+
+#: ../panel-plugin/systemload.c:253
+#, c-format
+msgid "%dm"
+msgstr "%dm"
+
+#: ../panel-plugin/systemload.c:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -52,86 +73,103 @@ msgstr[1] "%d ימים"
 msgstr[2] "%d ימים"
 msgstr[3] "%d ימים"
 
-#: ../panel-plugin/systemload.c:236
+#: ../panel-plugin/systemload.c:256
 #, c-format
-msgid "Uptime: %d day %d:%02d"
-msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "זמן עבודה: %d יום %d:%02d "
-msgstr[1] "זמן עבודה: %d ימים %d:%02d "
-msgstr[2] "זמן עבודה: %d ימים %d:%02d "
-msgstr[3] "זמן עבודה: %d ימים %d:%02d "
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d שעה"
+msgstr[1] "%d שעות"
+msgstr[2] "%d שעות"
+msgstr[3] "%d שעות"
 
-#: ../panel-plugin/systemload.c:244
+#: ../panel-plugin/systemload.c:257
 #, c-format
-msgid "Uptime: %d:%02d"
-msgstr "זמן עבודה: %d:%02d "
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d דקה"
+msgstr[1] "%d דקות"
+msgstr[2] "%d דקות"
+msgstr[3] "%d דקות"
 
-#: ../panel-plugin/systemload.c:737
-msgid "Options:"
-msgstr "אפשרויות:"
+#: ../panel-plugin/systemload.c:264
+#, c-format
+msgid "Uptime: %s, %s, %s"
+msgstr "זמן עבודה: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:788
+#: ../panel-plugin/systemload.c:747
+msgid "Label:"
+msgstr "תווית:"
+
+#: ../panel-plugin/systemload.c:756
+msgid "Leave empty to disable the label"
+msgstr "השאר ריק כדי לבטל תווית"
+
+#: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
 msgstr "עוקב מעבד"
 
-#: ../panel-plugin/systemload.c:789
+#: ../panel-plugin/systemload.c:798
 msgid "Memory monitor"
 msgstr "עוקב זיכרון"
 
-#: ../panel-plugin/systemload.c:790
+#: ../panel-plugin/systemload.c:799
+msgid "Network monitor"
+msgstr "עוקב רשת"
+
+#: ../panel-plugin/systemload.c:800
 msgid "Swap monitor"
 msgstr "עוקב הֶחְלֵף"
 
-#: ../panel-plugin/systemload.c:791
+#: ../panel-plugin/systemload.c:801
 msgid "Uptime monitor"
 msgstr "עוקב זמן עבודה"
 
-#: ../panel-plugin/systemload.c:801 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:812 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "עוקב עומס מערכת"
 
-#: ../panel-plugin/systemload.c:804
+#: ../panel-plugin/systemload.c:815
 msgid "_Close"
 msgstr "_סגור"
 
-#: ../panel-plugin/systemload.c:805
+#: ../panel-plugin/systemload.c:816
 msgid "_Help"
 msgstr "_עזרה"
 
-#: ../panel-plugin/systemload.c:823
+#: ../panel-plugin/systemload.c:834
 msgid "<b>General</b>"
 msgstr "<b>כללי</b>"
 
-#: ../panel-plugin/systemload.c:842
+#: ../panel-plugin/systemload.c:853
 msgid "Update interval:"
 msgstr "מרווח עדכון:"
 
-#: ../panel-plugin/systemload.c:848
+#: ../panel-plugin/systemload.c:859
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "מרווח עדכון כאשר פועל על סוללה (משתמש במרווח עדכון רגיל אם שווה לאפס)"
 
-#: ../panel-plugin/systemload.c:860
+#: ../panel-plugin/systemload.c:870
 msgid "Power-saving interval:"
 msgstr "מרווח חיסכון-הספק:"
 
-#: ../panel-plugin/systemload.c:869
+#: ../panel-plugin/systemload.c:877
 msgid "Launched when clicking on the plugin"
 msgstr "מופעל בקליק על התוסף"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:884
 msgid "System monitor:"
 msgstr "עוקב מערכת:"
 
-#: ../panel-plugin/systemload.c:912 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:918 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "עקוב אחר עומס מעבד, שימוש הֶחְלֵף וטביעת רגל זיכרון"
 
-#: ../panel-plugin/systemload.c:914
+#: ../panel-plugin/systemload.c:920
 msgid "Copyright (c) 2003-2021\n"
 msgstr "זכויות יוצרים (c) 2003-2021\n"
 
-#: ../panel-plugin/uptime.c:53
+#: ../panel-plugin/uptime.c:50
 msgid "File /proc/uptime not found!"
 msgstr "קובץ proc/uptime/ לא נמצא!"
