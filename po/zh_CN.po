@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-18 12:49+0100\n"
-"PO-Revision-Date: 2021-03-19 03:39+0000\n"
+"POT-Creation-Date: 2021-03-21 12:50+0100\n"
+"PO-Revision-Date: 2021-03-21 14:13+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -24,138 +24,147 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.c:61
 msgid "File /proc/stat not found!"
 msgstr "文件 /proc/stat 未找到！"
 
-#: ../panel-plugin/systemload.c:211
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "系统负载：%ld%%"
 
-#: ../panel-plugin/systemload.c:219
+#: ../panel-plugin/systemload.c:215
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "内存：已用 %ld M，总共 %ld M"
 
-#: ../panel-plugin/systemload.c:229
+#: ../panel-plugin/systemload.c:223
+#, c-format
+msgid "Network: %ld Mbit/s"
+msgstr "网络: %ld Mbit/s"
+
+#: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "交换分区：已用 %ld M，总共 %ld M"
 
-#: ../panel-plugin/systemload.c:232
+#: ../panel-plugin/systemload.c:236
 #, c-format
 msgid "No swap"
 msgstr "无交换分区"
 
-#: ../panel-plugin/systemload.c:247
+#: ../panel-plugin/systemload.c:251
 #, c-format
 msgid "%dd"
 msgstr "%d天 "
 
-#: ../panel-plugin/systemload.c:248
+#: ../panel-plugin/systemload.c:252
 #, c-format
 msgid "%dh"
 msgstr "%d小时"
 
-#: ../panel-plugin/systemload.c:249
+#: ../panel-plugin/systemload.c:253
 #, c-format
 msgid "%dm"
 msgstr "%d分"
 
-#: ../panel-plugin/systemload.c:251
+#: ../panel-plugin/systemload.c:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
 
-#: ../panel-plugin/systemload.c:252
+#: ../panel-plugin/systemload.c:256
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d 小时"
 
-#: ../panel-plugin/systemload.c:253
+#: ../panel-plugin/systemload.c:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分钟"
 
-#: ../panel-plugin/systemload.c:260
+#: ../panel-plugin/systemload.c:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr "运行时间: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:743
+#: ../panel-plugin/systemload.c:747
 msgid "Label:"
 msgstr "标签："
 
-#: ../panel-plugin/systemload.c:752
+#: ../panel-plugin/systemload.c:756
 msgid "Leave empty to disable the label"
 msgstr "留空以禁用标签"
 
-#: ../panel-plugin/systemload.c:793
+#: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
 msgstr "CPU 监视器"
 
-#: ../panel-plugin/systemload.c:794
+#: ../panel-plugin/systemload.c:798
 msgid "Memory monitor"
 msgstr "内存监视器"
 
-#: ../panel-plugin/systemload.c:795
+#: ../panel-plugin/systemload.c:799
+msgid "Network monitor"
+msgstr "网络监视器"
+
+#: ../panel-plugin/systemload.c:800
 msgid "Swap monitor"
 msgstr "交换分区监视器"
 
-#: ../panel-plugin/systemload.c:796
+#: ../panel-plugin/systemload.c:801
 msgid "Uptime monitor"
 msgstr "Uptime 监视器"
 
-#: ../panel-plugin/systemload.c:806 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:812 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "系统负载监视器"
 
-#: ../panel-plugin/systemload.c:809
+#: ../panel-plugin/systemload.c:815
 msgid "_Close"
 msgstr "关闭(_C)"
 
-#: ../panel-plugin/systemload.c:810
+#: ../panel-plugin/systemload.c:816
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: ../panel-plugin/systemload.c:828
+#: ../panel-plugin/systemload.c:834
 msgid "<b>General</b>"
 msgstr "<b>通用</b>"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:853
 msgid "Update interval:"
 msgstr "更新间隔："
 
-#: ../panel-plugin/systemload.c:853
+#: ../panel-plugin/systemload.c:859
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "使用电池时的更新间隔（如设置为零时将使用普通更新频率）"
 
-#: ../panel-plugin/systemload.c:864
+#: ../panel-plugin/systemload.c:870
 msgid "Power-saving interval:"
 msgstr "节能间隔："
 
-#: ../panel-plugin/systemload.c:871
+#: ../panel-plugin/systemload.c:877
 msgid "Launched when clicking on the plugin"
 msgstr "当点击插件时运行"
 
-#: ../panel-plugin/systemload.c:875
+#: ../panel-plugin/systemload.c:884
 msgid "System monitor:"
 msgstr "系统监视器："
 
-#: ../panel-plugin/systemload.c:905 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:918 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "监视 CPU 负载、交换分区用量和内存使用踪迹"
 
-#: ../panel-plugin/systemload.c:907
+#: ../panel-plugin/systemload.c:920
 msgid "Copyright (c) 2003-2021\n"
 msgstr "版权所有 (c) 2003-2021\n"
 
-#: ../panel-plugin/uptime.c:53
+#: ../panel-plugin/uptime.c:50
 msgid "File /proc/uptime not found!"
 msgstr "文件 /proc/uptime 未找到！"
