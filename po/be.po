@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 12:49+0200\n"
-"PO-Revision-Date: 2020-10-22 10:01+0000\n"
-"Last-Translator: Źmicier Turok <nashtlumach@gmail.com>\n"
+"POT-Creation-Date: 2021-03-21 12:50+0100\n"
+"PO-Revision-Date: 2021-03-21 11:50+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,31 +18,51 @@ msgstr ""
 "Language: be\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.c:61
 msgid "File /proc/stat not found!"
 msgstr "Файл /proc/stat не знойдзены!"
 
-#: ../panel-plugin/systemload.c:178
+#: ../panel-plugin/systemload.c:207
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Загрузка сістэмы: %ld%%"
 
-#: ../panel-plugin/systemload.c:185
+#: ../panel-plugin/systemload.c:215
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Памяць: %ld МБ з %ld МБ"
 
-#: ../panel-plugin/systemload.c:193
+#: ../panel-plugin/systemload.c:223
+#, c-format
+msgid "Network: %ld Mbit/s"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Падпампоўка: %ld МБ з %ld МБ"
 
-#: ../panel-plugin/systemload.c:196
+#: ../panel-plugin/systemload.c:236
 #, c-format
 msgid "No swap"
 msgstr "Раздзел падпампоўкі адсутнічае"
 
-#: ../panel-plugin/systemload.c:207
+#: ../panel-plugin/systemload.c:251
+#, c-format
+msgid "%dd"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:252
+#, c-format
+msgid "%dh"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:253
+#, c-format
+msgid "%dm"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -51,78 +71,103 @@ msgstr[1] "%d дні"
 msgstr[2] "%d дзён"
 msgstr[3] "%d дзён"
 
-#: ../panel-plugin/systemload.c:211
+#: ../panel-plugin/systemload.c:256
 #, c-format
-msgid "Uptime: %d day %d:%02d"
-msgid_plural "Uptime: %d days %d:%02d"
-msgstr[0] "Час працы: %d дзень %d:%02d"
-msgstr[1] "Час працы: %d дні %d:%02d"
-msgstr[2] "Час працы: %d дзён %d:%02d"
-msgstr[3] "Час працы: %d дзён %d:%02d"
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: ../panel-plugin/systemload.c:219
+#: ../panel-plugin/systemload.c:257
 #, c-format
-msgid "Uptime: %d:%02d"
-msgstr "Час працы: %d:%02d"
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: ../panel-plugin/systemload.c:808
-msgid "Options:"
-msgstr "Параметры:"
+#: ../panel-plugin/systemload.c:264
+#, c-format
+msgid "Uptime: %s, %s, %s"
+msgstr ""
 
-#: ../panel-plugin/systemload.c:844
+#: ../panel-plugin/systemload.c:747
+msgid "Label:"
+msgstr "Адмеціна:"
+
+#: ../panel-plugin/systemload.c:756
+msgid "Leave empty to disable the label"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
 msgstr "Працэсар"
 
-#: ../panel-plugin/systemload.c:845
+#: ../panel-plugin/systemload.c:798
 msgid "Memory monitor"
 msgstr "Памяць"
 
-#: ../panel-plugin/systemload.c:846
+#: ../panel-plugin/systemload.c:799
+msgid "Network monitor"
+msgstr ""
+
+#: ../panel-plugin/systemload.c:800
 msgid "Swap monitor"
 msgstr "Падпампоўка"
 
-#: ../panel-plugin/systemload.c:847
+#: ../panel-plugin/systemload.c:801
 msgid "Uptime monitor"
 msgstr "Час працы"
 
-#: ../panel-plugin/systemload.c:852 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:812 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Загрузка сістэмы"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.c:815
+msgid "_Close"
+msgstr "_Закрыць"
+
+#: ../panel-plugin/systemload.c:816
+msgid "_Help"
+msgstr "_Даведка"
+
+#: ../panel-plugin/systemload.c:834
 msgid "<b>General</b>"
 msgstr "<b>Асноўныя</b>"
 
-#: ../panel-plugin/systemload.c:885
+#: ../panel-plugin/systemload.c:853
 msgid "Update interval:"
 msgstr "Інтэрвал абнаўлення:"
 
-#: ../panel-plugin/systemload.c:891
+#: ../panel-plugin/systemload.c:859
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Інтэрвал абнаўлення пры сілкаванні ад батарэі (0 -выкарыстоўваецца звычайны інтэрвал)"
 
-#: ../panel-plugin/systemload.c:896
+#: ../panel-plugin/systemload.c:870
 msgid "Power-saving interval:"
 msgstr "У рэжыме захавання энергіі:"
 
-#: ../panel-plugin/systemload.c:905
+#: ../panel-plugin/systemload.c:877
 msgid "Launched when clicking on the plugin"
 msgstr "Запускаецца па пстрычцы па ўбудове"
 
-#: ../panel-plugin/systemload.c:909
+#: ../panel-plugin/systemload.c:884
 msgid "System monitor:"
 msgstr "Сістэмны манітор:"
 
-#: ../panel-plugin/systemload.c:947 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:918 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Манітор загружанасці працэсара, выкарыстання памяці і падпампоўкі"
 
-#: ../panel-plugin/systemload.c:949
-msgid "Copyright (c) 2003-2020\n"
-msgstr "Аўтарскія правы (c) 2003-2020\n"
+#: ../panel-plugin/systemload.c:920
+msgid "Copyright (c) 2003-2021\n"
+msgstr ""
 
-#: ../panel-plugin/uptime.c:53
+#: ../panel-plugin/uptime.c:50
 msgid "File /proc/uptime not found!"
 msgstr "Файл /proc/uptime не знойдзены!"
