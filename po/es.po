@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-05-08 20:57+0000\n"
+"PO-Revision-Date: 2021-05-15 15:31+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -149,15 +149,15 @@ msgstr "Intervalo de actualización:"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr "Intervalo de actualización funcionar con batería (si se ajusta a cero, usa un intervalo de actualización estándar)"
+msgstr "Intervalo de actualización al funcionar con batería (si se ajusta a cero, usa el intervalo de actualización estándar)"
 
 #: ../panel-plugin/systemload.c:870
 msgid "Power-saving interval:"
-msgstr "Intervalo de ahorro de energía:"
+msgstr "Intervalo para ahorrar energía:"
 
 #: ../panel-plugin/systemload.c:877
 msgid "Launched when clicking on the plugin"
-msgstr "Ejecutar al hacer clic en el complemento"
+msgstr "Se ejecuta al hacer clic en el complemento"
 
 #: ../panel-plugin/systemload.c:884
 msgid "System monitor:"
