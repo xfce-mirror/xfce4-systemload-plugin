@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-05-22 10:22+0000\n"
+"PO-Revision-Date: 2021-05-22 18:56+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -169,7 +169,7 @@ msgstr "Monitor del uso del procesador, del espacio de intercambio y de la memor
 
 #: ../panel-plugin/systemload.c:920
 msgid "Copyright (c) 2003-2021\n"
-msgstr "Copyright (c) 2003-2021\n"
+msgstr "Copyright © 2003-2021\n"
 
 #: ../panel-plugin/uptime.c:50
 msgid "File /proc/uptime not found!"
