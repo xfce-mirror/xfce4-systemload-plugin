@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Arnold Marko <arnold.marko@gmail.com>, 2019-2020
+# Arnold Marko <arnold.marko@gmail.com>, 2019-2021
 # Kernc, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-03-21 11:50+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2021-05-24 11:16+0000\n"
+"Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "Delovni pomnilnik: %ldMB od %ldMB porabljen"
 #: ../panel-plugin/systemload.c:223
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Omrežje: %ld Mbit/s"
 
 #: ../panel-plugin/systemload.c:233
 #, c-format
@@ -51,17 +51,17 @@ msgstr "Ni izmenjevalnega (swap) razdelka"
 #: ../panel-plugin/systemload.c:251
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%dd"
 
 #: ../panel-plugin/systemload.c:252
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%du"
 
 #: ../panel-plugin/systemload.c:253
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%dm"
 
 #: ../panel-plugin/systemload.c:255
 #, c-format
@@ -76,24 +76,24 @@ msgstr[3] "%d dni"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%dura"
+msgstr[1] "%d uri"
+msgstr[2] "%d ure"
+msgstr[3] "%d ur"
 
 #: ../panel-plugin/systemload.c:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d minuta"
+msgstr[1] "%d minuti"
+msgstr[2] "%d  minute"
+msgstr[3] "%d minut"
 
 #: ../panel-plugin/systemload.c:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Čas delovanja: %s, %s, %s"
 
 #: ../panel-plugin/systemload.c:747
 msgid "Label:"
@@ -101,7 +101,7 @@ msgstr "Oznaka:"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Pustite prazno za izklop oznake"
 
 #: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
@@ -113,7 +113,7 @@ msgstr "Nadzornik pomnilnika"
 
 #: ../panel-plugin/systemload.c:799
 msgid "Network monitor"
-msgstr ""
+msgstr "Nadzornik omrežja"
 
 #: ../panel-plugin/systemload.c:800
 msgid "Swap monitor"
