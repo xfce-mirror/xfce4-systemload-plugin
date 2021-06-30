@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-06-29 08:46+0000\n"
+"PO-Revision-Date: 2021-06-30 08:45+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "หน่วยความจำ: ใช้ไป %ldMB จาก %ldMB
 #: ../panel-plugin/systemload.c:223
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "เครือข่าย: %ld Mbit/s"
 
 #: ../panel-plugin/systemload.c:233
 #, c-format
@@ -51,17 +51,17 @@ msgstr "ไม่มีพื้นที่สลับ"
 #: ../panel-plugin/systemload.c:251
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%dว"
 
 #: ../panel-plugin/systemload.c:252
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%dช"
 
 #: ../panel-plugin/systemload.c:253
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%dน"
 
 #: ../panel-plugin/systemload.c:255
 #, c-format
@@ -73,18 +73,18 @@ msgstr[0] "%d วัน"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
+msgstr[0] "%d ชั่วโมง"
 
 #: ../panel-plugin/systemload.c:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
+msgstr[0] "%d นาที"
 
 #: ../panel-plugin/systemload.c:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Uptime: %s, %s, %s"
 
 #: ../panel-plugin/systemload.c:747
 msgid "Label:"
@@ -92,7 +92,7 @@ msgstr "ฉลาก:"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "ปล่อยว่างไว้หากไม่ต้องการแสดงฉลาก"
 
 #: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
@@ -104,7 +104,7 @@ msgstr "เฝ้าสังเกตหน่วยความจำ"
 
 #: ../panel-plugin/systemload.c:799
 msgid "Network monitor"
-msgstr ""
+msgstr "เฝ้าสังเกตเครือข่าย"
 
 #: ../panel-plugin/systemload.c:800
 msgid "Swap monitor"
@@ -112,7 +112,7 @@ msgstr "เฝ้าสังเกตพื้นที่สลับ"
 
 #: ../panel-plugin/systemload.c:801
 msgid "Uptime monitor"
-msgstr "เฝ้าสังเกตระยะเวลาเดินเครื่อง"
+msgstr "เฝ้าสังเกต uptime"
 
 #: ../panel-plugin/systemload.c:812 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
