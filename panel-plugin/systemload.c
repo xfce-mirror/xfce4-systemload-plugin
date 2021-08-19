@@ -163,7 +163,7 @@ static void
 update_monitors(t_global_monitor *global)
 {
     const SystemloadConfig *config = global->config;
-    gulong mem, net, swap;
+    gulong mem, swap, net;
     gulong MTotal = 0, MUsed = 0, NTotal = 0, STotal = 0, SUsed = 0;
     gsize i;
 
@@ -217,14 +217,6 @@ update_monitors(t_global_monitor *global)
         set_tooltip(global->monitor[MEM_MONITOR]->ebox, tooltip);
     }
 
-    if (systemload_config_get_enabled (config, NET_MONITOR))
-    {
-        gchar tooltip[128];
-        g_snprintf(tooltip, sizeof(tooltip), _("Network: %ld Mbit/s"),
-                   (glong) round (NTotal / 1e6));
-        set_tooltip(global->monitor[NET_MONITOR]->ebox, tooltip);
-    }
-
     if (systemload_config_get_enabled (config, SWAP_MONITOR))
     {
         gchar tooltip[128];
@@ -236,6 +228,14 @@ update_monitors(t_global_monitor *global)
             g_snprintf(tooltip, sizeof(tooltip), _("No swap"));
 
         set_tooltip(global->monitor[SWAP_MONITOR]->ebox, tooltip);
+    }
+
+    if (systemload_config_get_enabled (config, NET_MONITOR))
+    {
+        gchar tooltip[128];
+        g_snprintf(tooltip, sizeof(tooltip), _("Network: %ld Mbit/s"),
+                   (glong) round (NTotal / 1e6));
+        set_tooltip(global->monitor[NET_MONITOR]->ebox, tooltip);
     }
 
     if (systemload_config_get_uptime_enabled (config))
@@ -796,8 +796,8 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     static const gchar *FRAME_TEXT[] = {
             N_ ("CPU monitor"),
             N_ ("Memory monitor"),
-            N_ ("Network monitor"),
             N_ ("Swap monitor"),
+            N_ ("Network monitor"),
             N_ ("Uptime monitor")
     };
     static const gchar *SETTING_TEXT[] = {
