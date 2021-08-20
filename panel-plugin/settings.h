@@ -29,8 +29,8 @@ G_BEGIN_DECLS
 typedef enum {
     CPU_MONITOR,
     MEM_MONITOR,
-    NET_MONITOR,
     SWAP_MONITOR,
+    NET_MONITOR,
 } SystemloadMonitor;
 
 typedef struct _SystemloadConfigClass SystemloadConfigClass;
