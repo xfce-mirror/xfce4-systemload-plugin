@@ -97,6 +97,13 @@ typedef struct
 
 
 
+static const SystemloadMonitor VISUAL_ORDER[] = {
+    CPU_MONITOR,
+    MEM_MONITOR,
+    NET_MONITOR,
+    SWAP_MONITOR,
+};
+
 static gboolean setup_monitor_cb(gpointer user_data);
 
 
@@ -302,16 +309,16 @@ create_monitor (t_global_monitor *global)
 
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
-        const SystemloadMonitor monitor = i;
+        SystemloadMonitor monitor = VISUAL_ORDER[i];
+        t_monitor *m = global->monitor[monitor];
 
-        global->monitor[i]->label =
-            gtk_label_new (systemload_config_get_label (config, monitor));
+        m->label = gtk_label_new (systemload_config_get_label (config, monitor));
 
-        global->monitor[i]->status = GTK_WIDGET(gtk_progress_bar_new());
+        m->status = GTK_WIDGET(gtk_progress_bar_new());
 #if GTK_CHECK_VERSION (3, 16, 0)
         css_provider = gtk_css_provider_new ();
         gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (global->monitor[i]->status))),
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (m->status))),
             GTK_STYLE_PROVIDER (css_provider),
             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
         gtk_css_provider_load_from_data (css_provider, "\
@@ -320,33 +327,26 @@ create_monitor (t_global_monitor *global)
             progressbar.vertical trough { min-width: 4px; }\
             progressbar.vertical progress { min-width: 4px; }",
              -1, NULL);
-        g_object_set_data(G_OBJECT(global->monitor[i]->status), "css_provider", css_provider);
+        g_object_set_data(G_OBJECT(m->status), "css_provider", css_provider);
 #endif
 
-        global->monitor[i]->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
+        m->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
 
-        gtk_box_pack_start(GTK_BOX(global->monitor[i]->box),
-                           GTK_WIDGET(global->monitor[i]->label),
-                           FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(m->box), GTK_WIDGET(m->label), FALSE, FALSE, 0);
 
-        global->monitor[i]->ebox = gtk_event_box_new();
-        gtk_widget_show(global->monitor[i]->ebox);
-        gtk_container_add(GTK_CONTAINER(global->monitor[i]->ebox),
-                          GTK_WIDGET(global->monitor[i]->box));
+        m->ebox = gtk_event_box_new();
+        gtk_widget_show(m->ebox);
+        gtk_container_add(GTK_CONTAINER(m->ebox), GTK_WIDGET(m->box));
 
-        gtk_event_box_set_visible_window(GTK_EVENT_BOX(global->monitor[i]->ebox), FALSE);
-        gtk_event_box_set_above_child(GTK_EVENT_BOX(global->monitor[i]->ebox), TRUE);
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(m->ebox), FALSE);
+        gtk_event_box_set_above_child(GTK_EVENT_BOX(m->ebox), TRUE);
 
-        gtk_widget_show(GTK_WIDGET(global->monitor[i]->status));
+        gtk_widget_show(GTK_WIDGET(m->status));
 
-        gtk_box_pack_start(GTK_BOX(global->monitor[i]->box),
-                           GTK_WIDGET(global->monitor[i]->status),
-                           FALSE, FALSE, 0);
-        gtk_box_pack_start(GTK_BOX(global->box),
-                           GTK_WIDGET(global->monitor[i]->ebox),
-                           FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(m->box), GTK_WIDGET(m->status), FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(m->ebox), FALSE, FALSE, 0);
 
-        gtk_widget_show_all(GTK_WIDGET(global->monitor[i]->ebox));
+        gtk_widget_show_all(GTK_WIDGET(m->ebox));
     }
 
     global->uptime.ebox = gtk_event_box_new();
@@ -885,10 +885,13 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 
     /* Add options for the monitors */
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
+    {
+        const SystemloadMonitor monitor = VISUAL_ORDER[i];
         new_monitor_setting (global, GTK_GRID(grid), 4 + 2 * i,
-                             _(FRAME_TEXT[i]),
+                             _(FRAME_TEXT[monitor]),
                              TRUE,
-                             SETTING_TEXT[i]);
+                             SETTING_TEXT[monitor]);
+    }
 
     /* Uptime monitor options */
     new_monitor_setting (global, GTK_GRID(grid), 4 + 2*G_N_ELEMENTS (global->monitor),
