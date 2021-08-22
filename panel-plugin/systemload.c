@@ -100,8 +100,8 @@ typedef struct
 static const SystemloadMonitor VISUAL_ORDER[] = {
     CPU_MONITOR,
     MEM_MONITOR,
-    NET_MONITOR,
     SWAP_MONITOR,
+    NET_MONITOR,
 };
 
 static gboolean setup_monitor_cb(gpointer user_data);
