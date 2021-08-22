@@ -55,10 +55,10 @@ static gchar *const DEFAULT_LABEL[] = {
 };
 
 static gchar *const DEFAULT_COLOR[] = {
-    "#0000c0", /* CPU */
-    "#00c000", /* MEM */
-    "#c00000", /* NET */
-    "#f0f000", /* SWAP */
+    "#1c71d8", /* CPU */
+    "#2ec27e", /* MEM */
+    "#e66100", /* NET */
+    "#f5c211", /* SWAP */
 };
 
 
