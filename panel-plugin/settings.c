@@ -84,6 +84,9 @@ struct _SystemloadConfig
 {
   GObject          __parent__;
 
+  XfconfChannel   *channel;
+  gchar           *property_base;
+
   guint            timeout;
   guint            timeout_seconds;
   gchar           *system_monitor_command;
@@ -161,6 +164,35 @@ prop2monitor (SystemloadProperty p)
       /* Ideally, this codepath is never reached */
       return 0;
     }
+}
+
+static GdkRGBA
+rgba_float (GdkRGBA color)
+{
+  return (GdkRGBA) {
+    (float) color.red,
+    (float) color.green,
+    (float) color.blue,
+    (float) color.alpha
+  };
+}
+
+static gboolean
+rgba_equal (GdkRGBA a, GdkRGBA b)
+{
+  a = rgba_float (a);
+  b = rgba_float (b);
+  return gdk_rgba_equal (&a, &b);
+}
+
+static gboolean
+is_default_color (SystemloadMonitor m, const GdkRGBA *color)
+{
+  GdkRGBA default_color;
+  if (G_LIKELY (gdk_rgba_parse (&default_color, DEFAULT_COLOR[m])))
+    return rgba_equal (*color, default_color);
+  else
+    return FALSE;
 }
 
 
@@ -358,6 +390,7 @@ systemload_config_finalize (GObject *object)
   gsize i;
 
   xfconf_shutdown();
+  g_free (config->property_base);
   g_free (config->system_monitor_command);
   for (i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     g_free (config->monitor[i].label);
@@ -517,11 +550,17 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_CPU_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->monitor[CPU_MONITOR].color, val_rgba))
+      if (!rgba_equal (config->monitor[CPU_MONITOR].color, *val_rgba))
         {
           config->monitor[CPU_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "cpu-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      if (is_default_color (CPU_MONITOR, val_rgba))
+        {
+          char *property = g_strconcat (config->property_base, "/cpu/color", NULL);
+          xfconf_channel_reset_property (config->channel, property, TRUE);
+          g_free (property);
         }
       g_boxed_free (GDK_TYPE_RGBA, val_rgba);
       break;
@@ -559,11 +598,17 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_MEMORY_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->monitor[MEM_MONITOR].color, val_rgba))
+      if (!rgba_equal (config->monitor[MEM_MONITOR].color, *val_rgba))
         {
           config->monitor[MEM_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "memory-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      if (is_default_color (MEM_MONITOR, val_rgba))
+        {
+          char *property = g_strconcat (config->property_base, "/memory/color", NULL);
+          xfconf_channel_reset_property (config->channel, property, TRUE);
+          g_free (property);
         }
       g_boxed_free (GDK_TYPE_RGBA, val_rgba);
       break;
@@ -601,11 +646,17 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_NETWORK_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->monitor[NET_MONITOR].color, val_rgba))
+      if (!rgba_equal (config->monitor[NET_MONITOR].color, *val_rgba))
         {
           config->monitor[NET_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "network-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      if (is_default_color (NET_MONITOR, val_rgba))
+        {
+          char *property = g_strconcat (config->property_base, "/network/color", NULL);
+          xfconf_channel_reset_property (config->channel, property, TRUE);
+          g_free (property);
         }
       g_boxed_free (GDK_TYPE_RGBA, val_rgba);
       break;
@@ -643,11 +694,17 @@ systemload_config_set_property (GObject      *object,
 
     case PROP_SWAP_COLOR:
       val_rgba = g_value_dup_boxed (value);
-      if (!gdk_rgba_equal (&config->monitor[SWAP_MONITOR].color, val_rgba))
+      if (!rgba_equal (config->monitor[SWAP_MONITOR].color, *val_rgba))
         {
           config->monitor[SWAP_MONITOR].color = *val_rgba;
           g_object_notify (G_OBJECT (config), "swap-color");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      if (is_default_color (SWAP_MONITOR, val_rgba))
+        {
+          char *property = g_strconcat (config->property_base, "/swap/color", NULL);
+          xfconf_channel_reset_property (config->channel, property, TRUE);
+          g_free (property);
         }
       g_boxed_free (GDK_TYPE_RGBA, val_rgba);
       break;
@@ -739,17 +796,17 @@ systemload_config_get_color (const SystemloadConfig *config, SystemloadMonitor m
 
 
 SystemloadConfig *
-systemload_config_new (const gchar     *property_base)
+systemload_config_new (const gchar *property_base)
 {
-  SystemloadConfig    *config;
-  XfconfChannel       *channel;
-  gchar               *property;
-
-  config = g_object_new (TYPE_SYSTEMLOAD_CONFIG, NULL);
+  SystemloadConfig *config = g_object_new (TYPE_SYSTEMLOAD_CONFIG, NULL);
 
   if (xfconf_init (NULL))
     {
-      channel = xfconf_channel_get ("xfce4-panel");
+      XfconfChannel *channel = xfconf_channel_get ("xfce4-panel");
+      gchar *property;
+
+      config->channel = channel;
+      config->property_base = g_strdup (property_base);
 
       property = g_strconcat (property_base, "/timeout", NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, "timeout");
