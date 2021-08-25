@@ -177,6 +177,11 @@ rgba_float (GdkRGBA color)
   };
 }
 
+/* Compare two GdkRGBA values with the precision of float32 instead of the default precision of float64.
+ * This is needed because the value of gdk_rgba_parse("#RRGGBB") can differ (by a delta of about 1e-17)
+ * from the value returned by GtkColorButton if exactly the same "#RRGGBB" string is input by the user,
+ * which indicates that either the GDK library or the GTK library is using mathematical operations
+ * with a lower precision than the other library when processing the same "#RRGGBB" string. */
 static gboolean
 rgba_equal (GdkRGBA a, GdkRGBA b)
 {
