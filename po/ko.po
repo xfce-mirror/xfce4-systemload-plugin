@@ -5,7 +5,7 @@
 # Translators:
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005
 # 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2017
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2016
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2016,2021
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2011
 # Sung Jin Gang <ujuc@ujuc.kr>, 2012
 msgid ""
@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-03-21 11:50+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2021-09-08 12:35+0000\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgstr "메모리: %ldMB(총 %ldMB) 사용"
 #: ../panel-plugin/systemload.c:223
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "네트워크: %ld Mbit/s"
 
 #: ../panel-plugin/systemload.c:233
 #, c-format
@@ -54,40 +54,40 @@ msgstr "스왑 없음"
 #: ../panel-plugin/systemload.c:251
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%d일"
 
 #: ../panel-plugin/systemload.c:252
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%d시간"
 
 #: ../panel-plugin/systemload.c:253
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%d분"
 
 #: ../panel-plugin/systemload.c:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d 일"
+msgstr[0] "%d일"
 
 #: ../panel-plugin/systemload.c:256
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
+msgstr[0] "%d시간"
 
 #: ../panel-plugin/systemload.c:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
+msgstr[0] "%d분"
 
 #: ../panel-plugin/systemload.c:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "가동시간: %s, %s, %s"
 
 #: ../panel-plugin/systemload.c:747
 msgid "Label:"
@@ -95,7 +95,7 @@ msgstr "레이블:"
 
 #: ../panel-plugin/systemload.c:756
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "레이블을 표시하지 않으려면 빈 채로 두십시오"
 
 #: ../panel-plugin/systemload.c:797
 msgid "CPU monitor"
@@ -107,7 +107,7 @@ msgstr "메모리 감시기"
 
 #: ../panel-plugin/systemload.c:799
 msgid "Network monitor"
-msgstr ""
+msgstr "네트워크 감시기"
 
 #: ../panel-plugin/systemload.c:800
 msgid "Swap monitor"
@@ -161,7 +161,7 @@ msgstr "CPU 사용량, 스왑사용량, 메모리 사용량을 감시합니다"
 
 #: ../panel-plugin/systemload.c:920
 msgid "Copyright (c) 2003-2021\n"
-msgstr ""
+msgstr "Copyright (c) 2003-2021\n"
 
 #: ../panel-plugin/uptime.c:50
 msgid "File /proc/uptime not found!"
