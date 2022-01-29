@@ -1,4 +1,6 @@
 /*
+ * This file is part of Xfce (https://gitlab.xfce.org).
+ *
  * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
  * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
  *

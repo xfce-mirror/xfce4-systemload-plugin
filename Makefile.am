@@ -1,20 +1,14 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS =								\
-	icons							\
-	panel-plugin							\
+SUBDIRS = \
+	icons \
+	panel-plugin \
 	po
 
-AUTOMAKE_OPTIONS =							\
-	1.8								\
-	dist-bzip2
-
 distclean-local:
-	rm -rf *.spec *.cache *~
+	rm -rf *.cache *~
 
-rpm: dist
-	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
-	@rm -f $(PACKAGE)-$(VERSION).tar.gz
+AUTOMAKE_OPTIONS = 1.8 dist-bzip2
 
 .PHONY: ChangeLog
 
@@ -25,13 +19,13 @@ ChangeLog: Makefile
 
 dist-hook: ChangeLog
 
-EXTRA_DIST = 								\
-	README.md								\
-	intltool-extract.in						\
-	intltool-merge.in						\
+EXTRA_DIST = \
+	README.md \
+	intltool-extract.in \
+	intltool-merge.in \
 	intltool-update.in
 
-DISTCLEANFILES =							\
-	intltool-extract						\
-	intltool-merge							\
+DISTCLEANFILES = \
+	intltool-extract \
+	intltool-merge \
 	intltool-update

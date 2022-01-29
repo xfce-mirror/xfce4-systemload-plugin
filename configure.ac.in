@@ -1,5 +1,5 @@
 dnl
-dnl Copyright (c) 2003 - 2021 The Xfce development team
+dnl Copyright (c) 2003 - 2022 The Xfce development team
 dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl 2010 Florian Rivoal <frivoal@xfce.org>
@@ -21,7 +21,7 @@ m4_define([systemload_debug_default], [ifelse(systemload_version_tag(), [git], [
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2020 The Xfce development team. All rights reserved.])
+AC_COPYRIGHT([Copyright (c) 2006-2022 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-systemload-plugin], [systemload_version], [https://gitlab.xfce.org/panel-plugins/xfce4-systemload-plugin/], [xfce4-systemload-plugin])
 AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
@@ -61,8 +61,8 @@ XDT_I18N([@LINGUAS@])
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.14.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.14.0])
 XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.14.0])
 XDT_CHECK_OPTIONAL_PACKAGE([LIBGTOP], [libgtop-2.0], [2.32.0], [libgtop],
                            [libgtop for network utilization monitoring])
