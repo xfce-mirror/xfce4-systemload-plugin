@@ -1,9 +1,12 @@
 /*
+ * This file is part of Xfce (https://gitlab.xfce.org).
+ *
  * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
  * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
  * Copyright (c) 2012 David Schneider <dnschneid@gmail.com>
  * Copyright (c) 2014-2017 Landry Breuil <landry@xfce.org>
  * Copyright (c) 2021 Simon Steinbeiss <simon@xfce.org>
+ * Copyright (c) 2022 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -903,13 +906,14 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
 static void
 monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
 {
+    /* List of authors (in alphabetical order) */
     const gchar *auth[] = {
       "David Schneider <dnschneid@gmail.com>",
       "Florian Rivoal <frivoal@xfce.org>",
       "Jan Ziak <0xe2.0x9a.0x9b@xfce.org>",
       "Landry Breuil <landry@xfce.org>",
       "Riccardo Persichetti <riccardo.persichetti@tin.it>",
-      "Simon Steinbeiß",
+      "Simon Steinbeiß <simon@xfce.org>",
       NULL
     };
 
@@ -920,7 +924,7 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
       "program-name", PACKAGE_NAME,
       "comments", _("Monitor CPU load, swap usage and memory footprint"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-systemload-plugin/start",
-      "copyright", _("Copyright (c) 2003-2021\n"),
+      "copyright", _("Copyright (c) 2003-2022\n"),
       "authors", auth, NULL);
 }
 

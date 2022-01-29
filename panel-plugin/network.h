@@ -1,4 +1,6 @@
 /*
+ * This file is part of Xfce (https://gitlab.xfce.org).
+ *
  * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without

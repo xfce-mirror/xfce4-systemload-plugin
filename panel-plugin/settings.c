@@ -1,4 +1,6 @@
 /*
+ *  This file is part of Xfce (https://gitlab.xfce.org).
+ *
  *  Copyright (C) 2021 Simon Steinbeiß <simon@xfce.org>
  *
  *  This program is free software; you can redistribute it and/or
