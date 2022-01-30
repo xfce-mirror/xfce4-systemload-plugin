@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Andres <kovtunos@yandex.ru>, 2010
-# AlexanderFilev <avfill@outlook.com>, 2020
+# Alexander Filёv, 2020
 # Igor <f2404@yandex.ru>, 2017
 # Nick Stone <zed0x@ya.ru>, 2013
 # Sergey Alyoshin <alyoshin.s@gmail.com>, 2014,2016
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-03-21 11:50+0000\n"
+"POT-Creation-Date: 2022-01-30 00:54+0100\n"
+"PO-Revision-Date: 2022-01-29 23:54+0000\n"
 "Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -22,51 +22,51 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: ../panel-plugin/cpu.c:61
+#: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Файл /proc/stat не найден!"
 
-#: ../panel-plugin/systemload.c:207
+#: ../panel-plugin/systemload.c:217
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Загрузка системы: %ld%%"
 
-#: ../panel-plugin/systemload.c:215
+#: ../panel-plugin/systemload.c:225
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Память: %ld МБ из %ld МБ"
 
-#: ../panel-plugin/systemload.c:223
+#: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:233
+#: ../panel-plugin/systemload.c:243
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Подкачка: %ld МБ из %ld МБ"
 
-#: ../panel-plugin/systemload.c:236
+#: ../panel-plugin/systemload.c:246
 #, c-format
 msgid "No swap"
 msgstr "Нет раздела подкачки (swap)"
 
-#: ../panel-plugin/systemload.c:251
+#: ../panel-plugin/systemload.c:261
 #, c-format
 msgid "%dd"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:252
+#: ../panel-plugin/systemload.c:262
 #, c-format
 msgid "%dh"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:253
+#: ../panel-plugin/systemload.c:263
 #, c-format
 msgid "%dm"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:255
+#: ../panel-plugin/systemload.c:265
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -75,7 +75,7 @@ msgstr[1] "%d дня"
 msgstr[2] "%d дней"
 msgstr[3] "%d дней"
 
-#: ../panel-plugin/systemload.c:256
+#: ../panel-plugin/systemload.c:266
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -84,7 +84,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: ../panel-plugin/systemload.c:257
+#: ../panel-plugin/systemload.c:267
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -93,85 +93,85 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: ../panel-plugin/systemload.c:264
+#: ../panel-plugin/systemload.c:274
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:750
 msgid "Label:"
 msgstr "Метка:"
 
-#: ../panel-plugin/systemload.c:756
+#: ../panel-plugin/systemload.c:759
 msgid "Leave empty to disable the label"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:797
+#: ../panel-plugin/systemload.c:800
 msgid "CPU monitor"
 msgstr "Процессор"
 
-#: ../panel-plugin/systemload.c:798
+#: ../panel-plugin/systemload.c:801
 msgid "Memory monitor"
 msgstr "Память"
 
-#: ../panel-plugin/systemload.c:799
+#: ../panel-plugin/systemload.c:802
 msgid "Network monitor"
 msgstr ""
 
-#: ../panel-plugin/systemload.c:800
+#: ../panel-plugin/systemload.c:803
 msgid "Swap monitor"
 msgstr "Подкачка"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:804
 msgid "Uptime monitor"
 msgstr "Время работы"
 
-#: ../panel-plugin/systemload.c:812 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:815 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Загрузка системы"
 
-#: ../panel-plugin/systemload.c:815
+#: ../panel-plugin/systemload.c:818
 msgid "_Close"
 msgstr "_Закрыть"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:819
 msgid "_Help"
 msgstr "_Справка"
 
-#: ../panel-plugin/systemload.c:834
+#: ../panel-plugin/systemload.c:837
 msgid "<b>General</b>"
 msgstr "<b>Общие</b>"
 
-#: ../panel-plugin/systemload.c:853
+#: ../panel-plugin/systemload.c:856
 msgid "Update interval:"
 msgstr "Интервал обновления:"
 
-#: ../panel-plugin/systemload.c:859
+#: ../panel-plugin/systemload.c:862
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Интервал обновления при питании от батареи (если установлен 0, используется обычный интервал)"
 
-#: ../panel-plugin/systemload.c:870
+#: ../panel-plugin/systemload.c:873
 msgid "Power-saving interval:"
 msgstr "В режиме экономии:"
 
-#: ../panel-plugin/systemload.c:877
+#: ../panel-plugin/systemload.c:880
 msgid "Launched when clicking on the plugin"
 msgstr "Запускается при щелчке на модуль"
 
-#: ../panel-plugin/systemload.c:884
+#: ../panel-plugin/systemload.c:887
 msgid "System monitor:"
 msgstr "Системный монитор:"
 
-#: ../panel-plugin/systemload.c:918 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:925 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Монитор загруженности процессора, использования памяти и подкачки"
 
-#: ../panel-plugin/systemload.c:920
-msgid "Copyright (c) 2003-2021\n"
-msgstr "Copyright (c) 2003-2021\n"
+#: ../panel-plugin/systemload.c:927
+msgid "Copyright (c) 2003-2022\n"
+msgstr ""
 
-#: ../panel-plugin/uptime.c:50
+#: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
 msgstr "Файл /proc/uptime не найден!"
