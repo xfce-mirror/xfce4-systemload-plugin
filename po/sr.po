@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-21 12:50+0100\n"
-"PO-Revision-Date: 2021-04-13 11:18+0000\n"
+"POT-Creation-Date: 2022-01-30 00:54+0100\n"
+"PO-Revision-Date: 2022-01-29 23:54+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,51 +19,51 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/cpu.c:61
+#: ../panel-plugin/cpu.c:63
 msgid "File /proc/stat not found!"
 msgstr "Није пронађена датотека /proc/stat!"
 
-#: ../panel-plugin/systemload.c:207
+#: ../panel-plugin/systemload.c:217
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Оптерећење система: %ld%%"
 
-#: ../panel-plugin/systemload.c:215
+#: ../panel-plugin/systemload.c:225
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Меморија: %ldMB од %ldMB заузето"
 
-#: ../panel-plugin/systemload.c:223
+#: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr "Мрежа: %ld Mbit/s"
 
-#: ../panel-plugin/systemload.c:233
+#: ../panel-plugin/systemload.c:243
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Помоћна меморија: %ldMB од %ldMB заузето"
 
-#: ../panel-plugin/systemload.c:236
+#: ../panel-plugin/systemload.c:246
 #, c-format
 msgid "No swap"
 msgstr "Нема помоћне меморије"
 
-#: ../panel-plugin/systemload.c:251
+#: ../panel-plugin/systemload.c:261
 #, c-format
 msgid "%dd"
 msgstr "%dd"
 
-#: ../panel-plugin/systemload.c:252
+#: ../panel-plugin/systemload.c:262
 #, c-format
 msgid "%dh"
 msgstr "%dh"
 
-#: ../panel-plugin/systemload.c:253
+#: ../panel-plugin/systemload.c:263
 #, c-format
 msgid "%dm"
 msgstr "%dm"
 
-#: ../panel-plugin/systemload.c:255
+#: ../panel-plugin/systemload.c:265
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -71,7 +71,7 @@ msgstr[0] "%d дан"
 msgstr[1] "%d дана"
 msgstr[2] "%d дана"
 
-#: ../panel-plugin/systemload.c:256
+#: ../panel-plugin/systemload.c:266
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -79,7 +79,7 @@ msgstr[0] "%d час"
 msgstr[1] "%d часа"
 msgstr[2] "%d часова"
 
-#: ../panel-plugin/systemload.c:257
+#: ../panel-plugin/systemload.c:267
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -87,85 +87,85 @@ msgstr[0] "%d минут"
 msgstr[1] "%d минута"
 msgstr[2] "%d минута"
 
-#: ../panel-plugin/systemload.c:264
+#: ../panel-plugin/systemload.c:274
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr "Време рада: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:747
+#: ../panel-plugin/systemload.c:750
 msgid "Label:"
 msgstr "Натпис:"
 
-#: ../panel-plugin/systemload.c:756
+#: ../panel-plugin/systemload.c:759
 msgid "Leave empty to disable the label"
 msgstr "Оставите празним ради онемогућавања натписа"
 
-#: ../panel-plugin/systemload.c:797
+#: ../panel-plugin/systemload.c:800
 msgid "CPU monitor"
 msgstr "Праћење процесора"
 
-#: ../panel-plugin/systemload.c:798
+#: ../panel-plugin/systemload.c:801
 msgid "Memory monitor"
 msgstr "Праћење заузећа меморије"
 
-#: ../panel-plugin/systemload.c:799
+#: ../panel-plugin/systemload.c:802
 msgid "Network monitor"
 msgstr "Мрежни надзорник"
 
-#: ../panel-plugin/systemload.c:800
+#: ../panel-plugin/systemload.c:803
 msgid "Swap monitor"
 msgstr "Праћење помоћне меморије"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.c:804
 msgid "Uptime monitor"
 msgstr "Праћење времена будности"
 
-#: ../panel-plugin/systemload.c:812 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.c:815 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Праћење заузећа система"
 
-#: ../panel-plugin/systemload.c:815
+#: ../panel-plugin/systemload.c:818
 msgid "_Close"
 msgstr "_Затвори"
 
-#: ../panel-plugin/systemload.c:816
+#: ../panel-plugin/systemload.c:819
 msgid "_Help"
 msgstr "_Помоћ"
 
-#: ../panel-plugin/systemload.c:834
+#: ../panel-plugin/systemload.c:837
 msgid "<b>General</b>"
 msgstr "<b>Опште</b>"
 
-#: ../panel-plugin/systemload.c:853
+#: ../panel-plugin/systemload.c:856
 msgid "Update interval:"
 msgstr "Учесталост упита:"
 
-#: ../panel-plugin/systemload.c:859
+#: ../panel-plugin/systemload.c:862
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Време освежавања приликом коришћења батерије (користи уобичајено освежавање ако је поставка на нули)"
 
-#: ../panel-plugin/systemload.c:870
+#: ../panel-plugin/systemload.c:873
 msgid "Power-saving interval:"
 msgstr "Раздобља између штедњи снаге:"
 
-#: ../panel-plugin/systemload.c:877
+#: ../panel-plugin/systemload.c:880
 msgid "Launched when clicking on the plugin"
 msgstr "Покренуто кликом на прикључак"
 
-#: ../panel-plugin/systemload.c:884
+#: ../panel-plugin/systemload.c:887
 msgid "System monitor:"
 msgstr "Праћење система:"
 
-#: ../panel-plugin/systemload.c:918 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.c:925 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Прати оптерећење процесора, коришћење помоћне меморије и заузеће меморије"
 
-#: ../panel-plugin/systemload.c:920
-msgid "Copyright (c) 2003-2021\n"
-msgstr "Права умножавања (c) 2003-2021\n"
+#: ../panel-plugin/systemload.c:927
+msgid "Copyright (c) 2003-2022\n"
+msgstr "Права умножавања (c) 2003-2022\n"
 
-#: ../panel-plugin/uptime.c:50
+#: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
 msgstr "Датотека /proc/uptime није пронађена!"
