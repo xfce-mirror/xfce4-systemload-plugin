@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>, 2012
+# Demiray Muhterem <mdemiray@msn.com>, 2022
 # Emin Tufan Çetin <etcetin@gmail.com>, 2021
 # Emin Tufan Çetin <etcetin@gmail.com>, 2020
 # Jeff Bailes <thepizzaking@gmail.com>, 2007
@@ -14,8 +15,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-01-29 23:54+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2022-01-31 20:24+0000\n"
+"Last-Translator: Demiray Muhterem <mdemiray@msn.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -165,7 +166,7 @@ msgstr "İşlemci yükünü, takas alanı kullanımını ve bellek ayak izini g�
 
 #: ../panel-plugin/systemload.c:927
 msgid "Copyright (c) 2003-2022\n"
-msgstr ""
+msgstr "Copyright (c) 2003-2022\n"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
