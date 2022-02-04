@@ -5,15 +5,15 @@
 # Translators:
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
 # Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003
-# Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016-2018
+# Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016-2018,2022
 # Andrij Mizyk <andmizyk@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-01-29 23:54+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2022-02-04 13:25+0000\n"
+"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +38,7 @@ msgstr "Пам'ять: %ldМб з %ldМб використано"
 #: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Мережа: %ld Мбіт/с"
 
 #: ../panel-plugin/systemload.c:243
 #, c-format
@@ -53,17 +53,17 @@ msgstr "Без підкачки"
 #: ../panel-plugin/systemload.c:261
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%dд"
 
 #: ../panel-plugin/systemload.c:262
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%dг"
 
 #: ../panel-plugin/systemload.c:263
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%dм"
 
 #: ../panel-plugin/systemload.c:265
 #, c-format
@@ -78,24 +78,24 @@ msgstr[3] "%d днів"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d година"
+msgstr[1] "%d година"
+msgstr[2] "%d годин"
+msgstr[3] "%d годин"
 
 #: ../panel-plugin/systemload.c:267
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d хвилина"
+msgstr[1] "%d хвилин"
+msgstr[2] "%d хвилин"
+msgstr[3] "%d хвилин"
 
 #: ../panel-plugin/systemload.c:274
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Час роботи: %s, %s, %s"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Label:"
@@ -103,7 +103,7 @@ msgstr "Мітка:"
 
 #: ../panel-plugin/systemload.c:759
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Залиште порожнім, щоб вимкнути мітку"
 
 #: ../panel-plugin/systemload.c:800
 msgid "CPU monitor"
@@ -115,7 +115,7 @@ msgstr "Стеження за пам'яттю"
 
 #: ../panel-plugin/systemload.c:802
 msgid "Network monitor"
-msgstr ""
+msgstr "Монітор мережі"
 
 #: ../panel-plugin/systemload.c:803
 msgid "Swap monitor"
@@ -169,7 +169,7 @@ msgstr "Стежити за навантаженням процесора, ви�
 
 #: ../panel-plugin/systemload.c:927
 msgid "Copyright (c) 2003-2022\n"
-msgstr ""
+msgstr "Всі права застережено (c) 2003-2022\n"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
