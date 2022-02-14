@@ -2,6 +2,8 @@
 *.lo
 .deps/
 .libs/
+/nbproject
+ChangeLog
 INSTALL
 Makefile
 Makefile.in
@@ -25,7 +27,7 @@ panel-plugin/systemload.desktop
 panel-plugin/systemload.desktop.in
 po/*.gmo
 po/.intltool-merge-cache*
-po/stamp-it
 po/Makefile.in.in
 po/POTFILES
+po/stamp-it
 stamp-h1

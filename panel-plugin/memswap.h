@@ -26,11 +26,11 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __MEMSWAP_H
-#define __MEMSWAP_H
+#ifndef _XFCE_SYSTEMLOAD_MEMSWAP_H_
+#define _XFCE_SYSTEMLOAD_MEMSWAP_H_
 
 #include <glib.h>
 
 gint read_memswap(gulong *, gulong *, gulong *, gulong *, gulong *, gulong *);
 
-#endif /* ndef __MEMSWAP_H */
+#endif /* _XFCE_SYSTEMLOAD_MEMSWAP_H_ */

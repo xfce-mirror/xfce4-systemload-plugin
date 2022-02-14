@@ -1,21 +1,22 @@
 /*
- *  This file is part of Xfce (https://gitlab.xfce.org).
+ * This file is part of Xfce (https://gitlab.xfce.org).
  *
- *  Copyright (C) 2021 Simon Steinbeiß <simon@xfce.org>
+ * Copyright (C) 2021 Simon Steinbeiß <simon@xfce.org>
+ * Copyright (c) 2022 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 
@@ -49,14 +50,14 @@
 #define DEFAULT_TIMEOUT_SECONDS 1
 #define DEFAULT_SYSTEM_MONITOR_COMMAND "xfce4-taskmanager"
 
-static gchar *const DEFAULT_LABEL[] = {
+static const gchar *const DEFAULT_LABEL[] = {
     "cpu",
     "mem",
     "net",
     "swap",
 };
 
-static gchar *const DEFAULT_COLOR[] = {
+static const gchar *const DEFAULT_COLOR[] = {
     "#1c71d8", /* CPU */
     "#2ec27e", /* MEM */
     "#e66100", /* NET */
@@ -164,7 +165,7 @@ prop2monitor (SystemloadProperty p)
       return SWAP_MONITOR;
     default:
       /* Ideally, this codepath is never reached */
-      return 0;
+      return CPU_MONITOR;
     }
 }
 
@@ -223,141 +224,125 @@ systemload_config_class_init (SystemloadConfigClass *klass)
                                    PROP_TIMEOUT,
                                    g_param_spec_uint ("timeout", NULL, NULL,
                                                       500, 10000, DEFAULT_TIMEOUT,
-                                                      G_PARAM_READWRITE |
-                                                      G_PARAM_STATIC_STRINGS));
+                                                      GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_TIMEOUT_SECONDS,
                                    g_param_spec_uint ("timeout-seconds", NULL, NULL,
                                                       1, 10, DEFAULT_TIMEOUT_SECONDS,
-                                                      G_PARAM_READWRITE |
-                                                      G_PARAM_STATIC_STRINGS));
+                                                      GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_SYSTEM_MONITOR_COMMAND,
                                    g_param_spec_string ("system-monitor-command", NULL, NULL,
                                                         DEFAULT_SYSTEM_MONITOR_COMMAND,
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_STATIC_STRINGS));
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_UPTIME,
                                    g_param_spec_boolean ("uptime-enabled", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_CPU_ENABLED,
                                    g_param_spec_boolean ("cpu-enabled", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_CPU_USE_LABEL,
                                    g_param_spec_boolean ("cpu-use-label", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_CPU_LABEL,
                                    g_param_spec_string ("cpu-label", NULL, NULL,
                                                         DEFAULT_LABEL[CPU_MONITOR],
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_STATIC_STRINGS));
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_CPU_COLOR,
                                    g_param_spec_boxed ("cpu-color",
                                                        NULL, NULL,
                                                        GDK_TYPE_RGBA,
-                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+                                                       GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_MEMORY_ENABLED,
                                    g_param_spec_boolean ("memory-enabled", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_MEMORY_USE_LABEL,
                                    g_param_spec_boolean ("memory-use-label", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_MEMORY_LABEL,
                                    g_param_spec_string ("memory-label", NULL, NULL,
                                                         DEFAULT_LABEL[MEM_MONITOR],
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_STATIC_STRINGS));
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_MEMORY_COLOR,
                                    g_param_spec_boxed ("memory-color",
                                                        NULL, NULL,
                                                        GDK_TYPE_RGBA,
-                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+                                                       GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_NETWORK_ENABLED,
                                    g_param_spec_boolean ("network-enabled", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_NETWORK_USE_LABEL,
                                    g_param_spec_boolean ("network-use-label", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_NETWORK_LABEL,
                                    g_param_spec_string ("network-label", NULL, NULL,
                                                         DEFAULT_LABEL[NET_MONITOR],
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_STATIC_STRINGS));
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_NETWORK_COLOR,
                                    g_param_spec_boxed ("network-color",
                                                        NULL, NULL,
                                                        GDK_TYPE_RGBA,
-                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+                                                       GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_SWAP_ENABLED,
                                    g_param_spec_boolean ("swap-enabled", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_SWAP_USE_LABEL,
                                    g_param_spec_boolean ("swap-use-label", NULL, NULL,
                                                          TRUE,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_SWAP_LABEL,
                                    g_param_spec_string ("swap-label", NULL, NULL,
                                                         DEFAULT_LABEL[SWAP_MONITOR],
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_STATIC_STRINGS));
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
                                    PROP_SWAP_COLOR,
                                    g_param_spec_boxed ("swap-color",
                                                        NULL, NULL,
                                                        GDK_TYPE_RGBA,
-                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+                                                       GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   systemload_config_signals[CONFIGURATION_CHANGED] =
     g_signal_new (g_intern_static_string ("configuration-changed"),
@@ -409,12 +394,13 @@ systemload_config_finalize (GObject *object)
 
 static void
 systemload_config_get_property (GObject    *object,
-                                guint       prop_id,
+                                guint       _prop_id,
                                 GValue     *value,
                                 GParamSpec *pspec)
 {
   const SystemloadConfig *config = SYSTEMLOAD_CONFIG (object);
 
+  auto prop_id = SystemloadProperty (_prop_id);
   switch (prop_id)
     {
     case PROP_TIMEOUT:
@@ -556,7 +542,7 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_CPU_COLOR:
-      val_rgba = g_value_dup_boxed (value);
+      val_rgba = (GdkRGBA*) g_value_dup_boxed (value);
       if (!rgba_equal (config->monitor[CPU_MONITOR].color, *val_rgba))
         {
           config->monitor[CPU_MONITOR].color = *val_rgba;
@@ -604,7 +590,7 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_MEMORY_COLOR:
-      val_rgba = g_value_dup_boxed (value);
+      val_rgba = (GdkRGBA*) g_value_dup_boxed (value);
       if (!rgba_equal (config->monitor[MEM_MONITOR].color, *val_rgba))
         {
           config->monitor[MEM_MONITOR].color = *val_rgba;
@@ -652,7 +638,7 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_NETWORK_COLOR:
-      val_rgba = g_value_dup_boxed (value);
+      val_rgba = (GdkRGBA*) g_value_dup_boxed (value);
       if (!rgba_equal (config->monitor[NET_MONITOR].color, *val_rgba))
         {
           config->monitor[NET_MONITOR].color = *val_rgba;
@@ -700,7 +686,7 @@ systemload_config_set_property (GObject      *object,
       break;
 
     case PROP_SWAP_COLOR:
-      val_rgba = g_value_dup_boxed (value);
+      val_rgba = (GdkRGBA*) g_value_dup_boxed (value);
       if (!rgba_equal (config->monitor[SWAP_MONITOR].color, *val_rgba))
         {
           config->monitor[SWAP_MONITOR].color = *val_rgba;
@@ -805,7 +791,7 @@ systemload_config_get_color (const SystemloadConfig *config, SystemloadMonitor m
 SystemloadConfig *
 systemload_config_new (const gchar *property_base)
 {
-  SystemloadConfig *config = g_object_new (TYPE_SYSTEMLOAD_CONFIG, NULL);
+  auto config = (SystemloadConfig*) g_object_new (TYPE_SYSTEMLOAD_CONFIG, NULL);
 
   if (xfconf_init (NULL))
     {

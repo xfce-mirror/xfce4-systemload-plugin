@@ -1,9 +1,12 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
+# Note: The order of directories in this list isn't arbitrary
 SUBDIRS = \
-	icons \
+	xfce4++ \
+	xfce4++/util \
 	panel-plugin \
-	po
+	po \
+	icons
 
 distclean-local:
 	rm -rf *.cache *~

@@ -1,8 +1,7 @@
 /*
  * This file is part of Xfce (https://gitlab.xfce.org).
  *
- * Copyright (c) 2003 Riccardo Persichetti <riccardo.persichetti@tin.it>
- * Copyright (c) 2010 Florian Rivoal <frivoal@xfce.org>
+ * Copyright (c) 2022 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -26,11 +25,15 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _XFCE_SYSTEMLOAD_CPU_H_
-#define _XFCE_SYSTEMLOAD_CPU_H_
+#ifndef _XFCE_SYSTEMLOAD_PLUGIN_H_
+#define _XFCE_SYSTEMLOAD_PLUGIN_H_
 
-#include <glib.h>
+#include <libxfce4panel/libxfce4panel.h>
 
-gulong read_cpuload(void);
+G_BEGIN_DECLS
 
-#endif /* _XFCE_SYSTEMLOAD_CPU_H_ */
+void systemload_construct (XfcePanelPlugin *plugin);
+
+G_END_DECLS
+
+#endif /* _XFCE_SYSTEMLOAD_PLUGIN_H_ */
