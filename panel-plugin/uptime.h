@@ -26,11 +26,11 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __UPTIME_H
-#define __UPTIME_H
+#ifndef _XFCE_SYSTEMLOAD_UPTIME_H_
+#define _XFCE_SYSTEMLOAD_UPTIME_H_
 
 #include <glib.h>
 
 gulong read_uptime(void);
 
-#endif /* ndef __CPU_H */
+#endif /* _XFCE_SYSTEMLOAD_UPTIME_H_ */

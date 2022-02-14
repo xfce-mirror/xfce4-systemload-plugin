@@ -18,12 +18,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef __SYSTEMLOAD_CONFIG_H__
-#define __SYSTEMLOAD_CONFIG_H__
+#ifndef _XFCE_SYSTEMLOAD_SETTINGS_H_
+#define _XFCE_SYSTEMLOAD_SETTINGS_H_
 
 #include <glib.h>
-
-G_BEGIN_DECLS
 
 #define MIN_TIMEOUT 500
 #define MAX_TIMEOUT 10000
@@ -63,6 +61,4 @@ gboolean           systemload_config_get_use_label (const SystemloadConfig *conf
 const gchar       *systemload_config_get_label     (const SystemloadConfig *config, SystemloadMonitor monitor);
 const GdkRGBA     *systemload_config_get_color     (const SystemloadConfig *config, SystemloadMonitor monitor);
 
-G_END_DECLS
-
-#endif /* !__SYSTEMLOAD_CONFIG_H__ */
+#endif /* _XFCE_SYSTEMLOAD_SETTINGS_H_ */

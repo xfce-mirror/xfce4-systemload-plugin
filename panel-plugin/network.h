@@ -25,8 +25,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __NETWORK_H
-#define __NETWORK_H
+#ifndef _XFCE_SYSTEMLOAD_NETWORK_H_
+#define _XFCE_SYSTEMLOAD_NETWORK_H_
 
 #include <glib.h>
 
@@ -35,4 +35,4 @@
 
 gint read_netload (gulong *net, gulong *NTotal);
 
-#endif /* ndef __NETWORK_H */
+#endif /* _XFCE_SYSTEMLOAD_NETWORK_H_ */

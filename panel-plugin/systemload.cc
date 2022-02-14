@@ -30,6 +30,9 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -52,6 +55,7 @@
 #include "cpu.h"
 #include "memswap.h"
 #include "network.h"
+#include "plugin.h"
 #include "settings.h"
 #include "uptime.h"
 
@@ -201,7 +205,7 @@ update_monitors(t_global_monitor *global)
 
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
-        const SystemloadMonitor monitor = i;
+        const auto monitor = (SystemloadMonitor) i;
         t_monitor *m = global->monitor[monitor];
 
         if (systemload_config_get_enabled (config, monitor))
@@ -292,7 +296,8 @@ monitor_update_orientation (XfcePanelPlugin  *plugin,
         gtk_label_set_angle(GTK_LABEL(global->monitor[count]->label),
                             (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
         gtk_progress_bar_set_inverted (GTK_PROGRESS_BAR(global->monitor[count]->status), (panel_orientation == GTK_ORIENTATION_HORIZONTAL));
-        gtk_orientable_set_orientation (GTK_ORIENTABLE(global->monitor[count]->status), !panel_orientation);
+        gtk_orientable_set_orientation (GTK_ORIENTABLE(global->monitor[count]->status),
+                                        (panel_orientation == GTK_ORIENTATION_HORIZONTAL) ? GTK_ORIENTATION_VERTICAL : GTK_ORIENTATION_HORIZONTAL);
     }
     gtk_label_set_angle(GTK_LABEL(global->uptime.label),
                         (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : -90);
@@ -438,7 +443,7 @@ monitor_free(XfcePanelPlugin *plugin, t_global_monitor *global)
 static gboolean
 update_monitors_cb(gpointer user_data)
 {
-    t_global_monitor *global = user_data;
+    auto global = (t_global_monitor*) user_data;
 
     update_monitors (global);
     return TRUE;
@@ -505,7 +510,7 @@ setup_monitors(t_global_monitor *global)
     /* determine the number of enabled monitors and the number of enabled labels */
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
-        SystemloadMonitor monitor = i;
+        auto monitor = (SystemloadMonitor) i;
         if (systemload_config_get_enabled (config, monitor))
         {
             gboolean label_visible = systemload_config_get_use_label (config, monitor) &&
@@ -517,7 +522,7 @@ setup_monitors(t_global_monitor *global)
 
     for(i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
-        const SystemloadMonitor monitor = i;
+        const auto monitor = (SystemloadMonitor) i;
         const t_monitor *m = global->monitor[monitor];
         const GdkRGBA *color = NULL;
 
@@ -537,7 +542,7 @@ setup_monitors(t_global_monitor *global)
             css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }", color);
 #endif
             gtk_css_provider_load_from_data (
-                g_object_get_data(G_OBJECT(m->status), "css_provider"),
+                (GtkCssProvider*) g_object_get_data(G_OBJECT(m->status), "css_provider"),
                 css, strlen(css), NULL);
             g_free(color_str);
             g_free(css);
@@ -571,7 +576,7 @@ setup_monitors(t_global_monitor *global)
 static gboolean
 setup_monitor_cb(gpointer user_data)
 {
-    t_global_monitor *global = user_data;
+    auto global = (t_global_monitor*) user_data;
     setup_monitors (global);
     update_monitors (global);
     return TRUE;
@@ -719,7 +724,7 @@ new_monitor_setting (t_global_monitor *global,
     g_object_get (G_OBJECT (global->config), setting_name, &enabled, NULL);
     g_object_bind_property (G_OBJECT (global->config), setting_name,
                             G_OBJECT (sw), "active",
-                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                            GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
     g_signal_connect (GTK_WIDGET(sw), "state-set",
                       G_CALLBACK(switch_cb), global);
     g_free (setting_name);
@@ -760,7 +765,7 @@ new_monitor_setting (t_global_monitor *global,
         setting_name = g_strconcat (setting, "-label", NULL);
         g_object_bind_property (G_OBJECT (global->config), setting_name,
                                 G_OBJECT (entry), "text",
-                                G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                                GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
         g_free (setting_name);
         gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
 
@@ -778,7 +783,7 @@ new_monitor_setting (t_global_monitor *global,
             setting_name = g_strconcat (setting, "-color", NULL);
             g_object_bind_property (G_OBJECT (global->config), setting_name,
                                     G_OBJECT (button), "rgba",
-                                    G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                                    GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
             g_free (setting_name);
             gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
         }
@@ -846,7 +851,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout);
     g_object_bind_property (G_OBJECT (config), "timeout",
                             G_OBJECT (button), "value",
-                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                            GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_cb), global);
     box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     label = gtk_label_new ("ms");
@@ -863,7 +868,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout_seconds);
     g_object_bind_property (G_OBJECT (config), "timeout-seconds",
                             G_OBJECT (button), "value",
-                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                            GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
     g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_timeout_seconds_cb), global);
     box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     label = gtk_label_new ("s");
@@ -880,7 +885,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_widget_set_tooltip_text(GTK_WIDGET(entry), _("Launched when clicking on the plugin"));
     g_object_bind_property (G_OBJECT (config), "system-monitor-command",
                             G_OBJECT (entry), "text",
-                            G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                            GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
     g_signal_connect (G_OBJECT(entry), "changed",
                       G_CALLBACK(command_entry_changed_cb), global);
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
@@ -928,7 +933,7 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
       "authors", auth, NULL);
 }
 
-static void
+void
 systemload_construct (XfcePanelPlugin *plugin)
 {
     t_global_monitor *global;
@@ -979,5 +984,3 @@ systemload_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "about", G_CALLBACK (monitor_show_about),
                        global);
 }
-
-XFCE_PANEL_PLUGIN_REGISTER (systemload_construct);

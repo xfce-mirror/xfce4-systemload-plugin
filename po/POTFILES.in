@@ -1,6 +1,5 @@
-panel-plugin/cpu.c
-panel-plugin/systemload.c
-panel-plugin/uptime.c
-panel-plugin/memswap.c
+panel-plugin/cpu.cc
+panel-plugin/memswap.cc
+panel-plugin/systemload.cc
 panel-plugin/systemload.desktop.in
-
+panel-plugin/uptime.cc
