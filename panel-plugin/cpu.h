@@ -31,6 +31,6 @@
 
 #include <glib.h>
 
-gulong read_cpuload(void);
+gulong read_cpuload();
 
 #endif /* _XFCE_SYSTEMLOAD_CPU_H_ */

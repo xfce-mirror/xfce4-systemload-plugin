@@ -31,6 +31,6 @@
 
 #include <glib.h>
 
-gulong read_uptime(void);
+gulong read_uptime();
 
 #endif /* _XFCE_SYSTEMLOAD_UPTIME_H_ */
