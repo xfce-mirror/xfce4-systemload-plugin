@@ -78,13 +78,11 @@ static void                 systemload_config_set_property   (GObject          *
 
 
 
-struct _SystemloadConfigClass
-{
+struct _SystemloadConfigClass {
   GObjectClass     __parent__;
 };
 
-struct _SystemloadConfig
-{
+struct _SystemloadConfig {
   GObject          __parent__;
 
   XfconfChannel   *channel;
@@ -95,8 +93,7 @@ struct _SystemloadConfig
   gchar           *system_monitor_command;
   gboolean         uptime;
 
-  struct
-  {
+  struct {
     gboolean       enabled;
     gboolean       use_label;
     gchar         *label;
@@ -104,8 +101,7 @@ struct _SystemloadConfig
   } monitor[4];
 };
 
-typedef enum
-  {
+enum SystemloadProperty {
     PROP_0,
     PROP_TIMEOUT,
     PROP_TIMEOUT_SECONDS,
@@ -128,13 +124,12 @@ typedef enum
     PROP_SWAP_LABEL,
     PROP_SWAP_COLOR,
     N_PROPERTIES,
-  } SystemloadProperty;
+};
 
-enum
-  {
+enum {
     CONFIGURATION_CHANGED,
     LAST_SIGNAL
-  };
+};
 
 static guint systemload_config_signals [LAST_SIGNAL] = { 0, };
 

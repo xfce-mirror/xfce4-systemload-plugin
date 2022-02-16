@@ -61,32 +61,28 @@
 
 
 
-typedef struct
-{
+struct t_command {
     gboolean enabled;
     gchar    *command_text;
-} t_command;
+};
 
-typedef struct
-{
+struct t_monitor {
     GtkWidget  *box;
     GtkWidget  *label;
     GtkWidget  *status;
     GtkWidget  *ebox;
 
     gulong     value_read; /* Range: 0% ... 100% */
-} t_monitor;
+};
 
-typedef struct
-{
+struct t_uptime_monitor {
     GtkWidget  *label;
     GtkWidget  *ebox;
 
     gulong     value_read;
-} t_uptime_monitor;
+};
 
-typedef struct
-{
+struct t_global_monitor {
     XfcePanelPlugin   *plugin;
     SystemloadConfig  *config;
     GtkWidget         *ebox;
@@ -100,7 +96,7 @@ typedef struct
 #ifdef HAVE_UPOWER_GLIB
     UpClient          *upower;
 #endif
-} t_global_monitor;
+};
 
 
 

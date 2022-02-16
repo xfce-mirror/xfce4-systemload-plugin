@@ -26,12 +26,12 @@
 #define MIN_TIMEOUT 500
 #define MAX_TIMEOUT 10000
 
-typedef enum {
+enum SystemloadMonitor {
     CPU_MONITOR,
     MEM_MONITOR,
     NET_MONITOR,
     SWAP_MONITOR,
-} SystemloadMonitor;
+};
 
 typedef struct _SystemloadConfigClass SystemloadConfigClass;
 typedef struct _SystemloadConfig      SystemloadConfig;
