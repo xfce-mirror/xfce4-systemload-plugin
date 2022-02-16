@@ -52,7 +52,7 @@ struct cpu_load_struct {
 
 static gulong oldtotal, oldused;
 
-gulong read_cpuload(void)
+gulong read_cpuload()
 {
     FILE *fd;
     unsigned long long int user, unice, usystem, idle, iowait, irq, softirq, guest;
@@ -108,7 +108,7 @@ struct cpu_load_struct {
 
 static gulong oldtotal, oldused;
 
-gulong read_cpuload(void)
+gulong read_cpuload()
 {
     gulong cpu_used, used, total;
     long cp_time[CPUSTATES];
@@ -160,7 +160,7 @@ struct cpu_load_struct {
 
 static gulong oldtotal, oldused;
 
-gulong read_cpuload(void)
+gulong read_cpuload()
 {
     gulong cpu_used, used, total;
     static int mib[] = { CTL_KERN, KERN_CP_TIME };
@@ -213,7 +213,7 @@ struct cpu_load_struct {
 
 static gulong oldtotal, oldused;
 
-gulong read_cpuload(void)
+gulong read_cpuload()
 {
     gulong cpu_used, used, total;
     static int mib[] = { CTL_KERN, KERN_CPTIME };
@@ -248,12 +248,12 @@ gulong read_cpuload(void)
 static kstat_ctl_t *kc;
 static gulong oldtotal, oldused;
 
-void init_stats(void)
+void init_stats()
 {
     kc = kstat_open();
 }
 
-gulong read_cpuload(void)
+gulong read_cpuload()
 {
     gulong cpu_used, used, total;
     kstat_t *ksp;

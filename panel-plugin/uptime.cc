@@ -43,7 +43,7 @@
 
 #define PROC_UPTIME "/proc/uptime"
 
-gulong read_uptime(void)
+gulong read_uptime()
 {
     FILE *fd;
     gulong uptime;
@@ -89,7 +89,7 @@ gulong read_uptime(void)
 #include <sys/time.h>
 #endif /* !__FreeBSD__ */
 
-gulong read_uptime(void)
+gulong read_uptime()
 {
    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
    struct timeval boottime;
@@ -115,7 +115,7 @@ gulong read_uptime(void)
 
 #include <kstat.h>
 
-gulong read_uptime(void)
+gulong read_uptime()
 {
    kstat_ctl_t *kc;
    kstat_t *ks;
