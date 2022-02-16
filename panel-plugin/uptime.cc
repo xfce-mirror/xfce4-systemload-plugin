@@ -45,18 +45,17 @@
 
 gulong read_uptime()
 {
-    FILE *fd;
-    gulong uptime;
-
-    fd = fopen(PROC_UPTIME, "r");
+    FILE *fd = fopen(PROC_UPTIME, "r");
     if (!fd) {
         g_warning("%s", _("File /proc/uptime not found!"));
         return 0;
     }
+
+    gulong uptime;
     if (!fscanf(fd, "%lu", &uptime))
        uptime = 0;
-    fclose(fd);
 
+    fclose(fd);
     return uptime;
 }
 
@@ -93,12 +92,11 @@ gulong read_uptime()
 {
    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
    struct timeval boottime;
-   time_t now;
    size_t size = sizeof(boottime);
    gulong uptime;
  
-   if((sysctl(mib, 2, &boottime, &size, NULL, 0) != -1)
-	   && (boottime.tv_sec != 0)) {
+   if((sysctl(mib, 2, &boottime, &size, NULL, 0) != -1) && (boottime.tv_sec != 0)) {
+      time_t now;
       time(&now);
       uptime = now - boottime.tv_sec;
    }
@@ -120,10 +118,10 @@ gulong read_uptime()
    kstat_ctl_t *kc;
    kstat_t *ks;
    kstat_named_t *boottime;
-   time_t now;
    gulong uptime;
 
    if (((kc = kstat_open()) != 0) && ((ks = kstat_lookup(kc, "unix", 0, "system_misc")) != NULL) && (kstat_read(kc, ks, NULL) != -1) && ((boottime = kstat_data_lookup(ks, "boot_time")) != NULL)) {
+      time_t now;
       time(&now);
       uptime = now - boottime->value.ul;
       kstat_close(kc);

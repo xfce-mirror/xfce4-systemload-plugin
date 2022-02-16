@@ -54,29 +54,26 @@ static gulong oldtotal, oldused;
 
 gulong read_cpuload()
 {
-    FILE *fd;
-    unsigned long long int user, unice, usystem, idle, iowait, irq, softirq, guest;
-    gulong cpu_used, used, total;
-    int nb_read;
-
-    fd = fopen(PROC_STAT, "r");
+    FILE *fd = fopen(PROC_STAT, "r");
     if (!fd) {
         g_warning("%s", _("File /proc/stat not found!"));
         return 0;
     }
 
     /* Don't count steal time. It is neither busy nor free tiime. */
-    nb_read = fscanf (fd, "%*s %llu %llu %llu %llu %llu %llu %llu %*u %llu",
-                      &user, &unice, &usystem, &idle, &iowait, &irq, &softirq, &guest);
+    unsigned long long int user, unice, usystem, idle, iowait, irq, softirq, guest;
+    int nb_read = fscanf (fd, "%*s %llu %llu %llu %llu %llu %llu %llu %*u %llu",
+                          &user, &unice, &usystem, &idle, &iowait, &irq, &softirq, &guest);
     fclose(fd);
     if (nb_read <= 4) iowait = 0;
     if (nb_read <= 5) irq = 0;
     if (nb_read <= 6) softirq = 0;
     if (nb_read <= 7) guest = 0;
 
-    used = user + unice + usystem + irq + softirq + guest;
-    total = used + idle + iowait;
+    gulong used = user + unice + usystem + irq + softirq + guest;
+    gulong total = used + idle + iowait;
 
+    gulong cpu_used;
     if ((total - oldtotal) != 0)
     {
         cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
@@ -168,8 +165,8 @@ gulong read_cpuload()
     size_t len = sizeof(cp_time);
 
     if (sysctl(mib, 2, &cp_time, &len, NULL, 0) < 0) {
-            g_warning("Cannot get kern.cp_time");
-            return 0;
+        g_warning("Cannot get kern.cp_time");
+        return 0;
     }
 
     used = cp_time[CP_USER] + cp_time[CP_NICE] + cp_time[CP_SYS] + cp_time[CP_INTR];

@@ -42,14 +42,12 @@ static gint
 read_netload_libgtop (gulong *bytes)
 {
     glibtop_netlist netlist;
-    char **interfaces, **i;
-
-    interfaces = glibtop_get_netlist (&netlist);
+    char **interfaces = glibtop_get_netlist (&netlist);
     if (!interfaces)
         return -1;
 
     *bytes = 0;
-    for (i = interfaces; *i != NULL; i++)
+    for (char **i = interfaces; *i != NULL; i++)
     {
         glibtop_netload netload;
         glibtop_get_netload (&netload, *i);
@@ -75,18 +73,15 @@ static gint
 read_netload_proc (gulong *bytes)
 {
     char buf[4*1024];
-    const char *s;
     unsigned long long dummy, in_octets, out_octets;
 
     {
-        FILE *fd;
-        size_t size;
-
-        fd = fopen (PROC_NET_NETSTAT, "r");
+        FILE *fd = fopen (PROC_NET_NETSTAT, "r");
         if (!fd)
             return -1;
 
-        if ((size = fread (buf, sizeof (*buf), G_N_ELEMENTS (buf) - 1, fd)) == 0)
+        size_t size = fread (buf, sizeof (*buf), G_N_ELEMENTS (buf) - 1, fd);
+        if (size == 0)
         {
             fclose(fd);
             return -1;
@@ -97,8 +92,9 @@ read_netload_proc (gulong *bytes)
             return -1;
     }
 
+    const char *s = buf;
+
     /* Skip first 3 lines */
-    s = buf;
     s = strchr(s, '\n'); if (!s) return -1;
     s++;
     s = strchr(s, '\n'); if (!s) return -1;

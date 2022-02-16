@@ -61,22 +61,27 @@ static unsigned long SUsed = 0;
 
 gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
 {
-    int fd;
-    size_t n;
     char *b_MTotal, *b_MFree, *b_MBuffers, *b_MCached, *b_MAvail, *b_STotal, *b_SFree;
 
-    if ((fd = open("/proc/meminfo", O_RDONLY)) < 0)
+    const char *filepath = "/proc/meminfo";
+    int fd;
+    if ((fd = open(filepath, O_RDONLY)) < 0)
     {
-        g_warning("Cannot open \'/proc/meminfo\'");
+        g_warning ("Cannot open '%s'", filepath);
         return -1;
     }
-    if ((n = read(fd, MemInfoBuf, MEMINFOBUFSIZE - 1)) == MEMINFOBUFSIZE - 1)
-    {
-        g_warning("Internal buffer too small to read \'/proc/mem\'");
-        close(fd);
-        return -1;
-    }
+    ssize_t n = read(fd, MemInfoBuf, MEMINFOBUFSIZE - 1);
     close(fd);
+    if (n < 0)
+    {
+        g_warning ("Cannot read '%s'", filepath);
+        return -1;
+    }
+    if (n == MEMINFOBUFSIZE - 1)
+    {
+        g_warning ("Internal buffer too small to read '%s'", filepath);
+        return -1;
+    }
 
     MemInfoBuf[n] = '\0';
 
