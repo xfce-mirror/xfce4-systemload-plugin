@@ -91,11 +91,11 @@ struct _SystemloadConfig {
   guint            timeout;
   guint            timeout_seconds;
   gchar           *system_monitor_command;
-  gboolean         uptime;
+  bool             uptime;
 
   struct {
-    gboolean       enabled;
-    gboolean       use_label;
+    bool           enabled;
+    bool           use_label;
     gchar         *label;
     GdkRGBA        color;
   } monitor[4];
@@ -180,7 +180,7 @@ rgba_float (GdkRGBA color)
  * from the value returned by GtkColorButton if exactly the same "#RRGGBB" string is input by the user,
  * which indicates that either the GDK library or the GTK library is using mathematical operations
  * with a lower precision than the other library when processing the same "#RRGGBB" string. */
-static gboolean
+static bool
 rgba_equal (GdkRGBA a, GdkRGBA b)
 {
   a = rgba_float (a);
@@ -188,7 +188,7 @@ rgba_equal (GdkRGBA a, GdkRGBA b)
   return gdk_rgba_equal (&a, &b);
 }
 
-static gboolean
+static bool
 is_default_color (SystemloadMonitor m, const GdkRGBA *color)
 {
   GdkRGBA default_color;
@@ -358,11 +358,11 @@ systemload_config_init (SystemloadConfig *config)
   config->timeout = DEFAULT_TIMEOUT;
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
   config->system_monitor_command = g_strdup (DEFAULT_SYSTEM_MONITOR_COMMAND);
-  config->uptime = TRUE;
+  config->uptime = true;
   for (i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     {
-      config->monitor[i].enabled = TRUE;
-      config->monitor[i].use_label = TRUE;
+      config->monitor[i].enabled = true;
+      config->monitor[i].use_label = true;
       config->monitor[i].label = g_strdup (DEFAULT_LABEL[i]);
       gdk_rgba_parse (&config->monitor[i].color, DEFAULT_COLOR[i]);
     }
@@ -729,34 +729,34 @@ systemload_config_get_system_monitor_command (const SystemloadConfig *config)
   return config->system_monitor_command;
 }
 
-gboolean
+bool
 systemload_config_get_uptime_enabled (const SystemloadConfig *config)
 {
-  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), true);
 
   return config->uptime;
 }
 
-gboolean
+bool
 systemload_config_get_enabled (const SystemloadConfig *config, SystemloadMonitor monitor)
 {
-  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), true);
 
   if (monitor >= 0 && (gsize) monitor < G_N_ELEMENTS (config->monitor))
       return config->monitor[monitor].enabled;
   else
-      return TRUE;
+      return true;
 }
 
-gboolean
+bool
 systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonitor monitor)
 {
-  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), TRUE);
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), true);
 
   if (monitor >= 0 && (gsize) monitor < G_N_ELEMENTS (config->monitor))
       return config->monitor[monitor].use_label;
   else
-      return TRUE;
+      return true;
 }
 
 const gchar *

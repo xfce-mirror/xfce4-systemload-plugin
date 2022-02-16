@@ -54,10 +54,10 @@ void               systemload_config_on_change                      (SystemloadC
 guint              systemload_config_get_timeout                    (const SystemloadConfig *config);
 guint              systemload_config_get_timeout_seconds            (const SystemloadConfig *config);
 const gchar       *systemload_config_get_system_monitor_command     (const SystemloadConfig *config);
-gboolean           systemload_config_get_uptime_enabled             (const SystemloadConfig *config);
+bool               systemload_config_get_uptime_enabled             (const SystemloadConfig *config);
 
-gboolean           systemload_config_get_enabled   (const SystemloadConfig *config, SystemloadMonitor monitor);
-gboolean           systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonitor monitor);
+bool               systemload_config_get_enabled   (const SystemloadConfig *config, SystemloadMonitor monitor);
+bool               systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonitor monitor);
 const gchar       *systemload_config_get_label     (const SystemloadConfig *config, SystemloadMonitor monitor);
 const GdkRGBA     *systemload_config_get_color     (const SystemloadConfig *config, SystemloadMonitor monitor);
 

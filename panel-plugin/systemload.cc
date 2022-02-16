@@ -62,8 +62,8 @@
 
 
 struct t_command {
-    gboolean enabled;
-    gchar    *command_text;
+    bool  enabled;
+    gchar *command_text;
 };
 
 struct t_monitor {
@@ -88,7 +88,7 @@ struct t_global_monitor {
     GtkWidget         *ebox;
     GtkWidget         *box;
     guint             timeout, timeout_seconds;
-    gboolean          use_timeout_seconds;
+    bool              use_timeout_seconds;
     guint             timeout_id;
     t_command         command;
     t_monitor         *monitor[4];
@@ -111,7 +111,7 @@ static gboolean setup_monitor_cb(gpointer user_data);
 
 
 
-static gboolean
+static bool
 spawn_system_monitor(GtkWidget *w, t_global_monitor *global)
 {
     // Spawn defined command; In-terminal: false, Startup-notify: false
@@ -401,7 +401,7 @@ monitor_control_new(XfcePanelPlugin *plugin)
 
     global->command.command_text = g_strdup (systemload_config_get_system_monitor_command (global->config));
     if (strlen(global->command.command_text) > 0)
-        global->command.enabled = TRUE;
+        global->command.enabled = true;
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
@@ -509,8 +509,8 @@ setup_monitors(t_global_monitor *global)
         auto monitor = (SystemloadMonitor) i;
         if (systemload_config_get_enabled (config, monitor))
         {
-            gboolean label_visible = systemload_config_get_use_label (config, monitor) &&
-                                     strlen (systemload_config_get_label (config, monitor)) != 0;
+            bool label_visible = systemload_config_get_use_label (config, monitor) &&
+                                 strlen (systemload_config_get_label (config, monitor)) != 0;
             n_enabled++;
             n_enabled_labels += (label_visible ? 1 : 0);
         }
@@ -551,8 +551,8 @@ setup_monitors(t_global_monitor *global)
 
         if (systemload_config_get_enabled (config, monitor))
         {
-            gboolean label_visible = systemload_config_get_use_label (config, monitor) &&
-                                     strlen (systemload_config_get_label (config, monitor)) != 0;
+            bool label_visible = systemload_config_get_use_label (config, monitor) &&
+                                 strlen (systemload_config_get_label (config, monitor)) != 0;
 
             gtk_widget_show_all(GTK_WIDGET(m->ebox));
             gtk_widget_set_visible (m->label, label_visible);
@@ -705,7 +705,7 @@ static GtkWidget *new_label (GtkGrid *grid, guint row,
 static void
 new_monitor_setting (t_global_monitor *global,
                      GtkGrid *grid, int position,
-                     const gchar *title, gboolean color,
+                     const gchar *title, bool color,
                      const gchar *setting)
 {
     GtkWidget *sw, *label;
@@ -893,7 +893,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
         const SystemloadMonitor monitor = VISUAL_ORDER[i];
         new_monitor_setting (global, GTK_GRID(grid), 4 + 2 * i,
                              _(FRAME_TEXT[monitor]),
-                             TRUE,
+                             true,
                              SETTING_TEXT[monitor]);
     }
 
