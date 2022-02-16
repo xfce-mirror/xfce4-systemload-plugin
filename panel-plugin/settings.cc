@@ -353,13 +353,11 @@ systemload_config_class_init (SystemloadConfigClass *klass)
 static void
 systemload_config_init (SystemloadConfig *config)
 {
-  gsize i;
-
   config->timeout = DEFAULT_TIMEOUT;
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
   config->system_monitor_command = g_strdup (DEFAULT_SYSTEM_MONITOR_COMMAND);
   config->uptime = true;
-  for (i = 0; i < G_N_ELEMENTS (config->monitor); i++)
+  for (gsize i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     {
       config->monitor[i].enabled = true;
       config->monitor[i].use_label = true;
@@ -374,12 +372,11 @@ static void
 systemload_config_finalize (GObject *object)
 {
   SystemloadConfig *config = SYSTEMLOAD_CONFIG (object);
-  gsize i;
 
   xfconf_shutdown();
   g_free (config->property_base);
   g_free (config->system_monitor_command);
-  for (i = 0; i < G_N_ELEMENTS (config->monitor); i++)
+  for (gsize i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     g_free (config->monitor[i].label);
 
   G_OBJECT_CLASS (systemload_config_parent_class)->finalize (object);
@@ -721,7 +718,7 @@ systemload_config_get_timeout_seconds (const SystemloadConfig *config)
   return config->timeout_seconds;
 }
 
-const gchar *
+const gchar*
 systemload_config_get_system_monitor_command (const SystemloadConfig *config)
 {
   g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_SYSTEM_MONITOR_COMMAND);

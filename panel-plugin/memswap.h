@@ -31,6 +31,6 @@
 
 #include <glib.h>
 
-gint read_memswap(gulong *, gulong *, gulong *, gulong *, gulong *, gulong *);
+gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU);
 
 #endif /* _XFCE_SYSTEMLOAD_MEMSWAP_H_ */
