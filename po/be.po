@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Vadzim Naumuk, 2022
 # Źmicier Turok <nashtlumach@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-01-29 23:54+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: Vadzim Naumuk, 2022\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgstr "Памяць: %ld МБ з %ld МБ"
 #: ../panel-plugin/systemload.c:233
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Сетка: %ld Mbit/s"
 
 #: ../panel-plugin/systemload.c:243
 #, c-format
@@ -50,17 +51,17 @@ msgstr "Раздзел падпампоўкі адсутнічае"
 #: ../panel-plugin/systemload.c:261
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%dд"
 
 #: ../panel-plugin/systemload.c:262
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%dг"
 
 #: ../panel-plugin/systemload.c:263
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%dм"
 
 #: ../panel-plugin/systemload.c:265
 #, c-format
@@ -75,24 +76,24 @@ msgstr[3] "%d дзён"
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%dгадзiна"
+msgstr[1] "%dгадзiн"
+msgstr[2] "%dгадзiн"
+msgstr[3] "%dгадзiн"
 
 #: ../panel-plugin/systemload.c:267
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%dхвiлiна"
+msgstr[1] "%dхвiлiн"
+msgstr[2] "%dхвiлiна"
+msgstr[3] "%dхвiлiна"
 
 #: ../panel-plugin/systemload.c:274
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Бесперапынку: %s, %s, %s"
 
 #: ../panel-plugin/systemload.c:750
 msgid "Label:"
@@ -100,7 +101,7 @@ msgstr "Адмеціна:"
 
 #: ../panel-plugin/systemload.c:759
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Пакіньце пустым, каб адключыць ярлык"
 
 #: ../panel-plugin/systemload.c:800
 msgid "CPU monitor"
@@ -112,7 +113,7 @@ msgstr "Памяць"
 
 #: ../panel-plugin/systemload.c:802
 msgid "Network monitor"
-msgstr ""
+msgstr "Сеткавы манітор"
 
 #: ../panel-plugin/systemload.c:803
 msgid "Swap monitor"
@@ -166,7 +167,7 @@ msgstr "Манітор загружанасці працэсара, выкары
 
 #: ../panel-plugin/systemload.c:927
 msgid "Copyright (c) 2003-2022\n"
-msgstr ""
+msgstr "Капiрайт (c) 2003-2022\n"
 
 #: ../panel-plugin/uptime.c:52
 msgid "File /proc/uptime not found!"
