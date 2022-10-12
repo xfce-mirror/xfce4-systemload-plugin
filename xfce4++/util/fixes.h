@@ -25,6 +25,10 @@
 #error "Please include xfce4++/util/fixes.h before any other include directives"
 #endif
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 /* Before extern "C" */
 #include <glib.h>
 
