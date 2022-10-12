@@ -32,6 +32,7 @@
  * Adjust for missing G_BEGIN_DECLS/G_END_DECLS directives in C files
  */
 #define LIBXFCE4UTIL_INSIDE_LIBXFCE4UTIL_H
+#define _LIBXFCE4UTIL_INSIDE_LIBXFCE4UTIL_H
 extern "C" {
     #include <libxfce4util/libxfce4util-config.h>
     #if LIBXFCE4UTIL_CHECK_VERSION(4, 17, 0)
@@ -56,5 +57,6 @@ extern "C" {
     #endif
 }
 #undef LIBXFCE4UTIL_INSIDE_LIBXFCE4UTIL_H
+#undef _LIBXFCE4UTIL_INSIDE_LIBXFCE4UTIL_H
 
 #endif /* _XFCE4PP_UTIL_FIXES_H_ */
