@@ -30,9 +30,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* The fixes file has to be included before any other #include directives */
-#include "xfce4++/util/fixes.h"
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif

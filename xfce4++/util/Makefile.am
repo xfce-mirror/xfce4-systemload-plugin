@@ -30,5 +30,4 @@ libxfce4util_pp_la_LIBADD = \
 	@LIBXFCE4PANEL_LIBS@ \
 	@LIBXFCE4UTIL_LIBS@
 
-libxfce4util_pp_la_SOURCES = \
-	fixes.h
+libxfce4util_pp_la_SOURCES =

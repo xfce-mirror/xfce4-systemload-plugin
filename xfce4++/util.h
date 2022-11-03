@@ -21,8 +21,4 @@
 #ifndef _XFCE4PP_UTIL_H_
 #define _XFCE4PP_UTIL_H_
 
-#ifndef _XFCE4PP_UTIL_FIXES_H_
-#error "Please include xfce4++/util/fixes.h before any other include directives"
-#endif
-
 #endif /* _XFCE4PP_UTIL_H_ */
