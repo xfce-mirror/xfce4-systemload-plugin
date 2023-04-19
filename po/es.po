@@ -10,167 +10,166 @@
 # gabrieltandil <gabriel.tandil@gmail.com>, 2014,2016
 # gabrieltandil <gabriel.tandil@gmail.com>, 2014,2016
 # Ignacio Poggi <ignaciop.3@gmail.com>, 2020
-# prflr88 <prflr88@gmail.com>, 2017
-# prflr88 <prflr88@gmail.com>, 2013-2014
+# Pablo Lezaeta Reyes <prflr88@gmail.com>, 2017
+# Pablo Lezaeta Reyes <prflr88@gmail.com>, 2013-2014
 # Toni Estévez <toni.estevez@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-01-29 23:54+0000\n"
-"Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2021\n"
+"Language-Team: Spanish (http://app.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
 msgstr "No se ha encontrado el archivo /proc/stat."
 
-#: ../panel-plugin/systemload.c:217
+#: ../panel-plugin/systemload.cc:212
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Carga del sistema: %ld %%"
 
-#: ../panel-plugin/systemload.c:225
+#: ../panel-plugin/systemload.cc:219
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memoria: %ld MB de %ld MB en uso"
 
-#: ../panel-plugin/systemload.c:233
+#: ../panel-plugin/systemload.cc:226
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr "Red: %ld Mbit/s"
 
-#: ../panel-plugin/systemload.c:243
+#: ../panel-plugin/systemload.cc:235
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Espacio de intercambio: %ld MB de %ld MB en uso"
 
-#: ../panel-plugin/systemload.c:246
+#: ../panel-plugin/systemload.cc:237
 #, c-format
 msgid "No swap"
 msgstr "Sin espacio de intercambio"
 
-#: ../panel-plugin/systemload.c:261
+#: ../panel-plugin/systemload.cc:251
 #, c-format
 msgid "%dd"
 msgstr "%d d"
 
-#: ../panel-plugin/systemload.c:262
+#: ../panel-plugin/systemload.cc:252
 #, c-format
 msgid "%dh"
 msgstr "%d h"
 
-#: ../panel-plugin/systemload.c:263
+#: ../panel-plugin/systemload.cc:253
 #, c-format
 msgid "%dm"
 msgstr "%d m"
 
-#: ../panel-plugin/systemload.c:265
+#: ../panel-plugin/systemload.cc:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d día"
 msgstr[1] "%d días"
+msgstr[2] "%d días"
 
-#: ../panel-plugin/systemload.c:266
+#: ../panel-plugin/systemload.cc:256
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%dhora"
 msgstr[1] "%d horas"
+msgstr[2] "%d horas"
 
-#: ../panel-plugin/systemload.c:267
+#: ../panel-plugin/systemload.cc:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%dminuto"
 msgstr[1] "%d minutos"
+msgstr[2] "%d minutos"
 
-#: ../panel-plugin/systemload.c:274
+#: ../panel-plugin/systemload.cc:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr "Tiempo de actividad: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.cc:717
 msgid "Label:"
 msgstr "Etiqueta:"
 
-#: ../panel-plugin/systemload.c:759
+#: ../panel-plugin/systemload.cc:726
 msgid "Leave empty to disable the label"
 msgstr "Dejar en blanco para desactivar la etiqueta"
 
-#: ../panel-plugin/systemload.c:800
+#: ../panel-plugin/systemload.cc:762
 msgid "CPU monitor"
 msgstr "Monitor del procesador"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.cc:763
 msgid "Memory monitor"
 msgstr "Monitor de la memoria"
 
-#: ../panel-plugin/systemload.c:802
+#: ../panel-plugin/systemload.cc:764
 msgid "Network monitor"
 msgstr "Monitor de la red"
 
-#: ../panel-plugin/systemload.c:803
+#: ../panel-plugin/systemload.cc:765
 msgid "Swap monitor"
 msgstr "Monitor del espacio de intercambio"
 
-#: ../panel-plugin/systemload.c:804
+#: ../panel-plugin/systemload.cc:766
 msgid "Uptime monitor"
 msgstr "Monitor del tiempo de actividad"
 
-#: ../panel-plugin/systemload.c:815 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de la carga de sistema"
 
-#: ../panel-plugin/systemload.c:818
+#: ../panel-plugin/systemload.cc:781
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.cc:782
 msgid "_Help"
 msgstr "Ay_uda"
 
-#: ../panel-plugin/systemload.c:837
+#: ../panel-plugin/systemload.cc:800
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/systemload.c:856
+#: ../panel-plugin/systemload.cc:819
 msgid "Update interval:"
 msgstr "Intervalo de actualización:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.cc:825
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Intervalo de actualización al funcionar con la batería (si se ajusta a cero, usa el intervalo de actualización estándar)"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.cc:836
 msgid "Power-saving interval:"
 msgstr "Intervalo para ahorrar energía:"
 
-#: ../panel-plugin/systemload.c:880
+#: ../panel-plugin/systemload.cc:843
 msgid "Launched when clicking on the plugin"
 msgstr "Se ejecuta al hacer clic en el complemento"
 
-#: ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.cc:850
 msgid "System monitor:"
 msgstr "Monitor del sistema:"
 
-#: ../panel-plugin/systemload.c:925 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor del uso del procesador, del espacio de intercambio y de la memoria"
 
-#: ../panel-plugin/systemload.c:927
-msgid "Copyright (c) 2003-2022\n"
-msgstr "Copyright (c) 2003-2022\n"
-
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
 msgstr "No se ha encontrado el archivo /proc/uptime."
