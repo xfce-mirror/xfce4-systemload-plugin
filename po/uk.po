@@ -6,66 +6,66 @@
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
 # Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003
 # Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016-2018,2022
-# Andrij Mizyk <andmizyk@gmail.com>, 2021
+# f977cb811fcf66493f48eac227fd7473_b98aa5d <2419f1d8d12d92441152e78ae3e3bde0_722180>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-02-04 13:25+0000\n"
-"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2016-2018,2022\n"
+"Language-Team: Ukrainian (http://app.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
 msgstr "Файл /proc/stat не знайдено!"
 
-#: ../panel-plugin/systemload.c:217
+#: ../panel-plugin/systemload.cc:212
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Навантаження системи: %ld%%"
 
-#: ../panel-plugin/systemload.c:225
+#: ../panel-plugin/systemload.cc:219
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Пам'ять: %ldМб з %ldМб використано"
 
-#: ../panel-plugin/systemload.c:233
+#: ../panel-plugin/systemload.cc:226
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr "Мережа: %ld Мбіт/с"
 
-#: ../panel-plugin/systemload.c:243
+#: ../panel-plugin/systemload.cc:235
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Файл підкачки: %ldМб з %ldMB використано"
 
-#: ../panel-plugin/systemload.c:246
+#: ../panel-plugin/systemload.cc:237
 #, c-format
 msgid "No swap"
 msgstr "Без підкачки"
 
-#: ../panel-plugin/systemload.c:261
+#: ../panel-plugin/systemload.cc:251
 #, c-format
 msgid "%dd"
 msgstr "%dд"
 
-#: ../panel-plugin/systemload.c:262
+#: ../panel-plugin/systemload.cc:252
 #, c-format
 msgid "%dh"
 msgstr "%dг"
 
-#: ../panel-plugin/systemload.c:263
+#: ../panel-plugin/systemload.cc:253
 #, c-format
 msgid "%dm"
 msgstr "%dм"
 
-#: ../panel-plugin/systemload.c:265
+#: ../panel-plugin/systemload.cc:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -74,7 +74,7 @@ msgstr[1] "%d днів"
 msgstr[2] "%d днів"
 msgstr[3] "%d днів"
 
-#: ../panel-plugin/systemload.c:266
+#: ../panel-plugin/systemload.cc:256
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -83,7 +83,7 @@ msgstr[1] "%d година"
 msgstr[2] "%d годин"
 msgstr[3] "%d годин"
 
-#: ../panel-plugin/systemload.c:267
+#: ../panel-plugin/systemload.cc:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -92,85 +92,81 @@ msgstr[1] "%d хвилин"
 msgstr[2] "%d хвилин"
 msgstr[3] "%d хвилин"
 
-#: ../panel-plugin/systemload.c:274
+#: ../panel-plugin/systemload.cc:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr "Час роботи: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.cc:717
 msgid "Label:"
 msgstr "Мітка:"
 
-#: ../panel-plugin/systemload.c:759
+#: ../panel-plugin/systemload.cc:726
 msgid "Leave empty to disable the label"
 msgstr "Залиште порожнім, щоб вимкнути мітку"
 
-#: ../panel-plugin/systemload.c:800
+#: ../panel-plugin/systemload.cc:762
 msgid "CPU monitor"
 msgstr "Стеження за процесором"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.cc:763
 msgid "Memory monitor"
 msgstr "Стеження за пам'яттю"
 
-#: ../panel-plugin/systemload.c:802
+#: ../panel-plugin/systemload.cc:764
 msgid "Network monitor"
 msgstr "Монітор мережі"
 
-#: ../panel-plugin/systemload.c:803
+#: ../panel-plugin/systemload.cc:765
 msgid "Swap monitor"
 msgstr "Стеження за файлом підкачки"
 
-#: ../panel-plugin/systemload.c:804
+#: ../panel-plugin/systemload.cc:766
 msgid "Uptime monitor"
 msgstr "Стеження за часом роботи"
 
-#: ../panel-plugin/systemload.c:815 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Стеження за навантаженням системи"
 
-#: ../panel-plugin/systemload.c:818
+#: ../panel-plugin/systemload.cc:781
 msgid "_Close"
 msgstr "_Закрити"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.cc:782
 msgid "_Help"
 msgstr "_Допомога"
 
-#: ../panel-plugin/systemload.c:837
+#: ../panel-plugin/systemload.cc:800
 msgid "<b>General</b>"
 msgstr "<b>Загальне</b>"
 
-#: ../panel-plugin/systemload.c:856
+#: ../panel-plugin/systemload.cc:819
 msgid "Update interval:"
 msgstr "Інтервал оновлення:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.cc:825
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Інтервал оновлення під час праці на акумуляторі (використовується звичайний інтервал, якщо вписаний нуль)"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.cc:836
 msgid "Power-saving interval:"
 msgstr "Інтервал збереження енергії:"
 
-#: ../panel-plugin/systemload.c:880
+#: ../panel-plugin/systemload.cc:843
 msgid "Launched when clicking on the plugin"
 msgstr "Запускається при клацанні на плагін"
 
-#: ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.cc:850
 msgid "System monitor:"
 msgstr "Монітор системи:"
 
-#: ../panel-plugin/systemload.c:925 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Стежити за навантаженням процесора, використанням файлу підкачки і основною пам'яттю"
 
-#: ../panel-plugin/systemload.c:927
-msgid "Copyright (c) 2003-2022\n"
-msgstr "Всі права застережено (c) 2003-2022\n"
-
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
 msgstr "Файл /proc/uptime не знайдено!"
