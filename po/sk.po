@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Dušan Kazik <prescott66@gmail.com>, 2016-2017
-# Jan Ziak <0xe2.0x9a.0x9b@gmail.com>, 2021
+# 785411ef824cced88d3e197f5af1b61a_da6a977 <e5fae5b35c0c625157d991b31e113de3_956341>, 2021
 # Jose Riha <jose1711@gmail.com>, 2019
 # Michal Löffler <lofflermichalloffler@gmail.com>, 2010
 # Slavko <linux@slavino.sk>, 2015
@@ -13,61 +13,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-01-29 23:54+0000\n"
-"Last-Translator: Jan Ziak <0xe2.0x9a.0x9b@gmail.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: 785411ef824cced88d3e197f5af1b61a_da6a977 <e5fae5b35c0c625157d991b31e113de3_956341>, 2021\n"
+"Language-Team: Slovak (http://app.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
 msgstr "Súbor /proc/stat nebol nájdený!"
 
-#: ../panel-plugin/systemload.c:217
+#: ../panel-plugin/systemload.cc:212
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Vyťaženie systému: %ld%%"
 
-#: ../panel-plugin/systemload.c:225
+#: ../panel-plugin/systemload.cc:219
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Pamäť: %ldMB z %ldMB použitých"
 
-#: ../panel-plugin/systemload.c:233
+#: ../panel-plugin/systemload.cc:226
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr "Sieť: %ld Mbit/s"
 
-#: ../panel-plugin/systemload.c:243
+#: ../panel-plugin/systemload.cc:235
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Swap: %ldMB z %ldMB použitých"
 
-#: ../panel-plugin/systemload.c:246
+#: ../panel-plugin/systemload.cc:237
 #, c-format
 msgid "No swap"
 msgstr "Bez swap oddielu"
 
-#: ../panel-plugin/systemload.c:261
+#: ../panel-plugin/systemload.cc:251
 #, c-format
 msgid "%dd"
 msgstr "%dd"
 
-#: ../panel-plugin/systemload.c:262
+#: ../panel-plugin/systemload.cc:252
 #, c-format
 msgid "%dh"
 msgstr "%dh"
 
-#: ../panel-plugin/systemload.c:263
+#: ../panel-plugin/systemload.cc:253
 #, c-format
 msgid "%dm"
 msgstr "%dm"
 
-#: ../panel-plugin/systemload.c:265
+#: ../panel-plugin/systemload.cc:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
@@ -76,7 +76,7 @@ msgstr[1] "%d dni"
 msgstr[2] "%d dní"
 msgstr[3] "%d dní"
 
-#: ../panel-plugin/systemload.c:266
+#: ../panel-plugin/systemload.cc:256
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -85,7 +85,7 @@ msgstr[1] "%d hodiny"
 msgstr[2] "%d hodín"
 msgstr[3] "%d hodín"
 
-#: ../panel-plugin/systemload.c:267
+#: ../panel-plugin/systemload.cc:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -94,85 +94,81 @@ msgstr[1] "%d minúty"
 msgstr[2] "%d minút"
 msgstr[3] "%d minút"
 
-#: ../panel-plugin/systemload.c:274
+#: ../panel-plugin/systemload.cc:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr "Doba prevádzky: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.cc:717
 msgid "Label:"
 msgstr "Menovka:"
 
-#: ../panel-plugin/systemload.c:759
+#: ../panel-plugin/systemload.cc:726
 msgid "Leave empty to disable the label"
 msgstr "Ak chcete menovku deaktivovať, nechajte pole prázdne"
 
-#: ../panel-plugin/systemload.c:800
+#: ../panel-plugin/systemload.cc:762
 msgid "CPU monitor"
 msgstr "Sledovanie procesoru"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.cc:763
 msgid "Memory monitor"
 msgstr "Sledovanie pamäte"
 
-#: ../panel-plugin/systemload.c:802
+#: ../panel-plugin/systemload.cc:764
 msgid "Network monitor"
 msgstr "Sledovanie siete"
 
-#: ../panel-plugin/systemload.c:803
+#: ../panel-plugin/systemload.cc:765
 msgid "Swap monitor"
 msgstr "Sledovanie swap partície"
 
-#: ../panel-plugin/systemload.c:804
+#: ../panel-plugin/systemload.cc:766
 msgid "Uptime monitor"
 msgstr "Sledovanie doby prevádzky počítača"
 
-#: ../panel-plugin/systemload.c:815 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Sledovanie vyťaženia systému"
 
-#: ../panel-plugin/systemload.c:818
+#: ../panel-plugin/systemload.cc:781
 msgid "_Close"
 msgstr "_Zatvoriť"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.cc:782
 msgid "_Help"
 msgstr "_Pomocník"
 
-#: ../panel-plugin/systemload.c:837
+#: ../panel-plugin/systemload.cc:800
 msgid "<b>General</b>"
 msgstr "<b>Všeobecné</b>"
 
-#: ../panel-plugin/systemload.c:856
+#: ../panel-plugin/systemload.cc:819
 msgid "Update interval:"
 msgstr "Interval aktualizácie:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.cc:825
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Interval aktualizácie pri napájaní z batérie (ak je nastavený na nulu, použije sa bežný interval)"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.cc:836
 msgid "Power-saving interval:"
 msgstr "Interval úspory energie:"
 
-#: ../panel-plugin/systemload.c:880
+#: ../panel-plugin/systemload.cc:843
 msgid "Launched when clicking on the plugin"
 msgstr "Spustí sa po kliknutí na zásuvný modul"
 
-#: ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.cc:850
 msgid "System monitor:"
 msgstr "Monitor systému:"
 
-#: ../panel-plugin/systemload.c:925 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Sleduje vyťaženie procesoru, využitia swap oddielu a pamäte"
 
-#: ../panel-plugin/systemload.c:927
-msgid "Copyright (c) 2003-2022\n"
-msgstr "Autorské práva © 2003-2022\n"
-
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
 msgstr "Súbor /proc/uptime nebol nájdený!"
