@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andi Chandler <andi@gowling.com>, 2023
 # Jeff Bailes <thepizzaking@gmail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 15:08+0100\n"
+"POT-Creation-Date: 2023-04-19 01:17+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: Jeff Bailes <thepizzaking@gmail.com>, 2007\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2023\n"
 "Language-Team: English (United Kingdom) (http://app.transifex.com/xfce/xfce-panel-plugins/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgstr "Memory: %ldMB of %ldMB used"
 #: ../panel-plugin/systemload.cc:226
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Network: %ld Mbit/s"
 
 #: ../panel-plugin/systemload.cc:235
 #, c-format
@@ -50,17 +51,17 @@ msgstr "No swap"
 #: ../panel-plugin/systemload.cc:251
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%dd"
 
 #: ../panel-plugin/systemload.cc:252
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%dh"
 
 #: ../panel-plugin/systemload.cc:253
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%dm"
 
 #: ../panel-plugin/systemload.cc:255
 #, c-format
@@ -86,7 +87,7 @@ msgstr[1] "%d minutes"
 #: ../panel-plugin/systemload.cc:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Uptime: %s, %s, %s"
 
 #: ../panel-plugin/systemload.cc:717
 msgid "Label:"
@@ -94,7 +95,7 @@ msgstr "Label:"
 
 #: ../panel-plugin/systemload.cc:726
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Leave empty to disable the label"
 
 #: ../panel-plugin/systemload.cc:762
 msgid "CPU monitor"
@@ -106,7 +107,7 @@ msgstr "Memory monitor"
 
 #: ../panel-plugin/systemload.cc:764
 msgid "Network monitor"
-msgstr ""
+msgstr "Network monitor"
 
 #: ../panel-plugin/systemload.cc:765
 msgid "Swap monitor"
@@ -130,7 +131,7 @@ msgstr "_Help"
 
 #: ../panel-plugin/systemload.cc:800
 msgid "<b>General</b>"
-msgstr ""
+msgstr "<b>General</b>"
 
 #: ../panel-plugin/systemload.cc:819
 msgid "Update interval:"
@@ -140,7 +141,7 @@ msgstr "Update interval:"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Update interval when running on battery (uses regular update interval if set to zero)"
 
 #: ../panel-plugin/systemload.cc:836
 msgid "Power-saving interval:"
@@ -148,19 +149,15 @@ msgstr "Power-saving interval:"
 
 #: ../panel-plugin/systemload.cc:843
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "Launched when clicking on the plugin"
 
 #: ../panel-plugin/systemload.cc:850
 msgid "System monitor:"
-msgstr ""
+msgstr "System monitor:"
 
 #: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitor CPU load, swap usage and memory footprint"
-
-#: ../panel-plugin/systemload.cc:890
-msgid "Copyright (c) 2003-2022\n"
-msgstr ""
 
 #: ../panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
