@@ -224,7 +224,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
   g_object_class_install_property (gobject_class,
                                    PROP_TIMEOUT_SECONDS,
                                    g_param_spec_uint ("timeout-seconds", NULL, NULL,
-                                                      1, 10, DEFAULT_TIMEOUT_SECONDS,
+                                                      0, 10, DEFAULT_TIMEOUT_SECONDS,
                                                       GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
