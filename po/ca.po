@@ -5,166 +5,163 @@
 # Translators:
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2003,2012
 # Davidmp <medipas@gmail.com>, 2016
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017,2020
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
+# Oscar Perez <oscarpc@gmail.com>, 2023
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2017,2020
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-30 00:54+0100\n"
-"PO-Revision-Date: 2022-01-29 23:54+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
+"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: Oscar Perez <oscarpc@gmail.com>, 2023\n"
+"Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cpu.c:63
+#: ../panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
 msgstr "No s'ha trobat el fitxer «/proc/stat»!"
 
-#: ../panel-plugin/systemload.c:217
+#: ../panel-plugin/systemload.cc:212
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Càrrega del sistema: %ld%%"
 
-#: ../panel-plugin/systemload.c:225
+#: ../panel-plugin/systemload.cc:219
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "Memòria: %ld MB de %ld MB utilitzades"
 
-#: ../panel-plugin/systemload.c:233
+#: ../panel-plugin/systemload.cc:226
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Xarxa: %ld Mbit/s"
 
-#: ../panel-plugin/systemload.c:243
+#: ../panel-plugin/systemload.cc:235
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "Memòria d'intercanvi: %ld MB de %ld MB utilitzades"
 
-#: ../panel-plugin/systemload.c:246
+#: ../panel-plugin/systemload.cc:237
 #, c-format
 msgid "No swap"
 msgstr "Sense memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:261
+#: ../panel-plugin/systemload.cc:251
 #, c-format
 msgid "%dd"
-msgstr ""
+msgstr "%dd"
 
-#: ../panel-plugin/systemload.c:262
+#: ../panel-plugin/systemload.cc:252
 #, c-format
 msgid "%dh"
-msgstr ""
+msgstr "%dh"
 
-#: ../panel-plugin/systemload.c:263
+#: ../panel-plugin/systemload.cc:253
 #, c-format
 msgid "%dm"
-msgstr ""
+msgstr "%dm"
 
-#: ../panel-plugin/systemload.c:265
+#: ../panel-plugin/systemload.cc:255
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d dia"
 msgstr[1] "%d dies"
 
-#: ../panel-plugin/systemload.c:266
+#: ../panel-plugin/systemload.cc:256
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hora"
+msgstr[1] "%d hores"
 
-#: ../panel-plugin/systemload.c:267
+#: ../panel-plugin/systemload.cc:257
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minut"
+msgstr[1] "%d minuts"
 
-#: ../panel-plugin/systemload.c:274
+#: ../panel-plugin/systemload.cc:264
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Temps de funcionament: %s, %s, %s"
 
-#: ../panel-plugin/systemload.c:750
+#: ../panel-plugin/systemload.cc:717
 msgid "Label:"
 msgstr "Etiqueta:"
 
-#: ../panel-plugin/systemload.c:759
+#: ../panel-plugin/systemload.cc:726
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Deixeu-ho buit per a desactivar l'etiqueta"
 
-#: ../panel-plugin/systemload.c:800
+#: ../panel-plugin/systemload.cc:762
 msgid "CPU monitor"
 msgstr "Monitor de la CPU"
 
-#: ../panel-plugin/systemload.c:801
+#: ../panel-plugin/systemload.cc:763
 msgid "Memory monitor"
 msgstr "Monitor de la memòria"
 
-#: ../panel-plugin/systemload.c:802
+#: ../panel-plugin/systemload.cc:764
 msgid "Network monitor"
-msgstr ""
+msgstr "Monitor de xarxa"
 
-#: ../panel-plugin/systemload.c:803
+#: ../panel-plugin/systemload.cc:765
 msgid "Swap monitor"
 msgstr "Monitor de la memòria d'intercanvi"
 
-#: ../panel-plugin/systemload.c:804
+#: ../panel-plugin/systemload.cc:766
 msgid "Uptime monitor"
 msgstr "Monitor del temps en funcionament"
 
-#: ../panel-plugin/systemload.c:815 ../panel-plugin/systemload.desktop.in.h:1
+#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
 msgid "System Load Monitor"
 msgstr "Monitor de la càrrega del sistema"
 
-#: ../panel-plugin/systemload.c:818
+#: ../panel-plugin/systemload.cc:781
 msgid "_Close"
 msgstr "Tan_ca"
 
-#: ../panel-plugin/systemload.c:819
+#: ../panel-plugin/systemload.cc:782
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: ../panel-plugin/systemload.c:837
+#: ../panel-plugin/systemload.cc:800
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../panel-plugin/systemload.c:856
+#: ../panel-plugin/systemload.cc:819
 msgid "Update interval:"
 msgstr "Interval d'actualització:"
 
-#: ../panel-plugin/systemload.c:862
+#: ../panel-plugin/systemload.cc:825
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "Interval d'actualització quan funciona amb la bateria (s'utilitza l'interval d'actualització comú si s'estableix a zero)"
 
-#: ../panel-plugin/systemload.c:873
+#: ../panel-plugin/systemload.cc:836
 msgid "Power-saving interval:"
 msgstr "Interval d'estalvi d'energia:"
 
-#: ../panel-plugin/systemload.c:880
+#: ../panel-plugin/systemload.cc:843
 msgid "Launched when clicking on the plugin"
 msgstr "Es llança en fer clic al connector"
 
-#: ../panel-plugin/systemload.c:887
+#: ../panel-plugin/systemload.cc:850
 msgid "System monitor:"
 msgstr "Monitor del sistema:"
 
-#: ../panel-plugin/systemload.c:925 ../panel-plugin/systemload.desktop.in.h:2
+#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "Monitora la càrrega de la CPU, l'ús de la memòria d'intercanvi i l'empremta de la memòria"
 
-#: ../panel-plugin/systemload.c:927
-msgid "Copyright (c) 2003-2022\n"
-msgstr ""
-
-#: ../panel-plugin/uptime.c:52
+#: ../panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
 msgstr "No s'ha trobat el fitxer «/proc/uptime»!"
