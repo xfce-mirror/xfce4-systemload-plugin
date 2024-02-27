@@ -50,7 +50,7 @@ msgstr "Swap: utilizzati %ldMB su %ldMB"
 #: ../panel-plugin/systemload.cc:237
 #, c-format
 msgid "No swap"
-msgstr "Swap nulla"
+msgstr "Nessuna swap"
 
 #: ../panel-plugin/systemload.cc:251
 #, c-format
