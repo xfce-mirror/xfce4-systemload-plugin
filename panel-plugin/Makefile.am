@@ -53,7 +53,8 @@ libsystemload_la_LDFLAGS = \
 #
 desktopdir = $(datadir)/xfce4/panel/plugins
 desktop_DATA = systemload.desktop
-@INTLTOOL_DESKTOP_RULE@
+systemload.desktop: systemload.desktop.in Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = systemload.desktop.in
 
