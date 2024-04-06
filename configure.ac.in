@@ -34,7 +34,6 @@ AC_PROG_CXX()
 LT_PATH_LD([])
 AC_PROG_INSTALL
 AX_CXX_COMPILE_STDCXX_11()
-IT_PROG_INTLTOOL([0.35.0])
 
 dnl Disable static libs
 LT_PREREQ([2.2.6])
@@ -44,7 +43,11 @@ dnl Check for kvm, needed for BSD
 AC_CHECK_LIB([kvm], [kvm_open])
 
 dnl Check for i18n support
-XDT_I18N([@LINGUAS@])
+GETTEXT_PACKAGE="$PACKAGE"
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Name of default gettext domain])
+AC_SUBST([GETTEXT_PACKAGE])
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.8])
 
 dnl Check for required packages
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.50.0])
