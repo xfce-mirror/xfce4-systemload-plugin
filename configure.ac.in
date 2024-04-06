@@ -39,6 +39,9 @@ dnl Disable static libs
 LT_PREREQ([2.2.6])
 LT_INIT([disable-static])
 
+dnl Check for standard headers
+AC_CHECK_HEADERS([sys/time.h])
+
 dnl Check for kvm, needed for BSD
 AC_CHECK_LIB([kvm], [kvm_open])
 
