@@ -34,7 +34,8 @@
 #include "network.h"
 
 #ifdef HAVE_LIBGTOP
-
+/* Defined by obsoleted AC_HEADER_TIME macro, wanted by libgtop */
+#define TIME_WITH_SYS_TIME 1
 #include <glibtop/netlist.h>
 #include <glibtop/netload.h>
 
