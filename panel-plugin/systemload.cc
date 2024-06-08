@@ -847,7 +847,7 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     g_signal_connect (G_OBJECT(entry), "changed",
                       G_CALLBACK(command_entry_changed_cb), global);
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
-    label = new_label (GTK_GRID (grid), 3, _("System monitor:"), entry);
+    new_label (GTK_GRID (grid), 3, _("System monitor:"), entry);
 
     /* Add options for the monitors */
     for(gsize i = 0; i < G_N_ELEMENTS (global->monitor); i++)
