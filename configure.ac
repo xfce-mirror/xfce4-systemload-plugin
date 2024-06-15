@@ -7,18 +7,12 @@ dnl 2012, 2014, 2016 Landry Breuil <landry@xfce.org>
 dnl
 
 dnl Version information
-m4_define([systemload_version_major], [1])
-m4_define([systemload_version_minor], [3])
-m4_define([systemload_version_micro], [2])
-m4_define([systemload_version_build], [@REVISION@])
-m4_define([systemload_version_tag], [git])
-m4_define([systemload_version], [systemload_version_major().systemload_version_minor().systemload_version_micro()ifelse(systemload_version_tag(), [git], [systemload_version_tag()-systemload_version_build()], [systemload_version_tag()])])
-
-m4_define([systemload_debug_default], [ifelse(systemload_version_tag(), [git], [yes], [minimum])])
+XDT_VERSION_INIT([1.3.2], [git])
 
 dnl Initialize autoconf
 AC_COPYRIGHT([Copyright (c) 2003-2023 The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-systemload-plugin], [systemload_version], [https://gitlab.xfce.org/panel-plugins/xfce4-systemload-plugin/], [xfce4-systemload-plugin])
+AC_INIT([xfce4-systemload-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-systemload-plugin/], [xfce4-systemload-plugin])
+AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
 
@@ -66,7 +60,7 @@ XDT_CHECK_OPTIONAL_PACKAGE([UPOWER_GLIB], [upower-glib], [0.9.0], [upower],
                            [upower for adapting update interval to power state])
 
 dnl Check for debugging support
-XDT_FEATURE_DEBUG([systemload_debug_default])
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 AC_CONFIG_FILES([
 Makefile
