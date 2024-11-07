@@ -6,15 +6,6 @@ SUBDIRS = \
 	po \
 	icons
 
-if DARWIN
-# Darwin cctools ar cannot archive nothing, since xfce4++ contains nothing
-SUBDIRS +=
-else
-SUBDIRS += \
-	xfce4++ \
-	xfce4++/util
-endif
-
 distclean-local:
 	rm -rf *.cache *~
 
