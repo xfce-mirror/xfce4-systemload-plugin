@@ -18,7 +18,6 @@ libsystemload_la_CFLAGS = \
 libsystemload_la_CXXFLAGS = $(libsystemload_la_CFLAGS)
 
 libsystemload_la_LIBADD = \
-	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
 	$(LIBXFCE4UI_LIBS) \
 	$(LIBXFCE4PANEL_LIBS) \
 	$(XFCONF_LIBS) \
