@@ -49,6 +49,10 @@
 #include <upower.h>
 #endif
 
+#ifdef HAVE_LIBGTOP
+#include <glibtop.h>
+#endif
+
 #include "cpu.h"
 #include "memswap.h"
 #include "network.h"
@@ -895,6 +899,11 @@ void
 systemload_construct (XfcePanelPlugin *plugin)
 {
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
+#ifdef HAVE_LIBGTOP
+    /* Consider add glibtop_close() somewhere */
+    glibtop_init();
+#endif
 
     t_global_monitor *global = monitor_control_new (plugin);
 
