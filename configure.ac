@@ -15,7 +15,6 @@ AC_INIT([xfce4-systemload-plugin], [xdt_version], [https://gitlab.xfce.org/panel
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
-AC_CANONICAL_TARGET()
 
 dnl Initialize automake
 AM_INIT_AUTOMAKE([1.8 dist-bzip2 tar-ustar no-dist-gzip foreign])
@@ -47,15 +46,6 @@ AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Name of default get
 AC_SUBST([GETTEXT_PACKAGE])
 AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.19.8])
-
-dnl Check if targeting Darwin
-case "$target_os" in
-    darwin*)
-        target_impl="darwin"
-    ;;
-esac
-
-AM_CONDITIONAL([DARWIN], [test x"$target_impl" = x"darwin"])
 
 dnl Check for required packages
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.50.0])
