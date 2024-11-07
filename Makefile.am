@@ -2,11 +2,18 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 # Note: The order of directories in this list isn't arbitrary
 SUBDIRS = \
-	xfce4++ \
-	xfce4++/util \
 	panel-plugin \
 	po \
 	icons
+
+if DARWIN
+# Darwin cctools ar cannot archive nothing, since xfce4++ contains nothing
+SUBDIRS +=
+else
+SUBDIRS += \
+	xfce4++ \
+	xfce4++/util
+endif
 
 distclean-local:
 	rm -rf *.cache *~
