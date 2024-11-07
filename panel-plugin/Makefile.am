@@ -25,10 +25,6 @@ libsystemload_la_LIBADD = \
 	$(UPOWER_GLIB_LIBS) \
 	-lm
 
-if !DARWIN
-libsystemload_la_LIBADD += $(top_builddir)/xfce4++/util/libxfce4util_pp.la
-endif
-
 libsystemload_la_SOURCES = \
 	cpu.cc \
 	cpu.h \
