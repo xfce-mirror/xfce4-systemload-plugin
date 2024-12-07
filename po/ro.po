@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024\n"
+"Language-Team: Romanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#: ../panel-plugin/cpu.cc:59
+msgid "File /proc/stat not found!"
+msgstr "Fișierul „/proc/stat” nu a fost găsit!"
+
+#: ../panel-plugin/systemload.cc:212
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "Încărcarea sistemului: %ld%%"
+
+#: ../panel-plugin/systemload.cc:219
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "Memorie fizică: %ldMo din %ldMo utilizată"
+
+#: ../panel-plugin/systemload.cc:226
+#, c-format
+msgid "Network: %ld Mbit/s"
+msgstr "Rețea: %ld Mbit/s"
+
+#: ../panel-plugin/systemload.cc:235
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Memorie swap: %ldMo din %ldMo utilizată"
+
+#: ../panel-plugin/systemload.cc:237
+#, c-format
+msgid "No swap"
+msgstr "Fără memorie swap"
+
+#: ../panel-plugin/systemload.cc:251
+#, c-format
+msgid "%dd"
+msgstr "%dz"
+
+#: ../panel-plugin/systemload.cc:252
+#, c-format
+msgid "%dh"
+msgstr "%do"
+
+#: ../panel-plugin/systemload.cc:253
+#, c-format
+msgid "%dm"
+msgstr "%dm"
+
+#: ../panel-plugin/systemload.cc:255
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d zi"
+msgstr[1] "%d zile"
+msgstr[2] "%d de zile"
+
+#: ../panel-plugin/systemload.cc:256
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d oră"
+msgstr[1] "%d ore"
+msgstr[2] "%d de ore"
+
+#: ../panel-plugin/systemload.cc:257
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minute"
+msgstr[2] "%d de minute"
+
+#: ../panel-plugin/systemload.cc:264
+#, c-format
+msgid "Uptime: %s, %s, %s"
+msgstr "Timp de funcționare: %s, %s, %s"
+
+#: ../panel-plugin/systemload.cc:717
+msgid "Label:"
+msgstr "Etichetă:"
+
+#: ../panel-plugin/systemload.cc:726
+msgid "Leave empty to disable the label"
+msgstr "Lăsați câmpul gol pentru a dezactiva eticheta"
+
+#: ../panel-plugin/systemload.cc:762
+msgid "CPU monitor"
+msgstr "Monitor de CPU"
+
+#: ../panel-plugin/systemload.cc:763
+msgid "Memory monitor"
+msgstr "Monitor de memorie fizică"
+
+#: ../panel-plugin/systemload.cc:764
+msgid "Network monitor"
+msgstr "Monitor de rețea"
+
+#: ../panel-plugin/systemload.cc:765
+msgid "Swap monitor"
+msgstr "Monitor de memorie swap"
+
+#: ../panel-plugin/systemload.cc:766
+msgid "Uptime monitor"
+msgstr "Monitor al timpului de funcționare"
+
+#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
+msgid "System Load Monitor"
+msgstr "Monitor al stării de încărcare a sistemului"
+
+#: ../panel-plugin/systemload.cc:781
+msgid "_Close"
+msgstr "În_chide"
+
+#: ../panel-plugin/systemload.cc:782
+msgid "_Help"
+msgstr "_Ajutor"
+
+#: ../panel-plugin/systemload.cc:800
+msgid "<b>General</b>"
+msgstr "<b>General</b>"
+
+#: ../panel-plugin/systemload.cc:819
+msgid "Update interval:"
+msgstr "Intervalul de actualizare:"
+
+#: ../panel-plugin/systemload.cc:825
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "Intervalul de actualizare atunci când funcționează pe baterie (utilizează intervalul de actualizare obișnuit dacă este definit la zero)"
+
+#: ../panel-plugin/systemload.cc:836
+msgid "Power-saving interval:"
+msgstr "Intervalul de economisire a energiei:"
+
+#: ../panel-plugin/systemload.cc:843
+msgid "Launched when clicking on the plugin"
+msgstr "Lansat atunci când faceți clic pe modul"
+
+#: ../panel-plugin/systemload.cc:850
+msgid "System monitor:"
+msgstr "Monitor de sistem:"
+
+#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "Monitorizează încărcarea CPU-ului, utilizarea memoriei swap și a memoriei fizice"
+
+#: ../panel-plugin/uptime.cc:50
+msgid "File /proc/uptime not found!"
+msgstr "Fișierul „/proc/uptime” nu a fost găsit!"
