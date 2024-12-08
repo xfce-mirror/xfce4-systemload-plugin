@@ -466,6 +466,96 @@ gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST,
     return 0;
 }
 
+#elif defined(__APPLE__)
+/*
+ * Darwin defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
+#endif
+
+#include <fcntl.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/param.h>
+#include <sys/sysctl.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <mach/mach.h>
+
+static size_t MTotal = 0;
+static size_t MFree = 0;
+static size_t MUsed = 0;
+static size_t STotal = 0;
+static size_t SFree = 0;
+static size_t SUsed = 0;
+
+gint read_memswap(gulong *mem, gulong *swap, gulong *MT, gulong *MU, gulong *ST, gulong *SU)
+{
+    size_t len;
+    vm_size_t vm_pagesize;
+
+#define ARRLEN(X) (sizeof(X)/sizeof(X[0]))
+    /* hw.memsize won't change, avoid getting multiple times */
+    if (MTotal == 0)
+    {
+        static int mib[] = { CTL_HW, HW_MEMSIZE };
+        int64_t x;
+        len = sizeof(x);
+        sysctl(mib, ARRLEN(mib), &x, &len, NULL, 0);
+        MTotal = x >> 10;
+    }
+
+    {
+        struct xsw_usage x;
+        static int mib[] = { CTL_VM, VM_SWAPUSAGE };
+        len = sizeof(x);
+        STotal = SUsed = SFree = -1;
+        if (-1 < sysctl(mib, ARRLEN(mib), &x, &len, NULL, 0)) {
+            STotal = x.xsu_total >> 10;
+            SUsed = x.xsu_used >> 10;
+            SFree = x.xsu_avail >> 10;
+        }
+    }
+
+    {
+        vm_statistics64_data_t x;
+        mach_msg_type_number_t vm_count = HOST_VM_INFO64_COUNT;
+        MFree = MUsed = -1;
+        host_page_size(mach_host_self(), &vm_pagesize);
+        if (host_statistics64(mach_host_self(), HOST_VM_INFO64, (host_info_t)&x, &vm_count) == KERN_SUCCESS) {
+            if (MTotal != 0) {
+                /* When PhysMem is available, calculate free memory by substracting used VirtMem */
+                MUsed = ((x.internal_page_count - x.purgeable_count + x.wire_count + x.compressor_page_count) * vm_pagesize) >> 10;
+                MFree = MTotal - MUsed;
+            } else {
+                /* otherwise, we can only know how much VirtMem freed */
+                MFree = (x.free_count * vm_pagesize) >> 10;
+                MUsed = ((x.wire_count + x.inactive_count + x.active_count + x.compressor_page_count) * vm_pagesize) >> 10;
+            }
+        }
+    }
+
+    *mem = MUsed * 100 / MTotal;
+    if(STotal)
+        *swap = SUsed * 100 / STotal;
+    else
+        *swap = 0;
+
+    /* Return MT without affecting MTotal */
+    *MT = (MTotal == 0) ? (MFree + MUsed) : MTotal;
+    *MU = MUsed;
+    *ST = STotal;
+    *SU = SUsed;
+
+    return 0;
+}
+
 #elif defined (__sun__)
 
 #include <sys/stat.h>

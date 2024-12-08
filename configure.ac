@@ -72,7 +72,5 @@ icons/128x128/Makefile
 icons/scalable/Makefile
 panel-plugin/Makefile
 po/Makefile.in
-xfce4++/Makefile
-xfce4++/util/Makefile
 ])
 AC_OUTPUT

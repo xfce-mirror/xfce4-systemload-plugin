@@ -59,11 +59,11 @@ gulong read_uptime()
     return uptime;
 }
 
-#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__DragonFly__)
+#elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__DragonFly__) || defined(__APPLE__)
 
-#ifdef __NetBSD__
+#if defined(__NetBSD__) || defined(__APPLE__)
 /*
- * NetBSD defines MAX and MIN in sys/param.h, so undef the glib macros first
+ * NetBSD and Darwin defines MAX and MIN in sys/param.h, so undef the glib macros first
  */
 #ifdef MAX
 #undef MAX
@@ -71,7 +71,7 @@ gulong read_uptime()
 #ifdef MIN
 #undef MIN
 #endif
-#endif /* !__NetBSD__ */
+#endif /* !__NetBSD__ && !__APPLE__ */
 
 #include <fcntl.h>
 #include <limits.h>
