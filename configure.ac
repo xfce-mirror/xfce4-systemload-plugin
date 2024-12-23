@@ -53,10 +53,10 @@ XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.22.0])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.16.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.16.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.17.2])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.14.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.16.0])
 XDT_CHECK_OPTIONAL_PACKAGE([LIBGTOP], [libgtop-2.0], [2.32.0], [libgtop],
                            [libgtop for network utilization monitoring])
-XDT_CHECK_OPTIONAL_PACKAGE([UPOWER_GLIB], [upower-glib], [0.9.0], [upower],
+XDT_CHECK_OPTIONAL_PACKAGE([UPOWER_GLIB], [upower-glib], [0.99.0], [upower],
                            [upower for adapting update interval to power state])
 
 dnl Check for debugging support

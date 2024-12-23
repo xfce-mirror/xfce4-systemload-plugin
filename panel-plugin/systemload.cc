@@ -116,9 +116,9 @@ static bool
 spawn_system_monitor(GtkWidget *w, t_global_monitor *global)
 {
     // Spawn defined command; In-terminal: false, Startup-notify: false
-    return xfce_spawn_command_line_on_screen(gdk_screen_get_default(),
-                                             global->command.command_text,
-                                             FALSE, FALSE, NULL);
+    return xfce_spawn_command_line(gdk_screen_get_default(),
+                                   global->command.command_text,
+                                   FALSE, FALSE, TRUE, NULL);
 }
 
 static gboolean
@@ -308,7 +308,6 @@ create_monitor (t_global_monitor *global)
         m->label = gtk_label_new (systemload_config_get_label (config, monitor));
 
         m->status = GTK_WIDGET(gtk_progress_bar_new());
-#if GTK_CHECK_VERSION (3, 16, 0)
         GtkCssProvider *css_provider = gtk_css_provider_new ();
         gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (m->status))),
@@ -321,7 +320,6 @@ create_monitor (t_global_monitor *global)
             progressbar.vertical progress { min-width: 4px; }",
              -1, NULL);
         g_object_set_data(G_OBJECT(m->status), "css_provider", css_provider);
-#endif
 
         m->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
 
@@ -509,25 +507,15 @@ setup_monitors(t_global_monitor *global)
         color = systemload_config_get_color (config, monitor);
         if (G_LIKELY (color != NULL))
         {
-#if GTK_CHECK_VERSION (3, 16, 0)
             gchar *color_str = gdk_rgba_to_string(color);
             gchar *css;
-#if GTK_CHECK_VERSION (3, 20, 0)
             css = g_strdup_printf("progressbar progress { background-color: %s; background-image: none; border-color: %s; }",
                                   color_str, color_str);
-#else
-            css = g_strdup_printf(".progressbar progress { background-color: %s; background-image: none; }", color);
-#endif
             gtk_css_provider_load_from_data (
                 (GtkCssProvider*) g_object_get_data(G_OBJECT(m->status), "css_provider"),
                 css, strlen(css), NULL);
             g_free(color_str);
             g_free(css);
-#else
-            gtk_widget_override_background_color(m->status, GTK_STATE_FLAG_PRELIGHT, color);
-            gtk_widget_override_background_color(m->status, GTK_STATE_FLAG_SELECTED, color);
-            gtk_widget_override_color(m->status, GTK_STATE_FLAG_SELECTED, color);
-#endif
         }
 
         if (systemload_config_get_enabled (config, monitor))
@@ -600,11 +588,7 @@ monitor_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode, t_global_mo
 
 #ifdef HAVE_UPOWER_GLIB
 static void
-#if UP_CHECK_VERSION(0, 99, 0)
 upower_changed_cb(UpClient *client, GParamSpec *pspec, t_global_monitor *global)
-#else /* UP_CHECK_VERSION < 0.99 */
-upower_changed_cb(UpClient *client, t_global_monitor *global)
-#endif /* UP_CHECK_VERSION */
 {
     setup_timer(global);
 }
@@ -918,11 +902,7 @@ systemload_construct (XfcePanelPlugin *plugin)
 
 #ifdef HAVE_UPOWER_GLIB
     if (global->upower) {
-#if UP_CHECK_VERSION(0, 99, 0)
         g_signal_connect (global->upower, "notify", G_CALLBACK(upower_changed_cb), global);
-#else /* UP_CHECK_VERSION < 0.99 */
-        g_signal_connect (global->upower, "changed", G_CALLBACK(upower_changed_cb), global);
-#endif /* UP_CHECK_VERSION */
     }
 #endif /* HAVE_UPOWER_GLIB */
 
