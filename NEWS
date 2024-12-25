@@ -1,3 +1,33 @@
+1.3.3 (2024-12-25)
+=====
+- Introduce Darwin support
+- Update copyright year
+- build: Bump dependency versions and fix deprecation warnings
+- I18n: Update po/LINGUAS list
+- Fix BSD `glibtop_get_netload: Function not implemented` error
+- scan-build: Fix false positive file
+- scan-build: Add false positive file
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- scan-build: Fix deadcode.DeadStores
+- network.cc: Fix -Wundef
+- I18n: Update po/LINGUAS list
+- build: Get rid of intltool
+- Add 24px icon, cleanup SVG metadata
+- Fix timeout-seconds min value (Fixes #29)
+- build: Fix failure due to wrong var type (Fixes #25)
+- Update copyright year
+- build: Add GLib requirement
+- Translation Updates:
+  Albanian, Arabic, Basque, Belarusian, Bulgarian, Catalan, Chinese
+  (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch, Eastern
+  Armenian, English (Australia), English (Canada), English (United
+  Kingdom), Estonian, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Korean, Latvian, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish,
+  Ukrainian, Urdu, Urdu (Pakistan), Uyghur
+
 1.3.2 (2022-11-03)
 =====
 - Remove code obsoleted by libxfce4util-4.17.2
