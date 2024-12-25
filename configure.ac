@@ -7,7 +7,7 @@ dnl 2012, 2014, 2016 Landry Breuil <landry@xfce.org>
 dnl
 
 dnl Version information
-XDT_VERSION_INIT([1.3.3])
+XDT_VERSION_INIT([1.3.3], [git])
 
 dnl Initialize autoconf
 AC_COPYRIGHT([Copyright (c) 2003-2024 The Xfce development team. All rights reserved.])
