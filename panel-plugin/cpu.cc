@@ -238,6 +238,55 @@ gulong read_cpuload()
 
     return cpu_used;
 }
+
+#elif defined(__APPLE__)
+/*
+ * Darwin defines MAX and MIN in sys/param.h, so undef the glib macros first
+ */
+#ifdef MAX
+#undef MAX
+#endif
+#ifdef MIN
+#undef MIN
+#endif
+
+#include <mach/mach.h>
+
+/* user, nice, system, interrupt(Unused), idle */
+struct cpu_load_struct {
+    gulong load[5];
+};
+
+static gulong oldtotal, oldused;
+
+gulong read_cpuload()
+{
+    gulong cpu_used, used, total;
+    host_cpu_load_info_data_t cpuload;
+    mach_msg_type_number_t cpuload_count = HOST_CPU_LOAD_INFO_COUNT;
+
+    if (host_statistics(mach_host_self(), HOST_CPU_LOAD_INFO, (host_info_t)&cpuload, &cpuload_count) != KERN_SUCCESS) {
+        g_warning("Cannot get host_statistics(HOST_CPU_LOAD_INFO)");
+        return 0;
+    }
+
+    used = cpuload.cpu_ticks[CPU_STATE_USER] + cpuload.cpu_ticks[CPU_STATE_NICE] + cpuload.cpu_ticks[CPU_STATE_SYSTEM];
+    total = used + cpuload.cpu_ticks[CPU_STATE_IDLE];
+
+    if ((total - oldtotal) != 0)
+    {
+        cpu_used = (100 * (double)(used - oldused)) / (double)(total - oldtotal);
+    }
+    else
+    {
+        cpu_used = 0;
+    }
+    oldused = used;
+    oldtotal = total;
+
+    return cpu_used;
+}
+
 #elif defined(__sun__)
 
 #include <kstat.h>
