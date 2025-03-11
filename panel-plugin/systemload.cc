@@ -245,29 +245,51 @@ update_monitors(t_global_monitor *global)
 
     if (systemload_config_get_uptime_enabled (config))
     {
-        gchar days_str[2][32], hours_str[2][32], mins_str[2][32];
+        gchar days_str[2][32], hours_str[2][32], mins_str[2][32], secs_str[32];
         gchar text[128], tooltip[128];
+
+        const gchar* format = systemload_config_get_uptime_label(config);
+        GString* formatted_date = g_string_new(format);
 
         gint days = global->uptime.value_read / 86400;
         gint hours = (global->uptime.value_read / 3600) % 24;
         gint mins = (global->uptime.value_read / 60) % 60;
+        gint secs = (global->uptime.value_read) % 60;
 
-        g_snprintf(days_str[0], sizeof(days_str), _("%dd"), days);
-        g_snprintf(hours_str[0], sizeof(hours_str), _("%dh"), hours);
-        g_snprintf(mins_str[0], sizeof(mins_str), _("%dm"), mins);
+        if ( g_strcmp0(format, "") != 0 )
+        {
+            // Apply custom format
+            g_snprintf(days_str[0], sizeof(days_str), _("%d"), days);
+            g_snprintf(hours_str[0], sizeof(hours_str), _("%d"), hours);
+            g_snprintf(mins_str[0], sizeof(mins_str), _("%d"), mins);
+            g_snprintf(secs_str, sizeof(secs_str), _("%d"), secs);
 
+            g_string_replace(formatted_date, "%d", (const gchar*) days_str, 0);
+            g_string_replace(formatted_date, "%h", (const gchar*) hours_str, 0);
+            g_string_replace(formatted_date, "%m", (const gchar*) mins_str, 0);
+            g_string_replace(formatted_date, "%s", (const gchar*) secs_str, 0);
+            set_label_text(GTK_LABEL(global->uptime.label), formatted_date->str);
+        }
+        else
+        {
+            // Apply default format
+            g_snprintf(days_str[0], sizeof(days_str), _("%dd"), days);
+            g_snprintf(hours_str[0], sizeof(hours_str), _("%dh"), hours);
+            g_snprintf(mins_str[0], sizeof(mins_str), _("%dm"), mins);
+
+            if (days > 0)
+                g_snprintf(text, sizeof(text), "%s %s %s", days_str[0], hours_str[0], mins_str[0]);
+            else
+                g_snprintf(text, sizeof(text), "%s %s", hours_str[0], mins_str[0]);
+            set_label_text(GTK_LABEL(global->uptime.label), text);
+        }
+
+        // Tooltip text
         g_snprintf(days_str[1], sizeof(days_str), ngettext("%d day", "%d days", days), days);
         g_snprintf(hours_str[1], sizeof(hours_str), ngettext("%d hour", "%d hours", hours), hours);
         g_snprintf(mins_str[1], sizeof(mins_str), ngettext("%d minute", "%d minutes", mins), mins);
 
-        if (days > 0)
-            g_snprintf(text, sizeof(text), "%s %s %s", days_str[0], hours_str[0], mins_str[0]);
-        else
-            g_snprintf(text, sizeof(text), "%s %s", hours_str[0], mins_str[0]);
-
         g_snprintf(tooltip, sizeof(tooltip), _("Uptime: %s, %s, %s"), days_str[1], hours_str[1], mins_str[1]);
-
-        set_label_text(GTK_LABEL(global->uptime.label), text);
         set_tooltip(global->uptime.ebox, tooltip);
     }
 }
@@ -691,8 +713,7 @@ new_monitor_setting (t_global_monitor *global,
     gtk_grid_attach(GTK_GRID(grid), label, 0, position, 1, 1);
     gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
 
-    if (g_strcmp0 (setting, "uptime") != 0)
-    {
+
         GtkWidget *revealer = gtk_revealer_new ();
         GtkWidget *subgrid = gtk_grid_new ();
         gtk_container_add (GTK_CONTAINER (revealer), subgrid);
@@ -711,7 +732,10 @@ new_monitor_setting (t_global_monitor *global,
         /* Entry for the optional monitor label */
         GtkWidget *entry = gtk_entry_new ();
         gtk_widget_set_hexpand (entry, TRUE);
-        gtk_widget_set_tooltip_text (entry, _("Leave empty to disable the label"));
+        if (g_strcmp0 (setting, "uptime") != 0)
+            gtk_widget_set_tooltip_text (entry, _("Leave empty to disable the label"));
+        else
+            gtk_widget_set_tooltip_text (entry, _("Use percent-formatting to format the time (see help page for details). Leave empty to use the default format."));
         setting_name = g_strconcat (setting, "-label", NULL);
         g_object_bind_property (G_OBJECT (global->config), setting_name,
                                 G_OBJECT (entry), "text",
@@ -735,7 +759,6 @@ new_monitor_setting (t_global_monitor *global,
             g_free (setting_name);
             gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
         }
-    }
 
     switch_cb (GTK_SWITCH (sw), enabled, global);
 }
