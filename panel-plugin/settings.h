@@ -26,6 +26,9 @@
 #define MIN_TIMEOUT 500
 #define MAX_TIMEOUT 10000
 
+#define MIN_BAR_WIDTH 1
+#define MAX_BAR_WIDTH 128
+
 enum SystemloadMonitor {
     CPU_MONITOR,
     MEM_MONITOR,
@@ -54,6 +57,7 @@ void               systemload_config_on_change                      (SystemloadC
 guint              systemload_config_get_timeout                    (const SystemloadConfig *config);
 guint              systemload_config_get_timeout_seconds            (const SystemloadConfig *config);
 const gchar       *systemload_config_get_system_monitor_command     (const SystemloadConfig *config);
+guint              systemload_config_get_bar_width                  (const SystemloadConfig *config);
 bool               systemload_config_get_uptime_enabled             (const SystemloadConfig *config);
 
 bool               systemload_config_get_enabled   (const SystemloadConfig *config, SystemloadMonitor monitor);
