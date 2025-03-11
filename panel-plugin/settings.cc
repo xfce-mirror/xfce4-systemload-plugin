@@ -239,7 +239,7 @@ systemload_config_class_init (SystemloadConfigClass *klass)
   g_object_class_install_property (gobject_class,
                                    PROP_BAR_WIDTH,
                                    g_param_spec_uint    ("bar-width", NULL, NULL,
-                                                        1, 128, DEFAULT_BAR_WIDTH,
+                                                        MIN_BAR_WIDTH, MAX_BAR_WIDTH, DEFAULT_BAR_WIDTH,
                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
