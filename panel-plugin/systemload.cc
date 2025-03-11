@@ -88,10 +88,12 @@ struct t_global_monitor {
     SystemloadConfig  *config;
     GtkWidget         *ebox;
     GtkWidget         *box;
+    GtkCssProvider    *css_provider;
     guint             timeout, timeout_seconds;
     bool              use_timeout_seconds;
     guint             timeout_id;
     t_command         command;
+    guint             bar_width;
     t_monitor         *monitor[4];
     t_uptime_monitor  uptime;
 #ifdef HAVE_UPOWER_GLIB
@@ -313,13 +315,8 @@ create_monitor (t_global_monitor *global)
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (m->status))),
             GTK_STYLE_PROVIDER (css_provider),
             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-        gtk_css_provider_load_from_data (css_provider, "\
-            progressbar.horizontal trough { min-height: 4px; }\
-            progressbar.horizontal progress { min-height: 4px; }\
-            progressbar.vertical trough { min-width: 4px; }\
-            progressbar.vertical progress { min-width: 4px; }",
-             -1, NULL);
         g_object_set_data(G_OBJECT(m->status), "css_provider", css_provider);
+        gtk_widget_set_hexpand(m->status, TRUE);
 
         m->box = gtk_box_new(xfce_panel_plugin_get_orientation(global->plugin), 0);
 
@@ -334,7 +331,7 @@ create_monitor (t_global_monitor *global)
 
         gtk_widget_show(GTK_WIDGET(m->status));
 
-        gtk_box_pack_start(GTK_BOX(m->box), GTK_WIDGET(m->status), FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(m->box), GTK_WIDGET(m->status), TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(global->box), GTK_WIDGET(m->ebox), FALSE, FALSE, 0);
 
         gtk_widget_show_all(GTK_WIDGET(m->ebox));
@@ -386,6 +383,27 @@ monitor_control_new(XfcePanelPlugin *plugin)
     global->command.command_text = g_strdup (systemload_config_get_system_monitor_command (global->config));
     if (strlen(global->command.command_text) > 0)
         global->command.enabled = true;
+
+    global->bar_width = systemload_config_get_bar_width (global->config);
+    if (global->bar_width < MIN_BAR_WIDTH)
+        global->bar_width = MIN_BAR_WIDTH;
+    if (global->bar_width > MAX_BAR_WIDTH)
+        global->bar_width = MAX_BAR_WIDTH;
+    gchar *css_string = g_strdup_printf("\
+        progressbar.horizontal trough { min-height: %ipx; }\
+        progressbar.horizontal progress { min-height: %ipx; }\
+        progressbar.vertical trough { min-width: %ipx; }\
+        progressbar.vertical progress { min-width: %ipx; }",
+        global->bar_width,
+        global->bar_width,
+        global->bar_width,
+        global->bar_width);
+    GdkScreen* screen = gtk_widget_get_screen ( GTK_WIDGET(plugin));
+    GtkCssProvider* css_provider = gtk_css_provider_new();
+    gtk_css_provider_load_from_data (css_provider, css_string,
+         -1, NULL);
+    gtk_style_context_add_provider_for_screen(screen, GTK_STYLE_PROVIDER(css_provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    global->css_provider = css_provider;
 
     xfce_panel_plugin_add_action_widget (plugin, global->ebox);
 
@@ -634,6 +652,23 @@ change_timeout_cb(GtkSpinButton *spin, t_global_monitor *global)
     setup_timer(global);
 }
 
+static void
+change_bar_width_cb(GtkSpinButton *spin, t_global_monitor *global)
+{
+    global->bar_width = gtk_spin_button_get_value(spin);
+    gchar *css_string = g_strdup_printf("\
+        progressbar.horizontal trough { min-height: %ipx; }\
+        progressbar.horizontal progress { min-height: %ipx; }\
+        progressbar.vertical trough { min-width: %ipx; }\
+        progressbar.vertical progress { min-width: %ipx; }",
+        global->bar_width,
+        global->bar_width,
+        global->bar_width,
+        global->bar_width);
+    gtk_css_provider_load_from_data (global->css_provider, css_string,
+         -1, NULL);
+}
+
 #ifdef HAVE_UPOWER_GLIB
 static void
 change_timeout_seconds_cb(GtkSpinButton *spin, t_global_monitor *global)
@@ -837,18 +872,34 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_grid_attach (GTK_GRID (grid), entry, 1, 3, 1, 1);
     new_label (GTK_GRID (grid), 3, _("System monitor:"), entry);
 
+    /* Bar width */
+    button = gtk_spin_button_new_with_range (MIN_BAR_WIDTH, MAX_BAR_WIDTH, 1);
+    gtk_label_set_mnemonic_widget (GTK_LABEL(label), button);
+    gtk_widget_set_halign (button, GTK_ALIGN_START);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (button), (gfloat)global->timeout);
+    g_object_bind_property (G_OBJECT (config), "bar-width",
+                            G_OBJECT (button), "value",
+                            GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
+    g_signal_connect (G_OBJECT (button), "value-changed", G_CALLBACK(change_bar_width_cb), global);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    label = gtk_label_new ("px");
+    gtk_box_pack_start (GTK_BOX (box), button, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+    gtk_grid_attach (GTK_GRID (grid), box, 1, 4, 1, 1);
+    new_label (GTK_GRID (grid), 4, _("Bar Width:"), button);
+
     /* Add options for the monitors */
     for(gsize i = 0; i < G_N_ELEMENTS (global->monitor); i++)
     {
         const SystemloadMonitor monitor = VISUAL_ORDER[i];
-        new_monitor_setting (global, GTK_GRID(grid), 4 + 2 * i,
+        new_monitor_setting (global, GTK_GRID(grid), 5 + 2 * i,
                              _(FRAME_TEXT[monitor]),
                              true,
                              SETTING_TEXT[monitor]);
     }
 
     /* Uptime monitor options */
-    new_monitor_setting (global, GTK_GRID(grid), 4 + 2*G_N_ELEMENTS (global->monitor),
+    new_monitor_setting (global, GTK_GRID(grid), 5 + 2*G_N_ELEMENTS (global->monitor),
                          _(FRAME_TEXT[4]), FALSE, "uptime");
 
     gtk_widget_show_all (dlg);
