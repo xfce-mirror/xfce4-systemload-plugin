@@ -38,6 +38,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 
 #include <gtk/gtk.h>
 
@@ -159,6 +160,22 @@ set_label_text(GtkLabel *label, const gchar *text)
         gtk_label_set_text(label, text);
 }
 
+static std::string
+date_format(std::string format_string,
+            const gchar* replace_str,
+            gchar* value_str
+)
+{
+    size_t pos = 0;
+    pos = format_string.find(replace_str, pos);
+    while (pos != std::string::npos)
+    {
+        format_string.replace(pos, 2, value_str);
+        pos = format_string.find(replace_str, pos);
+    }
+    return format_string;
+}
+
 static void
 set_tooltip(GtkWidget *w, const gchar *caption)
 {
@@ -249,7 +266,7 @@ update_monitors(t_global_monitor *global)
         gchar text[128], tooltip[128];
 
         const gchar* format = systemload_config_get_uptime_label(config);
-        GString* formatted_date = g_string_new(format);
+        std::string formatted_date = std::string(format);
 
         gint days = global->uptime.value_read / 86400;
         gint hours = (global->uptime.value_read / 3600) % 24;
@@ -264,11 +281,12 @@ update_monitors(t_global_monitor *global)
             g_snprintf(mins_str[0], sizeof(mins_str), _("%d"), mins);
             g_snprintf(secs_str, sizeof(secs_str), _("%d"), secs);
 
-            g_string_replace(formatted_date, "%d", (const gchar*) days_str, 0);
-            g_string_replace(formatted_date, "%h", (const gchar*) hours_str, 0);
-            g_string_replace(formatted_date, "%m", (const gchar*) mins_str, 0);
-            g_string_replace(formatted_date, "%s", (const gchar*) secs_str, 0);
-            set_label_text(GTK_LABEL(global->uptime.label), formatted_date->str);
+            formatted_date = date_format(formatted_date, "%d", &days_str[0][0]);
+            formatted_date = date_format(formatted_date, "%h", &hours_str[0][0]);
+            formatted_date = date_format(formatted_date, "%m", &mins_str[0][0]);
+            formatted_date = date_format(formatted_date, "%s", &secs_str[0]);
+
+            set_label_text(GTK_LABEL(global->uptime.label), formatted_date.c_str());
         }
         else
         {
@@ -714,51 +732,51 @@ new_monitor_setting (t_global_monitor *global,
     gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
 
 
-        GtkWidget *revealer = gtk_revealer_new ();
-        GtkWidget *subgrid = gtk_grid_new ();
-        gtk_container_add (GTK_CONTAINER (revealer), subgrid);
-        gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
-        g_object_set_data (G_OBJECT(sw), "sensitive_widget", revealer);
-        gtk_grid_attach(GTK_GRID(grid), revealer, 0, position + 1, 2, 1);
-        gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
-        gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
+    GtkWidget *revealer = gtk_revealer_new ();
+    GtkWidget *subgrid = gtk_grid_new ();
+    gtk_container_add (GTK_CONTAINER (revealer), subgrid);
+    gtk_revealer_set_reveal_child (GTK_REVEALER (revealer), TRUE);
+    g_object_set_data (G_OBJECT(sw), "sensitive_widget", revealer);
+    gtk_grid_attach(GTK_GRID(grid), revealer, 0, position + 1, 2, 1);
+    gtk_grid_set_column_spacing (GTK_GRID(subgrid), 12);
+    gtk_grid_set_row_spacing (GTK_GRID(subgrid), 6);
 
-        label = gtk_label_new_with_mnemonic (_("Label:"));
-        gtk_widget_set_halign (label, GTK_ALIGN_START);
-        gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
-        gtk_widget_set_margin_start (label, 12);
-        gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
+    label = gtk_label_new_with_mnemonic (_("Label:"));
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+    gtk_widget_set_margin_start (label, 12);
+    gtk_grid_attach (GTK_GRID(subgrid), label, 0, 0, 1, 1);
 
-        /* Entry for the optional monitor label */
-        GtkWidget *entry = gtk_entry_new ();
-        gtk_widget_set_hexpand (entry, TRUE);
-        if (g_strcmp0 (setting, "uptime") != 0)
-            gtk_widget_set_tooltip_text (entry, _("Leave empty to disable the label"));
-        else
-            gtk_widget_set_tooltip_text (entry, _("Use percent-formatting to format the time (see help page for details). Leave empty to use the default format."));
-        setting_name = g_strconcat (setting, "-label", NULL);
+    /* Entry for the optional monitor label */
+    GtkWidget *entry = gtk_entry_new ();
+    gtk_widget_set_hexpand (entry, TRUE);
+    if (g_strcmp0 (setting, "uptime") != 0)
+        gtk_widget_set_tooltip_text (entry, _("Leave empty to disable the label"));
+    else
+        gtk_widget_set_tooltip_text (entry, _("Use percent-formatting to format the time (see help page for details). Leave empty to use the default format."));
+    setting_name = g_strconcat (setting, "-label", NULL);
+    g_object_bind_property (G_OBJECT (global->config), setting_name,
+                            G_OBJECT (entry), "text",
+                            GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
+    g_free (setting_name);
+    gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
+
+    if (color)
+    {
+        /* Colorbutton to set the progressbar color */
+        GtkWidget *button = gtk_color_button_new ();
+        gtk_color_chooser_set_use_alpha (GTK_COLOR_CHOOSER (button), TRUE);
+
+        gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
+        gtk_widget_set_halign(button, GTK_ALIGN_START);
+        gtk_widget_set_margin_start (button, 12);
+        setting_name = g_strconcat (setting, "-color", NULL);
         g_object_bind_property (G_OBJECT (global->config), setting_name,
-                                G_OBJECT (entry), "text",
+                                G_OBJECT (button), "rgba",
                                 GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
         g_free (setting_name);
-        gtk_grid_attach(GTK_GRID(subgrid), entry, 1, 0, 1, 1);
-
-        if (color)
-        {
-            /* Colorbutton to set the progressbar color */
-            GtkWidget *button = gtk_color_button_new ();
-            gtk_color_chooser_set_use_alpha (GTK_COLOR_CHOOSER (button), TRUE);
-
-            gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
-            gtk_widget_set_halign(button, GTK_ALIGN_START);
-            gtk_widget_set_margin_start (button, 12);
-            setting_name = g_strconcat (setting, "-color", NULL);
-            g_object_bind_property (G_OBJECT (global->config), setting_name,
-                                    G_OBJECT (button), "rgba",
-                                    GBindingFlags (G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL));
-            g_free (setting_name);
-            gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
-        }
+        gtk_grid_attach(GTK_GRID(subgrid), button, 2, 0, 1, 1);
+    }
 
     switch_cb (GTK_SWITCH (sw), enabled, global);
 }
