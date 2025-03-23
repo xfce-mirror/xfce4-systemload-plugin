@@ -1,0 +1,13 @@
+option(
+  'libgtop',
+  type: 'feature',
+  value: 'auto',
+  description: 'libgtop for network utilization monitoring',
+)
+
+option(
+  'upower-glib',
+  type: 'feature',
+  value: 'auto',
+  description: 'upower for adapting update interval to power state',
+)
