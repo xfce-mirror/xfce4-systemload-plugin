@@ -15,6 +15,7 @@ AC_INIT([xfce4-systemload-plugin], [xdt_version], [https://gitlab.xfce.org/panel
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
+AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
 
 dnl Initialize automake
 AM_INIT_AUTOMAKE([1.8 dist-bzip2 tar-ustar no-dist-gzip foreign])

@@ -32,10 +32,7 @@
 #include <config.h>
 #endif
 
-#ifdef HAVE_STRING_H
 #include <string.h>
-#endif
-
 #include <libxfce4panel/libxfce4panel.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4ui/libxfce4ui.h>
