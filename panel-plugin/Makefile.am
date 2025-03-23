@@ -61,7 +61,10 @@ desktop_DATA = systemload.desktop
 systemload.desktop: systemload.desktop.in Makefile
 	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
-EXTRA_DIST = systemload.desktop.in
+EXTRA_DIST = \
+	meson.build \
+	systemload.desktop.in \
+	$(NULL)
 
 CLEANFILES = $(desktop_DATA)
 
