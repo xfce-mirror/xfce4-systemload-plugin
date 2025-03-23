@@ -8,7 +8,10 @@ AM_CPPFLAGS = \
 	$(PLATFORM_CPPFLAGS)
 
 libsystemload_la_CFLAGS = \
+	$(GLIB_CFLAGS) \
+	$(GTK_CFLAGS) \
 	$(LIBXFCE4UI_CFLAGS) \
+	$(LIBXFCE4UTIL_CFLAGS) \
 	$(XFCONF_CFLAGS) \
 	$(LIBGTOP_CFLAGS) \
 	$(LIBXFCE4PANEL_CFLAGS) \
@@ -18,7 +21,10 @@ libsystemload_la_CFLAGS = \
 libsystemload_la_CXXFLAGS = $(libsystemload_la_CFLAGS)
 
 libsystemload_la_LIBADD = \
+	$(GLIB_LIBS) \
+	$(GTK_LIBS) \
 	$(LIBXFCE4UI_LIBS) \
+	$(LIBXFCE4UTIL_LIBS) \
 	$(LIBXFCE4PANEL_LIBS) \
 	$(XFCONF_LIBS) \
 	$(LIBGTOP_LIBS) \
