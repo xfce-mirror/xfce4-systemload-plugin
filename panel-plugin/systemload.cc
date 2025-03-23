@@ -33,6 +33,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include <math.h>
 #include <stdio.h>
@@ -871,11 +874,11 @@ monitor_show_about(XfcePanelPlugin *plugin, t_global_monitor *global)
     gtk_show_about_dialog (NULL,
       "logo-icon-name", "org.xfce.panel.systemload",
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_BSD),
-      "version", PACKAGE_VERSION,
+      "version", VERSION_FULL,
       "program-name", PACKAGE_NAME,
       "comments", _("Monitor CPU load, swap usage and memory footprint"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-systemload-plugin/start",
-      "copyright", "Copyright \302\251 2003-2024 The Xfce development team",
+      "copyright", "Copyright \302\251 2003-" COPYRIGHT_YEAR " The Xfce development team",
       "authors", auth, NULL);
 }
 
