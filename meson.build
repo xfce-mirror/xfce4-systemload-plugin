@@ -1,15 +1,11 @@
 project(
   'xfce4-systemload-plugin',
-  'c', 'cpp',
-  version: '1.3.3-dev',
-  license: 'BSD-2-Clause',
-  meson_version: '>= 0.54.0',
-  default_options: [
-    'c_std=gnu11',
-    'cpp_std=gnu++11',
-    'buildtype=debugoptimized',
-    'warning_level=2',
-  ]
+  'c',
+  'cpp',
+version : '1.4.0',
+  license : 'BSD-2-Clause',
+  meson_version : '>= 0.54.0',
+  default_options : ['c_std=gnu11', 'cpp_std=gnu++11', 'buildtype=debugoptimized', 'warning_level=2']
 )
 
 project_namespace = 'panel-plugins'
