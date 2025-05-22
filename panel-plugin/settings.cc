@@ -46,6 +46,7 @@
 #define DEFAULT_TIMEOUT 500
 #define DEFAULT_TIMEOUT_SECONDS 1
 #define DEFAULT_SYSTEM_MONITOR_COMMAND "xfce4-taskmanager"
+#define DEFAULT_BAR_WIDTH 4
 
 static const gchar *const DEFAULT_LABEL[] = {
     "cpu",
@@ -88,6 +89,7 @@ struct _SystemloadConfig {
   guint            timeout;
   guint            timeout_seconds;
   gchar           *system_monitor_command;
+  guint            bar_width;
   bool             uptime;
 
   struct {
@@ -103,6 +105,7 @@ enum SystemloadProperty {
     PROP_TIMEOUT,
     PROP_TIMEOUT_SECONDS,
     PROP_SYSTEM_MONITOR_COMMAND,
+    PROP_BAR_WIDTH,
     PROP_UPTIME,
     PROP_CPU_ENABLED,
     PROP_CPU_USE_LABEL,
@@ -231,6 +234,12 @@ systemload_config_class_init (SystemloadConfigClass *klass)
                                                         GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
+                                   PROP_BAR_WIDTH,
+                                   g_param_spec_uint    ("bar-width", NULL, NULL,
+                                                        MIN_BAR_WIDTH, MAX_BAR_WIDTH, DEFAULT_BAR_WIDTH,
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
+
+  g_object_class_install_property (gobject_class,
                                    PROP_UPTIME,
                                    g_param_spec_boolean ("uptime-enabled", NULL, NULL,
                                                          TRUE,
@@ -353,6 +362,7 @@ systemload_config_init (SystemloadConfig *config)
   config->timeout = DEFAULT_TIMEOUT;
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
   config->system_monitor_command = g_strdup (DEFAULT_SYSTEM_MONITOR_COMMAND);
+  config->bar_width = DEFAULT_BAR_WIDTH;
   config->uptime = true;
   for (gsize i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     {
@@ -402,6 +412,10 @@ systemload_config_get_property (GObject    *object,
 
     case PROP_SYSTEM_MONITOR_COMMAND:
       g_value_set_string (value, config->system_monitor_command);
+      break;
+
+    case PROP_BAR_WIDTH:
+      g_value_set_uint (value, config->bar_width);
       break;
 
     case PROP_UPTIME:
@@ -485,6 +499,16 @@ systemload_config_set_property (GObject      *object,
           g_free (config->system_monitor_command);
           config->system_monitor_command = g_value_dup_string (value);
           g_object_notify (G_OBJECT (config), "system-monitor-command");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
+    case PROP_BAR_WIDTH:
+      val_uint = g_value_get_uint (value);
+      if (config->bar_width != val_uint)
+        {
+          config->bar_width = val_uint;
+          g_object_notify (G_OBJECT (config), "bar-width");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
       break;
@@ -723,6 +747,14 @@ systemload_config_get_system_monitor_command (const SystemloadConfig *config)
   return config->system_monitor_command;
 }
 
+guint
+systemload_config_get_bar_width (const SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), DEFAULT_BAR_WIDTH);
+
+  return config->bar_width;
+}
+
 bool
 systemload_config_get_uptime_enabled (const SystemloadConfig *config)
 {
@@ -800,6 +832,10 @@ systemload_config_new (const gchar *property_base)
 
       property = g_strconcat (property_base, "/system-monitor-command", NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, "system-monitor-command");
+      g_free (property);
+
+      property = g_strconcat (property_base, "/bar-width", NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, "bar-width");
       g_free (property);
 
       property = g_strconcat (property_base, "/uptime/enabled", NULL);
