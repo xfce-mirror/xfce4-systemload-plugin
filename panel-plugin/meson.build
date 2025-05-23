@@ -27,11 +27,8 @@ dependencies = [
   xfconf,
 ]
 
-target_os = host_machine.system()
-if target_os == 'freebsd'
-  kvm_lib = cc.find_library('kvm', required : true)
-
-  dependencies += [ kvm_lib ]
+if host_machine.system() == 'freebsd'
+  dependencies += cc.find_library('kvm', required : true)
 endif
 
 plugin_install_subdir = 'xfce4' / 'panel' / 'plugins'
