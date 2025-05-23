@@ -15,6 +15,22 @@ plugin_sources = [
   xfce_revision_h,
 ]
 
+dependencies = [
+  glib,
+  gtk,
+  libgtop,
+  libm,
+  libxfce4panel,
+  libxfce4ui,
+  libxfce4util,
+  upower_glib,
+  xfconf,
+]
+
+if host_machine.system() == 'freebsd'
+  dependencies += cc.find_library('kvm', required : true)
+endif
+
 plugin_install_subdir = 'xfce4' / 'panel' / 'plugins'
 
 plugin_lib = shared_module(
@@ -27,17 +43,7 @@ plugin_lib = shared_module(
   include_directories: [
     include_directories('..'),
   ],
-  dependencies: [
-    glib,
-    gtk,
-    libgtop,
-    libm,
-    libxfce4panel,
-    libxfce4ui,
-    libxfce4util,
-    upower_glib,
-    xfconf,
-  ],
+  dependencies: dependencies,
   install: true,
   install_dir: get_option('prefix') / get_option('libdir') / plugin_install_subdir,
 )
