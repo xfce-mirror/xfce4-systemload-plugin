@@ -709,7 +709,6 @@ new_monitor_setting (t_global_monitor *global,
     gtk_grid_attach(GTK_GRID(grid), label, 0, position, 1, 1);
     gtk_grid_attach(GTK_GRID(grid), sw, 1, position, 1, 1);
 
-
     GtkWidget *revealer = gtk_revealer_new ();
     GtkWidget *subgrid = gtk_grid_new ();
     gtk_container_add (GTK_CONTAINER (revealer), subgrid);
