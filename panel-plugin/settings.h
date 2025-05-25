@@ -55,6 +55,7 @@ guint              systemload_config_get_timeout                    (const Syste
 guint              systemload_config_get_timeout_seconds            (const SystemloadConfig *config);
 const gchar       *systemload_config_get_system_monitor_command     (const SystemloadConfig *config);
 bool               systemload_config_get_uptime_enabled             (const SystemloadConfig *config);
+gchar             *systemload_config_get_uptime_label               (const SystemloadConfig *config);
 
 bool               systemload_config_get_enabled   (const SystemloadConfig *config, SystemloadMonitor monitor);
 bool               systemload_config_get_use_label (const SystemloadConfig *config, SystemloadMonitor monitor);
