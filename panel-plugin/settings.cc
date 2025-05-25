@@ -46,6 +46,7 @@
 #define DEFAULT_TIMEOUT 500
 #define DEFAULT_TIMEOUT_SECONDS 1
 #define DEFAULT_SYSTEM_MONITOR_COMMAND "xfce4-taskmanager"
+#define DEFAULT_UPTIME_LABEL "%hh %mm"
 
 static const gchar *const DEFAULT_LABEL[] = {
     "cpu",
@@ -89,6 +90,7 @@ struct _SystemloadConfig {
   guint            timeout_seconds;
   gchar           *system_monitor_command;
   bool             uptime;
+  gchar           *uptime_label;
 
   struct {
     bool           enabled;
@@ -104,6 +106,7 @@ enum SystemloadProperty {
     PROP_TIMEOUT_SECONDS,
     PROP_SYSTEM_MONITOR_COMMAND,
     PROP_UPTIME,
+    PROP_UPTIME_LABEL,
     PROP_CPU_ENABLED,
     PROP_CPU_USE_LABEL,
     PROP_CPU_LABEL,
@@ -237,6 +240,12 @@ systemload_config_class_init (SystemloadConfigClass *klass)
                                                          GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
 
   g_object_class_install_property (gobject_class,
+                                   PROP_UPTIME_LABEL,
+                                   g_param_spec_string ("uptime-label", NULL, NULL,
+                                                        DEFAULT_UPTIME_LABEL,
+                                                        GParamFlags (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS)));
+
+  g_object_class_install_property (gobject_class,
                                    PROP_CPU_ENABLED,
                                    g_param_spec_boolean ("cpu-enabled", NULL, NULL,
                                                          TRUE,
@@ -354,6 +363,7 @@ systemload_config_init (SystemloadConfig *config)
   config->timeout_seconds = DEFAULT_TIMEOUT_SECONDS;
   config->system_monitor_command = g_strdup (DEFAULT_SYSTEM_MONITOR_COMMAND);
   config->uptime = true;
+  config->uptime_label = g_strdup (DEFAULT_UPTIME_LABEL);
   for (gsize i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     {
       config->monitor[i].enabled = true;
@@ -373,6 +383,7 @@ systemload_config_finalize (GObject *object)
   xfconf_shutdown();
   g_free (config->property_base);
   g_free (config->system_monitor_command);
+  g_free (config->uptime_label);
   for (gsize i = 0; i < G_N_ELEMENTS (config->monitor); i++)
     g_free (config->monitor[i].label);
 
@@ -406,6 +417,10 @@ systemload_config_get_property (GObject    *object,
 
     case PROP_UPTIME:
       g_value_set_boolean (value, config->uptime);
+      break;
+
+    case PROP_UPTIME_LABEL:
+      g_value_set_string (value, config->uptime_label);
       break;
 
     case PROP_CPU_ENABLED:
@@ -495,6 +510,17 @@ systemload_config_set_property (GObject      *object,
         {
           config->uptime = val_bool;
           g_object_notify (G_OBJECT (config), "uptime-enabled");
+          g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
+    case PROP_UPTIME_LABEL:
+      val_string = g_value_get_string (value);
+      if (g_strcmp0 (config->uptime_label, val_string) != 0)
+        {
+          g_free (config->uptime_label);
+          config->uptime_label = g_value_dup_string (value);
+          g_object_notify (G_OBJECT (config), "uptime-label");
           g_signal_emit (G_OBJECT (config), systemload_config_signals [CONFIGURATION_CHANGED], 0);
         }
       break;
@@ -731,6 +757,14 @@ systemload_config_get_uptime_enabled (const SystemloadConfig *config)
   return config->uptime;
 }
 
+gchar*
+systemload_config_get_uptime_label (const SystemloadConfig *config)
+{
+  g_return_val_if_fail (IS_SYSTEMLOAD_CONFIG (config), NULL);
+
+  return config->uptime_label;
+}
+
 bool
 systemload_config_get_enabled (const SystemloadConfig *config, SystemloadMonitor monitor)
 {
@@ -804,6 +838,10 @@ systemload_config_new (const gchar *property_base)
 
       property = g_strconcat (property_base, "/uptime/enabled", NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, "uptime-enabled");
+      g_free (property);
+
+      property = g_strconcat (property_base, "/uptime/label", NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, "uptime-label");
       g_free (property);
 
       property = g_strconcat (property_base, "/cpu/enabled", NULL);
