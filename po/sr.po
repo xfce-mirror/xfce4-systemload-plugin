@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-systemload-plugin package.
 # 
 # Translators:
-# Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017
+# Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017,2025
 # Саша Петровић <salepetronije@gmail.com>, 2014,2017
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-05-26 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017,2025\n"
 "Language-Team: Serbian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +87,7 @@ msgstr "Оставите празним ради онемогућавања на
 
 #: panel-plugin/systemload.cc:733
 msgid "Use percent-formatting to format the time (see help page for details)."
-msgstr ""
+msgstr "Користи обликовање постотком за облик времена (погледајте странице упутства за подробности)."
 
 #: panel-plugin/systemload.cc:768
 msgid "CPU monitor"
