@@ -1,20 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-systemload-plugin package.
 # 
 # Translators:
 # ByungHyun Choi<byunghyun.choi@debianusers.org>, 2005
 # 1763f4a4329a2376c933c5e919a36cbc_341ca53 <1f851310383599d03339229d772e1290_119292>, 2017
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2016,2021-2022
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2016,2021-2022,2025
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2011
 # Sung Jin Gang <ujuc@ujuc.kr>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-05-26 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2016,2021-2022\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2014-2016,2021-2022,2025\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,143 +22,132 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/cpu.cc:59
+#: panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
 msgstr "/proc/stat 파일이 없습니다!"
 
-#: ../panel-plugin/systemload.cc:212
+#: panel-plugin/systemload.cc:233
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "시스템 부하: %ld%%"
 
-#: ../panel-plugin/systemload.cc:219
+#: panel-plugin/systemload.cc:240
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "메모리: %ldMB(총 %ldMB) 사용"
 
-#: ../panel-plugin/systemload.cc:226
+#: panel-plugin/systemload.cc:247
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr "네트워크: %ld Mbit/s"
 
-#: ../panel-plugin/systemload.cc:235
+#: panel-plugin/systemload.cc:256
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "스왑: %ldMB(총 %ldMB) 사용"
 
-#: ../panel-plugin/systemload.cc:237
-#, c-format
+#: panel-plugin/systemload.cc:258
 msgid "No swap"
 msgstr "스왑 없음"
 
-#: ../panel-plugin/systemload.cc:251
-#, c-format
-msgid "%dd"
-msgstr "%d일"
-
-#: ../panel-plugin/systemload.cc:252
-#, c-format
-msgid "%dh"
-msgstr "%d시간"
-
-#: ../panel-plugin/systemload.cc:253
-#, c-format
-msgid "%dm"
-msgstr "%d분"
-
-#: ../panel-plugin/systemload.cc:255
+#. Tooltip text
+#: panel-plugin/systemload.cc:284
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d일"
 
-#: ../panel-plugin/systemload.cc:256
+#: panel-plugin/systemload.cc:285
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d시간"
 
-#: ../panel-plugin/systemload.cc:257
+#: panel-plugin/systemload.cc:286
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d분"
 
-#: ../panel-plugin/systemload.cc:264
+#: panel-plugin/systemload.cc:288
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr "가동시간: %s, %s, %s"
 
-#: ../panel-plugin/systemload.cc:717
+#: panel-plugin/systemload.cc:721
 msgid "Label:"
 msgstr "레이블:"
 
-#: ../panel-plugin/systemload.cc:726
+#: panel-plugin/systemload.cc:731
 msgid "Leave empty to disable the label"
 msgstr "레이블을 표시하지 않으려면 빈 채로 두십시오"
 
-#: ../panel-plugin/systemload.cc:762
+#: panel-plugin/systemload.cc:733
+msgid "Use percent-formatting to format the time (see help page for details)."
+msgstr "시간 형식에 %-포매팅 사용(자세한 내용은 도움말 페이지 참고)."
+
+#: panel-plugin/systemload.cc:768
 msgid "CPU monitor"
 msgstr "CPU 감시기"
 
-#: ../panel-plugin/systemload.cc:763
+#: panel-plugin/systemload.cc:769
 msgid "Memory monitor"
 msgstr "메모리 감시기"
 
-#: ../panel-plugin/systemload.cc:764
+#: panel-plugin/systemload.cc:770
 msgid "Network monitor"
 msgstr "네트워크 감시기"
 
-#: ../panel-plugin/systemload.cc:765
+#: panel-plugin/systemload.cc:771
 msgid "Swap monitor"
 msgstr "스왑 감시기"
 
-#: ../panel-plugin/systemload.cc:766
+#: panel-plugin/systemload.cc:772
 msgid "Uptime monitor"
 msgstr "동작시간 감시기"
 
-#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
+#: panel-plugin/systemload.cc:784 panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "시스템 부하 감시기"
 
-#: ../panel-plugin/systemload.cc:781
+#: panel-plugin/systemload.cc:787
 msgid "_Close"
 msgstr "닫기(_C)"
 
-#: ../panel-plugin/systemload.cc:782
+#: panel-plugin/systemload.cc:788
 msgid "_Help"
 msgstr "도움말(_H)"
 
-#: ../panel-plugin/systemload.cc:800
+#: panel-plugin/systemload.cc:806
 msgid "<b>General</b>"
 msgstr "<b>일반</b>"
 
-#: ../panel-plugin/systemload.cc:819
+#: panel-plugin/systemload.cc:825
 msgid "Update interval:"
 msgstr "업데이트 주기:"
 
-#: ../panel-plugin/systemload.cc:825
+#: panel-plugin/systemload.cc:831
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr "배터리로 작동할 때의 업데이트 간격 (0으로 설정된 경우 정기적인 업데이트 간격 사용)"
 
-#: ../panel-plugin/systemload.cc:836
+#: panel-plugin/systemload.cc:842
 msgid "Power-saving interval:"
 msgstr "전원절약 주기:"
 
-#: ../panel-plugin/systemload.cc:843
+#: panel-plugin/systemload.cc:849
 msgid "Launched when clicking on the plugin"
 msgstr "플러그인 클릭할 때 시작됨"
 
-#: ../panel-plugin/systemload.cc:850
+#: panel-plugin/systemload.cc:856
 msgid "System monitor:"
 msgstr "시스템 감시자:"
 
-#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
+#: panel-plugin/systemload.cc:894 panel-plugin/systemload.desktop.in:6
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU 사용량, 스왑사용량, 메모리 사용량을 감시합니다"
 
-#: ../panel-plugin/uptime.cc:50
+#: panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
 msgstr "/proc/uptime 파일이 없습니다!"
