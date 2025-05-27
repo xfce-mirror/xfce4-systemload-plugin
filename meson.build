@@ -37,6 +37,11 @@ libgtop = dependency('libgtop-2.0', version: dependency_versions['libgtop'], req
 upower_glib = dependency('upower-glib', version: dependency_versions['upower-glib'], required: get_option('upower-glib'))
 libm = cc.find_library('m')
 
+libkvm = dependency('', required: false)
+if host_machine.system() == 'freebsd'
+  libkvm = cc.find_library('kvm', required : true)
+endif
+
 feature_cflags = []
 
 if libgtop.found()
