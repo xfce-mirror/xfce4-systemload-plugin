@@ -37,6 +37,7 @@ plugin_lib = shared_module(
     libxfce4util,
     upower_glib,
     xfconf,
+    libkvm,
   ],
   install: true,
   install_dir: get_option('prefix') / get_option('libdir') / plugin_install_subdir,
