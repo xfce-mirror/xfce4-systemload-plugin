@@ -5,6 +5,7 @@
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2006,2008
 # Luna Jernberg <droidbittin@gmail.com>, 2020-2021
+# Luna Jernberg <droidbittin@gmail.com>, 2025
 # Påvel Nicklasson <pavel2@frimix.se>, 2015,2018
 # Påvel Nicklasson <pavel@frimix.se>, 2015
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-05-26 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2020-2021\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2025\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +87,7 @@ msgstr "Lämna tomt för att inaktivera etiketten"
 
 #: panel-plugin/systemload.cc:733
 msgid "Use percent-formatting to format the time (see help page for details)."
-msgstr ""
+msgstr "Använd procentformatering för att formatera tiden (se hjälpsidan för mer information). \n \n "
 
 #: panel-plugin/systemload.cc:768
 msgid "CPU monitor"
