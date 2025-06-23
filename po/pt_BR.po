@@ -9,6 +9,7 @@
 # Andre Miranda <andre@andreldm.com>, 2014,2016
 # Lucas Wilm <lucaswilm@gmail.com>, 2021
 # Michael Martins, 2021-2022
+# Michael Martins, 2025
 # Skunnyk <skunnyk@alteroot.org>, 2023
 # The Cat, 2025
 msgid ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-05-26 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: The Cat, 2025\n"
+"Last-Translator: Michael Martins, 2025\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #: panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
-msgstr "Arquivo /proc/stat não localizado!"
+msgstr "Arquivo /proc/stat não encontrado!"
 
 #: panel-plugin/systemload.cc:233
 #, c-format
@@ -93,7 +94,7 @@ msgstr "Deixe em branco para desativar o rótulo"
 
 #: panel-plugin/systemload.cc:733
 msgid "Use percent-formatting to format the time (see help page for details)."
-msgstr "Utilizar a formatação de percentagem para formatar a hora (consulte a página de ajuda para obter detalhes)."
+msgstr "Usar a formatação de percentagem para formatar a hora (consulte a página de ajuda para obter detalhes)."
 
 #: panel-plugin/systemload.cc:768
 msgid "CPU monitor"
@@ -117,7 +118,7 @@ msgstr "Monitor de tempo ativo"
 
 #: panel-plugin/systemload.cc:784 panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
-msgstr "Monitor de Carga do Sistema"
+msgstr "Monitor de carga do sistema"
 
 #: panel-plugin/systemload.cc:787
 msgid "_Close"
@@ -147,7 +148,7 @@ msgstr "Intervalo da economia de energia:"
 
 #: panel-plugin/systemload.cc:849
 msgid "Launched when clicking on the plugin"
-msgstr "Lançado quando clicar no plug-in"
+msgstr "Iniciado quando clicar no plug-in"
 
 #: panel-plugin/systemload.cc:856
 msgid "System monitor:"
@@ -155,8 +156,8 @@ msgstr "Monitor de sistema:"
 
 #: panel-plugin/systemload.cc:894 panel-plugin/systemload.desktop.in:6
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Monitore a carga de CPU, uso de swap e o rastro da memória"
+msgstr "Monitora a carga de CPU, uso de swap e o rastro da memória"
 
 #: panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
-msgstr "Arquivo /proc/uptime não localizado!"
+msgstr "Arquivo /proc/uptime não encontrado!"
