@@ -88,6 +88,7 @@ struct t_uptime_monitor {
 struct t_global_monitor {
     XfcePanelPlugin   *plugin;
     SystemloadConfig  *config;
+    GtkWidget         *settings_dialog;
     GtkWidget         *ebox;
     GtkWidget         *box;
     guint             timeout, timeout_seconds;
@@ -637,7 +638,6 @@ monitor_dialog_response (GtkWidget *dlg, int response,
     else
     {
         gtk_widget_destroy (dlg);
-        xfce_panel_plugin_unblock_menu (global->plugin);
     }
 }
 
@@ -775,15 +775,20 @@ monitor_create_options(XfcePanelPlugin *plugin, t_global_monitor *global)
             "swap"
     };
 
-    xfce_panel_plugin_block_menu (plugin);
-
     GtkWidget *dlg;
-    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("System Load Monitor"),
+
+    if (global->settings_dialog != NULL) {
+        gtk_window_present (GTK_WINDOW (global->settings_dialog));
+        return;
+    }
+
+    global->settings_dialog = dlg = xfce_titled_dialog_new_with_mixed_buttons (_("System Load Monitor"),
                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                GTK_DIALOG_DESTROY_WITH_PARENT,
                                                "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
                                                "help-browser", _("_Help"), GTK_RESPONSE_HELP,
                                                NULL);
+    g_object_add_weak_pointer (G_OBJECT (global->settings_dialog), (gpointer *) &global->settings_dialog);
 
     g_signal_connect (G_OBJECT (dlg), "response",
                       G_CALLBACK (monitor_dialog_response), global);
