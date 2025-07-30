@@ -155,7 +155,7 @@ msgstr "Monitor systemu:"
 
 #: panel-plugin/systemload.cc:894 panel-plugin/systemload.desktop.in:6
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Dostarcza informacje na temat obciążenia systemu"
+msgstr "Monitor obciążenia procesora i użycia pamięci."
 
 #: panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
