@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-systemload-plugin package.
 # 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-05-26 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Uyghur (http://app.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
@@ -17,146 +17,135 @@ msgstr ""
 "Language: ug\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cpu.cc:59
+#: panel-plugin/cpu.cc:59
 msgid "File /proc/stat not found!"
 msgstr "ھۆججىتى /proc/stat تېپىلمىدى"
 
-#: ../panel-plugin/systemload.cc:212
+#: panel-plugin/systemload.cc:233
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "سىستېما يۈكى: %ld%%"
 
-#: ../panel-plugin/systemload.cc:219
+#: panel-plugin/systemload.cc:240
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
 msgstr "ئىشلىتىلگەن ئەسلەك:  %ldم ب / %ldم ب"
 
-#: ../panel-plugin/systemload.cc:226
+#: panel-plugin/systemload.cc:247
 #, c-format
 msgid "Network: %ld Mbit/s"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:235
+#: panel-plugin/systemload.cc:256
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
 msgstr "ئىشلىتىلگەن Swap: %ldم ب of %ldم ب"
 
-#: ../panel-plugin/systemload.cc:237
-#, c-format
+#: panel-plugin/systemload.cc:258
 msgid "No swap"
 msgstr "swap يوق"
 
-#: ../panel-plugin/systemload.cc:251
-#, c-format
-msgid "%dd"
-msgstr ""
-
-#: ../panel-plugin/systemload.cc:252
-#, c-format
-msgid "%dh"
-msgstr ""
-
-#: ../panel-plugin/systemload.cc:253
-#, c-format
-msgid "%dm"
-msgstr ""
-
-#: ../panel-plugin/systemload.cc:255
+#. Tooltip text
+#: panel-plugin/systemload.cc:284
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] "%d كۈن"
 
-#: ../panel-plugin/systemload.cc:256
+#: panel-plugin/systemload.cc:285
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d سائەت"
+msgstr[1] "%d سائەت"
 
-#: ../panel-plugin/systemload.cc:257
+#: panel-plugin/systemload.cc:286
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d مىنۇت"
+msgstr[1] "%d مىنۇت"
 
-#: ../panel-plugin/systemload.cc:264
+#: panel-plugin/systemload.cc:288
 #, c-format
 msgid "Uptime: %s, %s, %s"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:717
+#: panel-plugin/systemload.cc:721
 msgid "Label:"
 msgstr "ئەن:"
 
-#: ../panel-plugin/systemload.cc:726
+#: panel-plugin/systemload.cc:731
 msgid "Leave empty to disable the label"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:762
+#: panel-plugin/systemload.cc:733
+msgid "Use percent-formatting to format the time (see help page for details)."
+msgstr ""
+
+#: panel-plugin/systemload.cc:768
 msgid "CPU monitor"
 msgstr "CPU كۆزەتكۈ"
 
-#: ../panel-plugin/systemload.cc:763
+#: panel-plugin/systemload.cc:769
 msgid "Memory monitor"
 msgstr "ئەسلەك كۆزەتكۈ"
 
-#: ../panel-plugin/systemload.cc:764
+#: panel-plugin/systemload.cc:770
 msgid "Network monitor"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:765
+#: panel-plugin/systemload.cc:771
 msgid "Swap monitor"
 msgstr "Swap كۆزەتكۈ"
 
-#: ../panel-plugin/systemload.cc:766
+#: panel-plugin/systemload.cc:772
 msgid "Uptime monitor"
 msgstr "ئىشلەۋاتقان ۋاقىت كۆزەتكۈ"
 
-#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
+#: panel-plugin/systemload.cc:784 panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "سىستېما يۈكى كۆزەتكۈ"
 
-#: ../panel-plugin/systemload.cc:781
+#: panel-plugin/systemload.cc:787
 msgid "_Close"
-msgstr ""
+msgstr "ياپ(_C)"
 
-#: ../panel-plugin/systemload.cc:782
+#: panel-plugin/systemload.cc:788
 msgid "_Help"
-msgstr ""
+msgstr "ياردەم(_H)"
 
-#: ../panel-plugin/systemload.cc:800
+#: panel-plugin/systemload.cc:806
 msgid "<b>General</b>"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:819
+#: panel-plugin/systemload.cc:825
 msgid "Update interval:"
 msgstr "يېڭىلاش ئىنتېرۋالى:"
 
-#: ../panel-plugin/systemload.cc:825
+#: panel-plugin/systemload.cc:831
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:836
+#: panel-plugin/systemload.cc:842
 msgid "Power-saving interval:"
 msgstr "تەك تېجەش ئىنتېرۋالى:"
 
-#: ../panel-plugin/systemload.cc:843
+#: panel-plugin/systemload.cc:849
 msgid "Launched when clicking on the plugin"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:850
+#: panel-plugin/systemload.cc:856
 msgid "System monitor:"
 msgstr ""
 
-#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
+#: panel-plugin/systemload.cc:894 panel-plugin/systemload.desktop.in:6
 msgid "Monitor CPU load, swap usage and memory footprint"
 msgstr "CPU نىڭ يۈكى، swap ۋە ئەسلەكنى كۆزىتىدۇ"
 
-#: ../panel-plugin/uptime.cc:50
+#: panel-plugin/uptime.cc:50
 msgid "File /proc/uptime not found!"
 msgstr "ھۆججەت /proc/uptime تېپىلمىدى!"
