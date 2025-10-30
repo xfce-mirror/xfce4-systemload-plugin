@@ -5,14 +5,14 @@
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
-# Quentin PAGÈS, 2022
+# Quentin PAGÈS, 2022,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-05-26 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: Quentin PAGÈS, 2022\n"
+"Last-Translator: Quentin PAGÈS, 2022,2025\n"
 "Language-Team: Occitan (post 1500) (http://app.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "Memòria : %ldMio de %ldMio utilizat"
 #: panel-plugin/systemload.cc:247
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Ret : %ld Mbit/s"
 
 #: panel-plugin/systemload.cc:256
 #, c-format
@@ -73,7 +73,7 @@ msgstr[1] "%d minutas"
 #: panel-plugin/systemload.cc:288
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Durada en foncion : %s, %s, %s"
 
 #: panel-plugin/systemload.cc:721
 msgid "Label:"
@@ -81,11 +81,11 @@ msgstr "Etiqueta :"
 
 #: panel-plugin/systemload.cc:731
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Daissar void per desactivar l’etiqueta"
 
 #: panel-plugin/systemload.cc:733
 msgid "Use percent-formatting to format the time (see help page for details)."
-msgstr ""
+msgstr "Utilizatz lo formatatge amb percentatge per formatar l'ora (vejatz la pagina d'ajuda per mai de detalhs)."
 
 #: panel-plugin/systemload.cc:768
 msgid "CPU monitor"
@@ -97,7 +97,7 @@ msgstr "Monitor de la memòria"
 
 #: panel-plugin/systemload.cc:770
 msgid "Network monitor"
-msgstr ""
+msgstr "Monitor ret"
 
 #: panel-plugin/systemload.cc:771
 msgid "Swap monitor"
@@ -131,7 +131,7 @@ msgstr "Interval de mesa a jorn :"
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Interval d'actualizacion en foncionament sus batariá (utiliza l'interval d'actualizacion normal se definit a zèro)"
 
 #: panel-plugin/systemload.cc:842
 msgid "Power-saving interval:"
@@ -139,7 +139,7 @@ msgstr "Interval d'estalvi d'energia :"
 
 #: panel-plugin/systemload.cc:849
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "Lançat al clic sus l’empeuton"
 
 #: panel-plugin/systemload.cc:856
 msgid "System monitor:"
