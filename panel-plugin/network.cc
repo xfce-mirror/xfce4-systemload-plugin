@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <glib.h>
 #include "network.h"
 
 #ifdef HAVE_LIBGTOP
@@ -64,16 +65,16 @@ read_netload_libgtop (gulong *bytes)
 
 #endif
 
-static const char *const PROC_NET_NETSTAT = "/proc/net/netstat";
+static const char *const PROC_NET_DEV = "/proc/net/dev";
+static const char *const REGEX_PATTERN = ".*:\\s*(\\d+)\\s*\\d+\\s*\\d+\\s*\\d+\\s*\\d+\\s*\\d+\\s*\\d+\\s*\\d+\\s*(\\d+)\\s*";
 
 static gint
 read_netload_proc (gulong *bytes)
 {
-    char buf[4*1024];
-    unsigned long long dummy, in_octets, out_octets;
+    char buf[8*1024];
 
     {
-        FILE *fd = fopen (PROC_NET_NETSTAT, "r");
+        FILE *fd = fopen (PROC_NET_DEV, "r");
         if (!fd)
             return -1;
 
@@ -91,20 +92,23 @@ read_netload_proc (gulong *bytes)
 
     const char *s = buf;
 
-    /* Skip first 3 lines */
-    s = strchr(s, '\n'); if (!s) return -1;
-    s++;
-    s = strchr(s, '\n'); if (!s) return -1;
-    s++;
-    s = strchr(s, '\n'); if (!s) return -1;
-    s++;
+    GRegex *regex = g_regex_new (REGEX_PATTERN, (GRegexCompileFlags) 0, (GRegexMatchFlags) 0, NULL);
+    GMatchInfo *match_info;
 
-    if (sscanf (s, "IpExt: %llu %llu %llu %llu %llu %llu %llu %llu",
-                &dummy, &dummy, &dummy, &dummy, &dummy, &dummy,
-                &in_octets, &out_octets) != 8)
-        return -1;
+    g_regex_match (regex, s, (GRegexMatchFlags) 0, &match_info);
+    while (g_match_info_matches (match_info))
+    {
+        gchar *rx = g_match_info_fetch (match_info, 1);
+        gchar *tx = g_match_info_fetch (match_info, 2);
+        *bytes = g_ascii_strtoll (rx, NULL, 10) + g_ascii_strtoll (tx, NULL, 10);
+        g_free (rx);
+        g_free (tx);
+        g_match_info_next (match_info, NULL);
+    }
 
-    *bytes = in_octets + out_octets;
+    g_match_info_free (match_info);
+    g_regex_unref (regex);
+
     return 0;
 }
 
@@ -136,4 +140,3 @@ read_netload (gulong *net, gulong *NTotal)
 
     return 0;
 }
-
