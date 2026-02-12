@@ -100,7 +100,7 @@ read_netload_proc (gulong *bytes)
     {
         gchar *rx = g_match_info_fetch (match_info, 1);
         gchar *tx = g_match_info_fetch (match_info, 2);
-        *bytes = g_ascii_strtoll (rx, NULL, 10) + g_ascii_strtoll (tx, NULL, 10);
+        *bytes += g_ascii_strtoll (rx, NULL, 10) + g_ascii_strtoll (tx, NULL, 10);
         g_free (rx);
         g_free (tx);
         g_match_info_next (match_info, NULL);
