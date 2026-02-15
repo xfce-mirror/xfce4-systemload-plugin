@@ -71,31 +71,21 @@ static const char *const REGEX_PATTERN = ".*:\\s*(\\d+)\\s*\\d+\\s*\\d+\\s*\\d+\
 static gint
 read_netload_proc (gulong *bytes)
 {
-    char buf[8*1024];
+    gchar *contents;
+    GError *error;
+    GRegex *regex;
+    GMatchInfo *match_info;
 
+    if (g_file_get_contents (PROC_NET_DEV, &contents, NULL, &error) == FALSE)
     {
-        FILE *fd = fopen (PROC_NET_DEV, "r");
-        if (!fd)
-            return -1;
-
-        size_t size = fread (buf, sizeof (*buf), G_N_ELEMENTS (buf) - 1, fd);
-        if (size == 0)
-        {
-            fclose(fd);
-            return -1;
-        }
-        buf[size] = '\0';
-
-        if (fclose (fd) != 0)
-            return -1;
+        g_error ("Failed to read contents of %s: %s.", PROC_NET_DEV, error->message);
+        g_error_free (error);
+        return -1;
     }
 
-    const char *s = buf;
     *bytes = 0;
-
-    GRegex *regex = g_regex_new (REGEX_PATTERN, (GRegexCompileFlags) 0, (GRegexMatchFlags) 0, NULL);
-    GMatchInfo *match_info;
-    g_regex_match (regex, s, (GRegexMatchFlags) 0, &match_info);
+    regex = g_regex_new (REGEX_PATTERN, (GRegexCompileFlags) 0, (GRegexMatchFlags) 0, NULL);
+    g_regex_match (regex, contents, (GRegexMatchFlags) 0, &match_info);
     while (g_match_info_matches (match_info))
     {
         gchar *rx = g_match_info_fetch (match_info, 1);
@@ -108,6 +98,7 @@ read_netload_proc (gulong *bytes)
 
     g_match_info_free (match_info);
     g_regex_unref (regex);
+    g_free (contents);
 
     return 0;
 }
