@@ -2,7 +2,7 @@
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
 Name=System Load Monitor
-Comment=Monitor CPU load, swap usage and memory footprint
+Comment=Monitor CPU load, swap usage, memory footprint and network usage
 Icon=org.xfce.panel.systemload
 X-XFCE-Module=systemload
 X-XFCE-Internal=false
