@@ -91,10 +91,10 @@ read_netload_proc (gulong *bytes)
     }
 
     const char *s = buf;
+    *bytes = 0;
 
     GRegex *regex = g_regex_new (REGEX_PATTERN, (GRegexCompileFlags) 0, (GRegexMatchFlags) 0, NULL);
     GMatchInfo *match_info;
-
     g_regex_match (regex, s, (GRegexMatchFlags) 0, &match_info);
     while (g_match_info_matches (match_info))
     {
