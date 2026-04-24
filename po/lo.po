@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-systemload-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2026-02-16 12:59+0100\n"
+"PO-Revision-Date: 2013-07-03 19:20+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-panel-plugins/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panel-plugin/cpu.cc:55
+msgid "File /proc/stat not found!"
+msgstr "ບໍ່ພົບໄຟລ໌ /proc/stat!"
+
+#: panel-plugin/systemload.cc:231
+#, c-format
+msgid "System Load: %ld%%"
+msgstr "ພາລະຂອງລະບົບ: %ld%%"
+
+#: panel-plugin/systemload.cc:238
+#, c-format
+msgid "Memory: %ldMB of %ldMB used"
+msgstr "ໜ່ວຍຄວາມຈຳ: ໃຊ້ໄປ %ldMB ຈາກ %ldMB"
+
+#: panel-plugin/systemload.cc:245
+#, c-format
+msgid "Network: %ld Mbit/s"
+msgstr "ເຄືອຂ່າຍ: %ld Mbit/s"
+
+#: panel-plugin/systemload.cc:254
+#, c-format
+msgid "Swap: %ldMB of %ldMB used"
+msgstr "Swap: ໃຊ້ໄປ %ldMB ຈາກ %ldMB"
+
+#: panel-plugin/systemload.cc:256
+msgid "No swap"
+msgstr "ບໍ່ມີ Swap"
+
+#. Tooltip text
+#: panel-plugin/systemload.cc:282
+#, c-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d ມື້"
+
+#: panel-plugin/systemload.cc:283
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d ຊົ່ວໂມງ"
+
+#: panel-plugin/systemload.cc:284
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d ນາທີ"
+
+#: panel-plugin/systemload.cc:286
+#, c-format
+msgid "Uptime: %s, %s, %s"
+msgstr "ເວລາເປີດເຄື່ອງ: %s, %s, %s"
+
+#: panel-plugin/systemload.cc:718
+msgid "Label:"
+msgstr "ປ້າຍຊື່:"
+
+#: panel-plugin/systemload.cc:728
+msgid "Leave empty to disable the label"
+msgstr "ປະວ່າງໄວ້ເພື່ອປິດການໃຊ້ງານປ້າຍຊື່"
+
+#: panel-plugin/systemload.cc:730
+msgid "Use percent-formatting to format the time (see help page for details)."
+msgstr "ໃຊ້ຮູບແບບເປີເຊັນເພື່ອຈັດຮູບແບບເວລາ (ເບິ່ງໜ້າຊ່ວຍເຫຼືອສຳລັບລາຍລະອຽດ)."
+
+#: panel-plugin/systemload.cc:765
+msgid "CPU monitor"
+msgstr "ຕິດຕາມ CPU"
+
+#: panel-plugin/systemload.cc:766
+msgid "Memory monitor"
+msgstr "ຕິດຕາມໜ່ວຍຄວາມຈຳ"
+
+#: panel-plugin/systemload.cc:767
+msgid "Network monitor"
+msgstr "ຕິດຕາມເຄືອຂ່າຍ"
+
+#: panel-plugin/systemload.cc:768
+msgid "Swap monitor"
+msgstr "ຕິດຕາມ Swap"
+
+#: panel-plugin/systemload.cc:769
+msgid "Uptime monitor"
+msgstr "ຕິດຕາມເວລາເປີດເຄື່ອງ"
+
+#: panel-plugin/systemload.cc:785 panel-plugin/systemload.desktop.in:5
+msgid "System Load Monitor"
+msgstr "ເຄື່ອງມືຕິດຕາມພາລະຂອງລະບົບ"
+
+#: panel-plugin/systemload.cc:788
+msgid "_Close"
+msgstr "_ປິດ"
+
+#: panel-plugin/systemload.cc:789
+msgid "_Help"
+msgstr "_ຊ່ວຍເຫຼືອ"
+
+#: panel-plugin/systemload.cc:808
+msgid "<b>General</b>"
+msgstr "<b>ທົ່ວໄປ</b>"
+
+#: panel-plugin/systemload.cc:827
+msgid "Update interval:"
+msgstr "ຊ່ວງເວລາການອັບເດດ:"
+
+#: panel-plugin/systemload.cc:833
+msgid ""
+"Update interval when running on battery (uses regular update interval if set"
+" to zero)"
+msgstr "ຊ່ວງເວລາການອັບເດດເມື່ອໃຊ້ແບັດເຕີຣີ (ໃຊ້ຊ່ວງເວລາປົກກະຕິຫາກຕັ້ງເປັນສູນ)"
+
+#: panel-plugin/systemload.cc:844
+msgid "Power-saving interval:"
+msgstr "ຊ່ວງເວລາປະຢັດພະລັງງານ:"
+
+#: panel-plugin/systemload.cc:851
+msgid "Launched when clicking on the plugin"
+msgstr "ເປີດໃຊ້ງານເມື່ອກົດໃສ່ປລັກອິນ"
+
+#: panel-plugin/systemload.cc:858
+msgid "System monitor:"
+msgstr "ເຄື່ອງມືຕິດຕາມລະບົບ:"
+
+#: panel-plugin/systemload.cc:896
+msgid "Monitor CPU load, swap usage and memory footprint"
+msgstr "ຕິດຕາມພາລະຂອງ CPU, ການໃຊ້ Swap ແລະ ໜ່ວຍຄວາມຈຳ"
+
+#: panel-plugin/systemload.desktop.in:6
+msgid "Monitor CPU load, swap usage, memory footprint and network usage"
+msgstr "ຕິດຕາມພາລະຂອງ CPU, ການໃຊ້ Swap, ໜ່ວຍຄວາມຈຳ ແລະ ການໃຊ້ເຄືອຂ່າຍ"
+
+#: panel-plugin/uptime.cc:46
+msgid "File /proc/uptime not found!"
+msgstr "ບໍ່ພົບໄຟລ໌ /proc/uptime!"
