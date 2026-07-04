@@ -57,14 +57,10 @@ gulong read_cpuload()
     }
 
     /* Don't count steal time. It is neither busy nor free tiime. */
-    unsigned long long int user, unice, usystem, idle, iowait, irq, softirq, guest;
-    int nb_read = fscanf (fd, "%*s %llu %llu %llu %llu %llu %llu %llu %*u %llu",
-                          &user, &unice, &usystem, &idle, &iowait, &irq, &softirq, &guest);
+    unsigned long long int user = 0, unice = 0, usystem = 0, idle = 0, iowait = 0, irq = 0, softirq = 0, guest = 0;
+    fscanf (fd, "%*s %llu %llu %llu %llu %llu %llu %llu %*u %llu",
+            &user, &unice, &usystem, &idle, &iowait, &irq, &softirq, &guest);
     fclose(fd);
-    if (nb_read <= 4) iowait = 0;
-    if (nb_read <= 5) irq = 0;
-    if (nb_read <= 6) softirq = 0;
-    if (nb_read <= 7) guest = 0;
 
     gulong used = user + unice + usystem + irq + softirq + guest;
     gulong total = used + idle + iowait;
