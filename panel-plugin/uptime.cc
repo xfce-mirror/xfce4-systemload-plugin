@@ -47,10 +47,8 @@ gulong read_uptime()
         return 0;
     }
 
-    gulong uptime;
-    if (!fscanf(fd, "%lu", &uptime))
-       uptime = 0;
-
+    gulong uptime = 0;
+    fscanf(fd, "%lu", &uptime);
     fclose(fd);
     return uptime;
 }
