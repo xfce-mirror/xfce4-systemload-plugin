@@ -43,7 +43,7 @@ typedef struct _SystemloadConfig      SystemloadConfig;
 #define IS_SYSTEMLOAD_CONFIG_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_SYSTEMLOAD_CONFIG))
 #define SYSTEMLOAD_CONFIG_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_SYSTEMLOAD_CONFIG, SystemloadConfigClass))
 
-GType              systemload_config_get_type                       (void) G_GNUC_CONST;
+GType              systemload_config_get_type                       (void);
 
 SystemloadConfig  *systemload_config_new                            (const gchar          *property_base);
 
