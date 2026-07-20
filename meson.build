@@ -19,10 +19,9 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 dependency_versions = {
-  'glib': '>= 2.50.0',
-  'gtk': '>= 3.22.0',
-  'xfce4': '>= 4.16.0',
-  'libxfce4util': '>= 4.17.2',
+  'glib': '>= 2.66.0',
+  'gtk': '>= 3.24.0',
+  'xfce4': '>= 4.18.0',
   'libgtop': '>= 2.32.0',
   'upower-glib': '>= 0.99.0',
 }
@@ -31,7 +30,7 @@ glib = dependency('glib-2.0', version: dependency_versions['glib'])
 gtk = dependency('gtk+-3.0', version: dependency_versions['gtk'])
 libxfce4panel = dependency('libxfce4panel-2.0', version: dependency_versions['xfce4'])
 libxfce4ui = dependency('libxfce4ui-2', version: dependency_versions['xfce4'])
-libxfce4util = dependency('libxfce4util-1.0', version: dependency_versions['libxfce4util'])
+libxfce4util = dependency('libxfce4util-1.0', version: dependency_versions['xfce4'])
 xfconf = dependency('libxfconf-0', version: dependency_versions['xfce4'])
 libgtop = dependency('libgtop-2.0', version: dependency_versions['libgtop'], required: get_option('libgtop'))
 upower_glib = dependency('upower-glib', version: dependency_versions['upower-glib'], required: get_option('upower-glib'))
