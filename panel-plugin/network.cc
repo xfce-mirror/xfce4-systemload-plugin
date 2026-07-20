@@ -76,7 +76,7 @@ read_netload_proc (gulong *bytes)
     GRegex *regex;
     GMatchInfo *match_info;
 
-    if (g_file_get_contents (PROC_NET_DEV, &contents, NULL, &error) == FALSE)
+    if (!g_file_get_contents (PROC_NET_DEV, &contents, NULL, &error))
     {
         g_error ("Failed to read contents of %s: %s.", PROC_NET_DEV, error->message);
         g_error_free (error);
