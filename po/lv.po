@@ -1,17 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-systemload-plugin package.
 # 
 # Translators:
 # Rihards Priedītis <rprieditis@gmail.com>, 2009
+# Rihards Priedītis <rprieditis@gmail.com>, 2007,2009,2026
 # Rihards Prieditis <rprieditis@inbox.lv>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2026-02-16 12:59+0100\n"
 "PO-Revision-Date: 2013-07-03 19:20+0000\n"
-"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>, 2009\n"
+"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>, 2007,2009,2026\n"
 "Language-Team: Latvian (http://app.transifex.com/xfce/xfce-panel-plugins/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,149 +20,142 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: ../panel-plugin/cpu.cc:59
+#: panel-plugin/cpu.cc:55
 msgid "File /proc/stat not found!"
 msgstr "Fails /proc/stat nav atrasts!"
 
-#: ../panel-plugin/systemload.cc:212
+#: panel-plugin/systemload.cc:231
 #, c-format
 msgid "System Load: %ld%%"
 msgstr "Sistēmas noslodze: %ld%%"
 
-#: ../panel-plugin/systemload.cc:219
+#: panel-plugin/systemload.cc:238
 #, c-format
 msgid "Memory: %ldMB of %ldMB used"
-msgstr "Atmiņa: %ldMB no %ldMB tiek lietoti"
+msgstr "Atmiņa: izmantoti %ld MB no %ld MB"
 
-#: ../panel-plugin/systemload.cc:226
+#: panel-plugin/systemload.cc:245
 #, c-format
 msgid "Network: %ld Mbit/s"
-msgstr ""
+msgstr "Tīkls: %ld Mbit/s"
 
-#: ../panel-plugin/systemload.cc:235
+#: panel-plugin/systemload.cc:254
 #, c-format
 msgid "Swap: %ldMB of %ldMB used"
-msgstr "Maiņvieta: %ldMB no %ldMB tiek izmantota"
+msgstr "Maiņatmiņa: izmantoti %ld MB no %ld MB"
 
-#: ../panel-plugin/systemload.cc:237
-#, c-format
+#: panel-plugin/systemload.cc:256
 msgid "No swap"
-msgstr "Nav maiņvietas"
+msgstr "Nav maiņatmiņas"
 
-#: ../panel-plugin/systemload.cc:251
-#, c-format
-msgid "%dd"
-msgstr ""
-
-#: ../panel-plugin/systemload.cc:252
-#, c-format
-msgid "%dh"
-msgstr ""
-
-#: ../panel-plugin/systemload.cc:253
-#, c-format
-msgid "%dm"
-msgstr ""
-
-#: ../panel-plugin/systemload.cc:255
+#. Tooltip text
+#: panel-plugin/systemload.cc:282
 #, c-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d diena"
+msgstr[1] "%d dienas"
+msgstr[2] "%d dienu"
 
-#: ../panel-plugin/systemload.cc:256
+#: panel-plugin/systemload.cc:283
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d stunda"
+msgstr[1] "%d stundas"
+msgstr[2] "%d stundu"
 
-#: ../panel-plugin/systemload.cc:257
+#: panel-plugin/systemload.cc:284
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d minūte"
+msgstr[1] "%d minūtes"
+msgstr[2] "%d minūšu"
 
-#: ../panel-plugin/systemload.cc:264
+#: panel-plugin/systemload.cc:286
 #, c-format
 msgid "Uptime: %s, %s, %s"
-msgstr ""
+msgstr "Darbības laiks: %s, %s, %s"
 
-#: ../panel-plugin/systemload.cc:717
+#: panel-plugin/systemload.cc:718
 msgid "Label:"
 msgstr "Etiķete:"
 
-#: ../panel-plugin/systemload.cc:726
+#: panel-plugin/systemload.cc:728
 msgid "Leave empty to disable the label"
-msgstr ""
+msgstr "Atstājiet tukšu, lai atspējotu etiķeti"
 
-#: ../panel-plugin/systemload.cc:762
+#: panel-plugin/systemload.cc:730
+msgid "Use percent-formatting to format the time (see help page for details)."
+msgstr "Laika formatēšanai izmantojiet procentu formatējumu (sīkāka informācija palīdzības lapā)."
+
+#: panel-plugin/systemload.cc:765
 msgid "CPU monitor"
 msgstr "CPU pārraugs"
 
-#: ../panel-plugin/systemload.cc:763
+#: panel-plugin/systemload.cc:766
 msgid "Memory monitor"
-msgstr "Atmiņa pārraugs"
+msgstr "Atmiņas pārraugs"
 
-#: ../panel-plugin/systemload.cc:764
+#: panel-plugin/systemload.cc:767
 msgid "Network monitor"
-msgstr ""
+msgstr "Tīkla pārraugs"
 
-#: ../panel-plugin/systemload.cc:765
+#: panel-plugin/systemload.cc:768
 msgid "Swap monitor"
-msgstr "Maiņvietas pārraugs"
+msgstr "Maiņatmiņas pārraugs"
 
-#: ../panel-plugin/systemload.cc:766
+#: panel-plugin/systemload.cc:769
 msgid "Uptime monitor"
-msgstr "Augšlaika pārraugs"
+msgstr "Darbības laika pārraugs"
 
-#: ../panel-plugin/systemload.cc:778 ../panel-plugin/systemload.desktop.in.h:1
+#: panel-plugin/systemload.cc:785 panel-plugin/systemload.desktop.in:5
 msgid "System Load Monitor"
 msgstr "Sistēmas noslodzes pārraugs"
 
-#: ../panel-plugin/systemload.cc:781
+#: panel-plugin/systemload.cc:788
 msgid "_Close"
-msgstr ""
+msgstr "_Aizvērt"
 
-#: ../panel-plugin/systemload.cc:782
+#: panel-plugin/systemload.cc:789
 msgid "_Help"
-msgstr ""
+msgstr "_Palīdzība"
 
-#: ../panel-plugin/systemload.cc:800
+#: panel-plugin/systemload.cc:808
 msgid "<b>General</b>"
-msgstr ""
+msgstr "<b>Vispārīgi</b>"
 
-#: ../panel-plugin/systemload.cc:819
+#: panel-plugin/systemload.cc:827
 msgid "Update interval:"
-msgstr ""
+msgstr "Atjaunināšanas intervāls:"
 
-#: ../panel-plugin/systemload.cc:825
+#: panel-plugin/systemload.cc:833
 msgid ""
 "Update interval when running on battery (uses regular update interval if set"
 " to zero)"
-msgstr ""
+msgstr "Atjaunināšanas intervāls, darbojoties ar bateriju (ja iestatīts uz nulli, izmanto parasto intervālu)"
 
-#: ../panel-plugin/systemload.cc:836
+#: panel-plugin/systemload.cc:844
 msgid "Power-saving interval:"
-msgstr ""
+msgstr "Enerģijas taupīšanas intervāls:"
 
-#: ../panel-plugin/systemload.cc:843
+#: panel-plugin/systemload.cc:851
 msgid "Launched when clicking on the plugin"
-msgstr ""
+msgstr "Tiek palaists, noklikšķinot uz spraudņa"
 
-#: ../panel-plugin/systemload.cc:850
+#: panel-plugin/systemload.cc:858
 msgid "System monitor:"
-msgstr ""
+msgstr "Sistēmas pārraugs:"
 
-#: ../panel-plugin/systemload.cc:888 ../panel-plugin/systemload.desktop.in.h:2
+#: panel-plugin/systemload.cc:896
 msgid "Monitor CPU load, swap usage and memory footprint"
-msgstr "Novēro CPU noslodzi, maiņvietas izmantojumu un atmiņas nospiedumu"
+msgstr "Uzraudzīt CPU noslodzi, maiņatmiņas izmantojumu un atmiņas patēriņu"
 
-#: ../panel-plugin/uptime.cc:50
+#: panel-plugin/systemload.desktop.in:6
+msgid "Monitor CPU load, swap usage, memory footprint and network usage"
+msgstr "Uzraudzīt CPU noslodzi, maiņatmiņas izmantojumu, atmiņas patēriņu un tīkla izmantojumu"
+
+#: panel-plugin/uptime.cc:46
 msgid "File /proc/uptime not found!"
 msgstr "Fails /proc/uptime nav atrasts!"
