@@ -30,8 +30,13 @@
 
 #include <glib.h>
 
-/* 100 Mbit/s */
-#define MAX_BANDWIDTH_BITS (100*1000*1000)
+/* Auto_Max adaptive scale: replaces the fixed 100 Mbit/s scale so that the
+ * bar is usable on any link speed without configuration.
+ * The scale follows the observed traffic: it grows instantly and decays
+ * slowly (same algorithm as xfce4-netload-plugin). */
+#define INIT_MAX (4096)     /* bytes/s, initial adaptive scale */
+#define MINIMAL_MAX (1024)  /* bytes/s, floor of the adaptive scale */
+#define SHRINK_MAX (0.75)   /* decay factor when traffic drops */
 
 gint read_netload (gulong *net, gulong *NTotal);
 

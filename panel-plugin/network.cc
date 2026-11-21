@@ -108,6 +108,7 @@ read_netload (gulong *net, gulong *NTotal)
 {
     static gulong bytes[2];
     static gint64 time[2];
+    static gulong max_bytes = INIT_MAX; /* Auto_Max adaptive scale */
 
     *net = 0;
     *NTotal = 0;
@@ -122,8 +123,17 @@ read_netload (gulong *net, gulong *NTotal)
     {
         guint64 diff_bits = 8 * (bytes[1] - bytes[0]);
         gdouble diff_time = (time[1] - time[0]) / 1e6;
-        *net = MIN (100 * diff_bits / diff_time / MAX_BANDWIDTH_BITS, 100);
-        *NTotal = diff_bits / diff_time;
+        gulong bytes_per_sec = (gulong) (diff_bits / diff_time);
+
+        /* Auto_Max adaptive scale: grow instantly, decay slowly */
+        if (bytes_per_sec > max_bytes)
+            max_bytes = bytes_per_sec;
+        else if ((gdouble) bytes_per_sec < (gdouble) max_bytes * SHRINK_MAX
+                 && max_bytes > MINIMAL_MAX)
+            max_bytes = (gulong) ((gdouble) max_bytes * SHRINK_MAX);
+
+        *net = MIN (100 * bytes_per_sec / MAX (max_bytes, 1), 100);
+        *NTotal = bytes_per_sec;
     }
 
     bytes[0] = bytes[1];
